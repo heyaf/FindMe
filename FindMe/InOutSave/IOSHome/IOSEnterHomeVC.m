@@ -12,6 +12,7 @@
 #import "EntersHomeHeaderCollectionReusableView.h"
 #import "IOSHomeHeadCollectionReusableV.h"
 #import "IOSCaiGouChooseVC.h"
+#import "IOSGodsHistoryListVC.h"
 @interface IOSEnterHomeVC ()<UICollectionViewDelegate, UICollectionViewDataSource>
 @property (nonatomic, strong) NSMutableArray *dataSource;//区头
 @property (nonatomic, strong) NSMutableArray *caigouArr;//采购1
@@ -274,7 +275,8 @@
             }
                 break;
             case 1: {//采购历史
-               
+                IOSGodsHistoryListVC *pushVC = [[IOSGodsHistoryListVC alloc] init];
+                [self.navigationController pushViewController:pushVC animated:YES];
             }
                 break;
                 

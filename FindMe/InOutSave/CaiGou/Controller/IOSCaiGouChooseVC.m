@@ -8,8 +8,11 @@
 
 #import "IOSCaiGouChooseVC.h"
 #import "UIView+Frame.h"
-#import "IOSCaiGouChooseTBCell.h"
+#import "IOSCaiGouChoTBCell.h"
 #import "IOSCaiGouChooM.h"
+#import "BRPickerView.h"
+#import "BRDatePickerView.h"
+#import "IOSChooseGoodsViewController.h"
 @interface IOSCaiGouChooseVC ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) NSMutableArray *dataArr;
@@ -73,7 +76,7 @@
     self.tabelView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     [self creatBottomView];
-    [self.tabelView registerNib:[UINib nibWithNibName:@"IOSCaiGouChooseTBCell" bundle:nil] forCellReuseIdentifier:@"IOSCaiGouChooseTBCell"];
+    [self.tabelView registerNib:[UINib nibWithNibName:@"IOSCaiGouChoTBCell" bundle:nil] forCellReuseIdentifier:@"IOSCaiGouChoTBCell"];
     
 }
 -(void)creatBottomView{
@@ -87,7 +90,7 @@
     [makeSureBtn setTitle:@"确认" forState:0];
     makeSureBtn.backgroundColor =RGBA(46, 153, 164, 1);
     [bottomView addSubview:makeSureBtn];
-    
+    [makeSureBtn addTarget:self action:@selector(makeSureBtnClicked) forControlEvents:UIControlEventTouchUpInside];
     UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:makeSureBtn.bounds byRoundingCorners:UIRectCornerTopLeft|UIRectCornerBottomLeft|UIRectCornerBottomRight cornerRadii:CGSizeMake(10, 10)];
     
     CAShapeLayer *shapeLayer = [CAShapeLayer layer];
@@ -121,7 +124,7 @@
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section==0) {
-        IOSCaiGouChooseTBCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IOSCaiGouChooseTBCell"];
+        IOSCaiGouChoTBCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IOSCaiGouChoTBCell"];
         IOSCaiGouChooM *caigouModel = self.dataArr[indexPath.row];
         cell.CaigouChooseModel = caigouModel;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -142,10 +145,10 @@
             [self postallBumeninfoDataFromSever];
         }
         case 1:{
-            
+            [self selelctBRPickView];
         }
         case 2:{
-            
+            [self chooseGodsAction];
         }
             
             break;
@@ -191,7 +194,15 @@
 -(void)backAction{
     [self.navigationController popViewControllerAnimated:YES];
 }
-
+//选择商品
+-(void)chooseGodsAction{
+    IOSChooseGoodsViewController *pushVC = [[IOSChooseGoodsViewController alloc] init];
+    pushVC.chooseGodsBlock = ^(NSArray * _Nonnull godsArr) {
+        self.choosedArr = [NSMutableArray arrayWithArray:godsArr];
+        [self.tabelView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationNone];
+    };
+    [self.navigationController pushViewController:pushVC animated:YES];
+}
 //请求所有的部门信息
 - (void)postallBumeninfoDataFromSever {
     [self showHudInView:self.view hint:@"加载数据"];
@@ -220,12 +231,25 @@
     } failure:^(NSError *error) {
         [self showHint:@"稍后重试"];
         [self hideHud];
-        
     }];
     
+}
+-(void)selelctBRPickView{
+    // 1.创建日期选择器
+    [BRDatePickerView showDatePickerWithTitle:@"" dateType:UIDatePickerModeDateAndTime defaultSelValue:nil minDateStr:nil maxDateStr:nil isAutoSelect:YES resultBlock:^(NSString *selectValue) {
+            
+        NSIndexPath *indexPath=[NSIndexPath indexPathForRow:1 inSection:0];
+        IOSCaiGouChooM *caigouModel = self.dataArr[1];
+        caigouModel.ChooseStr = selectValue;
+            [self.dataArr replaceObjectAtIndex:indexPath.row withObject:caigouModel];
+            [self.tabelView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath,nil] withRowAnimation:UITableViewRowAnimationNone];
+    }];
 }
 //采购历史
 -(void)goCaigouHistory{
     MyLog(@"采购历史");
+}
+-(void)makeSureBtnClicked{
+
 }
 @end

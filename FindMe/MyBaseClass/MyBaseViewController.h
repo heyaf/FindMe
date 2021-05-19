@@ -21,6 +21,8 @@
 //设置字体的间距
 -(NSAttributedString *)getAttributedStringWithString:(NSString *)string lineSpace:(CGFloat)lineSpace;
 
+//设置导航栏标题
+-(void)setNavBackStr:(NSString *)backTitle;
 
 #pragma mark -时间转化年月日时分秒字符串
 - (NSString *)getDateTimeHMSWithString:(NSDate *)date;
@@ -81,5 +83,6 @@
 -(NSDictionary *)jsonzhuanzidianmap:(NSString *)json;
 //将数组转换成json格式字符串
 -(NSString *)gs_jsonStringCompactFormatForNSArray:(NSArray *)arrJson;
+
 
 @end

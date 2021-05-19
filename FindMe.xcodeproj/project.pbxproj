@@ -8,6 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		042DB96B2654EC8E008FBAEC /* IOSCaiGouChooM.m in Sources */ = {isa = PBXBuildFile; fileRef = 042DB96A2654EC8E008FBAEC /* IOSCaiGouChooM.m */; };
+		042DB98726550017008FBAEC /* IOSChooseGoodsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042DB98626550017008FBAEC /* IOSChooseGoodsViewController.m */; };
+		042DB997265506CE008FBAEC /* IOSChooseGodsTBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 042DB995265506CE008FBAEC /* IOSChooseGodsTBCell.m */; };
+		042DB998265506CE008FBAEC /* IOSChooseGodsTBCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042DB996265506CE008FBAEC /* IOSChooseGodsTBCell.xib */; };
+		042DB99E26551235008FBAEC /* IOSGodsHistoryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 042DB99D26551235008FBAEC /* IOSGodsHistoryVC.m */; };
+		042DB9A426551286008FBAEC /* IOSGodsHistoryListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 042DB9A326551286008FBAEC /* IOSGodsHistoryListVC.m */; };
+		042DB9C0265512EE008FBAEC /* UIViewController+YNPageExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 042DB9AA265512ED008FBAEC /* UIViewController+YNPageExtend.m */; };
+		042DB9C1265512EE008FBAEC /* UIView+YNPageExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 042DB9AB265512ED008FBAEC /* UIView+YNPageExtend.m */; };
+		042DB9C2265512EE008FBAEC /* UIScrollView+YNPageExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 042DB9AF265512ED008FBAEC /* UIScrollView+YNPageExtend.m */; };
+		042DB9C3265512EE008FBAEC /* YNPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042DB9B1265512EE008FBAEC /* YNPageViewController.m */; };
+		042DB9C4265512EE008FBAEC /* YNPageConfigration.m in Sources */ = {isa = PBXBuildFile; fileRef = 042DB9B2265512EE008FBAEC /* YNPageConfigration.m */; };
+		042DB9C5265512EE008FBAEC /* YNPageTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042DB9B5265512EE008FBAEC /* YNPageTableView.m */; };
+		042DB9C6265512EE008FBAEC /* YNPageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042DB9B8265512EE008FBAEC /* YNPageScrollView.m */; };
+		042DB9C7265512EE008FBAEC /* YNPageHeaderScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042DB9B9265512EE008FBAEC /* YNPageHeaderScrollView.m */; };
+		042DB9C8265512EE008FBAEC /* YNPageCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042DB9BA265512EE008FBAEC /* YNPageCollectionView.m */; };
+		042DB9C9265512EE008FBAEC /* YNPageScrollMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042DB9BC265512EE008FBAEC /* YNPageScrollMenuView.m */; };
+		042DB9D626552B33008FBAEC /* IOSCaiGouChoTBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 042DB9D426552B32008FBAEC /* IOSCaiGouChoTBCell.m */; };
+		042DB9D726552B33008FBAEC /* IOSCaiGouChoTBCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042DB9D526552B33008FBAEC /* IOSCaiGouChoTBCell.xib */; };
+		042DB9DD26552DBB008FBAEC /* IOSGodsHisDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 042DB9DC26552DBB008FBAEC /* IOSGodsHisDetailVC.m */; };
 		0447D5E52653A34A0012D72C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0447D5E42653A34A0012D72C /* AppDelegate.m */; };
 		0447D5EB2653A34A0012D72C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0447D5EA2653A34A0012D72C /* ViewController.m */; };
 		0447D5EE2653A34A0012D72C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0447D5EC2653A34A0012D72C /* Main.storyboard */; };
@@ -158,6 +176,41 @@
 /* Begin PBXFileReference section */
 		042DB9692654EC8E008FBAEC /* IOSCaiGouChooM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSCaiGouChooM.h; sourceTree = "<group>"; };
 		042DB96A2654EC8E008FBAEC /* IOSCaiGouChooM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSCaiGouChooM.m; sourceTree = "<group>"; };
+		042DB98526550017008FBAEC /* IOSChooseGoodsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSChooseGoodsViewController.h; sourceTree = "<group>"; };
+		042DB98626550017008FBAEC /* IOSChooseGoodsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSChooseGoodsViewController.m; sourceTree = "<group>"; };
+		042DB994265506CE008FBAEC /* IOSChooseGodsTBCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSChooseGodsTBCell.h; sourceTree = "<group>"; };
+		042DB995265506CE008FBAEC /* IOSChooseGodsTBCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSChooseGodsTBCell.m; sourceTree = "<group>"; };
+		042DB996265506CE008FBAEC /* IOSChooseGodsTBCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IOSChooseGodsTBCell.xib; sourceTree = "<group>"; };
+		042DB99C26551235008FBAEC /* IOSGodsHistoryVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSGodsHistoryVC.h; sourceTree = "<group>"; };
+		042DB99D26551235008FBAEC /* IOSGodsHistoryVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSGodsHistoryVC.m; sourceTree = "<group>"; };
+		042DB9A226551286008FBAEC /* IOSGodsHistoryListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSGodsHistoryListVC.h; sourceTree = "<group>"; };
+		042DB9A326551286008FBAEC /* IOSGodsHistoryListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSGodsHistoryListVC.m; sourceTree = "<group>"; };
+		042DB9AA265512ED008FBAEC /* UIViewController+YNPageExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YNPageExtend.m"; sourceTree = "<group>"; };
+		042DB9AB265512ED008FBAEC /* UIView+YNPageExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YNPageExtend.m"; sourceTree = "<group>"; };
+		042DB9AC265512ED008FBAEC /* UIScrollView+YNPageExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+YNPageExtend.h"; sourceTree = "<group>"; };
+		042DB9AD265512ED008FBAEC /* UIView+YNPageExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YNPageExtend.h"; sourceTree = "<group>"; };
+		042DB9AE265512ED008FBAEC /* UIViewController+YNPageExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+YNPageExtend.h"; sourceTree = "<group>"; };
+		042DB9AF265512ED008FBAEC /* UIScrollView+YNPageExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+YNPageExtend.m"; sourceTree = "<group>"; };
+		042DB9B0265512ED008FBAEC /* YNSuspendTopPausePageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YNSuspendTopPausePageVC.h; sourceTree = "<group>"; };
+		042DB9B1265512EE008FBAEC /* YNPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YNPageViewController.m; sourceTree = "<group>"; };
+		042DB9B2265512EE008FBAEC /* YNPageConfigration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YNPageConfigration.m; sourceTree = "<group>"; };
+		042DB9B4265512EE008FBAEC /* YNPageHeaderScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YNPageHeaderScrollView.h; sourceTree = "<group>"; };
+		042DB9B5265512EE008FBAEC /* YNPageTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YNPageTableView.m; sourceTree = "<group>"; };
+		042DB9B6265512EE008FBAEC /* YNPageCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YNPageCollectionView.h; sourceTree = "<group>"; };
+		042DB9B7265512EE008FBAEC /* YNPageScrollMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YNPageScrollMenuView.h; sourceTree = "<group>"; };
+		042DB9B8265512EE008FBAEC /* YNPageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YNPageScrollView.m; sourceTree = "<group>"; };
+		042DB9B9265512EE008FBAEC /* YNPageHeaderScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YNPageHeaderScrollView.m; sourceTree = "<group>"; };
+		042DB9BA265512EE008FBAEC /* YNPageCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YNPageCollectionView.m; sourceTree = "<group>"; };
+		042DB9BB265512EE008FBAEC /* YNPageTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YNPageTableView.h; sourceTree = "<group>"; };
+		042DB9BC265512EE008FBAEC /* YNPageScrollMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YNPageScrollMenuView.m; sourceTree = "<group>"; };
+		042DB9BD265512EE008FBAEC /* YNPageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YNPageScrollView.h; sourceTree = "<group>"; };
+		042DB9BE265512EE008FBAEC /* YNPageConfigration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YNPageConfigration.h; sourceTree = "<group>"; };
+		042DB9BF265512EE008FBAEC /* YNPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YNPageViewController.h; sourceTree = "<group>"; };
+		042DB9D326552B32008FBAEC /* IOSCaiGouChoTBCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSCaiGouChoTBCell.h; sourceTree = "<group>"; };
+		042DB9D426552B32008FBAEC /* IOSCaiGouChoTBCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSCaiGouChoTBCell.m; sourceTree = "<group>"; };
+		042DB9D526552B33008FBAEC /* IOSCaiGouChoTBCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IOSCaiGouChoTBCell.xib; sourceTree = "<group>"; };
+		042DB9DB26552DBB008FBAEC /* IOSGodsHisDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSGodsHisDetailVC.h; sourceTree = "<group>"; };
+		042DB9DC26552DBB008FBAEC /* IOSGodsHisDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSGodsHisDetailVC.m; sourceTree = "<group>"; };
 		0447D5E02653A34A0012D72C /* FindMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0447D5E32653A34A0012D72C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0447D5E42653A34A0012D72C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -437,6 +490,50 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		042DB9A8265512ED008FBAEC /* YNPageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				042DB9A9265512ED008FBAEC /* Category */,
+				042DB9B0265512ED008FBAEC /* YNSuspendTopPausePageVC.h */,
+				042DB9B1265512EE008FBAEC /* YNPageViewController.m */,
+				042DB9B2265512EE008FBAEC /* YNPageConfigration.m */,
+				042DB9B3265512EE008FBAEC /* View */,
+				042DB9BE265512EE008FBAEC /* YNPageConfigration.h */,
+				042DB9BF265512EE008FBAEC /* YNPageViewController.h */,
+			);
+			path = YNPageViewController;
+			sourceTree = "<group>";
+		};
+		042DB9A9265512ED008FBAEC /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				042DB9AA265512ED008FBAEC /* UIViewController+YNPageExtend.m */,
+				042DB9AB265512ED008FBAEC /* UIView+YNPageExtend.m */,
+				042DB9AC265512ED008FBAEC /* UIScrollView+YNPageExtend.h */,
+				042DB9AD265512ED008FBAEC /* UIView+YNPageExtend.h */,
+				042DB9AE265512ED008FBAEC /* UIViewController+YNPageExtend.h */,
+				042DB9AF265512ED008FBAEC /* UIScrollView+YNPageExtend.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		042DB9B3265512EE008FBAEC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				042DB9B4265512EE008FBAEC /* YNPageHeaderScrollView.h */,
+				042DB9B5265512EE008FBAEC /* YNPageTableView.m */,
+				042DB9B6265512EE008FBAEC /* YNPageCollectionView.h */,
+				042DB9B7265512EE008FBAEC /* YNPageScrollMenuView.h */,
+				042DB9B8265512EE008FBAEC /* YNPageScrollView.m */,
+				042DB9B9265512EE008FBAEC /* YNPageHeaderScrollView.m */,
+				042DB9BA265512EE008FBAEC /* YNPageCollectionView.m */,
+				042DB9BB265512EE008FBAEC /* YNPageTableView.h */,
+				042DB9BC265512EE008FBAEC /* YNPageScrollMenuView.m */,
+				042DB9BD265512EE008FBAEC /* YNPageScrollView.h */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		0447D5D72653A34A0012D72C = {
 			isa = PBXGroup;
 			children = (
@@ -539,6 +636,7 @@
 		04B93D2A26549EBB00DA647C /* MyThird */ = {
 			isa = PBXGroup;
 			children = (
+				042DB9A8265512ED008FBAEC /* YNPageViewController */,
 				04B93E632654AB5100DA647C /* YZDisplayViewController */,
 				04B93D2B26549EBB00DA647C /* BRPickerView */,
 			);
@@ -946,6 +1044,14 @@
 			children = (
 				04B93E492654AAFF00DA647C /* IOSCaiGouChooseVC.h */,
 				04B93E4B2654AAFF00DA647C /* IOSCaiGouChooseVC.m */,
+				042DB98526550017008FBAEC /* IOSChooseGoodsViewController.h */,
+				042DB98626550017008FBAEC /* IOSChooseGoodsViewController.m */,
+				042DB9A226551286008FBAEC /* IOSGodsHistoryListVC.h */,
+				042DB9A326551286008FBAEC /* IOSGodsHistoryListVC.m */,
+				042DB99C26551235008FBAEC /* IOSGodsHistoryVC.h */,
+				042DB99D26551235008FBAEC /* IOSGodsHistoryVC.m */,
+				042DB9DB26552DBB008FBAEC /* IOSGodsHisDetailVC.h */,
+				042DB9DC26552DBB008FBAEC /* IOSGodsHisDetailVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -967,6 +1073,12 @@
 				04B93E8A2654E0AB00DA647C /* IOSCaiGouChooseTBCell.h */,
 				04B93E8B2654E0AB00DA647C /* IOSCaiGouChooseTBCell.m */,
 				04B93E8C2654E0AB00DA647C /* IOSCaiGouChooseTBCell.xib */,
+				042DB9D326552B32008FBAEC /* IOSCaiGouChoTBCell.h */,
+				042DB9D426552B32008FBAEC /* IOSCaiGouChoTBCell.m */,
+				042DB9D526552B33008FBAEC /* IOSCaiGouChoTBCell.xib */,
+				042DB994265506CE008FBAEC /* IOSChooseGodsTBCell.h */,
+				042DB995265506CE008FBAEC /* IOSChooseGodsTBCell.m */,
+				042DB996265506CE008FBAEC /* IOSChooseGodsTBCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1140,11 +1252,13 @@
 				04B93E192654A01100DA647C /* TittleJiantouShowTableViewCell.xib in Resources */,
 				0447D5EE2653A34A0012D72C /* Main.storyboard in Resources */,
 				04B93E1D2654A01100DA647C /* TittleDetailShowTableViewCell.xib in Resources */,
+				042DB9D726552B33008FBAEC /* IOSCaiGouChoTBCell.xib in Resources */,
 				04B93E212654A01100DA647C /* TittleContentTFVTableViewCell.xib in Resources */,
 				04B93E242654A01100DA647C /* PhotoTitleCollectionViewCell.xib in Resources */,
 				04B93E2E2654A01100DA647C /* RequesCover.xib in Resources */,
 				04B93E272654A01100DA647C /* ChoosePhotoPlaceTableViewCell.xib in Resources */,
 				04B93E2A2654A01100DA647C /* HTittleTextFileTableViewCell.xib in Resources */,
+				042DB998265506CE008FBAEC /* IOSChooseGodsTBCell.xib in Resources */,
 				04B93E292654A01100DA647C /* SeleTittleJianTouTableViewCell.xib in Resources */,
 				04B93E622654AB0000DA647C /* IOSHomeHeadCollectionReusableV.xib in Resources */,
 				04B93E132654A01100DA647C /* TopTittleTextFileTableViewCell.xib in Resources */,
@@ -1315,6 +1429,7 @@
 			files = (
 				04B93E5C2654AB0000DA647C /* EntersHomeCollectionViewCell.m in Sources */,
 				04B93E812654B23E00DA647C /* IOSHomeViewController.m in Sources */,
+				042DB99E26551235008FBAEC /* IOSGodsHistoryVC.m in Sources */,
 				04B93DB326549EBB00DA647C /* AFNetHelp.m in Sources */,
 				04B93E892654DF1E00DA647C /* UIView+creatViews.m in Sources */,
 				04B93E102654A01100DA647C /* UITextField+IndexPath.m in Sources */,
@@ -1330,6 +1445,9 @@
 				04B93D8F26549EBB00DA647C /* NSDate+BRAdd.m in Sources */,
 				04B93DA326549EBB00DA647C /* UIControl+YYAdd.m in Sources */,
 				04B93DAC26549EBB00DA647C /* NSDate+YYAdd.m in Sources */,
+				042DB9D626552B33008FBAEC /* IOSCaiGouChoTBCell.m in Sources */,
+				042DB9C7265512EE008FBAEC /* YNPageHeaderScrollView.m in Sources */,
+				042DB9C1265512EE008FBAEC /* UIView+YNPageExtend.m in Sources */,
 				04B93E0A2654A01100DA647C /* MJCustomActionSheet.m in Sources */,
 				04B93E342654A01100DA647C /* MyWebH5ViewController.m in Sources */,
 				04B93DA926549EBB00DA647C /* NSData+YYAdd.m in Sources */,
@@ -1349,6 +1467,7 @@
 				04B93DB226549EBB00DA647C /* CALayer+YYAdd.m in Sources */,
 				04B93E232654A01100DA647C /* SeleTittleJianTouTableViewCell.m in Sources */,
 				04B93E152654A01100DA647C /* ChoosePhotoPlaceTableViewCell.m in Sources */,
+				042DB9C8265512EE008FBAEC /* YNPageCollectionView.m in Sources */,
 				04B93E5E2654AB0000DA647C /* IOSEnterHomeVC.m in Sources */,
 				04B93D9E26549EBB00DA647C /* UIScreen+YYAdd.m in Sources */,
 				04B93DAD26549EBB00DA647C /* NSString+YYAdd.m in Sources */,
@@ -1358,12 +1477,16 @@
 				04B93DAB26549EBB00DA647C /* NSTimer+YYAdd.m in Sources */,
 				04B93DA826549EBB00DA647C /* NSObject+YYAdd.m in Sources */,
 				04B93DA026549EBB00DA647C /* UIBarButtonItem+YYAdd.m in Sources */,
+				042DB9C0265512EE008FBAEC /* UIViewController+YNPageExtend.m in Sources */,
 				04B93DA426549EBB00DA647C /* UIFont+YYAdd.m in Sources */,
 				04B93D9C26549EBB00DA647C /* UITableView+YYAdd.m in Sources */,
+				042DB9A426551286008FBAEC /* IOSGodsHistoryListVC.m in Sources */,
 				04B93D9A26549EBB00DA647C /* UIDevice+YYAdd.m in Sources */,
 				04B93DAF26549EBB00DA647C /* NSDictionary+YYAdd.m in Sources */,
+				042DB997265506CE008FBAEC /* IOSChooseGodsTBCell.m in Sources */,
 				04B93E072654A01100DA647C /* MyBaseShowCollectionViewController.m in Sources */,
 				0447D5E52653A34A0012D72C /* AppDelegate.m in Sources */,
+				042DB9DD26552DBB008FBAEC /* IOSGodsHisDetailVC.m in Sources */,
 				04B93D9D26549EBB00DA647C /* UIScrollView+YYAdd.m in Sources */,
 				04B93DB026549EBB00DA647C /* NSObject+YYAddForKVO.m in Sources */,
 				04B93E5B2654AB0000DA647C /* IOSCaiGouChooseVC.m in Sources */,
@@ -1372,13 +1495,16 @@
 				04B93D9026549EBB00DA647C /* BRDatePickerView.m in Sources */,
 				04B93E0D2654A01100DA647C /* UITextView+IndexPath.m in Sources */,
 				04B93E122654A01100DA647C /* SelePhotoTittleShowTableViewCell.m in Sources */,
+				042DB9C2265512EE008FBAEC /* UIScrollView+YNPageExtend.m in Sources */,
 				04B93DA126549EBB00DA647C /* UIGestureRecognizer+YYAdd.m in Sources */,
 				04B93D9626549EBB00DA647C /* YYClassInfo.m in Sources */,
 				0447ECCD2653A8080012D72C /* AppDelegate+Hyphenate.m in Sources */,
 				04B93E302654A01100DA647C /* NullSafe.m in Sources */,
 				04B93DB126549EBB00DA647C /* YYCGUtilities.m in Sources */,
+				042DB9C4265512EE008FBAEC /* YNPageConfigration.m in Sources */,
 				04B93E6D2654AB5100DA647C /* YZDisplayTitleLabel.m in Sources */,
 				04B93D9B26549EBB00DA647C /* UIApplication+YYAdd.m in Sources */,
+				042DB9C3265512EE008FBAEC /* YNPageViewController.m in Sources */,
 				04B93E1E2654A01100DA647C /* PhotoTitleCollectionViewCell.m in Sources */,
 				04B93E1B2654A01100DA647C /* HTittleTextFileTableViewCell.m in Sources */,
 				04B93D9226549EBB00DA647C /* BRAddressModel.m in Sources */,
@@ -1393,9 +1519,13 @@
 				04B93D9F26549EBB00DA647C /* UIView+YYAdd.m in Sources */,
 				04B93D8E26549EBB00DA647C /* BRTextField.m in Sources */,
 				04B93DA226549EBB00DA647C /* UIImage+YYAdd.m in Sources */,
+				042DB9C9265512EE008FBAEC /* YNPageScrollMenuView.m in Sources */,
 				04B93E182654A01100DA647C /* TittleRightDetailTableViewCell.m in Sources */,
 				04B93E762654AC1800DA647C /* YuanGongModel.m in Sources */,
+				042DB98726550017008FBAEC /* IOSChooseGoodsViewController.m in Sources */,
+				042DB9C5265512EE008FBAEC /* YNPageTableView.m in Sources */,
 				04B93E162654A01100DA647C /* TittleDetailShowTableViewCell.m in Sources */,
+				042DB9C6265512EE008FBAEC /* YNPageScrollView.m in Sources */,
 				04B93E322654A01100DA647C /* MyBaseShowTableViewController.m in Sources */,
 				04B93E0F2654A01100DA647C /* UIView+Extension.m in Sources */,
 				04B93E2C2654A01100DA647C /* TittleContentTFVTableViewCell.m in Sources */,
