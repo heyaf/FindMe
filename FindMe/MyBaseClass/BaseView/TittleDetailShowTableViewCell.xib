@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="63" id="KGk-i7-Jjw" customClass="TittleDetailShowTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="459" height="63"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="459" height="63"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KPv-Jm-y3t">
+                        <rect key="frame" x="10" y="0.0" width="439" height="63"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ek2-iN-rm8">
+                        <rect key="frame" x="15" y="62.5" width="429" height="1"/>
+                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="utl-nC-NYY"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ve3-3q-UNO">
+                        <rect key="frame" x="18" y="23" width="35.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zel-uh-suH">
+                        <rect key="frame" x="416" y="19" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="B2Y-zP-ofs"/>
+                            <constraint firstAttribute="width" constant="25" id="u4P-6e-dmq"/>
+                        </constraints>
+                        <state key="normal" image="weixuanzhongimg"/>
+                        <state key="selected" image="xuanzhongimag"/>
+                        <connections>
+                            <action selector="myButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="EJJ-Pe-7vp"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="KPv-Jm-y3t" secondAttribute="trailing" constant="10" id="7c2-I4-Ilb"/>
+                    <constraint firstAttribute="trailing" secondItem="zel-uh-suH" secondAttribute="trailing" constant="18" id="DFC-7h-mej"/>
+                    <constraint firstItem="KPv-Jm-y3t" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ENo-4I-uMQ"/>
+                    <constraint firstItem="ve3-3q-UNO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="18" id="FVS-1n-5kU"/>
+                    <constraint firstItem="ve3-3q-UNO" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="HvN-mE-wMR"/>
+                    <constraint firstAttribute="bottom" secondItem="ek2-iN-rm8" secondAttribute="bottom" constant="-0.5" id="RB5-O4-xpe"/>
+                    <constraint firstAttribute="bottom" secondItem="KPv-Jm-y3t" secondAttribute="bottom" id="T3b-HE-FdC"/>
+                    <constraint firstAttribute="trailing" secondItem="ek2-iN-rm8" secondAttribute="trailing" constant="15" id="ZbE-gu-s96"/>
+                    <constraint firstItem="KPv-Jm-y3t" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="bQ5-kh-X2G"/>
+                    <constraint firstItem="ek2-iN-rm8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="nea-Hs-JfE"/>
+                    <constraint firstItem="zel-uh-suH" firstAttribute="centerY" secondItem="ve3-3q-UNO" secondAttribute="centerY" id="oBj-am-yTV"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="mySelectbnt" destination="zel-uh-suH" id="ptK-gQ-A8L"/>
+                <outlet property="nameLabel" destination="ve3-3q-UNO" id="pnv-eQ-2a5"/>
+            </connections>
+            <point key="canvasLocation" x="440.5" y="292.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="weixuanzhongimg" width="66.666664123535156" height="66.666664123535156"/>
+        <image name="xuanzhongimag" width="66.666664123535156" height="66.666664123535156"/>
+    </resources>
+</document>

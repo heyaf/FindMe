@@ -1,0 +1,39 @@
+//
+//  PrefixHeaderFood.pch
+//  FoodDistribution
+//
+//  Created by zhenshang on 2019/4/17.
+//  Copyright © 2019 zhenshang. All rights reserved.
+//
+
+#ifndef PrefixHeaderFood_pch
+#define PrefixHeaderFood_pch
+
+//pch一般用于引入头文件.(引入后整个工程都不需要在引入这个头文件, 就可以进行使用)一般引入特别常用的一些类
+//head.h文件一般用于添加宏定义, 以及一些比较常用的api, 比如NSLog, 公司后台的接口地址,等
+
+#endif /* PrefixHeader_pch */
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
+
+//把header文件引入
+#import "Header.h"
+#import "ThirdKey.h"
+#import "AFNetHelp.h"
+#import "UIViewController+HUD.h"
+#import "MBProgressHUD+WG.h"
+#import "MJRefresh.h"
+#import "UIView+Extension.h"
+#import "UIImageView+WebCache.h"
+#import "AppDelegate.h"
+#import "Masonry.h"
+#import "PlaceholderTextView.h"
+#import "JRToast.h"
+#import <ZLPhotoBrowser.h>
+#import "AFNetHelp.h"
+#import "MyBaseShowTableViewController.h"
+#import "IOSHeader.h"
+#endif /* PrefixHeaderFood_pch */

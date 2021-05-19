@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="RequesCover">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fenxiaoshow" translatesAutoresizingMaskIntoConstraints="NO" id="yz4-tj-b6h">
+                    <rect key="frame" x="130.5" y="100" width="114" height="114"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="yz4-tj-b6h" secondAttribute="height" multiplier="1:1" id="M0O-dU-rgV"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dpC-a3-sKx">
+                    <rect key="frame" x="155" y="248" width="65" height="29"/>
+                    <color key="backgroundColor" red="0.3803921569" green="0.58431372550000005" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="65" id="jx5-eC-fcX"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="去首页">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="3"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="tiaozhuanaction:" destination="iN0-l3-epB" eventType="touchUpInside" id="g7A-Og-Haq"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您还没有分销权限" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X2H-g7-HFA">
+                    <rect key="frame" x="130.5" y="222" width="114.5" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="dpC-a3-sKx" firstAttribute="top" secondItem="X2H-g7-HFA" secondAttribute="bottom" constant="9" id="5Qc-8P-5yK"/>
+                <constraint firstItem="dpC-a3-sKx" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="5qL-YO-dKA"/>
+                <constraint firstItem="X2H-g7-HFA" firstAttribute="top" secondItem="yz4-tj-b6h" secondAttribute="bottom" constant="8" id="Cmd-EO-Snp"/>
+                <constraint firstItem="yz4-tj-b6h" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="c1i-72-CaM"/>
+                <constraint firstItem="X2H-g7-HFA" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="htE-ob-glo"/>
+                <constraint firstItem="yz4-tj-b6h" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="100" id="oBX-7M-azv"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <connections>
+                <outlet property="photoView" destination="yz4-tj-b6h" id="bNb-lc-iEe"/>
+            </connections>
+            <point key="canvasLocation" x="53.600000000000001" y="116.49175412293854"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="fenxiaoshow" width="114" height="85"/>
+    </resources>
+</document>

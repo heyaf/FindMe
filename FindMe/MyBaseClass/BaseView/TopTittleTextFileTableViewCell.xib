@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="84" id="KGk-i7-Jjw" customClass="TopTittleTextFileTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="383" height="84"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="383" height="84"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3yv-cd-mXO">
+                        <rect key="frame" x="0.0" y="5" width="383" height="74"/>
+                        <subviews>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="youjiantou" translatesAutoresizingMaskIntoConstraints="NO" id="Zbs-rg-aUm">
+                                <rect key="frame" x="363" y="31" width="10" height="12"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="10" id="3zh-4s-rxW"/>
+                                    <constraint firstAttribute="height" constant="12" id="U5S-Mj-soV"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标题" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftB-JA-z1c">
+                                <rect key="frame" x="15" y="10" width="31" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入                " minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="egx-Fx-jU8">
+                                <rect key="frame" x="15" y="36" width="338" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Hg5-28-B0G"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Zbs-rg-aUm" secondAttribute="trailing" constant="10" id="6di-ng-Qb0"/>
+                            <constraint firstItem="Zbs-rg-aUm" firstAttribute="centerY" secondItem="3yv-cd-mXO" secondAttribute="centerY" id="7jS-XW-a0f"/>
+                            <constraint firstItem="egx-Fx-jU8" firstAttribute="leading" secondItem="3yv-cd-mXO" secondAttribute="leading" constant="15" id="Wef-Dg-SGx"/>
+                            <constraint firstItem="egx-Fx-jU8" firstAttribute="top" secondItem="ftB-JA-z1c" secondAttribute="bottom" constant="8" id="bAs-YI-ceP"/>
+                            <constraint firstAttribute="trailing" secondItem="egx-Fx-jU8" secondAttribute="trailing" constant="30" id="fhc-dS-PyR"/>
+                            <constraint firstItem="ftB-JA-z1c" firstAttribute="leading" secondItem="3yv-cd-mXO" secondAttribute="leading" constant="15" id="kvn-ke-Tvf"/>
+                            <constraint firstItem="ftB-JA-z1c" firstAttribute="top" secondItem="3yv-cd-mXO" secondAttribute="top" constant="10" id="rbC-FS-8mQ"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="3yv-cd-mXO" secondAttribute="bottom" constant="5" id="QSv-xc-WsE"/>
+                    <constraint firstAttribute="trailing" secondItem="3yv-cd-mXO" secondAttribute="trailing" id="Zzc-LX-vLI"/>
+                    <constraint firstItem="3yv-cd-mXO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="dFm-FU-J5F"/>
+                    <constraint firstItem="3yv-cd-mXO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="j2p-NN-m7G"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <connections>
+                <outlet property="jiantouimg" destination="Zbs-rg-aUm" id="135-kx-ghG"/>
+                <outlet property="textField" destination="egx-Fx-jU8" id="xbB-Tm-sFs"/>
+                <outlet property="titleLabel" destination="ftB-JA-z1c" id="9fG-Th-rum"/>
+            </connections>
+            <point key="canvasLocation" x="64.799999999999997" y="69.265367316341838"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="youjiantou" width="7.5" height="14"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
