@@ -6,6 +6,8 @@
 //
 
 #import "IOSGodsHisDetailVC.h"
+#import "IOSGodsDetailTBCell.h"
+#import "IOSGodsDetailHeaderView.h"
 
 @interface IOSGodsHisDetailVC ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -26,7 +28,7 @@
     self.tabelView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     [self creatBottomView];
-    [self.tabelView registerNib:[UINib nibWithNibName:@"IOSChooseGodsTBCell" bundle:nil] forCellReuseIdentifier:@"IOSChooseGodsTBCell"];
+    [self.tabelView registerNib:[UINib nibWithNibName:@"IOSGodsDetailTBCell" bundle:nil] forCellReuseIdentifier:@"IOSGodsDetailTBCell"];
     
 }
 -(void)creatBottomView{
@@ -60,11 +62,22 @@
     return 1;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.dataSource.count;
+    return 20;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 130;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 170;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CELL"];
+
+    IOSGodsDetailTBCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IOSGodsDetailTBCell"];
     return cell;
+}
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    IOSGodsDetailHeaderView *headView = [[IOSGodsDetailHeaderView alloc] initWithFrame:CGRectMake(0, 0, KDeviceWith, 170)];
+    return headView;
 }
 
 @end

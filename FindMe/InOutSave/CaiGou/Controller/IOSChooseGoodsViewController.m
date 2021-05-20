@@ -6,7 +6,8 @@
 //
 
 #import "IOSChooseGoodsViewController.h"
-#import "IOSChooseGodsTBCell.h"
+#import "IOSGodsDetailTBCell.h"
+
 
 @interface IOSChooseGoodsViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) NSMutableArray *choosedArr; //选择商品的数组
@@ -51,7 +52,7 @@
     self.tabelView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     [self creatBottomView];
-    [self.tabelView registerNib:[UINib nibWithNibName:@"IOSChooseGodsTBCell" bundle:nil] forCellReuseIdentifier:@"IOSChooseGodsTBCell"];
+    [self.tabelView registerNib:[UINib nibWithNibName:@"IOSGodsDetailTBCell" bundle:nil] forCellReuseIdentifier:@"IOSGodsDetailTBCell"];
     
 }
 -(void)creatBottomView{
@@ -95,10 +96,10 @@
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section==0) {
-        IOSChooseGodsTBCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IOSChooseGodsTBCell"];
+        IOSGodsDetailTBCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IOSGodsDetailTBCell"];
 //        IOSCaiGouChooM *caigouModel = self.dataArr[indexPath.row];
 //        cell.CaigouChooseModel = caigouModel;
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.godsListType = 2;
         return cell;
         
         

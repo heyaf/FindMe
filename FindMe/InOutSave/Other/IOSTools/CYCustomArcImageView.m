@@ -74,6 +74,9 @@
      self.borderBottomWidth = borderWidth;
      self.borderLeftWidth = borderWidth;
 }
+- (void)setColortype:(NSInteger)Colortype{
+    _Colortype = Colortype;
+}
 #pragma mark- 绘制方法
 - (void)drawRect:(CGRect)rect {
      //切圆角
@@ -119,7 +122,7 @@
      const CGFloat bottomRightCenterX = maxX -  self.borderBottomRightRadius;
      const CGFloat bottomRightCenterY = maxY - self.borderBottomRightRadius;
      
-     CGFloat lineW = 5;
+     CGFloat lineW = self.borderWidth;
      CGFloat topSpaceY = (self.borderTopWidth + lineW)/2;
      CGFloat rightSpaceX = (self.borderRightWidth + lineW)/2;
      CGFloat bottomSpaceY = (self.borderBottomWidth + lineW)/2;
@@ -130,27 +133,34 @@
      self.borderBottomLeftRadius -=  bottomSpaceY;
      self.borderBottomRightRadius -=  leftSpaceX;
      
-     
+//    if (self.borderColor) {
+//        MyLog(@"%@",self.borderColor);
+//    }
+    if (self.Colortype==1) {
+        self.borderColor = IOSMainColor.CGColor;
+
+    }else if (self.Colortype ==2){
+        self.borderColor = [UIColor grayColor].CGColor;
+    }
      //黄色
-     UIColor *  color = [UIColor colorWithRed:234/255.0 green:254/255.0 blue:254/255.0 alpha:1.0];
      //1.0 顶左 画圆弧
-     drawLineArc(context, color.CGColor, lineW, CGPointMake(topLeftCenterX, topLeftCenterY), self.borderTopLeftRadius, M_PI, 3 * M_PI_2, NO);
+     drawLineArc(context, self.borderColor, lineW, CGPointMake(topLeftCenterX, topLeftCenterY), self.borderTopLeftRadius, M_PI, 3 * M_PI_2, NO);
      //2.0 顶部划线
-     drawLine(context, color.CGColor, lineW, CGPointMake(topLeftCenterX, topSpaceY), CGPointMake(topRightCenterX, topSpaceY));
+     drawLine(context, self.borderColor, lineW, CGPointMake(topLeftCenterX, topSpaceY), CGPointMake(topRightCenterX, topSpaceY));
      //3.0 顶右 画圆弧
-     drawLineArc(context, color.CGColor, lineW, CGPointMake(topRightCenterX, topRightCenterY), self.borderTopRightRadius, 3 * M_PI_2, 0, NO);
+     drawLineArc(context, self.borderColor, lineW, CGPointMake(topRightCenterX, topRightCenterY), self.borderTopRightRadius, 3 * M_PI_2, 0, NO);
      //4.0 右部划线
-     drawLine(context, color.CGColor, lineW, CGPointMake(maxX - rightSpaceX, topRightCenterY), CGPointMake(maxX - rightSpaceX, bottomRightCenterY));
+     drawLine(context, self.borderColor, lineW, CGPointMake(maxX - rightSpaceX, topRightCenterY), CGPointMake(maxX - rightSpaceX, bottomRightCenterY));
      //5.0 底右 画圆弧
-     drawLineArc(context, color.CGColor, lineW, CGPointMake(bottomRightCenterX, bottomRightCenterY), self.borderBottomRightRadius, 0, M_PI_2, NO);
+     drawLineArc(context, self.borderColor, lineW, CGPointMake(bottomRightCenterX, bottomRightCenterY), self.borderBottomRightRadius, 0, M_PI_2, NO);
      //6.0 底部划线
-     drawLine(context, color.CGColor, lineW, CGPointMake(bottomRightCenterX, maxY - bottomSpaceY), CGPointMake(bottomLeftCenterX, maxY - bottomSpaceY));
+     drawLine(context, self.borderColor, lineW, CGPointMake(bottomRightCenterX, maxY - bottomSpaceY), CGPointMake(bottomLeftCenterX, maxY - bottomSpaceY));
 
      //7.0 底左 画圆弧
-     drawLineArc(context, color.CGColor, lineW, CGPointMake(bottomLeftCenterX, bottomLeftCenterY), self.borderBottomLeftRadius, M_PI_2, M_PI, NO);
+     drawLineArc(context, self.borderColor, lineW, CGPointMake(bottomLeftCenterX, bottomLeftCenterY), self.borderBottomLeftRadius, M_PI_2, M_PI, NO);
 
      //8.0 左边划线
-     drawLine(context, color.CGColor, lineW, CGPointMake(minX + leftSpaceX, bottomLeftCenterY), CGPointMake(minX + leftSpaceX, topLeftCenterY));
+     drawLine(context, self.borderColor, lineW, CGPointMake(minX + leftSpaceX, bottomLeftCenterY), CGPointMake(minX + leftSpaceX, topLeftCenterY));
      
 }
 

@@ -39,6 +39,8 @@
 @property (nonatomic, assign) CGFloat borderWidth;
 
 
+/// 颜色类型，1IOSMianColor 2GrayColor
+@property (nonatomic,assign) NSInteger Colortype;
 
 @property (nonatomic, strong) UIImage * image;
 

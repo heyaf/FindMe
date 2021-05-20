@@ -13,6 +13,7 @@
 #import "BRPickerView.h"
 #import "BRDatePickerView.h"
 #import "IOSChooseGoodsViewController.h"
+#import "IOSGodsDetailTBCell.h"
 @interface IOSCaiGouChooseVC ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) NSMutableArray *dataArr;
@@ -77,6 +78,7 @@
     
     [self creatBottomView];
     [self.tabelView registerNib:[UINib nibWithNibName:@"IOSCaiGouChoTBCell" bundle:nil] forCellReuseIdentifier:@"IOSCaiGouChoTBCell"];
+    [self.tabelView registerNib:[UINib nibWithNibName:@"IOSGodsDetailTBCell" bundle:nil] forCellReuseIdentifier:@"IOSGodsDetailTBCell"];
     
 }
 -(void)creatBottomView{
@@ -122,7 +124,7 @@
     if (indexPath.section ==0) {
         return 100;
     }
-    return 100;
+    return 130;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section==0) {
@@ -135,7 +137,8 @@
         return cell;
         
     }
-    UITableViewCell *cell;
+    IOSGodsDetailTBCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IOSGodsDetailTBCell"];
+    cell.godsListType = 3;
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -206,7 +209,7 @@
     IOSChooseGoodsViewController *pushVC = [[IOSChooseGoodsViewController alloc] init];
     pushVC.chooseGodsBlock = ^(NSArray * _Nonnull godsArr) {
         self.choosedArr = [NSMutableArray arrayWithArray:godsArr];
-        [self.tabelView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationNone];
+        [self.tabelView reloadData];
     };
     [self.navigationController pushViewController:pushVC animated:YES];
 }

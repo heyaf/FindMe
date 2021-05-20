@@ -20,16 +20,27 @@
     configration.showTabbar = NO;
     configration.showNavigation = YES;
     configration.scrollMenu = NO;
+    configration.scrollViewBackgroundColor = RGBA(250, 250, 250, 1);
     configration.bottomLineBgColor = RGBA(245, 245, 245, 1);
-    configration.selectedItemColor = KAppColor;
-    configration.normalItemColor = [UIColor blackColor];
-    configration.lineColor = KAppColor;
+    configration.selectedItemColor = [UIColor blackColor];
+    configration.selectedItemFont = FONT(16);
+    configration.normalItemColor = RGBA(51, 51, 51, 1);
+    configration.lineColor = [UIColor whiteColor];
     configration.lineLeftAndRightAddWidth = -15;
     configration.aligmentModeCenter = NO;
     configration.lineWidthEqualFontWidth = NO;
-    configration.showBottomLine = YES;
+    configration.showBottomLine = NO;
+    NSMutableArray *buttonArr = [NSMutableArray array];
+    NSArray * titleArr = [self getArrayTitles];
+    for (int i =0; i<titleArr.count; i++) {
+        UIButton *button = [UIButton buttonWithType:0];
+//        [button setBackgroundImage:ImageNamed(@"xiaoshoudan") forState:0];
+        [button setBackgroundImage:ImageNamed(@"addrenyuanshenfenzheng") forState:UIControlStateSelected];
+        [buttonArr addObject:button];
+    }
+    configration.buttonArray = buttonArr;
     
-    NSArray *VCArray = [self getArrayVCs];
+
     self.controllersM = [[self getArrayVCs] mutableCopy];
     self.titlesM = [[self getArrayTitles] mutableCopy];
     self.config = configration;

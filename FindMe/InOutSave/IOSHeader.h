@@ -13,4 +13,6 @@
 #import "YNPageViewController.h"
 #import <JSONModel.h>
 
+
+#define IOSMainColor RGBA(46, 153, 146, 1)
 #endif /* IOSHeader_h */
