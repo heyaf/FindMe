@@ -85,17 +85,19 @@
     
     [self.view addSubview:bottomView];
     
+    CYCustomArcImageView *bgView = [[CYCustomArcImageView alloc] initWithFrame:CGRectMake(KDeviceWith-30-120, 10, 120, 60)];
+    bgView.borderTopLeftRadius = 10;
+    bgView.borderTopRightRadius = 30;
+    bgView.borderBottomLeftRadius = 10;
+    bgView.borderBottomRightRadius = 10;
+    [bottomView addSubview:bgView];
     UIButton *makeSureBtn = [UIButton buttonWithType:0];
-    makeSureBtn.frame = CGRectMake(KDeviceWith-30-120, 10, 120, 60);
+    makeSureBtn.frame = CGRectMake(0, 0, 120, 60);
     [makeSureBtn setTitle:@"确认" forState:0];
     makeSureBtn.backgroundColor =RGBA(46, 153, 164, 1);
-    [bottomView addSubview:makeSureBtn];
+    [bgView addSubview:makeSureBtn];
     [makeSureBtn addTarget:self action:@selector(makeSureBtnClicked) forControlEvents:UIControlEventTouchUpInside];
-    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:makeSureBtn.bounds byRoundingCorners:UIRectCornerTopLeft|UIRectCornerBottomLeft|UIRectCornerBottomRight cornerRadii:CGSizeMake(10, 10)];
-    
-    CAShapeLayer *shapeLayer = [CAShapeLayer layer];
-    shapeLayer.path = path.CGPath;
-    makeSureBtn.layer.mask = shapeLayer;
+
     
     UILabel *priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 20, KDeviceWith-120-30-30, 20)];
     priceLabel.text = @"共0件商品，共计0.00元";
@@ -128,8 +130,9 @@
         IOSCaiGouChooM *caigouModel = self.dataArr[indexPath.row];
         cell.CaigouChooseModel = caigouModel;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.inputTF.userInteractionEnabled = NO;
+
         return cell;
-        
         
     }
     UITableViewCell *cell;
@@ -144,9 +147,13 @@
         case 0: {
             [self postallBumeninfoDataFromSever];
         }
+            break;
+
         case 1:{
             [self selelctBRPickView];
         }
+            break;
+
         case 2:{
             [self chooseGodsAction];
         }

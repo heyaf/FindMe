@@ -9,6 +9,7 @@
 #define IOSHeader_h
 #import "UIView+creatViews.h"
 #import "UIView+Frame.h"
+#import "CYCustomArcImageView.h"
 #import "YNPageViewController.h"
 #import <JSONModel.h>
 

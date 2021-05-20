@@ -26,6 +26,8 @@
 		042DB9D626552B33008FBAEC /* IOSCaiGouChoTBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 042DB9D426552B32008FBAEC /* IOSCaiGouChoTBCell.m */; };
 		042DB9D726552B33008FBAEC /* IOSCaiGouChoTBCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042DB9D526552B33008FBAEC /* IOSCaiGouChoTBCell.xib */; };
 		042DB9DD26552DBB008FBAEC /* IOSGodsHisDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 042DB9DC26552DBB008FBAEC /* IOSGodsHisDetailVC.m */; };
+		042DB9FE26560751008FBAEC /* CYCustomArcImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042DB9FA26560751008FBAEC /* CYCustomArcImageView.m */; };
+		042DB9FF26560751008FBAEC /* CYAnyCornerRadiusUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 042DB9FB26560751008FBAEC /* CYAnyCornerRadiusUtil.m */; };
 		0447D5E52653A34A0012D72C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0447D5E42653A34A0012D72C /* AppDelegate.m */; };
 		0447D5EB2653A34A0012D72C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0447D5EA2653A34A0012D72C /* ViewController.m */; };
 		0447D5EE2653A34A0012D72C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0447D5EC2653A34A0012D72C /* Main.storyboard */; };
@@ -211,6 +213,10 @@
 		042DB9D526552B33008FBAEC /* IOSCaiGouChoTBCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IOSCaiGouChoTBCell.xib; sourceTree = "<group>"; };
 		042DB9DB26552DBB008FBAEC /* IOSGodsHisDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSGodsHisDetailVC.h; sourceTree = "<group>"; };
 		042DB9DC26552DBB008FBAEC /* IOSGodsHisDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSGodsHisDetailVC.m; sourceTree = "<group>"; };
+		042DB9FA26560751008FBAEC /* CYCustomArcImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYCustomArcImageView.m; sourceTree = "<group>"; };
+		042DB9FB26560751008FBAEC /* CYAnyCornerRadiusUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYAnyCornerRadiusUtil.m; sourceTree = "<group>"; };
+		042DB9FC26560751008FBAEC /* CYCustomArcImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYCustomArcImageView.h; sourceTree = "<group>"; };
+		042DB9FD26560751008FBAEC /* CYAnyCornerRadiusUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYAnyCornerRadiusUtil.h; sourceTree = "<group>"; };
 		0447D5E02653A34A0012D72C /* FindMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0447D5E32653A34A0012D72C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0447D5E42653A34A0012D72C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -533,6 +539,18 @@
 			);
 			path = View;
 			sourceTree = "<group>";
+		};
+		042DB9F926560751008FBAEC /* IOSTools */ = {
+			isa = PBXGroup;
+			children = (
+				042DB9FD26560751008FBAEC /* CYAnyCornerRadiusUtil.h */,
+				042DB9FB26560751008FBAEC /* CYAnyCornerRadiusUtil.m */,
+				042DB9FC26560751008FBAEC /* CYCustomArcImageView.h */,
+				042DB9FA26560751008FBAEC /* CYCustomArcImageView.m */,
+			);
+			name = IOSTools;
+			path = FindMe/InOutSave/Other/IOSTools;
+			sourceTree = SOURCE_ROOT;
 		};
 		0447D5D72653A34A0012D72C = {
 			isa = PBXGroup;
@@ -994,6 +1012,7 @@
 		04B93E412654AAFF00DA647C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				042DB9F926560751008FBAEC /* IOSTools */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1460,6 +1479,7 @@
 				04B93E142654A01100DA647C /* TittleDetailJiantouShowTableViewCell.m in Sources */,
 				04B93D9926549EBB00DA647C /* UIColor+YYAdd.m in Sources */,
 				04B93E6F2654AB5100DA647C /* UIView+Frame.m in Sources */,
+				042DB9FE26560751008FBAEC /* CYCustomArcImageView.m in Sources */,
 				04B93E222654A01100DA647C /* TittleJiantouShowTableViewCell.m in Sources */,
 				04B93DB426549EBB00DA647C /* JRToast.m in Sources */,
 				04B93E2B2654A01100DA647C /* RequesCover.m in Sources */,
@@ -1507,6 +1527,7 @@
 				042DB9C3265512EE008FBAEC /* YNPageViewController.m in Sources */,
 				04B93E1E2654A01100DA647C /* PhotoTitleCollectionViewCell.m in Sources */,
 				04B93E1B2654A01100DA647C /* HTittleTextFileTableViewCell.m in Sources */,
+				042DB9FF26560751008FBAEC /* CYAnyCornerRadiusUtil.m in Sources */,
 				04B93D9226549EBB00DA647C /* BRAddressModel.m in Sources */,
 				04B93E0E2654A01100DA647C /* CALayer+CALayerXibConfig.m in Sources */,
 				04B93D8D26549EBB00DA647C /* BRStringPickerView.m in Sources */,
