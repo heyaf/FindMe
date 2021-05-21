@@ -8,7 +8,6 @@
 #import "HomeViewController.h"
 #import "IOSEnterHomeVC.h"
 
-
 @interface HomeViewController ()
 
 @end
@@ -31,8 +30,9 @@
 }
 
 -(void)InOutSave{
-    IOSEnterHomeVC *pushVC = [[IOSEnterHomeVC alloc] init];
-    [self.navigationController pushViewController:pushVC animated:YES];
+//    IOSEnterHomeVC *pushVC = [[IOSEnterHomeVC alloc] init];
+//    [self.navigationController pushViewController:pushVC animated:YES];
+
 }
 
 

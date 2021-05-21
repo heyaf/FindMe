@@ -13,6 +13,13 @@
 #import "IOSHomeHeadCollectionReusableV.h"
 #import "IOSCaiGouChooseVC.h"
 #import "IOSGodsHistoryListVC.h"
+
+//库存
+#import "IOSInStoreHisVC.h"
+#import "IOSOutStoreHisVC.h"
+#import "IOSPandianListVC.h"
+#import "IOSPanDianHisVC.h"
+
 @interface IOSEnterHomeVC ()<UICollectionViewDelegate, UICollectionViewDataSource>
 @property (nonatomic, strong) NSMutableArray *dataSource;//区头
 @property (nonatomic, strong) NSMutableArray *caigouArr;//采购1
@@ -296,19 +303,24 @@
     if (indexPath.section==1) {
         switch (indexPath.row) {
             case 0: { //入库历史
-           
+                IOSInStoreHisVC *pushVC = [[IOSInStoreHisVC alloc] init];
+                [self.navigationController pushViewController:pushVC animated:YES];
             }
                 break;
             case 1: {//出库历史
-               
+                IOSOutStoreHisVC *pushVC = [[IOSOutStoreHisVC alloc] init];
+                [self.navigationController pushViewController:pushVC animated:YES];
             }
                 break;
                 
             case 2: {//盘点单
-                
+                IOSPandianListVC *pushVC = [[IOSPandianListVC alloc] init];
+                [self.navigationController pushViewController:pushVC animated:YES];
             }
                 break;
             case 3: {//盘点历史
+                IOSPanDianHisVC *pushVC = [[IOSPanDianHisVC alloc] init];
+                [self.navigationController pushViewController:pushVC animated:YES];
             }
                 break;
             default:
@@ -321,7 +333,7 @@
     if (indexPath.section==2) {
         switch (indexPath.row) {
             case 0: { //物资领用
-           
+
             }
                 break;
             case 1: {//办公物资回收

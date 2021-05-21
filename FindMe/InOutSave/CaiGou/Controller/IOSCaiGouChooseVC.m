@@ -111,13 +111,13 @@
     if (self.choosedArr.count>0) {
         return 2;
     }
-    return 1;
+    return 2;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (section==0) {
         return self.NameArr.count;
     }
-    return self.choosedArr.count;
+    return 20;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -138,6 +138,8 @@
         
     }
     IOSGodsDetailTBCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IOSGodsDetailTBCell"];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
     cell.godsListType = 3;
     return cell;
 }
@@ -199,7 +201,57 @@
     self.navigationItem.rightBarButtonItem = rightBarItem;
     
 }
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    //第二组可以左滑删除
+    if (indexPath.section == 1) {
+        return YES;
+    }
+    
+    return NO;
+}
+ 
+// 定义编辑样式
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewCellEditingStyleDelete;
+}
+//iOS 11.0之后改变滑动删除按钮样式
+- (UISwipeActionsConfiguration *)tableView:(UITableView *)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath  API_AVAILABLE(ios(11.0)){
+    //删除
+    if (@available(iOS 11.0, *)) {
+        UIContextualAction *delete = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleDestructive title:@"" handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
+            //[self.arr removeObjectAtIndex:indexPath.row];
+            completionHandler (YES);
+//            [self deleteRowIndexPath:indexPath];
+            //[self.mainTableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        }];
+        
+        delete.backgroundColor = [UIColor whiteColor];
+        delete.image = ImageNamed(@"minefeidanku");
+        
+        UISwipeActionsConfiguration *config = [UISwipeActionsConfiguration configurationWithActions:@[delete]];
+        //performsFirstActionWithFullSwipe 禁止左滑完全滑动事件，只能点击触发
+        config.performsFirstActionWithFullSwipe = NO;
+        return config;
+    } else {
+        
 
+        return nil;
+        // Fallback on earlier versions
+        
+    }
+}
+// 进入编辑模式，按下出现的编辑按钮后,进行删除操作
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        if (indexPath.section == 1) {
+            
+           
+            
+        }
+    }
+}
+ 
 #pragma mark ---点击事件----
 -(void)backAction{
     [self.navigationController popViewControllerAnimated:YES];
