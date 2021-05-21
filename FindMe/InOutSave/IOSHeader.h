@@ -18,6 +18,7 @@
 #define IOSMainColor RGBA(46, 153, 146, 1)
 #define IOSSubTitleColor [UIColor grayColor]
 #define IOSCancleBtnColor RGBA(234, 245, 246, 1)
+#define IOSTitleColor RGBA(51, 51, 51, 1)
 
 #define kFONT(f)            [UIFont systemFontOfSize:(f)]
 #define kBOLDFONT(f)        [UIFont boldSystemFontOfSize:(f)]

@@ -14,6 +14,7 @@
 #import "BRDatePickerView.h"
 #import "IOSChooseGoodsViewController.h"
 #import "IOSGodsDetailTBCell.h"
+#import "IOSGodsHistoryListVC.h"
 @interface IOSCaiGouChooseVC ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) NSMutableArray *dataArr;
@@ -310,6 +311,8 @@
 //采购历史
 -(void)goCaigouHistory{
     MyLog(@"采购历史");
+    IOSGodsHistoryListVC *pushVC = [[IOSGodsHistoryListVC alloc] init];
+    [self.navigationController pushViewController:pushVC animated:YES];
 }
 -(void)makeSureBtnClicked{
 

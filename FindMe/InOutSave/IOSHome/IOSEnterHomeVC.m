@@ -17,7 +17,7 @@
 //库存
 #import "IOSInStoreHisVC.h"
 #import "IOSOutStoreHisVC.h"
-#import "IOSPandianListVC.h"
+#import "IOSPanDianVC.h"
 #import "IOSPanDianHisVC.h"
 
 @interface IOSEnterHomeVC ()<UICollectionViewDelegate, UICollectionViewDataSource>
@@ -314,7 +314,7 @@
                 break;
                 
             case 2: {//盘点单
-                IOSPandianListVC *pushVC = [[IOSPandianListVC alloc] init];
+                IOSPanDianVC *pushVC = [[IOSPanDianVC alloc] init];
                 [self.navigationController pushViewController:pushVC animated:YES];
             }
                 break;

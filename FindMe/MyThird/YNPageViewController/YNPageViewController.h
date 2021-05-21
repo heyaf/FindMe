@@ -260,5 +260,6 @@
  @param animated 是否动画
  */
 - (void)scrollToContentOffset:(CGPoint)point animated:(BOOL)animated;
-
+/// 页面ScrollView
+@property (nonatomic, strong) YNPageScrollView *pageScrollView;
 @end

@@ -35,7 +35,7 @@
     for (int i =0; i<titleArr.count; i++) {
         UIButton *button = [UIButton buttonWithType:0];
 //        [button setBackgroundImage:ImageNamed(@"xiaoshoudan") forState:0];
-        [button setBackgroundImage:ImageNamed(@"addrenyuanshenfenzheng") forState:UIControlStateSelected];
+        [button setBackgroundImage:ImageNamed(@"ioscaigouHeaderBG") forState:UIControlStateSelected];
         [buttonArr addObject:button];
     }
     configration.buttonArray = buttonArr;

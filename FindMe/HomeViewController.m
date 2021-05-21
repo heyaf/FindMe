@@ -30,8 +30,7 @@
 }
 
 -(void)InOutSave{
-//    IOSEnterHomeVC *pushVC = [[IOSEnterHomeVC alloc] init];
-//    [self.navigationController pushViewController:pushVC animated:YES];
+
 
 }
 

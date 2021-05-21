@@ -7,7 +7,7 @@
 
 #import "IOSInStoreHisVC.h"
 #import "IOSInStoreListTBCell.h"
-
+#import "IOSInStoreHisDetailVC.h"
 @interface IOSInStoreHisVC ()<UITableViewDelegate,UITableViewDataSource>
 
 @end
@@ -51,6 +51,10 @@
     IOSInStoreListTBCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IOSInStoreListTBCell"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    IOSInStoreHisDetailVC *pushVC = [[IOSInStoreHisDetailVC alloc] init];
+    [self.navigationController pushViewController:pushVC animated:YES];
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 150;

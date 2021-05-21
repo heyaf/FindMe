@@ -1,21 +1,21 @@
 //
-//  IOSGodsHisDetailVC.m
+//  IOSInStoreHisDetailVC.m
 //  FindMe
 //
-//  Created by mac on 2021/5/19.
+//  Created by mac on 2021/5/21.
 //
 
-#import "IOSGodsHisDetailVC.h"
+#import "IOSInStoreHisDetailVC.h"
 #import "IOSGodsDetailTBCell.h"
 #import "IOSCaiGouHeaderTBCell.h"
-@interface IOSGodsHisDetailVC ()<UITableViewDelegate,UITableViewDataSource>
+@interface IOSInStoreHisDetailVC ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) NSMutableArray *headerButArr;
 @property (nonatomic,strong) UIView *cellHeaderView;
+
 @end
 
-@implementation IOSGodsHisDetailVC
-
+@implementation IOSInStoreHisDetailVC
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self CreatMainUI];
@@ -29,42 +29,18 @@
 //主视图
 -(void)CreatMainUI{
     
-    self.tabelView.yz_height = KDeviceHeight-KEVNScreenTopStatusNaviHeight-KEVNScreenTabBarSafeBottomMargin-80;
+
     self.tabelView.delegate = self;
     self.tabelView.dataSource = self;
     self.tabelView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    [self creatBottomView];
     [self.tabelView registerNib:[UINib nibWithNibName:@"IOSGodsDetailTBCell" bundle:nil] forCellReuseIdentifier:@"IOSGodsDetailTBCell"];
     [self.tabelView registerNib:[UINib nibWithNibName:@"IOSCaiGouHeaderTBCell" bundle:nil] forCellReuseIdentifier:@"IOSCaiGouHeaderTBCell"];
-    [self setNavBackStr:@"采购单"];
+    [self setNavBackStr:@"入库单"];
 
     
 }
--(void)creatBottomView{
-    UIView *bottomView = [[UIView alloc]  initWithFrame:CGRectMake(0, KDeviceHeight-80-KEVNScreenTabBarSafeBottomMargin, KDeviceWith, 80+KEVNScreenTabBarSafeBottomMargin)];
-    bottomView.backgroundColor = [UIColor redColor];
-    
-    [self.view addSubview:bottomView];
-    
-    UIButton *makeSureBtn = [UIButton buttonWithType:0];
-    makeSureBtn.frame = CGRectMake(KDeviceWith-30-120, 10, 120, 60);
-    [makeSureBtn setTitle:@"入库" forState:0];
-    makeSureBtn.backgroundColor =RGBA(46, 153, 164, 1);
-    [makeSureBtn addTarget:self action:@selector(makeSureBtnClicked) forControlEvents:UIControlEventTouchUpInside];
-    [bottomView addSubview:makeSureBtn];
-    
-    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:makeSureBtn.bounds byRoundingCorners:UIRectCornerTopLeft|UIRectCornerBottomLeft|UIRectCornerBottomRight cornerRadii:CGSizeMake(10, 10)];
-    
-    CAShapeLayer *shapeLayer = [CAShapeLayer layer];
-    shapeLayer.path = path.CGPath;
-    makeSureBtn.layer.mask = shapeLayer;
-    
-    UILabel *priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 20, KDeviceWith-120-30-30, 20)];
-    priceLabel.text = @"待入库30件，实际入库30件";
-    [bottomView addSubview:priceLabel];
 
-}
 -(void)makeSureBtnClicked{
 
 }
@@ -79,7 +55,7 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section==0) {
-        return 133;
+        return 180;
     }
     return 130;
 }
@@ -93,9 +69,12 @@
 
     if (indexPath.section==0) {
         IOSCaiGouHeaderTBCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IOSCaiGouHeaderTBCell"];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
     IOSGodsDetailTBCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IOSGodsDetailTBCell"];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
     return cell;
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
