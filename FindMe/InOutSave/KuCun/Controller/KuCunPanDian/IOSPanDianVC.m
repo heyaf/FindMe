@@ -9,7 +9,7 @@
 #import "IOSPanDianHisVC.h"
 #import "IOSPanDianHeaderTBCell.h"
 #import "IOSPanDianHisCell.h"
-#import "IOSPanDianChooseVC.h"
+#import "IOSPanDianChoDetailVC.h"
 @interface IOSPanDianVC ()<UITableViewDelegate,UITableViewDataSource>
 
 @end
@@ -75,7 +75,7 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section==0) {
-        IOSPanDianChooseVC *pushVC = [[IOSPanDianChooseVC alloc] init];
+        IOSPanDianChoDetailVC *pushVC = [[IOSPanDianChoDetailVC alloc] init];
         [self.navigationController pushViewController:pushVC animated:YES];
         
     }

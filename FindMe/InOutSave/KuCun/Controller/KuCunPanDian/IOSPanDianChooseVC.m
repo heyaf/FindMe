@@ -52,10 +52,10 @@
 
     self.pageIndex = 0;
     [super viewDidLoad];
-//    [self setNavBackStr:@"采购历史"];
-//    self.pageScrollView.yz_height = KDeviceHeight - KEVNScreenTopStatusNaviHeight-KEVNScreenTabBarSafeBottomMargin-80-44;
-//    [self creatBottomView];
-//    [self setNavbutton];
+    
+    self.pageScrollView.yz_height = KDeviceHeight - KEVNScreenTopStatusNaviHeight-KEVNScreenTabBarSafeBottomMargin-80-44;
+    [self creatBottomView];
+    [self setNavbutton];
 }
 - (NSArray *)getArrayVCs {
     IOSPanDianChoDetailVC *firstVC = [[IOSPanDianChoDetailVC alloc] init];
@@ -72,9 +72,7 @@
     UIButton* backButton = [UIButton buttonWithType:UIButtonTypeCustom];
 
     [backButton setImage:[UIImage imageNamed:@"关闭icon"] forState:UIControlStateNormal];
-
-    backButton.titleLabel.font = FONT(18);
-    backButton.frame = CGRectMake(0, 0, 60,35);
+    backButton.frame = CGRectMake(0, 0, 35,35);
 
     [backButton addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
 

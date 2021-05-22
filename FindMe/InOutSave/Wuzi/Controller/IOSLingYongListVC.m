@@ -1,22 +1,22 @@
 //
-//  IOSOutStoreHisVC.m
+//  IOSLingYongListVC.m
 //  FindMe
 //
-//  Created by mac on 2021/5/21.
+//  Created by mac on 2021/5/22.
 //
 
-#import "IOSOutStoreHisVC.h"
+#import "IOSLingYongListVC.h"
 #import "IOSInStoreListTBCell.h"
-#import "IOSOutStoreHisDetailVC.h"
-@interface IOSOutStoreHisVC ()<UITableViewDelegate,UITableViewDataSource>
+#import "IOSLingYongDetailVC.h"
+@interface IOSLingYongListVC ()<UITableViewDelegate,UITableViewDataSource>
 
 @end
 
-@implementation IOSOutStoreHisVC
-
+@implementation IOSLingYongListVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // Do any additional setup after loading the view.
     [self setNavbutton];
     self.tabelView.delegate = self;
     self.tabelView.dataSource = self;
@@ -28,21 +28,35 @@
     UIButton* backButton = [UIButton buttonWithType:UIButtonTypeCustom];
 
     [backButton setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
-
     backButton.titleLabel.font = FONT(18);
     backButton.frame = CGRectMake(0, 0, 60,35);
-    [backButton setTitle:@"出库历史" forState:0];
+    [backButton setTitle:@"物资领用历史" forState:0];
     [backButton setTitleColor:[UIColor blackColor] forState:0];
-
     [backButton addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
 
     UIBarButtonItem* leftBarItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
 
     self.navigationItem.leftBarButtonItem = leftBarItem;
-    
+
+    UIButton* rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+
+    [rightBtn setImage:[UIImage imageNamed:@"IOSaddItem"] forState:UIControlStateNormal];
+
+
+    rightBtn.frame = CGRectMake(0, 0, 35,35);
+
+    [rightBtn addTarget:self action:@selector(addItem) forControlEvents:UIControlEventTouchUpInside];
+
+    UIBarButtonItem* rightBarItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
+
+    self.navigationItem.rightBarButtonItem = rightBarItem;
+
 }
 -(void)backAction{
     [self.navigationController popViewControllerAnimated:YES];
+}
+-(void)addItem{
+    
 }
 #pragma mark ---代理事件----
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -59,7 +73,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
     
-    IOSOutStoreHisDetailVC *storeDetailVC = [[IOSOutStoreHisDetailVC alloc] init];
+    IOSLingYongDetailVC *storeDetailVC = [[IOSLingYongDetailVC alloc] init];
     [self.navigationController pushViewController:storeDetailVC animated:YES];
 }
 

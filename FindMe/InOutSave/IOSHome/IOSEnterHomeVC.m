@@ -20,6 +20,11 @@
 #import "IOSPanDianVC.h"
 #import "IOSPanDianHisVC.h"
 
+//物资
+#import "IOSLingYongListVC.h"
+#import "IOSHuiShouListVC.h"
+
+
 @interface IOSEnterHomeVC ()<UICollectionViewDelegate, UICollectionViewDataSource>
 @property (nonatomic, strong) NSMutableArray *dataSource;//区头
 @property (nonatomic, strong) NSMutableArray *caigouArr;//采购1
@@ -334,10 +339,13 @@
         switch (indexPath.row) {
             case 0: { //物资领用
 
+                IOSLingYongListVC *pushVC = [[IOSLingYongListVC alloc] init];
+                [self.navigationController pushViewController:pushVC animated:YES];
             }
                 break;
             case 1: {//办公物资回收
-               
+                IOSHuiShouListVC *pushVC = [[IOSHuiShouListVC alloc] init];
+                [self.navigationController pushViewController:pushVC animated:YES];
             }
                 break;
                 

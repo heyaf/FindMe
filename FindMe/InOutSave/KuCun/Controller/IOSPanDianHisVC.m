@@ -7,9 +7,8 @@
 
 #import "IOSPanDianHisVC.h"
 #import "IOSInStoreListTBCell.h"
-
+#import "IOSPanDianHisDetailVC.h"
 @interface IOSPanDianHisVC ()<UITableViewDelegate,UITableViewDataSource>
-
 @end
 
 @implementation IOSPanDianHisVC
@@ -55,6 +54,9 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 150;
 }
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    IOSPanDianHisDetailVC *pushVC = [[IOSPanDianHisDetailVC alloc] init];
+    [self.navigationController pushViewController:pushVC animated:YES];
+}
 
 @end

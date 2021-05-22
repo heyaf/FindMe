@@ -9,8 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface IOSPanDianChoDetailVC : MyBaseViewController
-@property (nonatomic,strong) UITableView *tableView;
+@interface IOSPanDianChoDetailVC : MyBaseShowTableViewController
 
 @end
 

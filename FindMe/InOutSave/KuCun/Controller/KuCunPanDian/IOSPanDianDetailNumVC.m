@@ -1,19 +1,20 @@
 //
-//  IOSPanDianChoDetailVC.m
+//  IOSPanDianDetailNumVC.m
 //  FindMe
 //
-//  Created by mac on 2021/5/21.
+//  Created by mac on 2021/5/22.
 //
 
-#import "IOSPanDianChoDetailVC.h"
 #import "IOSPanDianDetailNumVC.h"
 #import "IOSGodsDetailTBCell.h"
-@interface IOSPanDianChoDetailVC ()<UITableViewDelegate,UITableViewDataSource>
+#import "IOSPanDianChoDetailVC.h"
+@interface IOSPanDianDetailNumVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) NSMutableArray *headerButArr;
 @property (nonatomic,strong) UIView *cellHeaderView;
 @end
 
-@implementation IOSPanDianChoDetailVC
+@implementation IOSPanDianDetailNumVC
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -21,6 +22,7 @@
     [self CreatMainUI];
     [self creatBottomView];
     [self setNavbutton];
+    [self popParentVC];
 
 }
 //主视图
@@ -82,7 +84,7 @@
 
 //设置导航栏
 -(void)setNavbutton{
-    self.navigationItem.title = @"选择商品";
+    self.navigationItem.title = @"盘点数量";
     UIButton* backButton = [UIButton buttonWithType:UIButtonTypeCustom];
 
     [backButton setImage:[UIImage imageNamed:@"addPhotoSet"] forState:UIControlStateNormal];
@@ -94,18 +96,6 @@
 
     self.navigationItem.leftBarButtonItem = leftBarItem;
 
-    UIButton* rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-
-    [rightBtn setImage:[UIImage imageNamed:@"sousuoitenimg"] forState:UIControlStateNormal];
-
-
-    rightBtn.frame = CGRectMake(0, 0, 35,35);
-
-    [rightBtn addTarget:self action:@selector(pandiansearch) forControlEvents:UIControlEventTouchUpInside];
-
-    UIBarButtonItem* rightBarItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
-
-    self.navigationItem.rightBarButtonItem = rightBarItem;
 
 }
 
@@ -182,13 +172,37 @@
 
 }
 -(void)makeSureBtnClicked{
-    IOSPanDianDetailNumVC *pushVC = [[IOSPanDianDetailNumVC alloc] init];
-    [self.navigationController pushViewController:pushVC animated:YES];
+
 }
 -(NSMutableArray *)headerButArr{
     if (!_headerButArr) {
         _headerButArr = [NSMutableArray array];
     }
     return _headerButArr;
+}
+//父级视图出栈
+- (void)popParentVC
+{
+    if (self.navigationController.viewControllers.count >= 3) {//viewControllers.count大于3 才有中间页面
+        NSMutableArray *array = self.navigationController.viewControllers.mutableCopy;
+    
+        NSMutableArray *arrRemove = [NSMutableArray array];
+
+        for (UIViewController *vc in array) {
+        //判断需要销毁的控制器 加入数组
+        if ([vc isKindOfClass:[IOSPanDianChoDetailVC class]]||[vc isKindOfClass:[IOSPanDianChoDetailVC class]]) {
+            
+        }else{
+            [arrRemove addObject:vc];
+        }
+    }
+    
+    if (arrRemove.count) {
+        [self.navigationController setViewControllers:arrRemove animated:NO];
+    }
+    
+   }
+    self.hidesBottomBarWhenPushed = YES;
+
 }
 @end
