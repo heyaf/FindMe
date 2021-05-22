@@ -25,6 +25,8 @@
 #import "IOSHuiShouListVC.h"
 #import "IOSSunHaoListVC.h"
 
+//统计
+#import "IOSTongJiCaiGouVC.h"
 
 @interface IOSEnterHomeVC ()<UICollectionViewDelegate, UICollectionViewDataSource>
 @property (nonatomic, strong) NSMutableArray *dataSource;//区头
@@ -363,10 +365,12 @@
     }
     
     //统计
-    if (indexPath.section==1) {
+    if (indexPath.section==3) {
         switch (indexPath.row) {
             case 0: { //采购明细
            
+                IOSTongJiCaiGouVC *pushVC = [[IOSTongJiCaiGouVC alloc] init];
+                [self.navigationController pushViewController:pushVC animated:YES];
             }
                 break;
             case 1: {//入库明细
@@ -387,7 +391,7 @@
         return;
     }
     //其他
-    if (indexPath.section==3) {
+    if (indexPath.section==4) {
         switch (indexPath.row) {
             case 0: { //商品管理
            

@@ -233,7 +233,7 @@
     
     
     UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(20, 60, self.bgView.yz_width-40, self.bgView.yz_height-20-60-60-20)];
-    [textView setBackgroundColor:[UIColor greenColor]];
+    [textView setBackgroundColor:[UIColor whiteColor]];
     [self.bgView addSubview:textView];
 
     // _placeholderLabel

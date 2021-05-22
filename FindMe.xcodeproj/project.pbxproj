@@ -191,6 +191,10 @@
 		04B93E892654DF1E00DA647C /* UIView+creatViews.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B93E882654DF1E00DA647C /* UIView+creatViews.m */; };
 		04B93E8D2654E0AB00DA647C /* IOSCaiGouChooseTBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B93E8B2654E0AB00DA647C /* IOSCaiGouChooseTBCell.m */; };
 		04B93E8E2654E0AB00DA647C /* IOSCaiGouChooseTBCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B93E8C2654E0AB00DA647C /* IOSCaiGouChooseTBCell.xib */; };
+		04F2858C2658F549008FE9D8 /* IOSTongJiCaiGouVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F2858B2658F549008FE9D8 /* IOSTongJiCaiGouVC.m */; };
+		04F285952658F917008FE9D8 /* IOSTongJiHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F285942658F917008FE9D8 /* IOSTongJiHeaderView.m */; };
+		04F2859F2659091F008FE9D8 /* IOSTongjiListTBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F2859D2659091F008FE9D8 /* IOSTongjiListTBCell.m */; };
+		04F285A02659091F008FE9D8 /* IOSTongjiListTBCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F2859E2659091F008FE9D8 /* IOSTongjiListTBCell.xib */; };
 		1AD8EBDB5CC1A28AA398178E /* Pods_FindMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC4E9BB35F0D4E027BF64589 /* Pods_FindMe.framework */; };
 		F21D776A7CB74C620465ACF9 /* Pods_FindMeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB22CF116FE7F6FDEE9F0D0D /* Pods_FindMeTests.framework */; };
 		F517D952871CA4ABD50628C5 /* Pods_FindMe_FindMeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 390E52434A5D71E14DD3B330 /* Pods_FindMe_FindMeUITests.framework */; };
@@ -554,6 +558,13 @@
 		04B93E8A2654E0AB00DA647C /* IOSCaiGouChooseTBCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSCaiGouChooseTBCell.h; sourceTree = "<group>"; };
 		04B93E8B2654E0AB00DA647C /* IOSCaiGouChooseTBCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSCaiGouChooseTBCell.m; sourceTree = "<group>"; };
 		04B93E8C2654E0AB00DA647C /* IOSCaiGouChooseTBCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IOSCaiGouChooseTBCell.xib; sourceTree = "<group>"; };
+		04F2858A2658F549008FE9D8 /* IOSTongJiCaiGouVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSTongJiCaiGouVC.h; sourceTree = "<group>"; };
+		04F2858B2658F549008FE9D8 /* IOSTongJiCaiGouVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSTongJiCaiGouVC.m; sourceTree = "<group>"; };
+		04F285932658F917008FE9D8 /* IOSTongJiHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSTongJiHeaderView.h; sourceTree = "<group>"; };
+		04F285942658F917008FE9D8 /* IOSTongJiHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSTongJiHeaderView.m; sourceTree = "<group>"; };
+		04F2859C2659091F008FE9D8 /* IOSTongjiListTBCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSTongjiListTBCell.h; sourceTree = "<group>"; };
+		04F2859D2659091F008FE9D8 /* IOSTongjiListTBCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSTongjiListTBCell.m; sourceTree = "<group>"; };
+		04F2859E2659091F008FE9D8 /* IOSTongjiListTBCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IOSTongjiListTBCell.xib; sourceTree = "<group>"; };
 		2434BFD5DCF4A85BFBFE46FC /* Pods-FindMeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindMeTests.debug.xcconfig"; path = "Target Support Files/Pods-FindMeTests/Pods-FindMeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2FC86A3E124C77C0FCD6B206 /* Pods-FindMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindMe.release.xcconfig"; path = "Target Support Files/Pods-FindMe/Pods-FindMe.release.xcconfig"; sourceTree = "<group>"; };
 		332518A416204DE67FF69EEF /* Pods-FindMe-FindMeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindMe-FindMeUITests.debug.xcconfig"; path = "Target Support Files/Pods-FindMe-FindMeUITests/Pods-FindMe-FindMeUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1068,6 +1079,7 @@
 				04B93E3E2654AAFF00DA647C /* Other */,
 				04B93E422654AAFF00DA647C /* Wuzi */,
 				04B93E462654AAFF00DA647C /* CaiGou */,
+				04F285862658F4B3008FE9D8 /* TongJi */,
 				04B93E4E2654AAFF00DA647C /* IOSHome */,
 				04B93E862654BF4E00DA647C /* IOSHeader.h */,
 			);
@@ -1322,6 +1334,44 @@
 			path = YZDisplayViewController;
 			sourceTree = "<group>";
 		};
+		04F285862658F4B3008FE9D8 /* TongJi */ = {
+			isa = PBXGroup;
+			children = (
+				04F285872658F4B3008FE9D8 /* Controller */,
+				04F285882658F4B3008FE9D8 /* Model */,
+				04F285892658F4B3008FE9D8 /* View */,
+			);
+			path = TongJi;
+			sourceTree = "<group>";
+		};
+		04F285872658F4B3008FE9D8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				04F2858A2658F549008FE9D8 /* IOSTongJiCaiGouVC.h */,
+				04F2858B2658F549008FE9D8 /* IOSTongJiCaiGouVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		04F285882658F4B3008FE9D8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		04F285892658F4B3008FE9D8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				04F285932658F917008FE9D8 /* IOSTongJiHeaderView.h */,
+				04F285942658F917008FE9D8 /* IOSTongJiHeaderView.m */,
+				04F2859C2659091F008FE9D8 /* IOSTongjiListTBCell.h */,
+				04F2859D2659091F008FE9D8 /* IOSTongjiListTBCell.m */,
+				04F2859E2659091F008FE9D8 /* IOSTongjiListTBCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		5F4A8504C9ACA201F1A49D3D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1461,6 +1511,7 @@
 				04B93E1D2654A01100DA647C /* TittleDetailShowTableViewCell.xib in Resources */,
 				042DB9D726552B33008FBAEC /* IOSCaiGouChoTBCell.xib in Resources */,
 				04B93E212654A01100DA647C /* TittleContentTFVTableViewCell.xib in Resources */,
+				04F285A02659091F008FE9D8 /* IOSTongjiListTBCell.xib in Resources */,
 				04B93E242654A01100DA647C /* PhotoTitleCollectionViewCell.xib in Resources */,
 				042DBA43265746E7008FBAEC /* IOSInStoreListTBCell.xib in Resources */,
 				042DBAC02657C25D008FBAEC /* IOSPanDianHeaderTBCell.xib in Resources */,
@@ -1646,6 +1697,7 @@
 				04B93E102654A01100DA647C /* UITextField+IndexPath.m in Sources */,
 				04B93E1A2654A01100DA647C /* TittleSeleTableViewCell.m in Sources */,
 				04B93DA526549EBB00DA647C /* NSArray+YYAdd.m in Sources */,
+				04F2858C2658F549008FE9D8 /* IOSTongJiCaiGouVC.m in Sources */,
 				04B93D9526549EBB00DA647C /* NSObject+YYModel.m in Sources */,
 				042DBB122658D368008FBAEC /* IOSSunHaoDetailVC.m in Sources */,
 				04B93E092654A01100DA647C /* PlaceholderTextView.m in Sources */,
@@ -1719,6 +1771,7 @@
 				042DB9DD26552DBB008FBAEC /* IOSGodsHisDetailVC.m in Sources */,
 				04B93D9D26549EBB00DA647C /* UIScrollView+YYAdd.m in Sources */,
 				04B93DB026549EBB00DA647C /* NSObject+YYAddForKVO.m in Sources */,
+				04F285952658F917008FE9D8 /* IOSTongJiHeaderView.m in Sources */,
 				04B93E5B2654AB0000DA647C /* IOSCaiGouChooseVC.m in Sources */,
 				04B93E2D2654A01100DA647C /* TittlePhotoDetailTableViewCell.m in Sources */,
 				042DBAAD2657BD1D008FBAEC /* IOSOutStoreHisDetailVC.m in Sources */,
@@ -1771,6 +1824,7 @@
 				04B93E0F2654A01100DA647C /* UIView+Extension.m in Sources */,
 				04B93E2C2654A01100DA647C /* TittleContentTFVTableViewCell.m in Sources */,
 				04B93D9726549EBB00DA647C /* UITextField+YYAdd.m in Sources */,
+				04F2859F2659091F008FE9D8 /* IOSTongjiListTBCell.m in Sources */,
 				042DBA1F26565C08008FBAEC /* IOSGodsDetailHeaderView.m in Sources */,
 				04B93E5F2654AB0000DA647C /* EntersHomeHeaderCollectionReusableView.m in Sources */,
 				04B93E202654A01100DA647C /* AddPhotoCollectionViewCell.m in Sources */,
