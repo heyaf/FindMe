@@ -44,6 +44,7 @@
 }
 
 -(void)makeSureBtnClicked{
+   
 
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -65,7 +66,7 @@
     if (section==0) {
         return 0.01;
     }
-    return 40;
+    return 44;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 

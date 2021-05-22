@@ -23,6 +23,7 @@
 //物资
 #import "IOSLingYongListVC.h"
 #import "IOSHuiShouListVC.h"
+#import "IOSSunHaoListVC.h"
 
 
 @interface IOSEnterHomeVC ()<UICollectionViewDelegate, UICollectionViewDataSource>
@@ -350,7 +351,8 @@
                 break;
                 
             case 2: {//物资损耗单
-                
+                IOSSunHaoListVC *pushVC = [[IOSSunHaoListVC alloc] init];
+                [self.navigationController pushViewController:pushVC animated:YES];
             }
                 break;
             

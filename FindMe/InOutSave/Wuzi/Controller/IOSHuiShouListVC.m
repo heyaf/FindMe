@@ -8,6 +8,7 @@
 #import "IOSHuiShouListVC.h"
 #import "IOSInStoreListTBCell.h"
 #import "IOSHuiShouDetailVC.h"
+#import "IOSHuiShouAddVC.h"
 @interface IOSHuiShouListVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) NSMutableArray *headerButArr;
 @property (nonatomic,strong) UIView *cellHeaderView;
@@ -58,7 +59,8 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 -(void)addItem{
-    
+    IOSHuiShouAddVC *pushVC = [[IOSHuiShouAddVC alloc] init];
+    [self.navigationController pushViewController:pushVC animated:YES];
 }
 #pragma mark ---代理事件----
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

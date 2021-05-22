@@ -8,6 +8,7 @@
 #import "IOSLingYongListVC.h"
 #import "IOSInStoreListTBCell.h"
 #import "IOSLingYongDetailVC.h"
+#import "IOSYingYongAddVC.h"
 @interface IOSLingYongListVC ()<UITableViewDelegate,UITableViewDataSource>
 
 @end
@@ -56,7 +57,8 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 -(void)addItem{
-    
+    IOSYingYongAddVC *pushVC = [[IOSYingYongAddVC alloc] init];
+    [self.navigationController pushViewController:pushVC animated:YES];
 }
 #pragma mark ---代理事件----
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

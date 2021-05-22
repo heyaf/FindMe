@@ -17,6 +17,9 @@
 
 @property (nonatomic,strong) UITextField *textField;
 
+@property (nonatomic,strong) UITextView *textView;
+
+
 @property (nonatomic,strong) CYCustomArcImageView *bgView;
 
 @end
@@ -113,6 +116,8 @@
         [self creatChooseAlertView];
     }else if(self.alertType == IOSMesAlertTypeTF){
         [self creatTFAlertView];
+    }else if(self.alertType == IOSMesAlertTypeTV){
+        [self creatTVAlertView];
     }
 }
 //提示Alert子视图
@@ -222,6 +227,61 @@
     [btnTwoBgView addSubview:self.btnTwo];
     
 }
+//输入TextView子视图
+-(void)creatTVAlertView{
+    self.titLabel.frame = CGRectMake(10, 20, KDeviceWith-180, 20);
+    
+    
+    UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(20, 60, self.bgView.yz_width-40, self.bgView.yz_height-20-60-60-20)];
+    [textView setBackgroundColor:[UIColor greenColor]];
+    [self.bgView addSubview:textView];
+
+    // _placeholderLabel
+    UILabel *placeHolderLabel = [[UILabel alloc] init];
+    placeHolderLabel.text = @"请输入备注...";
+    placeHolderLabel.numberOfLines = 0;
+    placeHolderLabel.textColor = [UIColor lightGrayColor];
+    [placeHolderLabel sizeToFit];
+    [textView addSubview:placeHolderLabel];//这句很重要不要忘了
+
+    // same font
+    textView.font = [UIFont systemFontOfSize:13.f];
+    placeHolderLabel.font = [UIFont systemFontOfSize:13.f];
+
+    [textView setValue:placeHolderLabel forKey:@"_placeholderLabel"];
+    self.textView = textView;
+    
+    CGFloat btnW = (_bgView.yz_width-60)/2;
+    
+    
+    CYCustomArcImageView *btnBgView = [[CYCustomArcImageView alloc] initWithFrame:CGRectMake(20, self.bgView.yz_height-20-60, btnW, 50)];
+    btnBgView.borderTopLeftRadius = 10;
+    btnBgView.borderTopRightRadius = 20;
+    btnBgView.borderBottomLeftRadius = 10;
+    btnBgView.borderBottomRightRadius = 10;
+    btnBgView.backgroundColor = [UIColor whiteColor];
+    [self.bgView addSubview:btnBgView];
+    
+    UIButton *cancleBtn = [UIButton buttonWithType:0];
+    [cancleBtn setBackgroundColor:IOSCancleBtnColor];
+    [cancleBtn setTitle:self.cancleBtnName forState:0];
+    cancleBtn.titleLabel.font = kBOLDFONT(17);
+    [cancleBtn setTitleColor:IOSMainColor forState:0];
+    [cancleBtn addTarget:self action:@selector(oneBtnClicked) forControlEvents:UIControlEventTouchUpInside];
+    cancleBtn.frame = CGRectMake(0, 0, btnBgView.yz_width, btnBgView.yz_height);
+    [btnBgView addSubview:cancleBtn];
+    
+    CYCustomArcImageView *btnTwoBgView = [[CYCustomArcImageView alloc] initWithFrame:CGRectMake(_bgView.yz_width/2+10, self.bgView.yz_height-20-60, btnW, 50)];
+    btnTwoBgView.borderTopLeftRadius = 10;
+    btnTwoBgView.borderTopRightRadius = 20;
+    btnTwoBgView.borderBottomLeftRadius = 10;
+    btnTwoBgView.borderBottomRightRadius = 10;
+    btnTwoBgView.backgroundColor = [UIColor whiteColor];
+    [self.bgView addSubview:btnTwoBgView];
+    
+    self.btnTwo.frame = CGRectMake(0, 0, btnTwoBgView.yz_width, btnTwoBgView.yz_height);
+    [btnTwoBgView addSubview:self.btnTwo];
+}
 //取消按钮点击事件
 -(void)oneBtnClicked{
     [self dismiss];
@@ -229,9 +289,16 @@
 //确定按钮点击时间
 -(void)sureBtnClicked{
     [self dismiss];
-    if ([self.delegate respondsToSelector:@selector(makeSureBtnClickWithinputStr:)]) {
-        [self.delegate makeSureBtnClickWithinputStr:self.textField.text];
-            }
+    if (self.alertType ==IOSMesAlertTypeTF) {
+        if ([self.delegate respondsToSelector:@selector(makeSureBtnClickWithinputStr:)]) {
+            [self.delegate makeSureBtnClickWithinputStr:self.textField.text];
+                }
+    }else if (self.alertType == IOSMesAlertTypeTV){
+        if ([self.delegate respondsToSelector:@selector(makeSureBtnClickWithinputStr:)]) {
+            [self.delegate makeSureBtnClickWithinputStr:self.textView.text];
+                }
+    }
+
 }
 
 

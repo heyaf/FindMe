@@ -34,17 +34,17 @@
         IOSEnterHomeVC *pushVC = [[IOSEnterHomeVC alloc] init];
         [self.navigationController pushViewController:pushVC animated:YES];
     
-//    //有范围
-//        NSString * helloStr = @"hello word";
-//        NSMutableAttributedString * mString = [[NSMutableAttributedString alloc] initWithString: helloStr];
-//        
-//        //方式1
-//        NSDictionary * dic = @{NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:20],NSForegroundColorAttributeName:[UIColor redColor],};
-//        [mString addAttributes:dic range:NSMakeRange(0, 3)];
-//      
-//
-//    IOSMessageAlertView *alertView = [[IOSMessageAlertView alloc] initWithFrame:CGRectMake(0, 0, KDeviceWith, KDeviceHeight) type:IOSMesAlertTypeTF titleStr:mString cancleBtnName:@"取消" sureBtnName:@"确定" DetailBtnName:@"好的，知道了"];
-//    [alertView show];
+    //有范围
+        NSString * helloStr = @"hello word";
+        NSMutableAttributedString * mString = [[NSMutableAttributedString alloc] initWithString: helloStr];
+        
+        //方式1
+        NSDictionary * dic = @{NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:20],NSForegroundColorAttributeName:[UIColor redColor],};
+        [mString addAttributes:dic range:NSMakeRange(0, 3)];
+      
+
+    IOSMessageAlertView *alertView = [[IOSMessageAlertView alloc] initWithFrame:CGRectMake(0, 0, KDeviceWith, KDeviceHeight) type:IOSMesAlertTypeTV titleStr:mString cancleBtnName:@"取消" sureBtnName:@"确定" DetailBtnName:@"好的，知道了"];
+    [alertView show];
 
 }
 

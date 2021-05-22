@@ -12,7 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 typedef enum _IOSMesAlertType {
     IOSMesAlertTypeMessage,
     IOSMesAlertTypeChoose,
-    IOSMesAlertTypeTF
+    IOSMesAlertTypeTF,
+    IOSMesAlertTypeTV
 } IOSMesAlertType;
 
 /**

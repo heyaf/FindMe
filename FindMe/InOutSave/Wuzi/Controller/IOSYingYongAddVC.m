@@ -1,13 +1,11 @@
 //
-//  IOSCaiGouChooseVC.m
-//  BatDog
+//  IOSYingYongAddVC.m
+//  FindMe
 //
-//  Created by mac on 2021/5/18.
-//  Copyright © 2021 郑州聚义. All rights reserved.
+//  Created by mac on 2021/5/22.
 //
 
-#import "IOSCaiGouChooseVC.h"
-#import "UIView+Frame.h"
+#import "IOSYingYongAddVC.h"
 #import "IOSCaiGouChoTBCell.h"
 #import "IOSCaiGouChooM.h"
 #import "BRPickerView.h"
@@ -15,7 +13,7 @@
 #import "IOSChooseGoodsViewController.h"
 #import "IOSGodsDetailTBCell.h"
 #import "IOSGodsHistoryListVC.h"
-@interface IOSCaiGouChooseVC ()<UITableViewDelegate,UITableViewDataSource>
+@interface IOSYingYongAddVC ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) NSMutableArray *dataArr;
 @property (nonatomic,strong) NSArray *NameArr;
@@ -24,9 +22,11 @@
 
 @property (nonatomic,strong) NSMutableArray *headerButArr;
 @property (nonatomic,strong) UIView *cellHeaderView;
+
 @end
 
-@implementation IOSCaiGouChooseVC
+@implementation IOSYingYongAddVC
+
 -(NSMutableArray *)dataArr{
     if (!_dataArr) {
         _dataArr = [NSMutableArray array];
@@ -60,8 +60,8 @@
     [self CreatMainUI];
 }
 -(void)initialData{
-    self.NameArr =@[@"采购人",@"采购时间",@"采购商品"];
-    self.holderArr = @[@"请选择采购人员",@"请选择采购时间",@"请选择采购商品"];
+    self.NameArr =@[@"领取人",@"领取时间",@"领取商品"];
+    self.holderArr = @[@"请选择领取人员",@"请选择领取时间",@"请选择领取商品"];
     for (int i=0; i<self.NameArr.count; i++) {
         IOSCaiGouChooM *chooseM = [[IOSCaiGouChooM alloc] init];
         chooseM.name = self.NameArr[i];
@@ -181,7 +181,7 @@
 
     backButton.titleLabel.font = FONT(18);
     backButton.frame = CGRectMake(0, 0, 60,35);
-    [backButton setTitle:@"采购" forState:0];
+    [backButton setTitle:@"物资领取" forState:0];
     [backButton setTitleColor:[UIColor blackColor] forState:0];
 
     [backButton addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
@@ -374,11 +374,11 @@
 }
 //采购历史
 -(void)goCaigouHistory{
-    MyLog(@"采购历史");
-    IOSGodsHistoryListVC *pushVC = [[IOSGodsHistoryListVC alloc] init];
-    [self.navigationController pushViewController:pushVC animated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
+
 }
 -(void)makeSureBtnClicked{
 
 }
+
 @end

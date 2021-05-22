@@ -1,50 +1,42 @@
 //
-//  IOSPanDianHisDetailVC.m
+//  IOSSunHaoDetailVC.m
 //  FindMe
 //
 //  Created by mac on 2021/5/22.
 //
 
-#import "IOSPanDianHisDetailVC.h"
+#import "IOSSunHaoDetailVC.h"
 #import "IOSGodsDetailTBCell.h"
 #import "IOSCaiGouHeaderTBCell.h"
-@interface IOSPanDianHisDetailVC ()<UITableViewDelegate,UITableViewDataSource>
-
-@property (nonatomic,strong) NSMutableArray *headerButArr;
-@property (nonatomic,strong) UIView *cellHeaderView;
+@interface IOSSunHaoDetailVC ()<UITableViewDelegate,UITableViewDataSource>
 
 @end
 
-@implementation IOSPanDianHisDetailVC
+@implementation IOSSunHaoDetailVC
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
     [self CreatMainUI];
 }
--(NSMutableArray *)headerButArr{
-    if (!_headerButArr) {
-        _headerButArr = [NSMutableArray array];
-    }
-    return _headerButArr;
-}
+
 //主视图
 -(void)CreatMainUI{
     
-    self.tabelView.yz_height = KDeviceHeight-KEVNScreenTopStatusNaviHeight-KEVNScreenTabBarSafeBottomMargin-80;
+
+        self.tabelView.yz_height = KDeviceHeight-KEVNScreenTopStatusNaviHeight-KEVNScreenTabBarSafeBottomMargin-80;
+        [self creatBottomView];
     self.tabelView.delegate = self;
     self.tabelView.dataSource = self;
     self.tabelView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     [self.tabelView registerNib:[UINib nibWithNibName:@"IOSGodsDetailTBCell" bundle:nil] forCellReuseIdentifier:@"IOSGodsDetailTBCell"];
     [self.tabelView registerNib:[UINib nibWithNibName:@"IOSCaiGouHeaderTBCell" bundle:nil] forCellReuseIdentifier:@"IOSCaiGouHeaderTBCell"];
-    [self setNavBackStr:@"盘点单"];
-    [self creatBottomView];
+    [self setNavBackStr:@"物资损耗单"];
 
     
 }
 -(void)creatBottomView{
-
     UIView *bottomView = [[UIView alloc]  initWithFrame:CGRectMake(0, KDeviceHeight-80-KEVNScreenTabBarSafeBottomMargin, KDeviceWith, 80+KEVNScreenTabBarSafeBottomMargin)];
     bottomView.backgroundColor = [UIColor whiteColor];
 
@@ -65,12 +57,15 @@
     
     UILabel *label2 = [bgView createLabelFrame:CGRectMake(bgView.yz_width-150, 20, 135, 20) textColor:IOSMainColor font:FONT_ITALIC_SIZE(16)];
     label2.text = @"￥123233.00";
-    
-    
 
 }
 -(void)makeSureBtnClicked{
 
+    NSString *titleStr = @"回收成功";
+    NSMutableAttributedString *attriStr = [[NSMutableAttributedString alloc] initWithString:titleStr];
+    [attriStr addAttributes: @{NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:18],NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(0, 4)];
+    IOSMessageAlertView *slertView = [[IOSMessageAlertView alloc] initWithFrame:CGRectMake(0, 0, KDeviceWith, KDeviceHeight) type:IOSMesAlertTypeMessage titleStr:attriStr cancleBtnName:@"" sureBtnName:@"好的,我知道了" DetailBtnName:@"可以在”物质回收-已回收“中查看"];
+    [slertView show];
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 2;
@@ -87,12 +82,7 @@
     }
     return 130;
 }
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    if (section==0) {
-        return 0.01;
-    }
-    return 44;
-}
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 
     if (indexPath.section==0) {
@@ -105,56 +95,7 @@
 
     return cell;
 }
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    if (section==0) {
-        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 0.001)];
-        return view;
-    }
-    UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KDeviceWith, 44)];
-    [headView addSubview:self.cellHeaderView];
-    return headView;
-}
--(UIView *)cellHeaderView{
-    if (!_cellHeaderView) {
-        _cellHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KDeviceWith, 44)];
-        _cellHeaderView.backgroundColor = RGBA(245, 245, 245, 245);
-        [self addHeaderSubViews];
-    }
-    return _cellHeaderView;
-}
--(void)addHeaderSubViews{
-    NSArray *titleArr = @[@"全部",@"可回收",@"不可回收"];
-    for (int i =0; i<titleArr.count; i++) {
-        UIButton *but = [UIButton buttonWithType:0];
-        but.frame = CGRectMake(KDeviceWith/3*i, 0, KDeviceWith/3, 44);
-        [but setTitle:titleArr[i] forState:0];
-        [but setTitleColor:IOSTitleColor forState:0];
-        [but setBackgroundImage:[UIImage imageWithColor:RGBA(245, 245, 245, 1) size:CGSizeMake(KDeviceWith/3, 44)] forState:0];
-        but.titleLabel.font = kFONT(16);
-        if (i==0) {
-            [but setBackgroundImage:ImageNamed(@"ioscaigouHeaderBG") forState:0];
-            [but setTitleColor:[UIColor blackColor] forState:0];
-            but.titleLabel.font = FONT(18);
-        }
-        
-        but.tag = 521+i;
-        [but addTarget:self action:@selector(buttonClikced:) forControlEvents:UIControlEventTouchUpInside];
-         
-        [self.headerButArr addObject:but];
-        [self.cellHeaderView addSubview:but];
-        
-    }
-}
--(void)buttonClikced:(UIButton *)button{
-    for (UIButton *but in self.headerButArr) {
-        [but setTitleColor:IOSTitleColor forState:0];
-        [but setBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor] size:CGSizeMake(KDeviceWith/3, 44)] forState:0];
-        but.titleLabel.font = kFONT(16);
-    }
-    [button setBackgroundImage:ImageNamed(@"ioscaigouHeaderBG") forState:0];
-    [button setTitleColor:[UIColor blackColor] forState:0];
-    button.titleLabel.font = FONT(18);
-}
+
 //设置导航栏
 -(void)setNavBackStr:(NSString *)backTitle{
     UIButton* backButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -176,5 +117,6 @@
 -(void)backAction{
     [self.navigationController popViewControllerAnimated:YES];
 }
+
 
 @end
