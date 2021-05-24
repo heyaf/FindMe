@@ -27,6 +27,9 @@
 
 //统计
 #import "IOSTongJiCaiGouVC.h"
+#import "IOSTongjiInStoreVC.h"
+#import "IOSTongJiOutStoreVC.h"
+#import "IOSTongJiYingKuiVC.h"
 
 @interface IOSEnterHomeVC ()<UICollectionViewDelegate, UICollectionViewDataSource>
 @property (nonatomic, strong) NSMutableArray *dataSource;//区头
@@ -374,15 +377,19 @@
             }
                 break;
             case 1: {//入库明细
-               
+                IOSTongjiInStoreVC *pushVC = [[IOSTongjiInStoreVC alloc] init];
+                [self.navigationController pushViewController:pushVC animated:YES];
             }
                 break;
                 
             case 2: {//出库明细
-                
+                IOSTongJiOutStoreVC *pushVC = [[IOSTongJiOutStoreVC alloc] init];
+                [self.navigationController pushViewController:pushVC animated:YES];
             }
                 break;
             case 3: {//盈亏明细
+                IOSTongJiYingKuiVC *pushVC = [[IOSTongJiYingKuiVC alloc] init];
+                [self.navigationController pushViewController:pushVC animated:YES];
             }
                 break;
             default:

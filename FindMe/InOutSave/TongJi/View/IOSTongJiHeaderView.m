@@ -40,8 +40,9 @@
     }
     CGFloat w =(self.yz_width-20)/titleArr.count;
     for (int i =0; i<titleArr.count; i++) {
-        UILabel *titleLabel = [self createLabelFrame:CGRectMake(10+i*w, self.yz_width-15-17, w, 17) textColor:[UIColor whiteColor] font:kFONT(14)];
+        UILabel *titleLabel = [self createLabelFrame:CGRectMake(10+i*w, self.yz_height-15-17-12, w, 17) textColor:[UIColor whiteColor] font:kFONT(14)];
         titleLabel.text = titleArr[i];
+        titleLabel.textAlignment = NSTextAlignmentCenter;
         titleLabel.tag = 888+i;
     }
 }
@@ -54,11 +55,13 @@
     }
     CGFloat w =(self.yz_width-20)/titleNumArray.count;
     for (int i =0; i<titleNumArray.count; i++) {
-        UILabel *titleLabel = [self createLabelFrame:CGRectMake(10+i*w, 15, w, 17) textColor:[UIColor whiteColor] font:kBOLDFONT(16)];
+        UILabel *titleLabel = [self createLabelFrame:CGRectMake(10+i*w, 28, w, 17) textColor:[UIColor whiteColor] font:kBOLDFONT(16)];
         titleLabel.text = titleNumArray[i];
         if (i==(titleNumArray.count-1) ) {
             self.lastLabel = titleLabel;
         }
+        titleLabel.textAlignment = NSTextAlignmentCenter;
+
         titleLabel.tag = 900+i;
     }
 }

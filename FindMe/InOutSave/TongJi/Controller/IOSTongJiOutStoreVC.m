@@ -1,20 +1,21 @@
 //
-//  IOSTongJiCaiGouVC.m
+//  IOSTongJiOutStoreVC.m
 //  FindMe
 //
-//  Created by mac on 2021/5/22.
+//  Created by mac on 2021/5/24.
 //
 
-#import "IOSTongJiCaiGouVC.h"
+
+#import "IOSTongJiOutStoreVC.h"
 #import "IOSTongjiListTBCell.h"
 #import "IOSTongjiMainHView.h"
-@interface IOSTongJiCaiGouVC ()<UITableViewDelegate,UITableViewDataSource>
+@interface IOSTongJiOutStoreVC ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) NSMutableArray *cellSelectArr;
 @property (nonatomic,strong) IOSTongjiMainHView *mainHview;
 @end
 
-@implementation IOSTongJiCaiGouVC
+@implementation IOSTongJiOutStoreVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,7 +32,7 @@
     [backButton setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
     backButton.titleLabel.font = FONT(18);
     backButton.frame = CGRectMake(0, 0, 60,35);
-    [backButton setTitle:@"采购明细" forState:0];
+    [backButton setTitle:@"出库明细" forState:0];
     [backButton setTitleColor:[UIColor blackColor] forState:0];
     [backButton addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
 
@@ -103,9 +104,9 @@
 -(IOSTongjiMainHView *)mainHview{
     if (!_mainHview) {
         _mainHview = [[IOSTongjiMainHView alloc] initWithFrame:CGRectMake(0, 0, KDeviceWith, 44+100)];
-        _mainHview.titleArr= @[@"采购笔数",@"采购单品数",@"采购金额（元）"];
+        _mainHview.titleArr= @[@"出库笔数",@"出库单品数",@"出库金额（元）"];
         _mainHview.titleNumArray = @[@"50",@"3",@"12333"];
-        _mainHview.titleStr = @"采购明细";
+        _mainHview.titleStr = @"出库明细";
     }
     return _mainHview;
 }

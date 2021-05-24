@@ -27,5 +27,5 @@
 @property (nonatomic,copy) NSString  *depCount,*depName,*zongjingbanid,*gongsiid,*managerOffice,*companyPid;
 @property (nonatomic,assign) BOOL iszonggongsi;
 @property (nonatomic,assign) CGFloat statueId;
-
+@property (nonatomic,assign) CGSize size;
 @end

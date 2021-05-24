@@ -24,8 +24,6 @@
 		042DB9D626552B33008FBAEC /* IOSCaiGouChoTBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 042DB9D426552B32008FBAEC /* IOSCaiGouChoTBCell.m */; };
 		042DB9D726552B33008FBAEC /* IOSCaiGouChoTBCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042DB9D526552B33008FBAEC /* IOSCaiGouChoTBCell.xib */; };
 		042DB9DD26552DBB008FBAEC /* IOSGodsHisDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 042DB9DC26552DBB008FBAEC /* IOSGodsHisDetailVC.m */; };
-		042DB9FE26560751008FBAEC /* CYCustomArcImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042DB9FA26560751008FBAEC /* CYCustomArcImageView.m */; };
-		042DB9FF26560751008FBAEC /* CYAnyCornerRadiusUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 042DB9FB26560751008FBAEC /* CYAnyCornerRadiusUtil.m */; };
 		042DBA0926563A2F008FBAEC /* IOSGodsHisTBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 042DBA0726563A2F008FBAEC /* IOSGodsHisTBCell.m */; };
 		042DBA0A26563A2F008FBAEC /* IOSGodsHisTBCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042DBA0826563A2F008FBAEC /* IOSGodsHisTBCell.xib */; };
 		042DBA10265640DA008FBAEC /* IOSGodsHisModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 042DBA0F265640DA008FBAEC /* IOSGodsHisModel.m */; };
@@ -39,8 +37,6 @@
 		042DBA43265746E7008FBAEC /* IOSInStoreListTBCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042DBA41265746E7008FBAEC /* IOSInStoreListTBCell.xib */; };
 		042DBA4926575039008FBAEC /* IOSPandianListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 042DBA4826575039008FBAEC /* IOSPandianListVC.m */; };
 		042DBA4F2657505F008FBAEC /* IOSPanDianHisVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 042DBA4E2657505F008FBAEC /* IOSPanDianHisVC.m */; };
-		042DBA5C26575BA0008FBAEC /* IOSMessageAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042DBA5A26575BA0008FBAEC /* IOSMessageAlertView.m */; };
-		042DBA962657863F008FBAEC /* UIImage+ColorImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 042DBA952657863F008FBAEC /* UIImage+ColorImage.m */; };
 		042DBAA02657A9F1008FBAEC /* IOSCaiGouHeaderTBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 042DBA9E2657A9F1008FBAEC /* IOSCaiGouHeaderTBCell.m */; };
 		042DBAA12657A9F1008FBAEC /* IOSCaiGouHeaderTBCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042DBA9F2657A9F1008FBAEC /* IOSCaiGouHeaderTBCell.xib */; };
 		042DBAA72657BABC008FBAEC /* IOSInStoreHisDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 042DBAA62657BABC008FBAEC /* IOSInStoreHisDetailVC.m */; };
@@ -85,6 +81,21 @@
 		0447ECDE2653A9700012D72C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0447ECDD2653A96F0012D72C /* SystemConfiguration.framework */; };
 		0447ECE02653A9840012D72C /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0447ECDF2653A9840012D72C /* ExternalAccessory.framework */; };
 		0447ECE42653AAC40012D72C /* libc++.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0447ECE32653AAC40012D72C /* libc++.1.tbd */; };
+		0479A60F265B776D00FD966F /* IOSTongjiInStoreVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0479A60E265B776D00FD966F /* IOSTongjiInStoreVC.m */; };
+		0479A612265B779400FD966F /* IOSTongJiOutStoreVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0479A611265B779400FD966F /* IOSTongJiOutStoreVC.m */; };
+		0479A615265B77D500FD966F /* IOSTongJiYingKuiVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0479A614265B77D500FD966F /* IOSTongJiYingKuiVC.m */; };
+		0479A619265B79DB00FD966F /* IOSTongjiYingKuiTBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0479A617265B79DB00FD966F /* IOSTongjiYingKuiTBCell.m */; };
+		0479A61A265B79DB00FD966F /* IOSTongjiYingKuiTBCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0479A618265B79DB00FD966F /* IOSTongjiYingKuiTBCell.xib */; };
+		0479A625265B85C800FD966F /* CYCustomArcImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0479A61D265B85C800FD966F /* CYCustomArcImageView.m */; };
+		0479A626265B85C800FD966F /* IOSMessageAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0479A61E265B85C800FD966F /* IOSMessageAlertView.m */; };
+		0479A627265B85C800FD966F /* UIImage+ColorImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0479A61F265B85C800FD966F /* UIImage+ColorImage.m */; };
+		0479A628265B85C800FD966F /* CYAnyCornerRadiusUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 0479A620265B85C800FD966F /* CYAnyCornerRadiusUtil.m */; };
+		0479A62B265B861600FD966F /* IOSGodsManagerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0479A62A265B861600FD966F /* IOSGodsManagerVC.m */; };
+		04887365265B3E9000709115 /* EqualSpaceFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 04887361265B3E8F00709115 /* EqualSpaceFlowLayout.m */; };
+		04887366265B3E9000709115 /* ZhuLiuchengJiankongViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04887363265B3E8F00709115 /* ZhuLiuchengJiankongViewController.m */; };
+		04887369265B3EFF00709115 /* QuxianLabelCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04887367265B3EFF00709115 /* QuxianLabelCollectionViewCell.m */; };
+		0488736C265B3F4400709115 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0488736B265B3F4400709115 /* NSString+Extension.m */; };
+		0488736F265B4C1900709115 /* IOSTongjiMainHView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0488736E265B4C1900709115 /* IOSTongjiMainHView.m */; };
 		04B93D2926549DA500DA647C /* MyTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B93D2826549DA500DA647C /* MyTabBarViewController.m */; };
 		04B93D8D26549EBB00DA647C /* BRStringPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B93D2E26549EBB00DA647C /* BRStringPickerView.m */; };
 		04B93D8E26549EBB00DA647C /* BRTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B93D3126549EBB00DA647C /* BRTextField.m */; };
@@ -252,10 +263,6 @@
 		042DB9D526552B33008FBAEC /* IOSCaiGouChoTBCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IOSCaiGouChoTBCell.xib; sourceTree = "<group>"; };
 		042DB9DB26552DBB008FBAEC /* IOSGodsHisDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSGodsHisDetailVC.h; sourceTree = "<group>"; };
 		042DB9DC26552DBB008FBAEC /* IOSGodsHisDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSGodsHisDetailVC.m; sourceTree = "<group>"; };
-		042DB9FA26560751008FBAEC /* CYCustomArcImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYCustomArcImageView.m; sourceTree = "<group>"; };
-		042DB9FB26560751008FBAEC /* CYAnyCornerRadiusUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYAnyCornerRadiusUtil.m; sourceTree = "<group>"; };
-		042DB9FC26560751008FBAEC /* CYCustomArcImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYCustomArcImageView.h; sourceTree = "<group>"; };
-		042DB9FD26560751008FBAEC /* CYAnyCornerRadiusUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYAnyCornerRadiusUtil.h; sourceTree = "<group>"; };
 		042DBA0626563A2F008FBAEC /* IOSGodsHisTBCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSGodsHisTBCell.h; sourceTree = "<group>"; };
 		042DBA0726563A2F008FBAEC /* IOSGodsHisTBCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSGodsHisTBCell.m; sourceTree = "<group>"; };
 		042DBA0826563A2F008FBAEC /* IOSGodsHisTBCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IOSGodsHisTBCell.xib; sourceTree = "<group>"; };
@@ -278,10 +285,6 @@
 		042DBA4826575039008FBAEC /* IOSPandianListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSPandianListVC.m; sourceTree = "<group>"; };
 		042DBA4D2657505F008FBAEC /* IOSPanDianHisVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSPanDianHisVC.h; sourceTree = "<group>"; };
 		042DBA4E2657505F008FBAEC /* IOSPanDianHisVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSPanDianHisVC.m; sourceTree = "<group>"; };
-		042DBA5A26575BA0008FBAEC /* IOSMessageAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IOSMessageAlertView.m; sourceTree = "<group>"; };
-		042DBA5B26575BA0008FBAEC /* IOSMessageAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOSMessageAlertView.h; sourceTree = "<group>"; };
-		042DBA942657863F008FBAEC /* UIImage+ColorImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+ColorImage.h"; sourceTree = "<group>"; };
-		042DBA952657863F008FBAEC /* UIImage+ColorImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ColorImage.m"; sourceTree = "<group>"; };
 		042DBA9D2657A9F1008FBAEC /* IOSCaiGouHeaderTBCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSCaiGouHeaderTBCell.h; sourceTree = "<group>"; };
 		042DBA9E2657A9F1008FBAEC /* IOSCaiGouHeaderTBCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSCaiGouHeaderTBCell.m; sourceTree = "<group>"; };
 		042DBA9F2657A9F1008FBAEC /* IOSCaiGouHeaderTBCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IOSCaiGouHeaderTBCell.xib; sourceTree = "<group>"; };
@@ -357,6 +360,35 @@
 		0447ECDF2653A9840012D72C /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		0447ECE12653AA8E0012D72C /* The Unarchiver.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; name = "The Unarchiver.app"; path = "../../../../Applications/The Unarchiver.app"; sourceTree = "<group>"; };
 		0447ECE32653AAC40012D72C /* libc++.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.1.tbd"; path = "FindMe/Others/libc++.1.tbd"; sourceTree = "<group>"; };
+		0479A60D265B776D00FD966F /* IOSTongjiInStoreVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSTongjiInStoreVC.h; sourceTree = "<group>"; };
+		0479A60E265B776D00FD966F /* IOSTongjiInStoreVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSTongjiInStoreVC.m; sourceTree = "<group>"; };
+		0479A610265B779400FD966F /* IOSTongJiOutStoreVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSTongJiOutStoreVC.h; sourceTree = "<group>"; };
+		0479A611265B779400FD966F /* IOSTongJiOutStoreVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSTongJiOutStoreVC.m; sourceTree = "<group>"; };
+		0479A613265B77D500FD966F /* IOSTongJiYingKuiVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSTongJiYingKuiVC.h; sourceTree = "<group>"; };
+		0479A614265B77D500FD966F /* IOSTongJiYingKuiVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSTongJiYingKuiVC.m; sourceTree = "<group>"; };
+		0479A616265B79DB00FD966F /* IOSTongjiYingKuiTBCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSTongjiYingKuiTBCell.h; sourceTree = "<group>"; };
+		0479A617265B79DB00FD966F /* IOSTongjiYingKuiTBCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSTongjiYingKuiTBCell.m; sourceTree = "<group>"; };
+		0479A618265B79DB00FD966F /* IOSTongjiYingKuiTBCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IOSTongjiYingKuiTBCell.xib; sourceTree = "<group>"; };
+		0479A61D265B85C800FD966F /* CYCustomArcImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYCustomArcImageView.m; sourceTree = "<group>"; };
+		0479A61E265B85C800FD966F /* IOSMessageAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IOSMessageAlertView.m; sourceTree = "<group>"; };
+		0479A61F265B85C800FD966F /* UIImage+ColorImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ColorImage.m"; sourceTree = "<group>"; };
+		0479A620265B85C800FD966F /* CYAnyCornerRadiusUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYAnyCornerRadiusUtil.m; sourceTree = "<group>"; };
+		0479A621265B85C800FD966F /* CYCustomArcImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYCustomArcImageView.h; sourceTree = "<group>"; };
+		0479A622265B85C800FD966F /* IOSMessageAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOSMessageAlertView.h; sourceTree = "<group>"; };
+		0479A623265B85C800FD966F /* CYAnyCornerRadiusUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYAnyCornerRadiusUtil.h; sourceTree = "<group>"; };
+		0479A624265B85C800FD966F /* UIImage+ColorImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ColorImage.h"; sourceTree = "<group>"; };
+		0479A629265B861600FD966F /* IOSGodsManagerVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSGodsManagerVC.h; sourceTree = "<group>"; };
+		0479A62A265B861600FD966F /* IOSGodsManagerVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSGodsManagerVC.m; sourceTree = "<group>"; };
+		04887361265B3E8F00709115 /* EqualSpaceFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EqualSpaceFlowLayout.m; sourceTree = "<group>"; };
+		04887362265B3E8F00709115 /* ZhuLiuchengJiankongViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZhuLiuchengJiankongViewController.h; sourceTree = "<group>"; };
+		04887363265B3E8F00709115 /* ZhuLiuchengJiankongViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZhuLiuchengJiankongViewController.m; sourceTree = "<group>"; };
+		04887364265B3E8F00709115 /* EqualSpaceFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EqualSpaceFlowLayout.h; sourceTree = "<group>"; };
+		04887367265B3EFF00709115 /* QuxianLabelCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuxianLabelCollectionViewCell.m; sourceTree = "<group>"; };
+		04887368265B3EFF00709115 /* QuxianLabelCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuxianLabelCollectionViewCell.h; sourceTree = "<group>"; };
+		0488736A265B3F4400709115 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
+		0488736B265B3F4400709115 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
+		0488736D265B4C1900709115 /* IOSTongjiMainHView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSTongjiMainHView.h; sourceTree = "<group>"; };
+		0488736E265B4C1900709115 /* IOSTongjiMainHView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSTongjiMainHView.m; sourceTree = "<group>"; };
 		04B93D2726549DA500DA647C /* MyTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTabBarViewController.h; sourceTree = "<group>"; };
 		04B93D2826549DA500DA647C /* MyTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTabBarViewController.m; sourceTree = "<group>"; };
 		04B93D2D26549EBB00DA647C /* BRStringPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRStringPickerView.h; sourceTree = "<group>"; };
@@ -658,18 +690,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		042DB9F926560751008FBAEC /* IOSTools */ = {
-			isa = PBXGroup;
-			children = (
-				042DB9FD26560751008FBAEC /* CYAnyCornerRadiusUtil.h */,
-				042DB9FB26560751008FBAEC /* CYAnyCornerRadiusUtil.m */,
-				042DB9FC26560751008FBAEC /* CYCustomArcImageView.h */,
-				042DB9FA26560751008FBAEC /* CYCustomArcImageView.m */,
-			);
-			name = IOSTools;
-			path = FindMe/InOutSave/Other/IOSTools;
-			sourceTree = SOURCE_ROOT;
-		};
 		042DBAB22657C17E008FBAEC /* KuCunPanDian */ = {
 			isa = PBXGroup;
 			children = (
@@ -708,6 +728,7 @@
 		0447D5E22653A34A0012D72C /* FindMe */ = {
 			isa = PBXGroup;
 			children = (
+				04887360265B3E8F00709115 /* testVC */,
 				04B93E392654AAFF00DA647C /* InOutSave */,
 				04B93DB52654A01000DA647C /* MyBaseClass */,
 				04B93E062654A01100DA647C /* PhotoChoseShowViewController.h */,
@@ -780,6 +801,44 @@
 				CB22CF116FE7F6FDEE9F0D0D /* Pods_FindMeTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0479A61B265B85C800FD966F /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				0479A61C265B85C800FD966F /* IOSTools */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		0479A61C265B85C800FD966F /* IOSTools */ = {
+			isa = PBXGroup;
+			children = (
+				0479A61D265B85C800FD966F /* CYCustomArcImageView.m */,
+				0479A61E265B85C800FD966F /* IOSMessageAlertView.m */,
+				0479A61F265B85C800FD966F /* UIImage+ColorImage.m */,
+				0479A620265B85C800FD966F /* CYAnyCornerRadiusUtil.m */,
+				0479A621265B85C800FD966F /* CYCustomArcImageView.h */,
+				0479A622265B85C800FD966F /* IOSMessageAlertView.h */,
+				0479A623265B85C800FD966F /* CYAnyCornerRadiusUtil.h */,
+				0479A624265B85C800FD966F /* UIImage+ColorImage.h */,
+			);
+			path = IOSTools;
+			sourceTree = "<group>";
+		};
+		04887360265B3E8F00709115 /* testVC */ = {
+			isa = PBXGroup;
+			children = (
+				04887368265B3EFF00709115 /* QuxianLabelCollectionViewCell.h */,
+				04887367265B3EFF00709115 /* QuxianLabelCollectionViewCell.m */,
+				04887364265B3E8F00709115 /* EqualSpaceFlowLayout.h */,
+				04887361265B3E8F00709115 /* EqualSpaceFlowLayout.m */,
+				0488736A265B3F4400709115 /* NSString+Extension.h */,
+				0488736B265B3F4400709115 /* NSString+Extension.m */,
+				04887362265B3E8F00709115 /* ZhuLiuchengJiankongViewController.h */,
+				04887363265B3E8F00709115 /* ZhuLiuchengJiankongViewController.m */,
+			);
+			path = testVC;
 			sourceTree = "<group>";
 		};
 		04B93D2A26549EBB00DA647C /* MyThird */ = {
@@ -1075,6 +1134,7 @@
 		04B93E392654AAFF00DA647C /* InOutSave */ = {
 			isa = PBXGroup;
 			children = (
+				0479A61B265B85C800FD966F /* Tools */,
 				04B93E3A2654AAFF00DA647C /* KuCun */,
 				04B93E3E2654AAFF00DA647C /* Other */,
 				04B93E422654AAFF00DA647C /* Wuzi */,
@@ -1144,7 +1204,6 @@
 		04B93E3E2654AAFF00DA647C /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				042DB9F926560751008FBAEC /* IOSTools */,
 				04B93E3F2654AAFF00DA647C /* Controller */,
 				04B93E402654AAFF00DA647C /* Model */,
 				04B93E412654AAFF00DA647C /* View */,
@@ -1155,6 +1214,8 @@
 		04B93E3F2654AAFF00DA647C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				0479A629265B861600FD966F /* IOSGodsManagerVC.h */,
+				0479A62A265B861600FD966F /* IOSGodsManagerVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1169,10 +1230,6 @@
 		04B93E412654AAFF00DA647C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				042DBA5B26575BA0008FBAEC /* IOSMessageAlertView.h */,
-				042DBA5A26575BA0008FBAEC /* IOSMessageAlertView.m */,
-				042DBA942657863F008FBAEC /* UIImage+ColorImage.h */,
-				042DBA952657863F008FBAEC /* UIImage+ColorImage.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1349,6 +1406,12 @@
 			children = (
 				04F2858A2658F549008FE9D8 /* IOSTongJiCaiGouVC.h */,
 				04F2858B2658F549008FE9D8 /* IOSTongJiCaiGouVC.m */,
+				0479A60D265B776D00FD966F /* IOSTongjiInStoreVC.h */,
+				0479A60E265B776D00FD966F /* IOSTongjiInStoreVC.m */,
+				0479A610265B779400FD966F /* IOSTongJiOutStoreVC.h */,
+				0479A611265B779400FD966F /* IOSTongJiOutStoreVC.m */,
+				0479A613265B77D500FD966F /* IOSTongJiYingKuiVC.h */,
+				0479A614265B77D500FD966F /* IOSTongJiYingKuiVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1368,6 +1431,11 @@
 				04F2859C2659091F008FE9D8 /* IOSTongjiListTBCell.h */,
 				04F2859D2659091F008FE9D8 /* IOSTongjiListTBCell.m */,
 				04F2859E2659091F008FE9D8 /* IOSTongjiListTBCell.xib */,
+				0479A616265B79DB00FD966F /* IOSTongjiYingKuiTBCell.h */,
+				0479A617265B79DB00FD966F /* IOSTongjiYingKuiTBCell.m */,
+				0479A618265B79DB00FD966F /* IOSTongjiYingKuiTBCell.xib */,
+				0488736D265B4C1900709115 /* IOSTongjiMainHView.h */,
+				0488736E265B4C1900709115 /* IOSTongjiMainHView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1523,6 +1591,7 @@
 				042DBA2C2656616C008FBAEC /* IOSGodsDetailTBCell.xib in Resources */,
 				04B93E132654A01100DA647C /* TopTittleTextFileTableViewCell.xib in Resources */,
 				04B93E252654A01100DA647C /* TittlePhotoDetailTableViewCell.xib in Resources */,
+				0479A61A265B79DB00FD966F /* IOSTongjiYingKuiTBCell.xib in Resources */,
 				04B93E5D2654AB0000DA647C /* EntersHomeHeaderCollectionReusableView.xib in Resources */,
 				042DBA2426565C2D008FBAEC /* IOSGodsDetailHeaderView.xib in Resources */,
 				04B93D9326549EBB00DA647C /* BRCity.plist in Resources */,
@@ -1707,8 +1776,10 @@
 				042DB96B2654EC8E008FBAEC /* IOSCaiGouChooM.m in Sources */,
 				04B93D9826549EBB00DA647C /* UIBezierPath+YYAdd.m in Sources */,
 				04B93D8F26549EBB00DA647C /* NSDate+BRAdd.m in Sources */,
+				0479A62B265B861600FD966F /* IOSGodsManagerVC.m in Sources */,
 				04B93DA326549EBB00DA647C /* UIControl+YYAdd.m in Sources */,
 				04B93DAC26549EBB00DA647C /* NSDate+YYAdd.m in Sources */,
+				0479A612265B779400FD966F /* IOSTongJiOutStoreVC.m in Sources */,
 				042DB9D626552B33008FBAEC /* IOSCaiGouChoTBCell.m in Sources */,
 				042DB9C7265512EE008FBAEC /* YNPageHeaderScrollView.m in Sources */,
 				042DBAF42658A7F2008FBAEC /* IOSLingYongListVC.m in Sources */,
@@ -1716,6 +1787,7 @@
 				04B93E0A2654A01100DA647C /* MJCustomActionSheet.m in Sources */,
 				042DBB062658AC91008FBAEC /* IOSHuiShouDetailVC.m in Sources */,
 				04B93E342654A01100DA647C /* MyWebH5ViewController.m in Sources */,
+				04887369265B3EFF00709115 /* QuxianLabelCollectionViewCell.m in Sources */,
 				04B93DA926549EBB00DA647C /* NSData+YYAdd.m in Sources */,
 				0447D5EB2653A34A0012D72C /* ViewController.m in Sources */,
 				042DBB422658EAC9008FBAEC /* IOSSunHaoAddDetailVC.m in Sources */,
@@ -1726,24 +1798,25 @@
 				04B93E702654AB5100DA647C /* YZDisplayViewController.m in Sources */,
 				042DBABF2657C25D008FBAEC /* IOSPanDianHeaderTBCell.m in Sources */,
 				04B93E612654AB0000DA647C /* IOSHomeHeadCollectionReusableV.m in Sources */,
+				0479A628265B85C800FD966F /* CYAnyCornerRadiusUtil.m in Sources */,
 				04B93E1C2654A01100DA647C /* TopTittleTextFileTableViewCell.m in Sources */,
 				04B93E142654A01100DA647C /* TittleDetailJiantouShowTableViewCell.m in Sources */,
 				042DBB3C2658EA9D008FBAEC /* IOSSunHaoAddVC.m in Sources */,
 				042DBA0926563A2F008FBAEC /* IOSGodsHisTBCell.m in Sources */,
+				04887366265B3E9000709115 /* ZhuLiuchengJiankongViewController.m in Sources */,
 				04B93D9926549EBB00DA647C /* UIColor+YYAdd.m in Sources */,
 				04B93E6F2654AB5100DA647C /* UIView+Frame.m in Sources */,
-				042DB9FE26560751008FBAEC /* CYCustomArcImageView.m in Sources */,
 				042DBB362658E613008FBAEC /* IOSHuiSHouAddDetailVC.m in Sources */,
 				04B93E222654A01100DA647C /* TittleJiantouShowTableViewCell.m in Sources */,
 				04B93DB426549EBB00DA647C /* JRToast.m in Sources */,
 				042DBA4F2657505F008FBAEC /* IOSPanDianHisVC.m in Sources */,
 				04B93E2B2654A01100DA647C /* RequesCover.m in Sources */,
-				042DBA962657863F008FBAEC /* UIImage+ColorImage.m in Sources */,
 				04B93DA626549EBB00DA647C /* NSNumber+YYAdd.m in Sources */,
 				04B93DB226549EBB00DA647C /* CALayer+YYAdd.m in Sources */,
 				04B93E232654A01100DA647C /* SeleTittleJianTouTableViewCell.m in Sources */,
 				04B93E152654A01100DA647C /* ChoosePhotoPlaceTableViewCell.m in Sources */,
 				042DBA2B2656616C008FBAEC /* IOSGodsDetailTBCell.m in Sources */,
+				0479A60F265B776D00FD966F /* IOSTongjiInStoreVC.m in Sources */,
 				042DB9C8265512EE008FBAEC /* YNPageCollectionView.m in Sources */,
 				04B93E5E2654AB0000DA647C /* IOSEnterHomeVC.m in Sources */,
 				04B93D9E26549EBB00DA647C /* UIScreen+YYAdd.m in Sources */,
@@ -1762,6 +1835,7 @@
 				042DB9C0265512EE008FBAEC /* UIViewController+YNPageExtend.m in Sources */,
 				042DBADF2657D378008FBAEC /* IOSPanDianChoDetailVC.m in Sources */,
 				04B93DA426549EBB00DA647C /* UIFont+YYAdd.m in Sources */,
+				0479A619265B79DB00FD966F /* IOSTongjiYingKuiTBCell.m in Sources */,
 				04B93D9C26549EBB00DA647C /* UITableView+YYAdd.m in Sources */,
 				042DB9A426551286008FBAEC /* IOSGodsHistoryListVC.m in Sources */,
 				04B93D9A26549EBB00DA647C /* UIDevice+YYAdd.m in Sources */,
@@ -1771,16 +1845,17 @@
 				042DB9DD26552DBB008FBAEC /* IOSGodsHisDetailVC.m in Sources */,
 				04B93D9D26549EBB00DA647C /* UIScrollView+YYAdd.m in Sources */,
 				04B93DB026549EBB00DA647C /* NSObject+YYAddForKVO.m in Sources */,
+				0479A625265B85C800FD966F /* CYCustomArcImageView.m in Sources */,
 				04F285952658F917008FE9D8 /* IOSTongJiHeaderView.m in Sources */,
 				04B93E5B2654AB0000DA647C /* IOSCaiGouChooseVC.m in Sources */,
 				04B93E2D2654A01100DA647C /* TittlePhotoDetailTableViewCell.m in Sources */,
 				042DBAAD2657BD1D008FBAEC /* IOSOutStoreHisDetailVC.m in Sources */,
 				04B93D9426549EBB00DA647C /* BRAddressPickerView.m in Sources */,
 				04B93D9026549EBB00DA647C /* BRDatePickerView.m in Sources */,
+				0479A626265B85C800FD966F /* IOSMessageAlertView.m in Sources */,
 				04B93E0D2654A01100DA647C /* UITextView+IndexPath.m in Sources */,
 				04B93E122654A01100DA647C /* SelePhotoTittleShowTableViewCell.m in Sources */,
 				042DB9C2265512EE008FBAEC /* UIScrollView+YNPageExtend.m in Sources */,
-				042DBA5C26575BA0008FBAEC /* IOSMessageAlertView.m in Sources */,
 				042DBB0C2658B887008FBAEC /* IOSSunHaoListVC.m in Sources */,
 				042DBAEE2658A246008FBAEC /* IOSPanDianHisDetailVC.m in Sources */,
 				04B93DA126549EBB00DA647C /* UIGestureRecognizer+YYAdd.m in Sources */,
@@ -1794,9 +1869,9 @@
 				04B93E6D2654AB5100DA647C /* YZDisplayTitleLabel.m in Sources */,
 				04B93D9B26549EBB00DA647C /* UIApplication+YYAdd.m in Sources */,
 				042DB9C3265512EE008FBAEC /* YNPageViewController.m in Sources */,
+				0479A615265B77D500FD966F /* IOSTongJiYingKuiVC.m in Sources */,
 				04B93E1E2654A01100DA647C /* PhotoTitleCollectionViewCell.m in Sources */,
 				04B93E1B2654A01100DA647C /* HTittleTextFileTableViewCell.m in Sources */,
-				042DB9FF26560751008FBAEC /* CYAnyCornerRadiusUtil.m in Sources */,
 				042DBB002658AC77008FBAEC /* IOSHuiShouListVC.m in Sources */,
 				042DBAFA2658AABB008FBAEC /* IOSLingYongDetailVC.m in Sources */,
 				04B93D9226549EBB00DA647C /* BRAddressModel.m in Sources */,
@@ -1812,6 +1887,7 @@
 				04B93D9F26549EBB00DA647C /* UIView+YYAdd.m in Sources */,
 				04B93D8E26549EBB00DA647C /* BRTextField.m in Sources */,
 				04B93DA226549EBB00DA647C /* UIImage+YYAdd.m in Sources */,
+				0488736F265B4C1900709115 /* IOSTongjiMainHView.m in Sources */,
 				042DB9C9265512EE008FBAEC /* YNPageScrollMenuView.m in Sources */,
 				04B93E182654A01100DA647C /* TittleRightDetailTableViewCell.m in Sources */,
 				04B93E762654AC1800DA647C /* YuanGongModel.m in Sources */,
@@ -1824,8 +1900,11 @@
 				04B93E0F2654A01100DA647C /* UIView+Extension.m in Sources */,
 				04B93E2C2654A01100DA647C /* TittleContentTFVTableViewCell.m in Sources */,
 				04B93D9726549EBB00DA647C /* UITextField+YYAdd.m in Sources */,
+				0479A627265B85C800FD966F /* UIImage+ColorImage.m in Sources */,
 				04F2859F2659091F008FE9D8 /* IOSTongjiListTBCell.m in Sources */,
+				0488736C265B3F4400709115 /* NSString+Extension.m in Sources */,
 				042DBA1F26565C08008FBAEC /* IOSGodsDetailHeaderView.m in Sources */,
+				04887365265B3E9000709115 /* EqualSpaceFlowLayout.m in Sources */,
 				04B93E5F2654AB0000DA647C /* EntersHomeHeaderCollectionReusableView.m in Sources */,
 				04B93E202654A01100DA647C /* AddPhotoCollectionViewCell.m in Sources */,
 				04B93E112654A01100DA647C /* MyBaseViewController.m in Sources */,
