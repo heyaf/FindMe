@@ -13,8 +13,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface IOSCaiGouChoTBCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *NameLabel;
 @property (weak, nonatomic) IBOutlet UITextField *inputTF;
+@property (weak, nonatomic) IBOutlet UIView *tfBgView;
+@property (weak, nonatomic) IBOutlet UIImageView *rightArrowImageV;
 @property (nonatomic,strong) IOSCaiGouChooM *CaigouChooseModel;
 
+@property (nonatomic,copy) void(^textfieldEndBlock)(NSString *textFieldStr);
 @end
 
 NS_ASSUME_NONNULL_END

@@ -31,6 +31,9 @@
 #import "IOSTongJiOutStoreVC.h"
 #import "IOSTongJiYingKuiVC.h"
 
+//其他
+#import "IOSGodsManagerVC.h"
+
 @interface IOSEnterHomeVC ()<UICollectionViewDelegate, UICollectionViewDataSource>
 @property (nonatomic, strong) NSMutableArray *dataSource;//区头
 @property (nonatomic, strong) NSMutableArray *caigouArr;//采购1
@@ -402,6 +405,8 @@
         switch (indexPath.row) {
             case 0: { //商品管理
            
+                IOSGodsManagerVC *pushVC = [[IOSGodsManagerVC alloc] init];
+                [self.navigationController pushViewController:pushVC animated:YES];
             }
                 break;
             

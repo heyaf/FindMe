@@ -8,6 +8,7 @@
 #import "IOSSunHaoListVC.h"
 #import "IOSInStoreListTBCell.h"
 #import "IOSSunHaoDetailVC.h"
+#import "IOSSunHaoAddVC.h"
 @interface IOSSunHaoListVC ()<UITableViewDelegate,UITableViewDataSource>
 
 @end
@@ -57,7 +58,8 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 -(void)addItem{
-    
+    IOSSunHaoAddVC *pushVC = [[IOSSunHaoAddVC alloc] init];
+    [self.navigationController pushViewController:pushVC animated:YES];
 }
 #pragma mark ---代理事件----
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

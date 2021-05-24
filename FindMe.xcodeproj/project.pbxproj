@@ -91,6 +91,10 @@
 		0479A627265B85C800FD966F /* UIImage+ColorImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0479A61F265B85C800FD966F /* UIImage+ColorImage.m */; };
 		0479A628265B85C800FD966F /* CYAnyCornerRadiusUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 0479A620265B85C800FD966F /* CYAnyCornerRadiusUtil.m */; };
 		0479A62B265B861600FD966F /* IOSGodsManagerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0479A62A265B861600FD966F /* IOSGodsManagerVC.m */; };
+		0479A62F265B8E7900FD966F /* IOSManagerGodsTBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0479A62D265B8E7900FD966F /* IOSManagerGodsTBCell.m */; };
+		0479A630265B8E7900FD966F /* IOSManagerGodsTBCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0479A62E265B8E7900FD966F /* IOSManagerGodsTBCell.xib */; };
+		0479A633265BA0D900FD966F /* IOSAddGodsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0479A632265BA0D900FD966F /* IOSAddGodsVC.m */; };
+		0479A637265BB8B800FD966F /* RadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0479A635265BB8B800FD966F /* RadioButton.m */; };
 		04887365265B3E9000709115 /* EqualSpaceFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 04887361265B3E8F00709115 /* EqualSpaceFlowLayout.m */; };
 		04887366265B3E9000709115 /* ZhuLiuchengJiankongViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04887363265B3E8F00709115 /* ZhuLiuchengJiankongViewController.m */; };
 		04887369265B3EFF00709115 /* QuxianLabelCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04887367265B3EFF00709115 /* QuxianLabelCollectionViewCell.m */; };
@@ -200,8 +204,6 @@
 		04B93E762654AC1800DA647C /* YuanGongModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B93E752654AC1700DA647C /* YuanGongModel.m */; };
 		04B93E812654B23E00DA647C /* IOSHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B93E802654B23E00DA647C /* IOSHomeViewController.m */; };
 		04B93E892654DF1E00DA647C /* UIView+creatViews.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B93E882654DF1E00DA647C /* UIView+creatViews.m */; };
-		04B93E8D2654E0AB00DA647C /* IOSCaiGouChooseTBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B93E8B2654E0AB00DA647C /* IOSCaiGouChooseTBCell.m */; };
-		04B93E8E2654E0AB00DA647C /* IOSCaiGouChooseTBCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B93E8C2654E0AB00DA647C /* IOSCaiGouChooseTBCell.xib */; };
 		04F2858C2658F549008FE9D8 /* IOSTongJiCaiGouVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F2858B2658F549008FE9D8 /* IOSTongJiCaiGouVC.m */; };
 		04F285952658F917008FE9D8 /* IOSTongJiHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F285942658F917008FE9D8 /* IOSTongJiHeaderView.m */; };
 		04F2859F2659091F008FE9D8 /* IOSTongjiListTBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F2859D2659091F008FE9D8 /* IOSTongjiListTBCell.m */; };
@@ -379,6 +381,13 @@
 		0479A624265B85C800FD966F /* UIImage+ColorImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ColorImage.h"; sourceTree = "<group>"; };
 		0479A629265B861600FD966F /* IOSGodsManagerVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSGodsManagerVC.h; sourceTree = "<group>"; };
 		0479A62A265B861600FD966F /* IOSGodsManagerVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSGodsManagerVC.m; sourceTree = "<group>"; };
+		0479A62C265B8E7900FD966F /* IOSManagerGodsTBCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSManagerGodsTBCell.h; sourceTree = "<group>"; };
+		0479A62D265B8E7900FD966F /* IOSManagerGodsTBCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSManagerGodsTBCell.m; sourceTree = "<group>"; };
+		0479A62E265B8E7900FD966F /* IOSManagerGodsTBCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IOSManagerGodsTBCell.xib; sourceTree = "<group>"; };
+		0479A631265BA0D900FD966F /* IOSAddGodsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSAddGodsVC.h; sourceTree = "<group>"; };
+		0479A632265BA0D900FD966F /* IOSAddGodsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSAddGodsVC.m; sourceTree = "<group>"; };
+		0479A635265BB8B800FD966F /* RadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RadioButton.m; sourceTree = "<group>"; };
+		0479A636265BB8B800FD966F /* RadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadioButton.h; sourceTree = "<group>"; };
 		04887361265B3E8F00709115 /* EqualSpaceFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EqualSpaceFlowLayout.m; sourceTree = "<group>"; };
 		04887362265B3E8F00709115 /* ZhuLiuchengJiankongViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZhuLiuchengJiankongViewController.h; sourceTree = "<group>"; };
 		04887363265B3E8F00709115 /* ZhuLiuchengJiankongViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZhuLiuchengJiankongViewController.m; sourceTree = "<group>"; };
@@ -587,9 +596,6 @@
 		04B93E862654BF4E00DA647C /* IOSHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSHeader.h; sourceTree = "<group>"; };
 		04B93E872654DF1E00DA647C /* UIView+creatViews.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UIView+creatViews.h"; path = "FindMe/InOutSave/UIView+creatViews.h"; sourceTree = SOURCE_ROOT; };
 		04B93E882654DF1E00DA647C /* UIView+creatViews.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UIView+creatViews.m"; path = "FindMe/InOutSave/UIView+creatViews.m"; sourceTree = SOURCE_ROOT; };
-		04B93E8A2654E0AB00DA647C /* IOSCaiGouChooseTBCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSCaiGouChooseTBCell.h; sourceTree = "<group>"; };
-		04B93E8B2654E0AB00DA647C /* IOSCaiGouChooseTBCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSCaiGouChooseTBCell.m; sourceTree = "<group>"; };
-		04B93E8C2654E0AB00DA647C /* IOSCaiGouChooseTBCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IOSCaiGouChooseTBCell.xib; sourceTree = "<group>"; };
 		04F2858A2658F549008FE9D8 /* IOSTongJiCaiGouVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSTongJiCaiGouVC.h; sourceTree = "<group>"; };
 		04F2858B2658F549008FE9D8 /* IOSTongJiCaiGouVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSTongJiCaiGouVC.m; sourceTree = "<group>"; };
 		04F285932658F917008FE9D8 /* IOSTongJiHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSTongJiHeaderView.h; sourceTree = "<group>"; };
@@ -806,6 +812,7 @@
 		0479A61B265B85C800FD966F /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				0479A634265BB8B800FD966F /* RadioButton */,
 				0479A61C265B85C800FD966F /* IOSTools */,
 			);
 			path = Tools;
@@ -824,6 +831,16 @@
 				0479A624265B85C800FD966F /* UIImage+ColorImage.h */,
 			);
 			path = IOSTools;
+			sourceTree = "<group>";
+		};
+		0479A634265BB8B800FD966F /* RadioButton */ = {
+			isa = PBXGroup;
+			children = (
+				0479A635265BB8B800FD966F /* RadioButton.m */,
+				0479A636265BB8B800FD966F /* RadioButton.h */,
+			);
+			name = RadioButton;
+			path = IOSTools/RadioButton;
 			sourceTree = "<group>";
 		};
 		04887360265B3E8F00709115 /* testVC */ = {
@@ -1216,6 +1233,8 @@
 			children = (
 				0479A629265B861600FD966F /* IOSGodsManagerVC.h */,
 				0479A62A265B861600FD966F /* IOSGodsManagerVC.m */,
+				0479A631265BA0D900FD966F /* IOSAddGodsVC.h */,
+				0479A632265BA0D900FD966F /* IOSAddGodsVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1230,6 +1249,9 @@
 		04B93E412654AAFF00DA647C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0479A62C265B8E7900FD966F /* IOSManagerGodsTBCell.h */,
+				0479A62D265B8E7900FD966F /* IOSManagerGodsTBCell.m */,
+				0479A62E265B8E7900FD966F /* IOSManagerGodsTBCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1333,9 +1355,6 @@
 		04B93E4D2654AAFF00DA647C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				04B93E8A2654E0AB00DA647C /* IOSCaiGouChooseTBCell.h */,
-				04B93E8B2654E0AB00DA647C /* IOSCaiGouChooseTBCell.m */,
-				04B93E8C2654E0AB00DA647C /* IOSCaiGouChooseTBCell.xib */,
 				042DB9D326552B32008FBAEC /* IOSCaiGouChoTBCell.h */,
 				042DB9D426552B32008FBAEC /* IOSCaiGouChoTBCell.m */,
 				042DB9D526552B33008FBAEC /* IOSCaiGouChoTBCell.xib */,
@@ -1566,11 +1585,11 @@
 				042DBAA12657A9F1008FBAEC /* IOSCaiGouHeaderTBCell.xib in Resources */,
 				04B93E602654AB0000DA647C /* EntersHomeCollectionViewCell.xib in Resources */,
 				04B93E172654A01100DA647C /* TittleDetailJiantouShowTableViewCell.xib in Resources */,
-				04B93E8E2654E0AB00DA647C /* IOSCaiGouChooseTBCell.xib in Resources */,
 				04B93E282654A01100DA647C /* TittleRightDetailTableViewCell.xib in Resources */,
 				042DBA0A26563A2F008FBAEC /* IOSGodsHisTBCell.xib in Resources */,
 				0447D5F32653A34F0012D72C /* LaunchScreen.storyboard in Resources */,
 				0447D5F02653A34F0012D72C /* Assets.xcassets in Resources */,
+				0479A630265B8E7900FD966F /* IOSManagerGodsTBCell.xib in Resources */,
 				04B93E262654A01100DA647C /* SelePhotoTittleShowTableViewCell.xib in Resources */,
 				04B93E192654A01100DA647C /* TittleJiantouShowTableViewCell.xib in Resources */,
 				042DBAC82657C557008FBAEC /* IOSPanDianHisCell.xib in Resources */,
@@ -1816,16 +1835,17 @@
 				04B93E232654A01100DA647C /* SeleTittleJianTouTableViewCell.m in Sources */,
 				04B93E152654A01100DA647C /* ChoosePhotoPlaceTableViewCell.m in Sources */,
 				042DBA2B2656616C008FBAEC /* IOSGodsDetailTBCell.m in Sources */,
+				0479A637265BB8B800FD966F /* RadioButton.m in Sources */,
 				0479A60F265B776D00FD966F /* IOSTongjiInStoreVC.m in Sources */,
 				042DB9C8265512EE008FBAEC /* YNPageCollectionView.m in Sources */,
 				04B93E5E2654AB0000DA647C /* IOSEnterHomeVC.m in Sources */,
 				04B93D9E26549EBB00DA647C /* UIScreen+YYAdd.m in Sources */,
+				0479A633265BA0D900FD966F /* IOSAddGodsVC.m in Sources */,
 				042DBB192658D7DF008FBAEC /* IOSYingYongAddVC.m in Sources */,
 				04B93DAD26549EBB00DA647C /* NSString+YYAdd.m in Sources */,
 				042DBA3B265744E0008FBAEC /* IOSOutStoreHisVC.m in Sources */,
 				04B93E6E2654AB5100DA647C /* YZFlowLayout.m in Sources */,
 				04B93E352654A01100DA647C /* PhotoChoseShowViewController.m in Sources */,
-				04B93E8D2654E0AB00DA647C /* IOSCaiGouChooseTBCell.m in Sources */,
 				042DBAC72657C557008FBAEC /* IOSPanDianHisCell.m in Sources */,
 				042DBAA02657A9F1008FBAEC /* IOSCaiGouHeaderTBCell.m in Sources */,
 				042DBB2F2658DDFF008FBAEC /* IOSHuiShouListTBCell.m in Sources */,
@@ -1857,6 +1877,7 @@
 				04B93E122654A01100DA647C /* SelePhotoTittleShowTableViewCell.m in Sources */,
 				042DB9C2265512EE008FBAEC /* UIScrollView+YNPageExtend.m in Sources */,
 				042DBB0C2658B887008FBAEC /* IOSSunHaoListVC.m in Sources */,
+				0479A62F265B8E7900FD966F /* IOSManagerGodsTBCell.m in Sources */,
 				042DBAEE2658A246008FBAEC /* IOSPanDianHisDetailVC.m in Sources */,
 				04B93DA126549EBB00DA647C /* UIGestureRecognizer+YYAdd.m in Sources */,
 				04B93D9626549EBB00DA647C /* YYClassInfo.m in Sources */,
