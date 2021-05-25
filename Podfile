@@ -21,6 +21,7 @@ pod 'SDWebImage'
 pod 'MJRefresh'
 pod 'ZLPhotoBrowser'
 pod 'JSONModel'
+pod 'IQKeyboardManager'
   # Pods for FindMe
 
   target 'FindMeTests' do

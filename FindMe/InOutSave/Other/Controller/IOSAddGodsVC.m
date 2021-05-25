@@ -11,6 +11,7 @@
 #import "BRPickerView.h"
 #import "RadioButton.h"
 #import "IOSGodsChoosePinPaiVC.h"
+#import "IOSAddGodsDetailVC.h"
 
 @interface IOSAddGodsVC ()<UITableViewDelegate,UITableViewDataSource,TZImagePickerControllerDelegate>
 
@@ -216,7 +217,9 @@
     }
     
 
-    if (indexPath.section==1) {
+    if (indexPath.row==3) {
+        IOSAddGodsDetailVC *pushVC = [[IOSAddGodsDetailVC alloc] init];
+        [self.navigationController pushViewController:pushVC animated:YES];
         return;
     }
     
@@ -293,8 +296,8 @@
     UIButton *pinpaiBtn =[cellView createButtonFrame:CGRectMake(60, 40, KDeviceWith-70, 50) title:@"" textColor:[UIColor clearColor] font:FONT(14) image:ImageNamed(@"IOSArrow_right") target:self method:@selector(pinpaiButtonClicked)];
     UILabel *pinpaiDlabel = [pinpaiBtn createLabelFrame:CGRectMake(10, 15, 80, 20) textColor:[UIColor lightGrayColor] font:FONT(14)];
     pinpaiDlabel.text = @"请选择品牌";
-    if (self.selectedDanWeiStr.length>0) {
-        pinpaiDlabel.text = self.selectedDanWeiStr;
+    if (self.selectedPinPaiStr.length>0) {
+        pinpaiDlabel.text = self.selectedPinPaiStr;
         pinpaiDlabel.textColor = [UIColor blackColor];
     }
     [pinpaiBtn setTitleEdgeInsets:UIEdgeInsetsMake(10, 10, 10, 40)];
@@ -354,7 +357,7 @@
 -(void)photoAddseavToSeverAction:(NSArray *)imgarr {
     [self showHudInView:self.view hint:@"加载中"];
 
-    NSString *url = [NSString stringWithFormat:@"%@/d/api/companyCooperation/upload",AppServerURL];
+    NSString *url = [NSString stringWithFormat:@"%@/s/api/companyCooperation/upload",AppServerURL];
 
     [[AFNetHelp shareAFNetworking] UpOneImagePOST:url parameters:nil constructingBodyWithDataArr:imgarr[0] dataimgname:@"img1" success:^(id responseObject) {
         [self hideHud];
@@ -378,12 +381,25 @@
     
     IOSGodsChoosePinPaiVC *pushVC = [[IOSGodsChoosePinPaiVC alloc] init];
     pushVC.status = 1;
+    kWeakSelf(self);
+    pushVC.chooseBlock = ^(NSString * _Nonnull chooseStr) {
+        weakself.selectedPinPaiStr = chooseStr;
+        NSIndexPath *indexPatn = [NSIndexPath indexPathForRow:8 inSection:0];
+        [weakself.tabelView reloadRowsAtIndexPaths:@[indexPatn] withRowAnimation:UITableViewRowAnimationNone];
+    };
     [self.navigationController pushViewController:pushVC animated:YES];
 }
 //单位按钮点击
 -(void)danweiButtonClicked{
     IOSGodsChoosePinPaiVC *pushVC = [[IOSGodsChoosePinPaiVC alloc] init];
     pushVC.status = 3;
+    kWeakSelf(self);
+
+    pushVC.chooseBlock = ^(NSString * _Nonnull chooseStr) {
+        weakself.selectedDanWeiStr = chooseStr;
+        NSIndexPath *indexPatn = [NSIndexPath indexPathForRow:8 inSection:0];
+        [weakself.tabelView reloadRowsAtIndexPaths:@[indexPatn] withRowAnimation:UITableViewRowAnimationNone];
+    };
     [self.navigationController pushViewController:pushVC animated:YES];
 }
 @end

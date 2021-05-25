@@ -26,6 +26,12 @@
 		0405A5FC265CC77A00D8D246 /* IOSGodspinpaiM.m in Sources */ = {isa = PBXBuildFile; fileRef = 0405A5FB265CC77A00D8D246 /* IOSGodspinpaiM.m */; };
 		0405A600265CCC9A00D8D246 /* IOSGodsPinPaiTBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0405A5FE265CCC9A00D8D246 /* IOSGodsPinPaiTBCell.m */; };
 		0405A601265CCC9A00D8D246 /* IOSGodsPinPaiTBCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0405A5FF265CCC9A00D8D246 /* IOSGodsPinPaiTBCell.xib */; };
+		0405A604265CF49000D8D246 /* IOSAddGodsDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0405A603265CF49000D8D246 /* IOSAddGodsDetailVC.m */; };
+		0405A608265CFF4700D8D246 /* UIButton+SSEdgeInsets.m in Sources */ = {isa = PBXBuildFile; fileRef = 0405A606265CFF4700D8D246 /* UIButton+SSEdgeInsets.m */; };
+		0405A612265D0C5000D8D246 /* LMParagraphConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0405A60C265D0C5000D8D246 /* LMParagraphConfig.m */; };
+		0405A613265D0C5000D8D246 /* NSTextAttachment+LMText.m in Sources */ = {isa = PBXBuildFile; fileRef = 0405A60E265D0C5000D8D246 /* NSTextAttachment+LMText.m */; };
+		0405A614265D0C5000D8D246 /* LMTextHTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0405A60F265D0C5000D8D246 /* LMTextHTMLParser.m */; };
+		0405A615265D0C5000D8D246 /* UIFont+LMText.m in Sources */ = {isa = PBXBuildFile; fileRef = 0405A610265D0C5000D8D246 /* UIFont+LMText.m */; };
 		042DB96B2654EC8E008FBAEC /* IOSCaiGouChooM.m in Sources */ = {isa = PBXBuildFile; fileRef = 042DB96A2654EC8E008FBAEC /* IOSCaiGouChooM.m */; };
 		042DB98726550017008FBAEC /* IOSChooseGoodsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042DB98626550017008FBAEC /* IOSChooseGoodsViewController.m */; };
 		042DB99E26551235008FBAEC /* IOSGodsHistoryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 042DB99D26551235008FBAEC /* IOSGodsHistoryVC.m */; };
@@ -284,6 +290,18 @@
 		0405A5FD265CCC9A00D8D246 /* IOSGodsPinPaiTBCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSGodsPinPaiTBCell.h; sourceTree = "<group>"; };
 		0405A5FE265CCC9A00D8D246 /* IOSGodsPinPaiTBCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSGodsPinPaiTBCell.m; sourceTree = "<group>"; };
 		0405A5FF265CCC9A00D8D246 /* IOSGodsPinPaiTBCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IOSGodsPinPaiTBCell.xib; sourceTree = "<group>"; };
+		0405A602265CF49000D8D246 /* IOSAddGodsDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSAddGodsDetailVC.h; sourceTree = "<group>"; };
+		0405A603265CF49000D8D246 /* IOSAddGodsDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSAddGodsDetailVC.m; sourceTree = "<group>"; };
+		0405A606265CFF4700D8D246 /* UIButton+SSEdgeInsets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+SSEdgeInsets.m"; sourceTree = "<group>"; };
+		0405A607265CFF4700D8D246 /* UIButton+SSEdgeInsets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+SSEdgeInsets.h"; sourceTree = "<group>"; };
+		0405A60A265D0C5000D8D246 /* LMTextHTMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMTextHTMLParser.h; sourceTree = "<group>"; };
+		0405A60B265D0C5000D8D246 /* NSTextAttachment+LMText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTextAttachment+LMText.h"; sourceTree = "<group>"; };
+		0405A60C265D0C5000D8D246 /* LMParagraphConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMParagraphConfig.m; sourceTree = "<group>"; };
+		0405A60D265D0C5000D8D246 /* UIFont+LMText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+LMText.h"; sourceTree = "<group>"; };
+		0405A60E265D0C5000D8D246 /* NSTextAttachment+LMText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTextAttachment+LMText.m"; sourceTree = "<group>"; };
+		0405A60F265D0C5000D8D246 /* LMTextHTMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMTextHTMLParser.m; sourceTree = "<group>"; };
+		0405A610265D0C5000D8D246 /* UIFont+LMText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+LMText.m"; sourceTree = "<group>"; };
+		0405A611265D0C5000D8D246 /* LMParagraphConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMParagraphConfig.h; sourceTree = "<group>"; };
 		042DB9692654EC8E008FBAEC /* IOSCaiGouChooM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSCaiGouChooM.h; sourceTree = "<group>"; };
 		042DB96A2654EC8E008FBAEC /* IOSCaiGouChooM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSCaiGouChooM.m; sourceTree = "<group>"; };
 		042DB98526550017008FBAEC /* IOSChooseGoodsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSChooseGoodsViewController.h; sourceTree = "<group>"; };
@@ -731,6 +749,30 @@
 			path = TYAlertController;
 			sourceTree = "<group>";
 		};
+		0405A605265CFF4700D8D246 /* 按钮边距 */ = {
+			isa = PBXGroup;
+			children = (
+				0405A606265CFF4700D8D246 /* UIButton+SSEdgeInsets.m */,
+				0405A607265CFF4700D8D246 /* UIButton+SSEdgeInsets.h */,
+			);
+			path = "按钮边距";
+			sourceTree = "<group>";
+		};
+		0405A609265D0C5000D8D246 /* Html生成 */ = {
+			isa = PBXGroup;
+			children = (
+				0405A60A265D0C5000D8D246 /* LMTextHTMLParser.h */,
+				0405A60B265D0C5000D8D246 /* NSTextAttachment+LMText.h */,
+				0405A60C265D0C5000D8D246 /* LMParagraphConfig.m */,
+				0405A60D265D0C5000D8D246 /* UIFont+LMText.h */,
+				0405A60E265D0C5000D8D246 /* NSTextAttachment+LMText.m */,
+				0405A60F265D0C5000D8D246 /* LMTextHTMLParser.m */,
+				0405A610265D0C5000D8D246 /* UIFont+LMText.m */,
+				0405A611265D0C5000D8D246 /* LMParagraphConfig.h */,
+			);
+			path = "Html生成";
+			sourceTree = "<group>";
+		};
 		042DB9A8265512ED008FBAEC /* YNPageViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -891,6 +933,8 @@
 		0479A61B265B85C800FD966F /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				0405A609265D0C5000D8D246 /* Html生成 */,
+				0405A605265CFF4700D8D246 /* 按钮边距 */,
 				0479A634265BB8B800FD966F /* RadioButton */,
 				0479A61C265B85C800FD966F /* IOSTools */,
 			);
@@ -1319,6 +1363,8 @@
 				0479A62A265B861600FD966F /* IOSGodsManagerVC.m */,
 				0479A631265BA0D900FD966F /* IOSAddGodsVC.h */,
 				0479A632265BA0D900FD966F /* IOSAddGodsVC.m */,
+				0405A602265CF49000D8D246 /* IOSAddGodsDetailVC.h */,
+				0405A603265CF49000D8D246 /* IOSAddGodsDetailVC.m */,
 				0405A5F1265CACB300D8D246 /* IOSGodsChoosePinPaiVC.h */,
 				0405A5F2265CACB300D8D246 /* IOSGodsChoosePinPaiVC.m */,
 				0405A5F4265CAD7E00D8D246 /* IOSGodsEditPinPaiChoVC.h */,
@@ -1906,6 +1952,7 @@
 				04B93E0A2654A01100DA647C /* MJCustomActionSheet.m in Sources */,
 				0405A5F6265CAD7E00D8D246 /* IOSGodsEditPinPaiChoVC.m in Sources */,
 				042DBB062658AC91008FBAEC /* IOSHuiShouDetailVC.m in Sources */,
+				0405A615265D0C5000D8D246 /* UIFont+LMText.m in Sources */,
 				0405A5F0265C9E1000D8D246 /* BYFoundationLog.m in Sources */,
 				0405A600265CCC9A00D8D246 /* IOSGodsPinPaiTBCell.m in Sources */,
 				04B93E342654A01100DA647C /* MyWebH5ViewController.m in Sources */,
@@ -1927,6 +1974,7 @@
 				04B93E142654A01100DA647C /* TittleDetailJiantouShowTableViewCell.m in Sources */,
 				042DBB3C2658EA9D008FBAEC /* IOSSunHaoAddVC.m in Sources */,
 				042DBA0926563A2F008FBAEC /* IOSGodsHisTBCell.m in Sources */,
+				0405A613265D0C5000D8D246 /* NSTextAttachment+LMText.m in Sources */,
 				04887366265B3E9000709115 /* ZhuLiuchengJiankongViewController.m in Sources */,
 				04B93D9926549EBB00DA647C /* UIColor+YYAdd.m in Sources */,
 				04B93E6F2654AB5100DA647C /* UIView+Frame.m in Sources */,
@@ -1972,7 +2020,9 @@
 				042DB9DD26552DBB008FBAEC /* IOSGodsHisDetailVC.m in Sources */,
 				04B93D9D26549EBB00DA647C /* UIScrollView+YYAdd.m in Sources */,
 				04B93DB026549EBB00DA647C /* NSObject+YYAddForKVO.m in Sources */,
+				0405A612265D0C5000D8D246 /* LMParagraphConfig.m in Sources */,
 				0479A625265B85C800FD966F /* CYCustomArcImageView.m in Sources */,
+				0405A608265CFF4700D8D246 /* UIButton+SSEdgeInsets.m in Sources */,
 				04F285952658F917008FE9D8 /* IOSTongJiHeaderView.m in Sources */,
 				04B93E5B2654AB0000DA647C /* IOSCaiGouChooseVC.m in Sources */,
 				0405A5E6265C9A5E00D8D246 /* UIView+TYAlertView.m in Sources */,
@@ -2001,6 +2051,7 @@
 				04B93D9B26549EBB00DA647C /* UIApplication+YYAdd.m in Sources */,
 				042DB9C3265512EE008FBAEC /* YNPageViewController.m in Sources */,
 				0479A615265B77D500FD966F /* IOSTongJiYingKuiVC.m in Sources */,
+				0405A604265CF49000D8D246 /* IOSAddGodsDetailVC.m in Sources */,
 				04B93E1E2654A01100DA647C /* PhotoTitleCollectionViewCell.m in Sources */,
 				04B93E1B2654A01100DA647C /* HTittleTextFileTableViewCell.m in Sources */,
 				042DBB002658AC77008FBAEC /* IOSHuiShouListVC.m in Sources */,
@@ -2016,6 +2067,7 @@
 				04B93DA726549EBB00DA647C /* NSBundle+YYAdd.m in Sources */,
 				042DBAA72657BABC008FBAEC /* IOSInStoreHisDetailVC.m in Sources */,
 				04B93E082654A01100DA647C /* MyBaseWebViewController.m in Sources */,
+				0405A614265D0C5000D8D246 /* LMTextHTMLParser.m in Sources */,
 				04B93D9F26549EBB00DA647C /* UIView+YYAdd.m in Sources */,
 				04B93D8E26549EBB00DA647C /* BRTextField.m in Sources */,
 				04B93DA226549EBB00DA647C /* UIImage+YYAdd.m in Sources */,

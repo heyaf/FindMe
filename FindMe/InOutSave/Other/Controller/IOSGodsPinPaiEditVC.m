@@ -118,11 +118,8 @@
     [self showHudInView:self.view hint:@"加载中"];
     [[AFNetHelp shareAFNetworking] postInfoFromSeverWithStr:url body:paramDic sucess:^(id responseObject) {
         if ([AowString(responseObject[@"code"]) isEqualToString:@"1"]) {
-            for (UIViewController *temp in self.navigationController.viewControllers) {
-                       if ([temp isKindOfClass:[IOSGodsChoosePinPaiVC class]]) {
-                          [self.navigationController popToViewController:temp animated:YES];
-                       }
-            }
+            [self poptoViewController];
+
 
         }else {
             [self showHint:responseObject[@"msg"]];
@@ -142,15 +139,21 @@
     IOSCaiGouChoTBCell *tbCell = cellsArr[0];
     return tbCell.inputTF.text;
 }
+-(void)poptoViewController{
+    for (UIViewController *temp in self.navigationController.viewControllers) {
+               if ([temp isKindOfClass:[IOSGodsChoosePinPaiVC class]]) {
+                  [self.navigationController popToViewController:temp animated:YES];
+               }
+    }
+}
 #pragma mark ---delegate----
 -(void)makeSureBtnClickWithinputStr:(NSString *)inputStr{
-    NSString *url = [AppServerURL stringByAppendingString:@"/s/api/sdGoods/remove"];
+    NSString *url = [AppServerURL stringByAppendingString:@"/s/api/sdCode/remove"];
     NSDictionary *paramDic = @{@"id":self.pinpaiModel.pinpaiId};
     [self showHudInView:self.view hint:@"加载中"];
     [[AFNetHelp shareAFNetworking] postInfoFromSeverWithStr:url body:paramDic sucess:^(id responseObject) {
         if ([AowString(responseObject[@"code"]) isEqualToString:@"1"]) {
-            [self.navigationController popViewControllerAnimated:YES];
-
+            [self poptoViewController];
         }else {
             [self showHint:responseObject[@"msg"]];
             

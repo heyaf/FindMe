@@ -18,6 +18,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if (self.status==1) {
+        self.navigationItem.title = @"选择品牌";
+    }else{
+        self.navigationItem.title = @"选择单位";
+    }
     self.view.backgroundColor = RGBA(250, 250, 250, 1);
     [self creatMainUI];
     [self setNavbutton];
@@ -40,6 +45,8 @@
             [self.tabelView reloadData];
         }else {
             [self showHint:responseObject[@"msg"]];
+            [self.tabelView reloadData];
+
             
         }
         [self hideHud];
