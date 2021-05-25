@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WifiCoontResultDequView">
+            <rect key="frame" x="0.0" y="0.0" width="328" height="187"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="检测到您离开办公室" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cg4-Kr-Yh9">
+                    <rect key="frame" x="0.0" y="30" width="328" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jyv-44-H6q">
+                    <rect key="frame" x="171.5" y="146" width="141.5" height="28"/>
+                    <color key="backgroundColor" systemColor="systemRedColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="28" id="i3J-O7-8K8"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="外勤">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="14"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="lookbaomingjilu:" destination="iN0-l3-epB" eventType="touchUpInside" id="3Dv-li-BNy"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4OK-hI-QEw">
+                    <rect key="frame" x="15" y="146" width="141.5" height="28"/>
+                    <color key="backgroundColor" red="1" green="0.97254901959999995" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="28" id="XfS-Ff-rCw"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="回来">
+                        <color key="titleColor" systemColor="systemOrangeColor"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="14"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="fanhuishouye:" destination="iN0-l3-epB" eventType="touchUpInside" id="Dpw-OW-cF6"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="4OK-hI-QEw" firstAttribute="centerY" secondItem="jyv-44-H6q" secondAttribute="centerY" id="3wB-Um-Dw5"/>
+                <constraint firstAttribute="trailing" secondItem="jyv-44-H6q" secondAttribute="trailing" constant="15" id="Ays-gw-zB2"/>
+                <constraint firstItem="jyv-44-H6q" firstAttribute="width" secondItem="4OK-hI-QEw" secondAttribute="width" id="B4K-ti-6GU"/>
+                <constraint firstAttribute="trailing" secondItem="cg4-Kr-Yh9" secondAttribute="trailing" id="IdH-1V-szZ"/>
+                <constraint firstItem="4OK-hI-QEw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="JPA-yg-EwH"/>
+                <constraint firstItem="jyv-44-H6q" firstAttribute="leading" secondItem="4OK-hI-QEw" secondAttribute="trailing" constant="15" id="f8f-t9-gnA"/>
+                <constraint firstItem="cg4-Kr-Yh9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="30" id="kMq-dw-2cp"/>
+                <constraint firstItem="cg4-Kr-Yh9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="qYw-eP-inA"/>
+                <constraint firstAttribute="bottom" secondItem="jyv-44-H6q" secondAttribute="bottom" constant="13" id="y5M-BZ-Bj6"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                    <integer key="value" value="6"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="qiandaochenggong" destination="cg4-Kr-Yh9" id="dKE-YO-0ac"/>
+            </connections>
+            <point key="canvasLocation" x="36.799999999999997" y="160.56971514242881"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
