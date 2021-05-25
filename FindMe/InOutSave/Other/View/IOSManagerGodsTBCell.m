@@ -16,6 +16,7 @@
     [self.xinghaoBGView setRectCorners:UIRectCornerBottomLeft|UIRectCornerBottomRight CornerRadius:10 borderColor:[UIColor whiteColor] borderWidth:0];
 
     self.tagLabel.backgroundColor = RGBA(245, 245, 245, 1);
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

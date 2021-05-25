@@ -18,6 +18,7 @@
     [self.inputTF setBorderStyle:UITextBorderStyleNone];
     self.inputTF.delegate = self;
     self.tfBgView.backgroundColor = RGBA(245, 245, 245, 1);
+    self.inputTF.returnKeyType = UIReturnKeyDone;
 }
 -(void)setCaigouChooseModel:(IOSCaiGouChooM *)CaigouChooseModel{
     _CaigouChooseModel = CaigouChooseModel;
@@ -31,7 +32,13 @@
         self.textfieldEndBlock(textField.text);
     }
 }
-
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self.inputTF resignFirstResponder];
+    return YES;
+}
+-(void)resignTFFirstResponder{
+    [self.inputTF resignFirstResponder];
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

@@ -105,7 +105,7 @@
 #define KImageUrlset(str) [NSURL URLWithString:[str stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLFragmentAllowedCharacterSet]]]
 #define KImageSdsetPlacehod(phototView,str)     [phototView sd_setImageWithURL:KImageUrlset(str) placeholderImage:[UIImage imageNamed:@"placeholder"] completed:nil];
 
-#define AppServerURL @"http://192.168.2.13"
+#define AppServerURL @"http://192.168.2.11:81"
 //#define AppServerURL @"http://114.116.231.149"
 ////http://wolaikanyanhua.oicp.net:8011
 

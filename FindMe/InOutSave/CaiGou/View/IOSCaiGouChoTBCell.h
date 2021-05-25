@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong) IOSCaiGouChooM *CaigouChooseModel;
 
 @property (nonatomic,copy) void(^textfieldEndBlock)(NSString *textFieldStr);
+-(void)resignTFFirstResponder;
 @end
 
 NS_ASSUME_NONNULL_END

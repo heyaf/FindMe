@@ -7,6 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0405A5CF265C99CE00D8D246 /* WifiCoontResultDequView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0405A5CC265C99CD00D8D246 /* WifiCoontResultDequView.m */; };
+		0405A5D0265C99CE00D8D246 /* WifiCoontResultDequView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0405A5CD265C99CD00D8D246 /* WifiCoontResultDequView.xib */; };
+		0405A5E5265C9A5E00D8D246 /* TYAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0405A5D2265C9A5E00D8D246 /* TYAlertView.m */; };
+		0405A5E6265C9A5E00D8D246 /* UIView+TYAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0405A5D6265C9A5E00D8D246 /* UIView+TYAlertView.m */; };
+		0405A5E7265C9A5E00D8D246 /* TYAlertScaleFadeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0405A5D7265C9A5E00D8D246 /* TYAlertScaleFadeAnimation.m */; };
+		0405A5E8265C9A5E00D8D246 /* TYAlertFadeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0405A5D9265C9A5E00D8D246 /* TYAlertFadeAnimation.m */; };
+		0405A5E9265C9A5E00D8D246 /* TYAlertController+TransitionAnimate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0405A5DA265C9A5E00D8D246 /* TYAlertController+TransitionAnimate.m */; };
+		0405A5EA265C9A5E00D8D246 /* UIView+TYAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0405A5DC265C9A5E00D8D246 /* UIView+TYAutoLayout.m */; };
+		0405A5EB265C9A5E00D8D246 /* TYAlertDropDownAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0405A5DD265C9A5E00D8D246 /* TYAlertDropDownAnimation.m */; };
+		0405A5EC265C9A5E00D8D246 /* TYShowAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0405A5E0265C9A5E00D8D246 /* TYShowAlertView.m */; };
+		0405A5ED265C9A5E00D8D246 /* TYBaseAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0405A5E1265C9A5E00D8D246 /* TYBaseAnimation.m */; };
+		0405A5EE265C9A5E00D8D246 /* TYAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0405A5E3265C9A5E00D8D246 /* TYAlertController.m */; };
+		0405A5F0265C9E1000D8D246 /* BYFoundationLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 0405A5EF265C9E1000D8D246 /* BYFoundationLog.m */; };
+		0405A5F3265CACB300D8D246 /* IOSGodsChoosePinPaiVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0405A5F2265CACB300D8D246 /* IOSGodsChoosePinPaiVC.m */; };
+		0405A5F6265CAD7E00D8D246 /* IOSGodsEditPinPaiChoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0405A5F5265CAD7E00D8D246 /* IOSGodsEditPinPaiChoVC.m */; };
+		0405A5F9265CADD200D8D246 /* IOSGodsPinPaiEditVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0405A5F8265CADD200D8D246 /* IOSGodsPinPaiEditVC.m */; };
+		0405A5FC265CC77A00D8D246 /* IOSGodspinpaiM.m in Sources */ = {isa = PBXBuildFile; fileRef = 0405A5FB265CC77A00D8D246 /* IOSGodspinpaiM.m */; };
+		0405A600265CCC9A00D8D246 /* IOSGodsPinPaiTBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0405A5FE265CCC9A00D8D246 /* IOSGodsPinPaiTBCell.m */; };
+		0405A601265CCC9A00D8D246 /* IOSGodsPinPaiTBCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0405A5FF265CCC9A00D8D246 /* IOSGodsPinPaiTBCell.xib */; };
 		042DB96B2654EC8E008FBAEC /* IOSCaiGouChooM.m in Sources */ = {isa = PBXBuildFile; fileRef = 042DB96A2654EC8E008FBAEC /* IOSCaiGouChooM.m */; };
 		042DB98726550017008FBAEC /* IOSChooseGoodsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042DB98626550017008FBAEC /* IOSChooseGoodsViewController.m */; };
 		042DB99E26551235008FBAEC /* IOSGodsHistoryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 042DB99D26551235008FBAEC /* IOSGodsHistoryVC.m */; };
@@ -231,6 +250,40 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0405A5CC265C99CD00D8D246 /* WifiCoontResultDequView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifiCoontResultDequView.m; sourceTree = "<group>"; };
+		0405A5CD265C99CD00D8D246 /* WifiCoontResultDequView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WifiCoontResultDequView.xib; sourceTree = "<group>"; };
+		0405A5CE265C99CD00D8D246 /* WifiCoontResultDequView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifiCoontResultDequView.h; sourceTree = "<group>"; };
+		0405A5D2265C9A5E00D8D246 /* TYAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYAlertView.m; sourceTree = "<group>"; };
+		0405A5D3265C9A5E00D8D246 /* TYAlertDropDownAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYAlertDropDownAnimation.h; sourceTree = "<group>"; };
+		0405A5D4265C9A5E00D8D246 /* UIView+TYAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+TYAutoLayout.h"; sourceTree = "<group>"; };
+		0405A5D5265C9A5E00D8D246 /* TYShowAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYShowAlertView.h; sourceTree = "<group>"; };
+		0405A5D6265C9A5E00D8D246 /* UIView+TYAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+TYAlertView.m"; sourceTree = "<group>"; };
+		0405A5D7265C9A5E00D8D246 /* TYAlertScaleFadeAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYAlertScaleFadeAnimation.m; sourceTree = "<group>"; };
+		0405A5D8265C9A5E00D8D246 /* TYBaseAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYBaseAnimation.h; sourceTree = "<group>"; };
+		0405A5D9265C9A5E00D8D246 /* TYAlertFadeAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYAlertFadeAnimation.m; sourceTree = "<group>"; };
+		0405A5DA265C9A5E00D8D246 /* TYAlertController+TransitionAnimate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TYAlertController+TransitionAnimate.m"; sourceTree = "<group>"; };
+		0405A5DB265C9A5E00D8D246 /* TYAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYAlertController.h; sourceTree = "<group>"; };
+		0405A5DC265C9A5E00D8D246 /* UIView+TYAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+TYAutoLayout.m"; sourceTree = "<group>"; };
+		0405A5DD265C9A5E00D8D246 /* TYAlertDropDownAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYAlertDropDownAnimation.m; sourceTree = "<group>"; };
+		0405A5DE265C9A5E00D8D246 /* TYAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYAlertView.h; sourceTree = "<group>"; };
+		0405A5DF265C9A5E00D8D246 /* UIView+TYAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+TYAlertView.h"; sourceTree = "<group>"; };
+		0405A5E0265C9A5E00D8D246 /* TYShowAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYShowAlertView.m; sourceTree = "<group>"; };
+		0405A5E1265C9A5E00D8D246 /* TYBaseAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYBaseAnimation.m; sourceTree = "<group>"; };
+		0405A5E2265C9A5E00D8D246 /* TYAlertScaleFadeAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYAlertScaleFadeAnimation.h; sourceTree = "<group>"; };
+		0405A5E3265C9A5E00D8D246 /* TYAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYAlertController.m; sourceTree = "<group>"; };
+		0405A5E4265C9A5E00D8D246 /* TYAlertFadeAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYAlertFadeAnimation.h; sourceTree = "<group>"; };
+		0405A5EF265C9E1000D8D246 /* BYFoundationLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BYFoundationLog.m; sourceTree = "<group>"; };
+		0405A5F1265CACB300D8D246 /* IOSGodsChoosePinPaiVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSGodsChoosePinPaiVC.h; sourceTree = "<group>"; };
+		0405A5F2265CACB300D8D246 /* IOSGodsChoosePinPaiVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSGodsChoosePinPaiVC.m; sourceTree = "<group>"; };
+		0405A5F4265CAD7E00D8D246 /* IOSGodsEditPinPaiChoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSGodsEditPinPaiChoVC.h; sourceTree = "<group>"; };
+		0405A5F5265CAD7E00D8D246 /* IOSGodsEditPinPaiChoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSGodsEditPinPaiChoVC.m; sourceTree = "<group>"; };
+		0405A5F7265CADD200D8D246 /* IOSGodsPinPaiEditVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSGodsPinPaiEditVC.h; sourceTree = "<group>"; };
+		0405A5F8265CADD200D8D246 /* IOSGodsPinPaiEditVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSGodsPinPaiEditVC.m; sourceTree = "<group>"; };
+		0405A5FA265CC77A00D8D246 /* IOSGodspinpaiM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSGodspinpaiM.h; sourceTree = "<group>"; };
+		0405A5FB265CC77A00D8D246 /* IOSGodspinpaiM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSGodspinpaiM.m; sourceTree = "<group>"; };
+		0405A5FD265CCC9A00D8D246 /* IOSGodsPinPaiTBCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSGodsPinPaiTBCell.h; sourceTree = "<group>"; };
+		0405A5FE265CCC9A00D8D246 /* IOSGodsPinPaiTBCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSGodsPinPaiTBCell.m; sourceTree = "<group>"; };
+		0405A5FF265CCC9A00D8D246 /* IOSGodsPinPaiTBCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IOSGodsPinPaiTBCell.xib; sourceTree = "<group>"; };
 		042DB9692654EC8E008FBAEC /* IOSCaiGouChooM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSCaiGouChooM.h; sourceTree = "<group>"; };
 		042DB96A2654EC8E008FBAEC /* IOSCaiGouChooM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSCaiGouChooM.m; sourceTree = "<group>"; };
 		042DB98526550017008FBAEC /* IOSChooseGoodsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSChooseGoodsViewController.h; sourceTree = "<group>"; };
@@ -652,6 +705,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0405A5D1265C9A5E00D8D246 /* TYAlertController */ = {
+			isa = PBXGroup;
+			children = (
+				0405A5D2265C9A5E00D8D246 /* TYAlertView.m */,
+				0405A5D3265C9A5E00D8D246 /* TYAlertDropDownAnimation.h */,
+				0405A5D4265C9A5E00D8D246 /* UIView+TYAutoLayout.h */,
+				0405A5D5265C9A5E00D8D246 /* TYShowAlertView.h */,
+				0405A5D6265C9A5E00D8D246 /* UIView+TYAlertView.m */,
+				0405A5D7265C9A5E00D8D246 /* TYAlertScaleFadeAnimation.m */,
+				0405A5D8265C9A5E00D8D246 /* TYBaseAnimation.h */,
+				0405A5D9265C9A5E00D8D246 /* TYAlertFadeAnimation.m */,
+				0405A5DA265C9A5E00D8D246 /* TYAlertController+TransitionAnimate.m */,
+				0405A5DB265C9A5E00D8D246 /* TYAlertController.h */,
+				0405A5DC265C9A5E00D8D246 /* UIView+TYAutoLayout.m */,
+				0405A5DD265C9A5E00D8D246 /* TYAlertDropDownAnimation.m */,
+				0405A5DE265C9A5E00D8D246 /* TYAlertView.h */,
+				0405A5DF265C9A5E00D8D246 /* UIView+TYAlertView.h */,
+				0405A5E0265C9A5E00D8D246 /* TYShowAlertView.m */,
+				0405A5E1265C9A5E00D8D246 /* TYBaseAnimation.m */,
+				0405A5E2265C9A5E00D8D246 /* TYAlertScaleFadeAnimation.h */,
+				0405A5E3265C9A5E00D8D246 /* TYAlertController.m */,
+				0405A5E4265C9A5E00D8D246 /* TYAlertFadeAnimation.h */,
+			);
+			path = TYAlertController;
+			sourceTree = "<group>";
+		};
 		042DB9A8265512ED008FBAEC /* YNPageViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -861,6 +940,7 @@
 		04B93D2A26549EBB00DA647C /* MyThird */ = {
 			isa = PBXGroup;
 			children = (
+				0405A5D1265C9A5E00D8D246 /* TYAlertController */,
 				042DB9A8265512ED008FBAEC /* YNPageViewController */,
 				04B93E632654AB5100DA647C /* YZDisplayViewController */,
 				04B93D2B26549EBB00DA647C /* BRPickerView */,
@@ -1037,6 +1117,9 @@
 		04B93D8526549EBB00DA647C /* MyTools */ = {
 			isa = PBXGroup;
 			children = (
+				0405A5CE265C99CD00D8D246 /* WifiCoontResultDequView.h */,
+				0405A5CC265C99CD00D8D246 /* WifiCoontResultDequView.m */,
+				0405A5CD265C99CD00D8D246 /* WifiCoontResultDequView.xib */,
 				04B93D8626549EBB00DA647C /* PrefixHeaderFood.pch */,
 				04B93D8726549EBB00DA647C /* AFNetHelp.m */,
 				04B93D8826549EBB00DA647C /* Header.h */,
@@ -1044,6 +1127,7 @@
 				04B93D8A26549EBB00DA647C /* ThirdKey.h */,
 				04B93D8B26549EBB00DA647C /* AFNetHelp.h */,
 				04B93D8C26549EBB00DA647C /* JRToast.m */,
+				0405A5EF265C9E1000D8D246 /* BYFoundationLog.m */,
 			);
 			path = MyTools;
 			sourceTree = "<group>";
@@ -1235,6 +1319,12 @@
 				0479A62A265B861600FD966F /* IOSGodsManagerVC.m */,
 				0479A631265BA0D900FD966F /* IOSAddGodsVC.h */,
 				0479A632265BA0D900FD966F /* IOSAddGodsVC.m */,
+				0405A5F1265CACB300D8D246 /* IOSGodsChoosePinPaiVC.h */,
+				0405A5F2265CACB300D8D246 /* IOSGodsChoosePinPaiVC.m */,
+				0405A5F4265CAD7E00D8D246 /* IOSGodsEditPinPaiChoVC.h */,
+				0405A5F5265CAD7E00D8D246 /* IOSGodsEditPinPaiChoVC.m */,
+				0405A5F7265CADD200D8D246 /* IOSGodsPinPaiEditVC.h */,
+				0405A5F8265CADD200D8D246 /* IOSGodsPinPaiEditVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1242,6 +1332,8 @@
 		04B93E402654AAFF00DA647C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0405A5FA265CC77A00D8D246 /* IOSGodspinpaiM.h */,
+				0405A5FB265CC77A00D8D246 /* IOSGodspinpaiM.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1252,6 +1344,9 @@
 				0479A62C265B8E7900FD966F /* IOSManagerGodsTBCell.h */,
 				0479A62D265B8E7900FD966F /* IOSManagerGodsTBCell.m */,
 				0479A62E265B8E7900FD966F /* IOSManagerGodsTBCell.xib */,
+				0405A5FD265CCC9A00D8D246 /* IOSGodsPinPaiTBCell.h */,
+				0405A5FE265CCC9A00D8D246 /* IOSGodsPinPaiTBCell.m */,
+				0405A5FF265CCC9A00D8D246 /* IOSGodsPinPaiTBCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1585,6 +1680,7 @@
 				042DBAA12657A9F1008FBAEC /* IOSCaiGouHeaderTBCell.xib in Resources */,
 				04B93E602654AB0000DA647C /* EntersHomeCollectionViewCell.xib in Resources */,
 				04B93E172654A01100DA647C /* TittleDetailJiantouShowTableViewCell.xib in Resources */,
+				0405A5D0265C99CE00D8D246 /* WifiCoontResultDequView.xib in Resources */,
 				04B93E282654A01100DA647C /* TittleRightDetailTableViewCell.xib in Resources */,
 				042DBA0A26563A2F008FBAEC /* IOSGodsHisTBCell.xib in Resources */,
 				0447D5F32653A34F0012D72C /* LaunchScreen.storyboard in Resources */,
@@ -1594,6 +1690,7 @@
 				04B93E192654A01100DA647C /* TittleJiantouShowTableViewCell.xib in Resources */,
 				042DBAC82657C557008FBAEC /* IOSPanDianHisCell.xib in Resources */,
 				042DBB302658DDFF008FBAEC /* IOSHuiShouListTBCell.xib in Resources */,
+				0405A601265CCC9A00D8D246 /* IOSGodsPinPaiTBCell.xib in Resources */,
 				0447D5EE2653A34A0012D72C /* Main.storyboard in Resources */,
 				04B93E1D2654A01100DA647C /* TittleDetailShowTableViewCell.xib in Resources */,
 				042DB9D726552B33008FBAEC /* IOSCaiGouChoTBCell.xib in Resources */,
@@ -1790,21 +1887,27 @@
 				042DBB122658D368008FBAEC /* IOSSunHaoDetailVC.m in Sources */,
 				04B93E092654A01100DA647C /* PlaceholderTextView.m in Sources */,
 				04B93DAA26549EBB00DA647C /* NSKeyedUnarchiver+YYAdd.m in Sources */,
+				0405A5E8265C9A5E00D8D246 /* TYAlertFadeAnimation.m in Sources */,
 				04B93E2F2654A01100DA647C /* BaseModel.m in Sources */,
 				04B93E312654A01100DA647C /* TittleSubModel.m in Sources */,
 				042DB96B2654EC8E008FBAEC /* IOSCaiGouChooM.m in Sources */,
 				04B93D9826549EBB00DA647C /* UIBezierPath+YYAdd.m in Sources */,
 				04B93D8F26549EBB00DA647C /* NSDate+BRAdd.m in Sources */,
+				0405A5E7265C9A5E00D8D246 /* TYAlertScaleFadeAnimation.m in Sources */,
 				0479A62B265B861600FD966F /* IOSGodsManagerVC.m in Sources */,
 				04B93DA326549EBB00DA647C /* UIControl+YYAdd.m in Sources */,
 				04B93DAC26549EBB00DA647C /* NSDate+YYAdd.m in Sources */,
 				0479A612265B779400FD966F /* IOSTongJiOutStoreVC.m in Sources */,
 				042DB9D626552B33008FBAEC /* IOSCaiGouChoTBCell.m in Sources */,
+				0405A5E9265C9A5E00D8D246 /* TYAlertController+TransitionAnimate.m in Sources */,
 				042DB9C7265512EE008FBAEC /* YNPageHeaderScrollView.m in Sources */,
 				042DBAF42658A7F2008FBAEC /* IOSLingYongListVC.m in Sources */,
 				042DB9C1265512EE008FBAEC /* UIView+YNPageExtend.m in Sources */,
 				04B93E0A2654A01100DA647C /* MJCustomActionSheet.m in Sources */,
+				0405A5F6265CAD7E00D8D246 /* IOSGodsEditPinPaiChoVC.m in Sources */,
 				042DBB062658AC91008FBAEC /* IOSHuiShouDetailVC.m in Sources */,
+				0405A5F0265C9E1000D8D246 /* BYFoundationLog.m in Sources */,
+				0405A600265CCC9A00D8D246 /* IOSGodsPinPaiTBCell.m in Sources */,
 				04B93E342654A01100DA647C /* MyWebH5ViewController.m in Sources */,
 				04887369265B3EFF00709115 /* QuxianLabelCollectionViewCell.m in Sources */,
 				04B93DA926549EBB00DA647C /* NSData+YYAdd.m in Sources */,
@@ -1814,11 +1917,13 @@
 				04B93E0B2654A01100DA647C /* UIViewController+HUD.m in Sources */,
 				04B93E332654A01100DA647C /* TittleDetailModel.m in Sources */,
 				042DBB282658DD24008FBAEC /* IOSHuiShouAddVC.m in Sources */,
+				0405A5CF265C99CE00D8D246 /* WifiCoontResultDequView.m in Sources */,
 				04B93E702654AB5100DA647C /* YZDisplayViewController.m in Sources */,
 				042DBABF2657C25D008FBAEC /* IOSPanDianHeaderTBCell.m in Sources */,
 				04B93E612654AB0000DA647C /* IOSHomeHeadCollectionReusableV.m in Sources */,
 				0479A628265B85C800FD966F /* CYAnyCornerRadiusUtil.m in Sources */,
 				04B93E1C2654A01100DA647C /* TopTittleTextFileTableViewCell.m in Sources */,
+				0405A5FC265CC77A00D8D246 /* IOSGodspinpaiM.m in Sources */,
 				04B93E142654A01100DA647C /* TittleDetailJiantouShowTableViewCell.m in Sources */,
 				042DBB3C2658EA9D008FBAEC /* IOSSunHaoAddVC.m in Sources */,
 				042DBA0926563A2F008FBAEC /* IOSGodsHisTBCell.m in Sources */,
@@ -1833,6 +1938,7 @@
 				04B93DA626549EBB00DA647C /* NSNumber+YYAdd.m in Sources */,
 				04B93DB226549EBB00DA647C /* CALayer+YYAdd.m in Sources */,
 				04B93E232654A01100DA647C /* SeleTittleJianTouTableViewCell.m in Sources */,
+				0405A5E5265C9A5E00D8D246 /* TYAlertView.m in Sources */,
 				04B93E152654A01100DA647C /* ChoosePhotoPlaceTableViewCell.m in Sources */,
 				042DBA2B2656616C008FBAEC /* IOSGodsDetailTBCell.m in Sources */,
 				0479A637265BB8B800FD966F /* RadioButton.m in Sources */,
@@ -1843,6 +1949,7 @@
 				0479A633265BA0D900FD966F /* IOSAddGodsVC.m in Sources */,
 				042DBB192658D7DF008FBAEC /* IOSYingYongAddVC.m in Sources */,
 				04B93DAD26549EBB00DA647C /* NSString+YYAdd.m in Sources */,
+				0405A5EA265C9A5E00D8D246 /* UIView+TYAutoLayout.m in Sources */,
 				042DBA3B265744E0008FBAEC /* IOSOutStoreHisVC.m in Sources */,
 				04B93E6E2654AB5100DA647C /* YZFlowLayout.m in Sources */,
 				04B93E352654A01100DA647C /* PhotoChoseShowViewController.m in Sources */,
@@ -1868,6 +1975,7 @@
 				0479A625265B85C800FD966F /* CYCustomArcImageView.m in Sources */,
 				04F285952658F917008FE9D8 /* IOSTongJiHeaderView.m in Sources */,
 				04B93E5B2654AB0000DA647C /* IOSCaiGouChooseVC.m in Sources */,
+				0405A5E6265C9A5E00D8D246 /* UIView+TYAlertView.m in Sources */,
 				04B93E2D2654A01100DA647C /* TittlePhotoDetailTableViewCell.m in Sources */,
 				042DBAAD2657BD1D008FBAEC /* IOSOutStoreHisDetailVC.m in Sources */,
 				04B93D9426549EBB00DA647C /* BRAddressPickerView.m in Sources */,
@@ -1875,6 +1983,8 @@
 				0479A626265B85C800FD966F /* IOSMessageAlertView.m in Sources */,
 				04B93E0D2654A01100DA647C /* UITextView+IndexPath.m in Sources */,
 				04B93E122654A01100DA647C /* SelePhotoTittleShowTableViewCell.m in Sources */,
+				0405A5F9265CADD200D8D246 /* IOSGodsPinPaiEditVC.m in Sources */,
+				0405A5ED265C9A5E00D8D246 /* TYBaseAnimation.m in Sources */,
 				042DB9C2265512EE008FBAEC /* UIScrollView+YNPageExtend.m in Sources */,
 				042DBB0C2658B887008FBAEC /* IOSSunHaoListVC.m in Sources */,
 				0479A62F265B8E7900FD966F /* IOSManagerGodsTBCell.m in Sources */,
@@ -1896,6 +2006,7 @@
 				042DBB002658AC77008FBAEC /* IOSHuiShouListVC.m in Sources */,
 				042DBAFA2658AABB008FBAEC /* IOSLingYongDetailVC.m in Sources */,
 				04B93D9226549EBB00DA647C /* BRAddressModel.m in Sources */,
+				0405A5EB265C9A5E00D8D246 /* TYAlertDropDownAnimation.m in Sources */,
 				04B93E0E2654A01100DA647C /* CALayer+CALayerXibConfig.m in Sources */,
 				04B93D8D26549EBB00DA647C /* BRStringPickerView.m in Sources */,
 				0447D5F62653A34F0012D72C /* main.m in Sources */,
@@ -1908,6 +2019,7 @@
 				04B93D9F26549EBB00DA647C /* UIView+YYAdd.m in Sources */,
 				04B93D8E26549EBB00DA647C /* BRTextField.m in Sources */,
 				04B93DA226549EBB00DA647C /* UIImage+YYAdd.m in Sources */,
+				0405A5EE265C9A5E00D8D246 /* TYAlertController.m in Sources */,
 				0488736F265B4C1900709115 /* IOSTongjiMainHView.m in Sources */,
 				042DB9C9265512EE008FBAEC /* YNPageScrollMenuView.m in Sources */,
 				04B93E182654A01100DA647C /* TittleRightDetailTableViewCell.m in Sources */,
@@ -1920,9 +2032,11 @@
 				04B93E322654A01100DA647C /* MyBaseShowTableViewController.m in Sources */,
 				04B93E0F2654A01100DA647C /* UIView+Extension.m in Sources */,
 				04B93E2C2654A01100DA647C /* TittleContentTFVTableViewCell.m in Sources */,
+				0405A5EC265C9A5E00D8D246 /* TYShowAlertView.m in Sources */,
 				04B93D9726549EBB00DA647C /* UITextField+YYAdd.m in Sources */,
 				0479A627265B85C800FD966F /* UIImage+ColorImage.m in Sources */,
 				04F2859F2659091F008FE9D8 /* IOSTongjiListTBCell.m in Sources */,
+				0405A5F3265CACB300D8D246 /* IOSGodsChoosePinPaiVC.m in Sources */,
 				0488736C265B3F4400709115 /* NSString+Extension.m in Sources */,
 				042DBA1F26565C08008FBAEC /* IOSGodsDetailHeaderView.m in Sources */,
 				04887365265B3E9000709115 /* EqualSpaceFlowLayout.m in Sources */,
@@ -2105,10 +2219,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XW5GBXRV53;
+				DEVELOPMENT_TEAM = RB7GBVJD8Q;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/FindMe/MyTools/PrefixHeaderFood.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/FindMe/Others/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2119,9 +2234,9 @@
 					"$(PROJECT_DIR)/FindMe/MyCodeClass/ZhiBoLib/Player",
 					"$(PROJECT_DIR)/FindMe/Others",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.-MuGetBaBayName456.www.FindMe";
+				PRODUCT_BUNDLE_IDENTIFIER = com.uGetBaBayName456.www.FindMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -2132,10 +2247,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XW5GBXRV53;
+				DEVELOPMENT_TEAM = RB7GBVJD8Q;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/FindMe/MyTools/PrefixHeaderFood.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/FindMe/Others/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2146,9 +2262,9 @@
 					"$(PROJECT_DIR)/FindMe/MyCodeClass/ZhiBoLib/Player",
 					"$(PROJECT_DIR)/FindMe/Others",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.-MuGetBaBayName456.www.FindMe";
+				PRODUCT_BUNDLE_IDENTIFIER = com.uGetBaBayName456.www.FindMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

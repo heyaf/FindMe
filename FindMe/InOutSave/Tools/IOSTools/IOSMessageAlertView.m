@@ -198,7 +198,7 @@
     CGFloat btnW = (_bgView.yz_width-60)/2;
     
     
-    CYCustomArcImageView *btnBgView = [[CYCustomArcImageView alloc] initWithFrame:CGRectMake(20, self.bgView.yz_height-20-60, btnW, 50)];
+    CYCustomArcImageView *btnBgView = [[CYCustomArcImageView alloc] initWithFrame:CGRectMake(_bgView.yz_width/2+10, self.bgView.yz_height-20-60, btnW, 50)];
     btnBgView.borderTopLeftRadius = 10;
     btnBgView.borderTopRightRadius = 20;
     btnBgView.borderBottomLeftRadius = 10;
@@ -207,15 +207,15 @@
     [self.bgView addSubview:btnBgView];
     
     UIButton *cancleBtn = [UIButton buttonWithType:0];
-    [cancleBtn setBackgroundColor:IOSCancleBtnColor];
+    [cancleBtn setBackgroundColor:IOSMainColor];
     [cancleBtn setTitle:self.cancleBtnName forState:0];
     cancleBtn.titleLabel.font = kBOLDFONT(17);
-    [cancleBtn setTitleColor:IOSMainColor forState:0];
+    [cancleBtn setTitleColor:[UIColor whiteColor] forState:0];
     [cancleBtn addTarget:self action:@selector(oneBtnClicked) forControlEvents:UIControlEventTouchUpInside];
     cancleBtn.frame = CGRectMake(0, 0, btnBgView.yz_width, btnBgView.yz_height);
     [btnBgView addSubview:cancleBtn];
     
-    CYCustomArcImageView *btnTwoBgView = [[CYCustomArcImageView alloc] initWithFrame:CGRectMake(_bgView.yz_width/2+10, self.bgView.yz_height-20-60, btnW, 50)];
+    CYCustomArcImageView *btnTwoBgView = [[CYCustomArcImageView alloc] initWithFrame:CGRectMake(20, self.bgView.yz_height-20-60, btnW, 50)];
     btnTwoBgView.borderTopLeftRadius = 10;
     btnTwoBgView.borderTopRightRadius = 20;
     btnTwoBgView.borderBottomLeftRadius = 10;
@@ -224,6 +224,8 @@
     [self.bgView addSubview:btnTwoBgView];
     
     self.btnTwo.frame = CGRectMake(0, 0, btnTwoBgView.yz_width, btnTwoBgView.yz_height);
+    [self.btnTwo setBackgroundColor:IOSMainColor];
+    [self.btnTwo setTitleColor:IOSMainColor forState:0];
     [btnTwoBgView addSubview:self.btnTwo];
     
 }
@@ -285,6 +287,11 @@
 //取消按钮点击事件
 -(void)oneBtnClicked{
     [self dismiss];
+    if (self.alertType==IOSMesAlertTypeChoose) {
+        if ([self.delegate respondsToSelector:@selector(makeSureBtnClickWithinputStr:)]) {
+            [self.delegate makeSureBtnClickWithinputStr:@""];
+                }
+    }
 }
 //确定按钮点击时间
 -(void)sureBtnClicked{

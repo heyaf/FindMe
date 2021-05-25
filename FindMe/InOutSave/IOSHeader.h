@@ -12,7 +12,9 @@
 #import "CYCustomArcImageView.h"
 #import "YNPageViewController.h"
 #import <JSONModel.h>
+#import <TZImagePickerController/TZImagePickerController.h>
 
+#import "AFNetHelp.h"
 #import "UIImage+ColorImage.h"
 #import "IOSMessageAlertView.h"
 #define IOSMainColor RGBA(46, 153, 146, 1)

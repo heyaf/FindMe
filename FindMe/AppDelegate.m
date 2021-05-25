@@ -92,8 +92,8 @@ static NSString *DID_FINISH_LAUNCHING_WITH_OPTIONS = @"CustomNotificationDidFini
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [[NSUserDefaults standardUserDefaults] setObject:@"1"  forKey:User_id_key];
-    [[NSUserDefaults standardUserDefaults] setObject: @"2" forKey:User_Companyid_key];
+    [[NSUserDefaults standardUserDefaults] setObject:@"372"  forKey:User_id_key];
+    [[NSUserDefaults standardUserDefaults] setObject: @"41" forKey:User_Companyid_key];
 
     ////职位ID
     [[NSUserDefaults standardUserDefaults] setObject: @"1" forKey:@"zhiwuId"];

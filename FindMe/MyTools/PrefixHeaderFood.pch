@@ -36,4 +36,5 @@
 #import "AFNetHelp.h"
 #import "MyBaseShowTableViewController.h"
 #import "IOSHeader.h"
+#import "UIView+TYAlertView.h"
 #endif /* PrefixHeaderFood_pch */

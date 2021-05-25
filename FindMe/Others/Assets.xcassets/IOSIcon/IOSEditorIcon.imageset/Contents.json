@@ -1,11 +1,11 @@
 {
   "images" : [
     {
+      "filename" : "IOSEditorIcon.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "IOSaddItem.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

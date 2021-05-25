@@ -10,15 +10,18 @@
 #import "IOSCaiGouChooM.h"
 #import "BRPickerView.h"
 #import "RadioButton.h"
+#import "IOSGodsChoosePinPaiVC.h"
 
-@interface IOSAddGodsVC ()<UITableViewDelegate,UITableViewDataSource>
+@interface IOSAddGodsVC ()<UITableViewDelegate,UITableViewDataSource,TZImagePickerControllerDelegate>
 
 @property (nonatomic,strong) NSMutableArray *dataArr;
 @property (nonatomic,strong) NSArray *NameArr;
 @property (nonatomic,strong) NSArray *holderArr;
 @property (nonatomic,strong) NSMutableArray *choosedArr; //选择商品的数组
 
-@property (nonatomic,strong) UIImageView *addImageView;
+@property (nonatomic,strong) UIImage *addSelectImage;
+@property (nonatomic,strong) NSString *selectImageUrl;
+
 @property (nonatomic,strong) NSString *selectedPinPaiStr; //已经选择的品牌
 @property (nonatomic,strong) NSString *selectedDanWeiStr; //已经选择的单位
 
@@ -33,7 +36,7 @@
 }
 -(NSMutableArray *)choosedArr{
     if (!_choosedArr) {
-        _choosedArr = [NSMutableArray array];
+        _choosedArr = [NSMutableArray arrayWithCapacity:9];
     }
     return _choosedArr;
 }
@@ -59,6 +62,7 @@
         }
         
         [self.dataArr addObject:chooseM];
+        [self.choosedArr addObject:@""];
         
     }
     
@@ -164,10 +168,15 @@
         cell.CaigouChooseModel = caigouModel;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.inputTF.userInteractionEnabled = caigouModel.canInput;
+        cell.inputTF.text = self.choosedArr[indexPath.row];
         if (caigouModel.canInput) {
             cell.rightArrowImageV.hidden = YES;
         }else{
             cell.rightArrowImageV.hidden = NO;
+        }
+        //设置键盘样式
+        if (indexPath.row!=0) {
+            cell.inputTF.keyboardType = UIKeyboardTypeNumberPad;
         }
 
         return cell;
@@ -196,6 +205,16 @@
 
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    //点击隐藏键盘
+    NSArray *cellsArr = [tableView visibleCells];
+    for (UITableViewCell *cell in cellsArr) {
+        if ([cell isKindOfClass:[IOSCaiGouChoTBCell class]]) {
+            IOSCaiGouChoTBCell *tbCell = (IOSCaiGouChoTBCell *)cell;
+            [tbCell.inputTF resignFirstResponder];
+        }
+    }
+    
 
     if (indexPath.section==1) {
         return;
@@ -247,9 +266,15 @@
 }
 -(void)creatAddImageViewWithView:(UIView *)cellView{
     UIImageView *addImageV = [[UIImageView alloc] initWithFrame:CGRectMake(10, 40, 80, 80)];
-    addImageV.image = ImageNamed(@"IOSAddImageBg");
+    if (self.addSelectImage) {
+        addImageV.image = self.addSelectImage;
+    }else{
+        addImageV.image = ImageNamed(@"IOSAddImageBg");
+
+    }
     addImageV.contentMode = UIViewContentModeScaleAspectFill;
     addImageV.userInteractionEnabled = YES;
+    addImageV.clipsToBounds = YES;
     [cellView addSubview:addImageV];
     
     UIButton *addBtn  = [UIButton buttonWithType:0];
@@ -306,14 +331,59 @@
 }
 //添加图片
 -(void)addImage{
-    
+    //图片
+    TZImagePickerController *imagePickerVc = [[TZImagePickerController alloc] initWithMaxImagesCount:1 columnNumber:4 delegate:self pushPhotoPickerVc:YES];
+     imagePickerVc.barItemTextColor = [UIColor blackColor];
+     [imagePickerVc.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor blackColor]}];
+     imagePickerVc.navigationBar.tintColor = [UIColor blackColor];
+     imagePickerVc.naviBgColor = KAppColor;
+     imagePickerVc.navigationBar.translucent = NO;
+    imagePickerVc.allowTakePicture = NO; // 在内部显示拍照按钮
+    imagePickerVc.allowTakeVideo = NO;   // 在内部显示拍视频按
+    imagePickerVc.allowCameraLocation = NO;
+    imagePickerVc.allowPickingOriginalPhoto = NO;
+    [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
+        self.addSelectImage = photos[0];
+        NSIndexPath *indexPatn = [NSIndexPath indexPathForRow:2 inSection:0];
+        [self.tabelView reloadRowsAtIndexPaths:@[indexPatn] withRowAnimation:UITableViewRowAnimationNone];
+        [self photoAddseavToSeverAction:photos];
+    }];
+    imagePickerVc.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self presentViewController:imagePickerVc animated:YES completion:nil];
+}
+-(void)photoAddseavToSeverAction:(NSArray *)imgarr {
+    [self showHudInView:self.view hint:@"加载中"];
+
+    NSString *url = [NSString stringWithFormat:@"%@/d/api/companyCooperation/upload",AppServerURL];
+
+    [[AFNetHelp shareAFNetworking] UpOneImagePOST:url parameters:nil constructingBodyWithDataArr:imgarr[0] dataimgname:@"img1" success:^(id responseObject) {
+        [self hideHud];
+        if ([AowString(responseObject[@"code"])  isEqualToString:@"1"] ){
+            self.selectImageUrl = AowString(responseObject[@"data"]);
+            
+        }else {
+            [self showHint:responseObject[@"msg"]];
+
+        }
+        } failure:^(NSError *error) {
+            [self hideHud];
+            [self showHint:@"稍后重试"];
+        }];
+
 }
 //品牌按钮点击
 -(void)pinpaiButtonClicked{
+//    User_Companyid 41
+//    kUser_id 324
     
+    IOSGodsChoosePinPaiVC *pushVC = [[IOSGodsChoosePinPaiVC alloc] init];
+    pushVC.status = 1;
+    [self.navigationController pushViewController:pushVC animated:YES];
 }
 //单位按钮点击
 -(void)danweiButtonClicked{
-    
+    IOSGodsChoosePinPaiVC *pushVC = [[IOSGodsChoosePinPaiVC alloc] init];
+    pushVC.status = 3;
+    [self.navigationController pushViewController:pushVC animated:YES];
 }
 @end
