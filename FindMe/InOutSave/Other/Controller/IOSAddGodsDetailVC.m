@@ -135,6 +135,7 @@
     }
     if (resultStr.length>0&&self.ResultBlock) {
         self.ResultBlock(resultStr);
+        [self.navigationController popViewControllerAnimated:YES];
     }
     
 }

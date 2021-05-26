@@ -125,6 +125,7 @@
 		04887369265B3EFF00709115 /* QuxianLabelCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04887367265B3EFF00709115 /* QuxianLabelCollectionViewCell.m */; };
 		0488736C265B3F4400709115 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0488736B265B3F4400709115 /* NSString+Extension.m */; };
 		0488736F265B4C1900709115 /* IOSTongjiMainHView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0488736E265B4C1900709115 /* IOSTongjiMainHView.m */; };
+		049D53CC265DE7D200E094F7 /* IOSGodsListM.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D53CB265DE7D200E094F7 /* IOSGodsListM.m */; };
 		04B93D2926549DA500DA647C /* MyTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B93D2826549DA500DA647C /* MyTabBarViewController.m */; };
 		04B93D8D26549EBB00DA647C /* BRStringPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B93D2E26549EBB00DA647C /* BRStringPickerView.m */; };
 		04B93D8E26549EBB00DA647C /* BRTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B93D3126549EBB00DA647C /* BRTextField.m */; };
@@ -469,6 +470,8 @@
 		0488736B265B3F4400709115 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
 		0488736D265B4C1900709115 /* IOSTongjiMainHView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSTongjiMainHView.h; sourceTree = "<group>"; };
 		0488736E265B4C1900709115 /* IOSTongjiMainHView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSTongjiMainHView.m; sourceTree = "<group>"; };
+		049D53CA265DE7D200E094F7 /* IOSGodsListM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSGodsListM.h; sourceTree = "<group>"; };
+		049D53CB265DE7D200E094F7 /* IOSGodsListM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSGodsListM.m; sourceTree = "<group>"; };
 		04B93D2726549DA500DA647C /* MyTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTabBarViewController.h; sourceTree = "<group>"; };
 		04B93D2826549DA500DA647C /* MyTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTabBarViewController.m; sourceTree = "<group>"; };
 		04B93D2D26549EBB00DA647C /* BRStringPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRStringPickerView.h; sourceTree = "<group>"; };
@@ -1380,6 +1383,8 @@
 			children = (
 				0405A5FA265CC77A00D8D246 /* IOSGodspinpaiM.h */,
 				0405A5FB265CC77A00D8D246 /* IOSGodspinpaiM.m */,
+				049D53CA265DE7D200E094F7 /* IOSGodsListM.h */,
+				049D53CB265DE7D200E094F7 /* IOSGodsListM.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1925,6 +1930,7 @@
 				042DB99E26551235008FBAEC /* IOSGodsHistoryVC.m in Sources */,
 				04B93DB326549EBB00DA647C /* AFNetHelp.m in Sources */,
 				04B93E892654DF1E00DA647C /* UIView+creatViews.m in Sources */,
+				049D53CC265DE7D200E094F7 /* IOSGodsListM.m in Sources */,
 				04B93E102654A01100DA647C /* UITextField+IndexPath.m in Sources */,
 				04B93E1A2654A01100DA647C /* TittleSeleTableViewCell.m in Sources */,
 				04B93DA526549EBB00DA647C /* NSArray+YYAdd.m in Sources */,

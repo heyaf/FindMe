@@ -8,7 +8,7 @@
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
-
+@class IOSGodsListM;
 @interface IOSManagerGodsTBCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *mainPicImageView;
 @property (weak, nonatomic) IBOutlet UIView *xinghaoBGView;
@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
-
+@property (nonatomic,strong) IOSGodsListM *godsModel;
 @end
 
 NS_ASSUME_NONNULL_END

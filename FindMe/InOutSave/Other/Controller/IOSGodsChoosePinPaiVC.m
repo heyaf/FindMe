@@ -45,6 +45,8 @@
             [self.tabelView reloadData];
         }else {
             [self showHint:responseObject[@"msg"]];
+            [self.dataSource removeAllObjects];
+
             [self.tabelView reloadData];
 
             

@@ -26,6 +26,9 @@
 @property (nonatomic,strong) NSString *selectedPinPaiStr; //已经选择的品牌
 @property (nonatomic,strong) NSString *selectedDanWeiStr; //已经选择的单位
 
+@property (nonatomic,strong) NSString *detailGodsStr; //编辑后的商品详情字符串
+
+@property (nonatomic,assign) NSInteger selectedIndex; //单选按钮的选择index
 @end
 
 @implementation IOSAddGodsVC
@@ -49,8 +52,14 @@
 
     [self CreatMainUI];
     [self creatBottomView];
+    //监听键盘frame改变
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 }
 -(void)initialData{
+    self.selectedIndex = 2;
+
     self.NameArr =@[@"商品名称",@"商品所属",@"商品图片",@"商品详情",@"商品价(元)",@"初始库存量",@"库存预警",@"是否可回收",@"参数"];
     self.holderArr = @[@"请输入商品名称",@"",@"",@"点击添加商品详情",@"请输入商品价",@"请输入初始库存量",@"请输入库存预警",@"",@""];
     for (int i=0; i<self.NameArr.count; i++) {
@@ -123,7 +132,102 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 -(void)makeSureBtnClicked{
+    if (((NSString *)self.choosedArr[0]).length==0) {
+        [self showHint:@"请输入商品名称"];
+        return;
+    }
+    if (self.selectImageUrl.length==0) {
+        [self showHint:@"请选择商品图片"];
+        return;
+    }
+    if (self.detailGodsStr.length==0) {
+        [self showHint:@"请输入商品详情"];
+        return;
+    }
+    if (((NSString *)self.choosedArr[4]).length==0) {
+        [self showHint:@"请输入商品价格"];
+        return;
+    }
+    if (((NSString *)self.choosedArr[5]).length==0) {
+        [self showHint:@"请输入初始库存量"];
+        return;
+    }
+    if (((NSString *)self.choosedArr[6]).length==0) {
+        [self showHint:@"请输入库存预警"];
+        return;
+    }
+    if (self.selectedPinPaiStr.length==0) {
+        [self showHint:@"请选择商品品牌"];
+        return;
+    }
+    if (self.selectedDanWeiStr.length==0) {
+        [self showHint:@"请选择单位"];
+        return;
+    }
+    NSString *url = [AppServerURL stringByAppendingString:@"/s/api/sdGoods/editSave"];
+    NSDictionary *paramDic = @{
+                                @"goodsName":self.choosedArr[0],
+                               @"img":self.selectImageUrl,
+                               @"price":self.choosedArr[4],
+                               @"stockNum":self.choosedArr[5],
+                               @"warnNum":self.choosedArr[6],
+                               @"brand":self.selectedPinPaiStr,
+                               @"unit":self.selectedDanWeiStr,
+                               @"detail":self.detailGodsStr,
+                               @"empId":kUser_id,
+                               @"isRecycle":@(self.selectedIndex)
+    };
+    [self showHudInView:self.view hint:@"加载中"];
+    [[AFNetHelp shareAFNetworking] postInfoFromSeverWithStr:url body:paramDic sucess:^(id responseObject) {
+        if ([AowString(responseObject[@"code"]) isEqualToString:@"1"]) {
+            [self showHint:@"新增成功"];
+//            [self.navigationController popViewControllerAnimated:YES];
+
+        }else {
+            [self showHint:responseObject[@"msg"]];
+            
+        }
+        [self hideHud];
+
+        
+    } failure:^(NSError *error) {
+        [self showHint:@"稍后重试"];
+        [self hideHud];
+        
+    }];
     
+}
+//键盘将要弹出
+- (void)keyboardWillShow:(NSNotification *)notification
+{
+    //获取键盘高度 keyboardHeight
+    NSDictionary *userInfo = [notification userInfo];
+    NSValue *aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+    CGRect keyboardRect = [aValue CGRectValue];
+    CGFloat keyboardHeight = keyboardRect.size.height;
+    __weak typeof(self) weakself = self;
+    [UIView animateWithDuration:0.3 animations:^{
+        weakself.tabelView.yz_height = KDeviceHeight-KEVNScreenTopStatusNaviHeight-KEVNScreenTabBarSafeBottomMargin-20-keyboardHeight;
+    }];
+}
+
+//键盘将要隐藏
+- (void)keyboardWillHide:(NSNotification *)notification{
+    __weak typeof(self) weakself = self;
+    [UIView animateWithDuration:0.3 animations:^{
+        weakself.tabelView.yz_height = KDeviceHeight-KEVNScreenTopStatusNaviHeight-KEVNScreenTabBarSafeBottomMargin-100-20;
+
+    } completion:^(BOOL finished) {
+        
+    }];
+    
+
+
+}
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+
 }
 #pragma mark ---delegate----
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -216,9 +320,12 @@
         }
     }
     
-
+    kWeakSelf(self);
     if (indexPath.row==3) {
         IOSAddGodsDetailVC *pushVC = [[IOSAddGodsDetailVC alloc] init];
+        pushVC.ResultBlock = ^(NSString * _Nonnull chooseStr) {
+            weakself.detailGodsStr = chooseStr;
+        };
         [self.navigationController pushViewController:pushVC animated:YES];
         return;
     }
@@ -329,8 +436,12 @@
     UIButton *btn = (UIButton *)sender;
     
     if (btn.tag ==500) {
+        self.selectedIndex =1;
     }else{
+        self.selectedIndex = 2;
     }
+    NSLog(@"%li",self.selectedIndex);
+    
 }
 //添加图片
 -(void)addImage{
@@ -347,8 +458,6 @@
     imagePickerVc.allowPickingOriginalPhoto = NO;
     [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
         self.addSelectImage = photos[0];
-        NSIndexPath *indexPatn = [NSIndexPath indexPathForRow:2 inSection:0];
-        [self.tabelView reloadRowsAtIndexPaths:@[indexPatn] withRowAnimation:UITableViewRowAnimationNone];
         [self photoAddseavToSeverAction:photos];
     }];
     imagePickerVc.modalPresentationStyle = UIModalPresentationFullScreen;
@@ -363,7 +472,8 @@
         [self hideHud];
         if ([AowString(responseObject[@"code"])  isEqualToString:@"1"] ){
             self.selectImageUrl = AowString(responseObject[@"data"]);
-            
+            NSIndexPath *indexPatn = [NSIndexPath indexPathForRow:2 inSection:0];
+            [self.tabelView reloadRowsAtIndexPaths:@[indexPatn] withRowAnimation:UITableViewRowAnimationNone];
         }else {
             [self showHint:responseObject[@"msg"]];
 

@@ -16,6 +16,7 @@
 
 #import "AFNetHelp.h"
 #import "UIImage+ColorImage.h"
+
 #import "IOSMessageAlertView.h"
 #import "UIButton+SSEdgeInsets.h"
 #define IOSMainColor RGBA(46, 153, 146, 1)
@@ -41,4 +42,7 @@
 \
 [View.layer setCornerRadius:(Radius)];\
 [View.layer setMasksToBounds:YES]
+
+//字符串拼接
+#define kStringFormat(format,...) [NSString stringWithFormat:format,##__VA_ARGS__]
 #endif /* IOSHeader_h */
