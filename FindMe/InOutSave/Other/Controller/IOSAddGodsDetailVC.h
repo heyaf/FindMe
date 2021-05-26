@@ -10,6 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface IOSAddGodsDetailVC : MyBaseViewController
+@property (nonatomic,strong) NSString *detailstring;
 @property (nonatomic,copy) void(^ResultBlock)(NSString *chooseStr);
 
 @end

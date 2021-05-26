@@ -126,6 +126,12 @@
 		0488736C265B3F4400709115 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0488736B265B3F4400709115 /* NSString+Extension.m */; };
 		0488736F265B4C1900709115 /* IOSTongjiMainHView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0488736E265B4C1900709115 /* IOSTongjiMainHView.m */; };
 		049D53CC265DE7D200E094F7 /* IOSGodsListM.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D53CB265DE7D200E094F7 /* IOSGodsListM.m */; };
+		049D53CF265E050A00E094F7 /* IOSGodsDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D53CE265E050900E094F7 /* IOSGodsDetailVC.m */; };
+		049D53D2265E197D00E094F7 /* IOSGodsDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D53D1265E197D00E094F7 /* IOSGodsDetailView.m */; };
+		049D53D5265E199800E094F7 /* IOSGodDetailSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D53D4265E199800E094F7 /* IOSGodDetailSubView.m */; };
+		049D53D8265E1C4E00E094F7 /* UIView+IOSSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D53D7265E1C4E00E094F7 /* UIView+IOSSize.m */; };
+		049D53DB265E22C400E094F7 /* IOSGodsDeHeadSubV.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D53DA265E22C400E094F7 /* IOSGodsDeHeadSubV.m */; };
+		049D53DE265E3B4E00E094F7 /* UIImage+imageSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D53DD265E3B4E00E094F7 /* UIImage+imageSize.m */; };
 		04B93D2926549DA500DA647C /* MyTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B93D2826549DA500DA647C /* MyTabBarViewController.m */; };
 		04B93D8D26549EBB00DA647C /* BRStringPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B93D2E26549EBB00DA647C /* BRStringPickerView.m */; };
 		04B93D8E26549EBB00DA647C /* BRTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B93D3126549EBB00DA647C /* BRTextField.m */; };
@@ -472,6 +478,18 @@
 		0488736E265B4C1900709115 /* IOSTongjiMainHView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSTongjiMainHView.m; sourceTree = "<group>"; };
 		049D53CA265DE7D200E094F7 /* IOSGodsListM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSGodsListM.h; sourceTree = "<group>"; };
 		049D53CB265DE7D200E094F7 /* IOSGodsListM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSGodsListM.m; sourceTree = "<group>"; };
+		049D53CD265E050900E094F7 /* IOSGodsDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSGodsDetailVC.h; sourceTree = "<group>"; };
+		049D53CE265E050900E094F7 /* IOSGodsDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSGodsDetailVC.m; sourceTree = "<group>"; };
+		049D53D0265E197D00E094F7 /* IOSGodsDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSGodsDetailView.h; sourceTree = "<group>"; };
+		049D53D1265E197D00E094F7 /* IOSGodsDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSGodsDetailView.m; sourceTree = "<group>"; };
+		049D53D3265E199800E094F7 /* IOSGodDetailSubView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSGodDetailSubView.h; sourceTree = "<group>"; };
+		049D53D4265E199800E094F7 /* IOSGodDetailSubView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSGodDetailSubView.m; sourceTree = "<group>"; };
+		049D53D6265E1C4E00E094F7 /* UIView+IOSSize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+IOSSize.h"; sourceTree = "<group>"; };
+		049D53D7265E1C4E00E094F7 /* UIView+IOSSize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+IOSSize.m"; sourceTree = "<group>"; };
+		049D53D9265E22C400E094F7 /* IOSGodsDeHeadSubV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSGodsDeHeadSubV.h; sourceTree = "<group>"; };
+		049D53DA265E22C400E094F7 /* IOSGodsDeHeadSubV.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSGodsDeHeadSubV.m; sourceTree = "<group>"; };
+		049D53DC265E3B4E00E094F7 /* UIImage+imageSize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+imageSize.h"; sourceTree = "<group>"; };
+		049D53DD265E3B4E00E094F7 /* UIImage+imageSize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+imageSize.m"; sourceTree = "<group>"; };
 		04B93D2726549DA500DA647C /* MyTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTabBarViewController.h; sourceTree = "<group>"; };
 		04B93D2826549DA500DA647C /* MyTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTabBarViewController.m; sourceTree = "<group>"; };
 		04B93D2D26549EBB00DA647C /* BRStringPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRStringPickerView.h; sourceTree = "<group>"; };
@@ -1364,6 +1382,8 @@
 			children = (
 				0479A629265B861600FD966F /* IOSGodsManagerVC.h */,
 				0479A62A265B861600FD966F /* IOSGodsManagerVC.m */,
+				049D53CD265E050900E094F7 /* IOSGodsDetailVC.h */,
+				049D53CE265E050900E094F7 /* IOSGodsDetailVC.m */,
 				0479A631265BA0D900FD966F /* IOSAddGodsVC.h */,
 				0479A632265BA0D900FD966F /* IOSAddGodsVC.m */,
 				0405A602265CF49000D8D246 /* IOSAddGodsDetailVC.h */,
@@ -1398,6 +1418,12 @@
 				0405A5FD265CCC9A00D8D246 /* IOSGodsPinPaiTBCell.h */,
 				0405A5FE265CCC9A00D8D246 /* IOSGodsPinPaiTBCell.m */,
 				0405A5FF265CCC9A00D8D246 /* IOSGodsPinPaiTBCell.xib */,
+				049D53D0265E197D00E094F7 /* IOSGodsDetailView.h */,
+				049D53D1265E197D00E094F7 /* IOSGodsDetailView.m */,
+				049D53D3265E199800E094F7 /* IOSGodDetailSubView.h */,
+				049D53D4265E199800E094F7 /* IOSGodDetailSubView.m */,
+				049D53D9265E22C400E094F7 /* IOSGodsDeHeadSubV.h */,
+				049D53DA265E22C400E094F7 /* IOSGodsDeHeadSubV.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1536,6 +1562,10 @@
 				04B93E592654AAFF00DA647C /* IOSHomeHeadCollectionReusableV.xib */,
 				04B93E872654DF1E00DA647C /* UIView+creatViews.h */,
 				04B93E882654DF1E00DA647C /* UIView+creatViews.m */,
+				049D53D6265E1C4E00E094F7 /* UIView+IOSSize.h */,
+				049D53D7265E1C4E00E094F7 /* UIView+IOSSize.m */,
+				049D53DC265E3B4E00E094F7 /* UIImage+imageSize.h */,
+				049D53DD265E3B4E00E094F7 /* UIImage+imageSize.m */,
 			);
 			path = IOSHome;
 			sourceTree = "<group>";
@@ -1940,6 +1970,7 @@
 				04B93E092654A01100DA647C /* PlaceholderTextView.m in Sources */,
 				04B93DAA26549EBB00DA647C /* NSKeyedUnarchiver+YYAdd.m in Sources */,
 				0405A5E8265C9A5E00D8D246 /* TYAlertFadeAnimation.m in Sources */,
+				049D53D5265E199800E094F7 /* IOSGodDetailSubView.m in Sources */,
 				04B93E2F2654A01100DA647C /* BaseModel.m in Sources */,
 				04B93E312654A01100DA647C /* TittleSubModel.m in Sources */,
 				042DB96B2654EC8E008FBAEC /* IOSCaiGouChooM.m in Sources */,
@@ -1952,6 +1983,7 @@
 				0479A612265B779400FD966F /* IOSTongJiOutStoreVC.m in Sources */,
 				042DB9D626552B33008FBAEC /* IOSCaiGouChoTBCell.m in Sources */,
 				0405A5E9265C9A5E00D8D246 /* TYAlertController+TransitionAnimate.m in Sources */,
+				049D53D2265E197D00E094F7 /* IOSGodsDetailView.m in Sources */,
 				042DB9C7265512EE008FBAEC /* YNPageHeaderScrollView.m in Sources */,
 				042DBAF42658A7F2008FBAEC /* IOSLingYongListVC.m in Sources */,
 				042DB9C1265512EE008FBAEC /* UIView+YNPageExtend.m in Sources */,
@@ -1982,6 +2014,7 @@
 				042DBA0926563A2F008FBAEC /* IOSGodsHisTBCell.m in Sources */,
 				0405A613265D0C5000D8D246 /* NSTextAttachment+LMText.m in Sources */,
 				04887366265B3E9000709115 /* ZhuLiuchengJiankongViewController.m in Sources */,
+				049D53CF265E050A00E094F7 /* IOSGodsDetailVC.m in Sources */,
 				04B93D9926549EBB00DA647C /* UIColor+YYAdd.m in Sources */,
 				04B93E6F2654AB5100DA647C /* UIView+Frame.m in Sources */,
 				042DBB362658E613008FBAEC /* IOSHuiSHouAddDetailVC.m in Sources */,
@@ -1997,6 +2030,7 @@
 				042DBA2B2656616C008FBAEC /* IOSGodsDetailTBCell.m in Sources */,
 				0479A637265BB8B800FD966F /* RadioButton.m in Sources */,
 				0479A60F265B776D00FD966F /* IOSTongjiInStoreVC.m in Sources */,
+				049D53DE265E3B4E00E094F7 /* UIImage+imageSize.m in Sources */,
 				042DB9C8265512EE008FBAEC /* YNPageCollectionView.m in Sources */,
 				04B93E5E2654AB0000DA647C /* IOSEnterHomeVC.m in Sources */,
 				04B93D9E26549EBB00DA647C /* UIScreen+YYAdd.m in Sources */,
@@ -2009,6 +2043,7 @@
 				04B93E352654A01100DA647C /* PhotoChoseShowViewController.m in Sources */,
 				042DBAC72657C557008FBAEC /* IOSPanDianHisCell.m in Sources */,
 				042DBAA02657A9F1008FBAEC /* IOSCaiGouHeaderTBCell.m in Sources */,
+				049D53DB265E22C400E094F7 /* IOSGodsDeHeadSubV.m in Sources */,
 				042DBB2F2658DDFF008FBAEC /* IOSHuiShouListTBCell.m in Sources */,
 				04B93DAB26549EBB00DA647C /* NSTimer+YYAdd.m in Sources */,
 				04B93DA826549EBB00DA647C /* NSObject+YYAdd.m in Sources */,
@@ -2022,6 +2057,7 @@
 				04B93D9A26549EBB00DA647C /* UIDevice+YYAdd.m in Sources */,
 				04B93DAF26549EBB00DA647C /* NSDictionary+YYAdd.m in Sources */,
 				04B93E072654A01100DA647C /* MyBaseShowCollectionViewController.m in Sources */,
+				049D53D8265E1C4E00E094F7 /* UIView+IOSSize.m in Sources */,
 				0447D5E52653A34A0012D72C /* AppDelegate.m in Sources */,
 				042DB9DD26552DBB008FBAEC /* IOSGodsHisDetailVC.m in Sources */,
 				04B93D9D26549EBB00DA647C /* UIScrollView+YYAdd.m in Sources */,

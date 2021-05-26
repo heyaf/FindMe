@@ -9,6 +9,7 @@
 #define IOSHeader_h
 #import "UIView+creatViews.h"
 #import "UIView+Frame.h"
+#import "UIView+IOSSize.h"
 #import "CYCustomArcImageView.h"
 #import "YNPageViewController.h"
 #import <JSONModel.h>
@@ -19,6 +20,7 @@
 
 #import "IOSMessageAlertView.h"
 #import "UIButton+SSEdgeInsets.h"
+#import "UIImage+imageSize.h"
 #define IOSMainColor RGBA(46, 153, 146, 1)
 #define IOSSubTitleColor [UIColor grayColor]
 #define IOSCancleBtnColor RGBA(234, 245, 246, 1)

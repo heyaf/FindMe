@@ -10,6 +10,7 @@
 #import "IOSManagerGodsTBCell.h"
 #import "IOSAddGodsVC.h"
 #import "IOSGodsListM.h"
+#import "IOSGodsDetailVC.h"
 @interface IOSGodsManagerVC ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) IOSTongJiHeaderView *mainHview;
@@ -108,13 +109,18 @@
 
     return cell;
 }
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    IOSGodsListM *godsModel = self.dataSource[indexPath.row];
+    IOSGodsDetailVC *pushVC = [[IOSGodsDetailVC alloc] init];
+    pushVC.godsModel = godsModel;
+    [self.navigationController pushViewController:pushVC animated:YES];
+
+}
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
   
     return 120;
 }
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
-}
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 44+100;
 }

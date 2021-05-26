@@ -12,7 +12,7 @@
 #import "RadioButton.h"
 #import "IOSGodsChoosePinPaiVC.h"
 #import "IOSAddGodsDetailVC.h"
-
+#import "IOSGodsListM.h"
 @interface IOSAddGodsVC ()<UITableViewDelegate,UITableViewDataSource,TZImagePickerControllerDelegate>
 
 @property (nonatomic,strong) NSMutableArray *dataArr;
@@ -75,6 +75,17 @@
         [self.choosedArr addObject:@""];
         
     }
+    if (self.godsModel) {
+        [self.choosedArr replaceObjectAtIndex:0 withObject:self.godsModel.goodsName];
+        [self.choosedArr replaceObjectAtIndex:4 withObject:self.godsModel.price];
+        [self.choosedArr replaceObjectAtIndex:5 withObject:kStringFormat(@"%li",(long)self.godsModel.stockNum)];
+        [self.choosedArr replaceObjectAtIndex:6 withObject:kStringFormat(@"%li",(long)self.godsModel.warnNum)];
+        self.selectedIndex =self.godsModel.isRecycle;
+        self.detailGodsStr = self.godsModel.detail;
+        self.selectImageUrl = self.godsModel.img;
+        self.selectedPinPaiStr = self.godsModel.brand;
+        self.selectedDanWeiStr = self.godsModel.unit;
+    }
     
 }
 //主视图
@@ -96,7 +107,13 @@
 
     backButton.titleLabel.font = FONT(18);
     backButton.frame = CGRectMake(0, 0, 60,35);
-    [backButton setTitle:@"新增商品" forState:0];
+    if (self.godsModel) {
+        [backButton setTitle:@"编辑商品" forState:0];
+
+    }else{
+        [backButton setTitle:@"新增商品" forState:0];
+
+    }
     [backButton setTitleColor:[UIColor blackColor] forState:0];
 
     [backButton addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
@@ -177,11 +194,36 @@
                                @"empId":kUser_id,
                                @"isRecycle":@(self.selectedIndex)
     };
+    NSMutableDictionary *mutDic = [NSMutableDictionary dictionaryWithDictionary:paramDic];
+    if (self.godsModel) {
+        [mutDic setValue:self.godsModel.GodsId forKey:@"id"];
+    }
     [self showHudInView:self.view hint:@"加载中"];
     [[AFNetHelp shareAFNetworking] postInfoFromSeverWithStr:url body:paramDic sucess:^(id responseObject) {
         if ([AowString(responseObject[@"code"]) isEqualToString:@"1"]) {
-            [self showHint:@"新增成功"];
-//            [self.navigationController popViewControllerAnimated:YES];
+            if (self.godsModel) {
+                IOSGodsListM *godModel = self.godsModel;
+                godModel.goodsName = self.choosedArr[0];
+                godModel.img = self.selectImageUrl;
+                godModel.price = self.choosedArr[4];
+                godModel.stockNum = [self.choosedArr[5] intValue];
+                godModel.warnNum = [self.choosedArr[6] intValue];
+                godModel.unit = self.selectedDanWeiStr;
+                godModel.brand = self.selectedPinPaiStr;
+                godModel.isRecycle = self.selectedIndex;
+                godModel.detail = self.detailGodsStr;
+                [self showHint:@"编辑成功"];
+                if (self.ChangeBlock) {
+                    self.ChangeBlock(godModel);
+
+                }
+
+            }else{
+                [self showHint:@"新增成功"];
+
+            }
+            [self.navigationController popViewControllerAnimated:YES];
+
 
         }else {
             [self showHint:responseObject[@"msg"]];
@@ -280,7 +322,7 @@
             cell.rightArrowImageV.hidden = NO;
         }
         //设置键盘样式
-        if (indexPath.row!=0) {
+        if (indexPath.row!=0&&indexPath.row!=5) {
             cell.inputTF.keyboardType = UIKeyboardTypeNumberPad;
         }
 
@@ -323,6 +365,9 @@
     kWeakSelf(self);
     if (indexPath.row==3) {
         IOSAddGodsDetailVC *pushVC = [[IOSAddGodsDetailVC alloc] init];
+        if (self.godsModel) {
+            pushVC.detailstring = self.detailGodsStr;
+        }
         pushVC.ResultBlock = ^(NSString * _Nonnull chooseStr) {
             weakself.detailGodsStr = chooseStr;
         };
@@ -354,8 +399,11 @@
     }
     
     [buttonsArray[0] setGroupButtons:buttonsArray]; // 把按钮放进群组中
-    
     [buttonsArray[0] setSelected:YES]; // 初始化第一个按钮为选中状态
+
+    if (self.godsModel&&self.selectedIndex==1) {
+            [buttonsArray[1] setSelected:YES];
+    }
 }
 -(void)creatSingleButtonWithView:(UIView *)cellView{
 
@@ -378,6 +426,8 @@
     UIImageView *addImageV = [[UIImageView alloc] initWithFrame:CGRectMake(10, 40, 80, 80)];
     if (self.addSelectImage) {
         addImageV.image = self.addSelectImage;
+    }else if (self.godsModel){
+        [addImageV sd_setImageWithURL:[NSURL URLWithString:kStringFormat(@"%@%@",AppServerURL,self.godsModel.img)] placeholderImage:ImageNamed(@"placeholder")];
     }else{
         addImageV.image = ImageNamed(@"IOSAddImageBg");
 

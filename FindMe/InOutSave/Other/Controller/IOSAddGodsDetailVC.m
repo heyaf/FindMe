@@ -37,6 +37,58 @@
      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     
      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    [self setTextViewStr];
+    
+}
+-(void)setTextViewStr{
+    if (self.detailstring.length==0) {
+        return;;
+    }
+    self.placeHolderLabel.alpha = 0;
+    NSArray *dataArr = [self.detailstring componentsSeparatedByString:@",,"];
+    NSMutableAttributedString *detailAttributedStr = [[NSMutableAttributedString alloc] initWithString:@""];
+    for (int i = 0; i < dataArr.count; i++) {
+       NSString *subString = dataArr[i];
+        if (subString.length>0) {
+            if ([subString containsString:@".png"]) {
+                
+                NSString *url = kStringFormat(@"%@%@",AppServerURL,subString);
+                UIImage *chooseImage = [self getImageFromURL:url];
+                NSTextAttachment* textAttachment = [[NSTextAttachment alloc] init];
+                CGSize size = CGSizeZero;
+                
+                if (chooseImage.size.height>chooseImage.size.width) {
+                    size = CGSizeMake(KDeviceWith-30, (KDeviceWith-30)/9*16+20);
+                }else{
+                    size = CGSizeMake(KDeviceWith-30, (KDeviceWith-30)/4*3+20);
+
+                }
+
+                UIImage *sizeImage = [self Resize:chooseImage toSize:size];
+                textAttachment.image = [self getCornerRadius:sizeImage];
+                textAttachment.userInfo = subString;
+                textAttachment.bounds = CGRectMake(0, 0, size.width, size.height);
+                NSAttributedString* imageAttachment = [NSAttributedString attributedStringWithAttachment:textAttachment];
+                NSMutableAttributedString *attriStr = [self.textView.attributedText mutableCopy];
+                textAttachment.attachmentType = LMTextAttachmentTypeImage;
+                [attriStr insertAttributedString:imageAttachment atIndex:self.textView.selectedRange.location];
+                
+                [attriStr addAttributes:@{NSFontAttributeName: kFONT(15)} range:NSMakeRange(0, attriStr.length)];
+                self.textView.attributedText = attriStr;
+
+            }else {
+                NSAttributedString* imageAttachment = [[NSAttributedString alloc] initWithString:subString];
+                NSMutableAttributedString *attriStr = [self.textView.attributedText mutableCopy];
+                [attriStr insertAttributedString:imageAttachment atIndex:self.textView.selectedRange.location];
+                
+                [attriStr addAttributes:@{NSFontAttributeName: kFONT(15)} range:NSMakeRange(0, attriStr.length)];
+                self.textView.attributedText = attriStr;
+
+            }
+            
+        }
+        
+    }
 }
 //设置导航栏
 -(void)setNavbutton{
@@ -62,6 +114,7 @@
         _textView.tag = 555;
         _textView.returnKeyType = UIReturnKeyDone;
 //        [_textView becomeFirstResponder];
+
 
         [_textView setDelegate:self];
         
@@ -189,8 +242,8 @@
                 NSMutableAttributedString *attriStr = [weakself.textView.attributedText mutableCopy];
                 textAttachment.attachmentType = LMTextAttachmentTypeImage;
                 [attriStr insertAttributedString:imageAttachment atIndex:weakself.textView.selectedRange.location];
-                NSAttributedString *attStr = [[NSAttributedString alloc] initWithString:@"\n"];
-                [attriStr appendAttributedString:attStr];
+//                NSAttributedString *attStr = [[NSAttributedString alloc] initWithString:@"\n"];
+//                [attriStr appendAttributedString:attStr];
                 
                 [attriStr addAttributes:@{NSFontAttributeName: kFONT(15)} range:NSMakeRange(0, attriStr.length)];
                 weakself.textView.attributedText = attriStr;
@@ -206,6 +259,14 @@
         [self hideHud];
         [self showHint:@"稍后重试"];
     }];
+}
+// 根据url获取图片
+- (UIImage *)getImageFromURL:(NSString *)fileURL
+{
+    UIImage *result;
+    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:fileURL]];
+    result = [UIImage imageWithData:data];
+    return result;
 }
 //键盘将要弹出
 - (void)keyboardWillShow:(NSNotification *)notification
