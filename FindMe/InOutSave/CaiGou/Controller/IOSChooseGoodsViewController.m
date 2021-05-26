@@ -7,11 +7,11 @@
 
 #import "IOSChooseGoodsViewController.h"
 #import "IOSGodsDetailTBCell.h"
-
+#import "IOSCaiGouListModel.h"
 
 @interface IOSChooseGoodsViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) NSMutableArray *choosedArr; //选择商品的数组
-
+@property (nonatomic,strong) UILabel *priceLabel;
 @end
 
 @implementation IOSChooseGoodsViewController
@@ -24,23 +24,36 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationItem.title = @"选择商品";
     [self setNavbutton];
     [self initialData];
 
     [self CreatMainUI];
 }
 -(void)initialData{
-//    self.NameArr =@[@"采购人",@"采购时间",@"采购商品"];
-//    self.holderArr = @[@"请选择采购人员",@"请选择采购时间",@"请选择采购商品"];
-//    for (int i=0; i<self.NameArr.count; i++) {
-//        IOSCaiGouChooM *chooseM = [[IOSCaiGouChooM alloc] init];
-//        chooseM.name = self.NameArr[i];
-//        chooseM.holderStr = self.holderArr[i];
-//        
-//        [self.dataArr addObject:chooseM];
-//        
-//    }
+    NSString *url = [AppServerURL stringByAppendingString:@"/s/api/sdCheck/getGoods"];
+    NSDictionary *paramDic = @{@"empId":kUser_id
+    };
+    [self showHudInView:self.view hint:@"加载中"];
+    [[AFNetHelp shareAFNetworking] postInfoFromSeverWithStr:url body:paramDic sucess:^(id responseObject) {
+        if ([AowString(responseObject[@"code"]) isEqualToString:@"1"]) {
+            NSArray *dateArr= responseObject[@"data"][@"list"];
+            self.dataSource = [IOSCaiGouListModel arrayOfModelsFromDictionaries:dateArr error:nil];
+            [self.tabelView reloadData];
+        }else {
+            [self showHint:responseObject[@"msg"]];
+            [self.dataSource removeAllObjects];
+            [self.tabelView reloadData];
+
+            
+        }
+        [self hideHud];
+
+        
+    } failure:^(NSError *error) {
+        [self showHint:@"稍后重试"];
+        [self hideHud];
+        
+    }];
     
 }
 //主视图
@@ -57,47 +70,46 @@
 }
 -(void)creatBottomView{
     UIView *bottomView = [[UIView alloc]  initWithFrame:CGRectMake(0, KDeviceHeight-80-KEVNScreenTabBarSafeBottomMargin, KDeviceWith, 80+KEVNScreenTabBarSafeBottomMargin)];
-    bottomView.backgroundColor = [UIColor redColor];
+    bottomView.backgroundColor = [UIColor whiteColor];
     
     [self.view addSubview:bottomView];
     
+    CYCustomArcImageView *bgView = [[CYCustomArcImageView alloc] initWithFrame:CGRectMake(KDeviceWith-30-120, 10, 120, 50)];
+    bgView.borderTopLeftRadius = 10;
+    bgView.borderTopRightRadius = 25;
+    bgView.borderBottomLeftRadius = 10;
+    bgView.borderBottomRightRadius = 10;
+    [bottomView addSubview:bgView];
     UIButton *makeSureBtn = [UIButton buttonWithType:0];
-    makeSureBtn.frame = CGRectMake(KDeviceWith-30-120, 10, 120, 60);
+    makeSureBtn.frame = CGRectMake(0, 0, 120, 50);
     [makeSureBtn setTitle:@"确认" forState:0];
     makeSureBtn.backgroundColor =RGBA(46, 153, 164, 1);
+    [bgView addSubview:makeSureBtn];
     [makeSureBtn addTarget:self action:@selector(makeSureBtnClicked) forControlEvents:UIControlEventTouchUpInside];
-    [bottomView addSubview:makeSureBtn];
-    
-    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:makeSureBtn.bounds byRoundingCorners:UIRectCornerTopLeft|UIRectCornerBottomLeft|UIRectCornerBottomRight cornerRadii:CGSizeMake(10, 10)];
-    
-    CAShapeLayer *shapeLayer = [CAShapeLayer layer];
-    shapeLayer.path = path.CGPath;
-    makeSureBtn.layer.mask = shapeLayer;
+
     
     UILabel *priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 20, KDeviceWith-120-30-30, 20)];
     priceLabel.text = @"共0件商品";
+    self.priceLabel = priceLabel;
     [bottomView addSubview:priceLabel];
 
 }
 #pragma mark ---delegate----
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if (section==0) {
-        return 20;
-    }
-    return self.choosedArr.count;
+    return self.dataSource.count;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section ==0) {
-        return 100;
-    }
-    return 100;
+
+    return 130;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section==0) {
         IOSGodsDetailTBCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IOSGodsDetailTBCell"];
-//        IOSCaiGouChooM *caigouModel = self.dataArr[indexPath.row];
+        IOSCaiGouListModel *caigouModel = self.dataSource[indexPath.row];
+        cell.caigouChooseGodsM = caigouModel;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
 //        cell.CaigouChooseModel = caigouModel;
         cell.godsListType = 2;
         return cell;
@@ -108,16 +120,40 @@
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    IOSCaiGouListModel *caigouModel = self.dataSource[indexPath.row];
+    caigouModel.isSelected = !caigouModel.isSelected;
+    [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    [self reloadBottomView];
 }
+-(void)reloadBottomView{
+    NSMutableArray *dateArr = [NSMutableArray arrayWithCapacity:0];
+    NSInteger count =0;
+    for (IOSCaiGouListModel *caigouModel in self.dataSource) {
+        if (caigouModel.isSelected) {
+            [dateArr addObject:caigouModel];
+            count++;
+        }
+    }
+    self.priceLabel.text = kStringFormat(@"已选择%li件商品",count);
+}
+
 //设置导航栏
 -(void)setNavbutton{
-    UIBarButtonItem *leftTem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"guanbiicon"] style:UIBarButtonItemStylePlain target:self.navigationController action:@selector(popViewControllerAnimated:)];
-    [self.navigationItem setLeftBarButtonItem:leftTem];
-    
+    self.navigationItem.title = @"选择商品";
+    UIButton* backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+
+    [backButton setImage:[UIImage imageNamed:@"IOSGuanbi"] forState:UIControlStateNormal];
+    backButton.frame = CGRectMake(0, 0, 35,35);
+
+    [backButton addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
+
+    UIBarButtonItem* leftBarItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+
+    self.navigationItem.leftBarButtonItem = leftBarItem;
+
     UIButton* rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
 
-    [rightBtn setImage:[UIImage imageNamed:@"baiopan"] forState:UIControlStateNormal];
+    [rightBtn setImage:[UIImage imageNamed:@"IOSsearchI"] forState:UIControlStateNormal];
 
 
     rightBtn.frame = CGRectMake(0, 0, 35,35);
@@ -137,8 +173,22 @@
     
 }
 -(void)makeSureBtnClicked{
-    if (self.chooseGodsBlock) {
-        self.chooseGodsBlock(@[]);
+
+    NSMutableArray *dateArr = [NSMutableArray arrayWithCapacity:0];
+    for (IOSCaiGouListModel *caigouModel in self.dataSource) {
+        if (caigouModel.isSelected) {
+            [dateArr addObject:caigouModel];
+        }
+    }
+
+    
+    if (dateArr.count==0) {
+        [self showHint:@"请先选择商品"];
+        return;
+    }
+    if (dateArr.count>0&&self.chooseGodsBlock) {
+        self.chooseGodsBlock(dateArr);
+        [self.navigationController popViewControllerAnimated:YES];
     }
 }
 @end

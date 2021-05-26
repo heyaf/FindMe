@@ -15,6 +15,7 @@
 #import "IOSChooseGoodsViewController.h"
 #import "IOSGodsDetailTBCell.h"
 #import "IOSGodsHistoryListVC.h"
+#import "IOSCaiGouListModel.h"
 @interface IOSCaiGouChooseVC ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) NSMutableArray *dataArr;
@@ -24,6 +25,7 @@
 
 @property (nonatomic,strong) NSMutableArray *headerButArr;
 @property (nonatomic,strong) UIView *cellHeaderView;
+@property (nonatomic,assign) NSInteger seletedIndex; //选中的buttonindex
 @end
 
 @implementation IOSCaiGouChooseVC
@@ -54,6 +56,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    self.seletedIndex = 0;
     [self setNavbutton];
     [self initialData];
 
@@ -115,13 +118,13 @@
     if (self.choosedArr.count>0) {
         return 2;
     }
-    return 2;
+    return 1;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (section==0) {
         return self.NameArr.count;
     }
-    return 20;
+    return self.choosedArr.count;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -285,13 +288,13 @@
     return _cellHeaderView;
 }
 -(void)addHeaderSubViews{
-    NSArray *titleArr = @[@"全部",@"待回收",@"已回收"];
+    NSArray *titleArr = @[@"全部",@"可回收",@"不可回收"];
     for (int i =0; i<titleArr.count; i++) {
         UIButton *but = [UIButton buttonWithType:0];
         but.frame = CGRectMake(KDeviceWith/3*i, 0, KDeviceWith/3, 44);
         [but setTitle:titleArr[i] forState:0];
         [but setTitleColor:IOSTitleColor forState:0];
-        [but setBackgroundImage:[UIImage imageWithColor:RGBA(245, 245, 245, 1) size:CGSizeMake(KDeviceWith/3, 44)] forState:0];
+        [but setBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor] size:CGSizeMake(KDeviceWith/3, 44)] forState:0];
         but.titleLabel.font = kFONT(16);
         if (i==0) {
             [but setBackgroundImage:ImageNamed(@"ioscaigouHeaderBG") forState:0];
@@ -316,6 +319,21 @@
     [button setBackgroundImage:ImageNamed(@"ioscaigouHeaderBG") forState:0];
     [button setTitleColor:[UIColor blackColor] forState:0];
     button.titleLabel.font = FONT(18);
+    self.seletedIndex = button.tag-521;
+    [self.tabelView reloadData];
+}
+-(NSArray *)manageChooseDate{
+    if (self.seletedIndex==0) {
+        return self.choosedArr;
+    }
+    NSMutableArray *mutArr = [NSMutableArray arrayWithCapacity:0];
+        for (IOSCaiGouListModel *listModel in self.choosedArr) {
+            if (listModel.isRecycle!=self.seletedIndex) {
+                [mutArr addObject:listModel];
+            }
+        }
+        return mutArr;
+    
 }
 #pragma mark ---点击事件----
 -(void)backAction{

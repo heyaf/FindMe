@@ -8,7 +8,7 @@
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
-
+@class IOSCaiGouListModel;
 @interface IOSGodsDetailTBCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *picImageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -20,6 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIButton *addButton;
 @property (weak, nonatomic) IBOutlet UIButton *unaddrButton;
 @property (weak, nonatomic) IBOutlet UILabel *numLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *selectedImageV;
+@property (weak, nonatomic) IBOutlet UILabel *tagLabel;
 - (IBAction)unAddButtonClicked:(id)sender;
 
 
@@ -33,6 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic,assign) NSInteger godsListType;
 
+@property (nonatomic,strong) IOSCaiGouListModel *caigouChooseGodsM;
 @end
 
 NS_ASSUME_NONNULL_END

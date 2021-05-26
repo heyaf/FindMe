@@ -132,6 +132,7 @@
 		049D53D8265E1C4E00E094F7 /* UIView+IOSSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D53D7265E1C4E00E094F7 /* UIView+IOSSize.m */; };
 		049D53DB265E22C400E094F7 /* IOSGodsDeHeadSubV.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D53DA265E22C400E094F7 /* IOSGodsDeHeadSubV.m */; };
 		049D53DE265E3B4E00E094F7 /* UIImage+imageSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D53DD265E3B4E00E094F7 /* UIImage+imageSize.m */; };
+		049D53E1265E4EA600E094F7 /* IOSCaiGouListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D53E0265E4EA600E094F7 /* IOSCaiGouListModel.m */; };
 		04B93D2926549DA500DA647C /* MyTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B93D2826549DA500DA647C /* MyTabBarViewController.m */; };
 		04B93D8D26549EBB00DA647C /* BRStringPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B93D2E26549EBB00DA647C /* BRStringPickerView.m */; };
 		04B93D8E26549EBB00DA647C /* BRTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B93D3126549EBB00DA647C /* BRTextField.m */; };
@@ -490,6 +491,8 @@
 		049D53DA265E22C400E094F7 /* IOSGodsDeHeadSubV.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSGodsDeHeadSubV.m; sourceTree = "<group>"; };
 		049D53DC265E3B4E00E094F7 /* UIImage+imageSize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+imageSize.h"; sourceTree = "<group>"; };
 		049D53DD265E3B4E00E094F7 /* UIImage+imageSize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+imageSize.m"; sourceTree = "<group>"; };
+		049D53DF265E4EA600E094F7 /* IOSCaiGouListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSCaiGouListModel.h; sourceTree = "<group>"; };
+		049D53E0265E4EA600E094F7 /* IOSCaiGouListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSCaiGouListModel.m; sourceTree = "<group>"; };
 		04B93D2726549DA500DA647C /* MyTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTabBarViewController.h; sourceTree = "<group>"; };
 		04B93D2826549DA500DA647C /* MyTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTabBarViewController.m; sourceTree = "<group>"; };
 		04B93D2D26549EBB00DA647C /* BRStringPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRStringPickerView.h; sourceTree = "<group>"; };
@@ -1520,6 +1523,8 @@
 				042DB96A2654EC8E008FBAEC /* IOSCaiGouChooM.m */,
 				042DBA0E265640DA008FBAEC /* IOSGodsHisModel.h */,
 				042DBA0F265640DA008FBAEC /* IOSGodsHisModel.m */,
+				049D53DF265E4EA600E094F7 /* IOSCaiGouListModel.h */,
+				049D53E0265E4EA600E094F7 /* IOSCaiGouListModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2029,6 +2034,7 @@
 				04B93E152654A01100DA647C /* ChoosePhotoPlaceTableViewCell.m in Sources */,
 				042DBA2B2656616C008FBAEC /* IOSGodsDetailTBCell.m in Sources */,
 				0479A637265BB8B800FD966F /* RadioButton.m in Sources */,
+				049D53E1265E4EA600E094F7 /* IOSCaiGouListModel.m in Sources */,
 				0479A60F265B776D00FD966F /* IOSTongjiInStoreVC.m in Sources */,
 				049D53DE265E3B4E00E094F7 /* UIImage+imageSize.m in Sources */,
 				042DB9C8265512EE008FBAEC /* YNPageCollectionView.m in Sources */,

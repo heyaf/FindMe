@@ -85,7 +85,7 @@
     self.navigationItem.title = @"选择商品";
     UIButton* backButton = [UIButton buttonWithType:UIButtonTypeCustom];
 
-    [backButton setImage:[UIImage imageNamed:@"addPhotoSet"] forState:UIControlStateNormal];
+    [backButton setImage:[UIImage imageNamed:@"IOSBackChaHao"] forState:UIControlStateNormal];
     backButton.frame = CGRectMake(0, 0, 35,35);
 
     [backButton addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
@@ -96,7 +96,7 @@
 
     UIButton* rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
 
-    [rightBtn setImage:[UIImage imageNamed:@"sousuoitenimg"] forState:UIControlStateNormal];
+    [rightBtn setImage:[UIImage imageNamed:@"IOSsearch"] forState:UIControlStateNormal];
 
 
     rightBtn.frame = CGRectMake(0, 0, 35,35);
