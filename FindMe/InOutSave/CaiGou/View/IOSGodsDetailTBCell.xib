@@ -84,7 +84,7 @@
                                     <constraint firstAttribute="height" constant="30" id="0CE-Zo-5d3"/>
                                     <constraint firstAttribute="width" constant="30" id="AMa-fp-Ri8"/>
                                 </constraints>
-                                <state key="normal" image="addvideo"/>
+                                <state key="normal" image="IOSJia"/>
                                 <connections>
                                     <action selector="addButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="yuu-jf-Ut4"/>
                                 </connections>
@@ -104,7 +104,7 @@
                                     <constraint firstAttribute="height" constant="30" id="EvY-3y-DPT"/>
                                     <constraint firstAttribute="width" constant="30" id="UFz-H8-4o9"/>
                                 </constraints>
-                                <state key="normal" image="addvideo"/>
+                                <state key="normal" image="IOSjian"/>
                                 <connections>
                                     <action selector="unAddButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="L2D-5b-RtI"/>
                                 </connections>
@@ -180,7 +180,8 @@
     </objects>
     <resources>
         <image name="IOSCaiGouSelectIcon" width="57" height="42"/>
-        <image name="addvideo" width="166" height="166"/>
+        <image name="IOSJia" width="15" height="15"/>
+        <image name="IOSjian" width="15" height="15"/>
         <image name="icon_edit" width="42.5" height="42.5"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -177,6 +177,7 @@
     NSMutableArray *dateArr = [NSMutableArray arrayWithCapacity:0];
     for (IOSCaiGouListModel *caigouModel in self.dataSource) {
         if (caigouModel.isSelected) {
+            caigouModel.selectCount = 1;
             [dateArr addObject:caigouModel];
         }
     }

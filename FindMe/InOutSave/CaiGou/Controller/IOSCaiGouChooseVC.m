@@ -23,9 +23,15 @@
 @property (nonatomic,strong) NSArray *holderArr;
 @property (nonatomic,strong) NSMutableArray *choosedArr; //选择商品的数组
 
+@property (nonatomic,strong) NSString *caigouyuanID; //采购员ID
+@property (nonatomic,strong) NSString *caigouyuanName; //采购员姓名
+
 @property (nonatomic,strong) NSMutableArray *headerButArr;
 @property (nonatomic,strong) UIView *cellHeaderView;
 @property (nonatomic,assign) NSInteger seletedIndex; //选中的buttonindex
+
+@property (nonatomic,strong) UILabel *priceLabel;
+
 @end
 
 @implementation IOSCaiGouChooseVC
@@ -90,18 +96,18 @@
 }
 -(void)creatBottomView{
     UIView *bottomView = [[UIView alloc]  initWithFrame:CGRectMake(0, KDeviceHeight-80-KEVNScreenTabBarSafeBottomMargin, KDeviceWith, 80+KEVNScreenTabBarSafeBottomMargin)];
-    bottomView.backgroundColor = [UIColor redColor];
+    bottomView.backgroundColor = [UIColor whiteColor];
     
     [self.view addSubview:bottomView];
     
-    CYCustomArcImageView *bgView = [[CYCustomArcImageView alloc] initWithFrame:CGRectMake(KDeviceWith-30-120, 10, 120, 60)];
+    CYCustomArcImageView *bgView = [[CYCustomArcImageView alloc] initWithFrame:CGRectMake(KDeviceWith-30-120, 10, 120, 50)];
     bgView.borderTopLeftRadius = 10;
-    bgView.borderTopRightRadius = 30;
+    bgView.borderTopRightRadius = 25;
     bgView.borderBottomLeftRadius = 10;
     bgView.borderBottomRightRadius = 10;
     [bottomView addSubview:bgView];
     UIButton *makeSureBtn = [UIButton buttonWithType:0];
-    makeSureBtn.frame = CGRectMake(0, 0, 120, 60);
+    makeSureBtn.frame = CGRectMake(0, 0, 120, 50);
     [makeSureBtn setTitle:@"确认" forState:0];
     makeSureBtn.backgroundColor =RGBA(46, 153, 164, 1);
     [bgView addSubview:makeSureBtn];
@@ -109,9 +115,14 @@
 
     
     UILabel *priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 20, KDeviceWith-120-30-30, 20)];
-    priceLabel.text = @"共0件商品，共计0.00元";
+    self.priceLabel = priceLabel;
     [bottomView addSubview:priceLabel];
-
+    NSString *priceStr =@"共0件商品,合计0.00元";
+    NSMutableAttributedString *attriStr = [[NSMutableAttributedString alloc] initWithString:priceStr];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(0, priceStr.length)];
+    [attriStr addAttributes: @{NSFontAttributeName :kBOLDFONT(16),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(1, 1)];
+    [attriStr addAttributes: @{NSFontAttributeName :kBOLDFONT(16),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(8, 4)];
+    self.priceLabel.attributedText = attriStr;
 }
 #pragma mark ---delegate----
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -124,7 +135,7 @@
     if (section==0) {
         return self.NameArr.count;
     }
-    return self.choosedArr.count;
+    return [self manageChooseDate].count;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -146,9 +157,55 @@
     }
     IOSGodsDetailTBCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IOSGodsDetailTBCell"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-
+    IOSCaiGouListModel *caigouModel = [self manageChooseDate][indexPath.row];
+    cell.caigouListGodsM = caigouModel;
     cell.godsListType = 3;
+    kWeakSelf(self)
+    kWeakSelf(cell)
+    cell.unAddBtnClicked = ^{
+        [weakself unaddBtnClicked:caigouModel indexPath:indexPath cell:weakcell];
+    };
+    cell.AddBtnClicked = ^{
+        [weakself addBtnClicked:caigouModel indexPath:indexPath cell:weakcell];
+    };
+    
     return cell;
+}
+//减按钮点击
+-(void)unaddBtnClicked:(IOSCaiGouListModel *)caigouM indexPath:(NSIndexPath*)indexPath cell:(IOSGodsDetailTBCell *)cell{
+    if (caigouM.selectCount==1) {
+        return;
+    }
+    caigouM.selectCount--;
+
+    [self.tabelView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    [self ChargePrice];
+}
+//加按钮点击
+-(void)addBtnClicked:(IOSCaiGouListModel *)caigouM indexPath:(NSIndexPath*)indexPath cell:(IOSGodsDetailTBCell *)cell{
+
+    caigouM.selectCount++;
+
+    [self.tabelView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    [self ChargePrice];
+}
+-(void)ChargePrice{
+    NSInteger count =0;
+    CGFloat Price = 0.00;
+    for (IOSCaiGouListModel *caigouModel in self.choosedArr) {
+        count+=caigouModel.selectCount;
+        Price+=[caigouModel.price floatValue]*caigouModel.selectCount;
+    }
+    NSString *priceStr =kStringFormat(@"共%li件商品,合计%.2f元",count,Price);
+    NSString *countStr = kStringFormat(@"%li",count);
+    NSMutableAttributedString *attriStr = [[NSMutableAttributedString alloc] initWithString:priceStr];
+    [attriStr addAttributes: @{NSFontAttributeName :kBOLDFONT(16),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(0, priceStr.length)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(0, 1)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(1+countStr.length, 6)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(priceStr.length-1, 1)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(12),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(priceStr.length-4, 3)];
+    self.priceLabel.attributedText = attriStr;
+
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
@@ -233,7 +290,7 @@
         }];
         
         delete.backgroundColor = [UIColor whiteColor];
-        delete.image = ImageNamed(@"minefeidanku");
+        delete.image = ImageNamed(@"IOSDelete");
         
         UISwipeActionsConfiguration *config = [UISwipeActionsConfiguration configurationWithActions:@[delete]];
         //performsFirstActionWithFullSwipe 禁止左滑完全滑动事件，只能点击触发
@@ -345,38 +402,41 @@
     pushVC.chooseGodsBlock = ^(NSArray * _Nonnull godsArr) {
         self.choosedArr = [NSMutableArray arrayWithArray:godsArr];
         [self.tabelView reloadData];
+        [self ChargePrice];
     };
     [self.navigationController pushViewController:pushVC animated:YES];
 }
 //请求所有的部门信息
 - (void)postallBumeninfoDataFromSever {
-    [self showHudInView:self.view hint:@"加载数据"];
-    
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys: User_Companyid,@"companyId",@"0",@"parentId",KUser_ComType,@"type",nil];
-    NSString *url = [NSString stringWithFormat:@"%@/d/api/department/list",AppServerURL];
-    NSMutableArray *bumenarr = [NSMutableArray array];
-    [[AFNetHelp shareAFNetworking] postInfoFromSeverWithStr:url body:params sucess:^(id responseObject) {
-        
-        MyLog(@"%@", responseObject);
-        if ([AowString(responseObject[@"code"]) isEqualToString:@"1"]) {
-                
-                NSIndexPath *indexPath=[NSIndexPath indexPathForRow:0 inSection:0];
-                IOSCaiGouChooM *caigouModel = self.dataArr[0];
-                caigouModel.ChooseStr = @"工作人员";
-                    [self.dataArr replaceObjectAtIndex:indexPath.row withObject:caigouModel];
-                    [self.tabelView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath,nil] withRowAnimation:UITableViewRowAnimationNone];
-
-
-        } else {
-            [self showHint:responseObject[@"msg"]];
-            
-        }
-        [self hideHud];
-        
-    } failure:^(NSError *error) {
-        [self showHint:@"稍后重试"];
-        [self hideHud];
-    }];
+//    [self showHudInView:self.view hint:@"加载数据"];
+    NSIndexPath *indexPath=[NSIndexPath indexPathForRow:0 inSection:0];
+    IOSCaiGouChooM *caigouModel = self.dataArr[0];
+    caigouModel.ChooseStr = @"一一";
+    self.caigouyuanName = @"一一";
+    self.caigouyuanID = @"390";
+    [self.dataArr replaceObjectAtIndex:indexPath.row withObject:caigouModel];
+    [self.tabelView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath,nil] withRowAnimation:UITableViewRowAnimationNone];
+//    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys: User_Companyid,@"companyId",@"0",@"parentId",KUser_ComType,@"type",nil];
+//    NSString *url = [NSString stringWithFormat:@"%@/d/api/department/list",AppServerURL];
+//    NSMutableArray *bumenarr = [NSMutableArray array];
+//    [[AFNetHelp shareAFNetworking] postInfoFromSeverWithStr:url body:params sucess:^(id responseObject) {
+//
+//        MyLog(@"%@", responseObject);
+//        if ([AowString(responseObject[@"code"]) isEqualToString:@"1"]) {
+//
+//
+//
+//
+//        } else {
+//            [self showHint:responseObject[@"msg"]];
+//
+//        }
+//        [self hideHud];
+//
+//    } failure:^(NSError *error) {
+//        [self showHint:@"稍后重试"];
+//        [self hideHud];
+//    }];
     
 }
 -(void)selelctBRPickView{
@@ -392,11 +452,68 @@
 }
 //采购历史
 -(void)goCaigouHistory{
-    MyLog(@"采购历史");
     IOSGodsHistoryListVC *pushVC = [[IOSGodsHistoryListVC alloc] init];
     [self.navigationController pushViewController:pushVC animated:YES];
 }
 -(void)makeSureBtnClicked{
 
+    IOSCaiGouChooM *caigouModel = self.dataArr[0];
+    IOSCaiGouChooM *caigouModel1 = self.dataArr[1];
+    if (caigouModel.ChooseStr.length==0) {
+        [self showHint:@"请选择采购人员"];
+        return;
+    }
+    if (caigouModel1.ChooseStr.length==0) {
+        [self showHint:@"请选择采购日期"];
+        return;
+    }
+    if (self.choosedArr.count==0) {
+        [self showHint:@"请选择采购商品"];
+        return;
+    }
+
+    NSMutableArray *listArr = [NSMutableArray arrayWithCapacity:0];
+    
+    for (IOSCaiGouListModel *godsM in self.choosedArr) {
+        CGFloat floatValue = [godsM.price floatValue];
+        CGFloat floatValue1 = round(floatValue*100)/100;
+        NSDictionary *dic = @{@"goodsName":godsM.goodsName,
+                              @"goodsId":godsM.godsId,
+                              @"img":godsM.img,
+                              @"num":@(godsM.selectCount),
+                              @"price":@(floatValue1),
+                              @"isRecycle":@(godsM.isRecycle)
+        };
+
+        [listArr addObject:dic];
+    }
+    NSString *listStr = [self zhuzuZhuangjson:listArr];
+    
+    NSString *url = [AppServerURL stringByAppendingString:@"/s/api/sdPurch/addPurch"];
+
+    NSDictionary *paramDic = @{@"empId":kUser_id,
+                               @"purchUserId":self.caigouyuanID,
+                               @"purchUserName":self.caigouyuanName,
+                               @"purchTime":kStringFormat(@"%@:00",caigouModel1.ChooseStr),
+                               @"list":listStr
+    };
+    [self showHudInView:self.view hint:@"加载中"];
+    [[AFNetHelp shareAFNetworking] postInfoFromSeverWithStr:url body:paramDic sucess:^(id responseObject) {
+        if ([AowString(responseObject[@"code"]) isEqualToString:@"1"]) {
+            [self showHint:@"新增采购成功"];
+            [self.navigationController popViewControllerAnimated:YES];
+        }else {
+            [self showHint:responseObject[@"msg"]];
+            
+        }
+        [self hideHud];
+
+        
+    } failure:^(NSError *error) {
+        [self showHint:@"稍后重试"];
+        [self hideHud];
+        
+    }];
+    
 }
 @end

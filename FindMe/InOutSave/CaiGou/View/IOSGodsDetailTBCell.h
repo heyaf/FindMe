@@ -28,14 +28,21 @@ NS_ASSUME_NONNULL_BEGIN
 - (IBAction)addButtonClicked:(id)sender;
 - (IBAction)editPriceButtonClicked:(id)sender;
 
+@property (nonatomic,copy) void(^unAddBtnClicked)(void);
+@property (nonatomic,copy) void(^AddBtnClicked)(void);
+@property (nonatomic,copy) void(^editPriceBtnClicked)(void);
+
 
 /* godsType类型，1默认类型，有加减 有编辑单价
  2没加减按钮，没编辑单价,有单选
  3有加减，无编辑单价
  */
 @property (nonatomic,assign) NSInteger godsListType;
-
+//选择商品界面
 @property (nonatomic,strong) IOSCaiGouListModel *caigouChooseGodsM;
+//采购
+@property (nonatomic,strong) IOSCaiGouListModel *caigouListGodsM;
+
 @end
 
 NS_ASSUME_NONNULL_END

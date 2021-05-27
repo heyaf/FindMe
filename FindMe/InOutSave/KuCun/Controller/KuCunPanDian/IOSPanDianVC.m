@@ -39,6 +39,24 @@
 
     
 }
+//设置导航栏
+-(void)setNavBackStr:(NSString *)backTitle{
+    UIButton* backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+
+    [backButton setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+
+    backButton.titleLabel.font = FONT(18);
+    backButton.frame = CGRectMake(0, 0, 60,35);
+    [backButton setTitle:backTitle forState:0];
+    [backButton setTitleColor:[UIColor blackColor] forState:0];
+
+    [backButton addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
+
+    UIBarButtonItem* leftBarItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+
+    self.navigationItem.leftBarButtonItem = leftBarItem;
+    
+}
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 2;
 }

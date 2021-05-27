@@ -12,7 +12,6 @@
 
 @property (nonatomic, assign) BOOL isOneShow;
 
--(BOOL)judgePassWordLegal:(NSString *)pass;
 //ios11判断
 -(UIEdgeInsets)panduanIOS11With:(UIView *)view;
 
@@ -21,8 +20,6 @@
 //设置字体的间距
 -(NSAttributedString *)getAttributedStringWithString:(NSString *)string lineSpace:(CGFloat)lineSpace;
 
-//设置导航栏标题
--(void)setNavBackStr:(NSString *)backTitle;
 
 #pragma mark -时间转化年月日时分秒字符串
 - (NSString *)getDateTimeHMSWithString:(NSDate *)date;
@@ -38,19 +35,21 @@
 -(NSDate *)getYMDStringWith:(NSString *)time;
 //字符串转成ymdhm时间
 -(NSDate *)getYMDHMStringWith:(NSString *)time;
-
+//根据两个字符串计算间隔天数
+-(NSString *)getIntervalChunYMDStringWith:(NSString *)begintime withYMDEndTime:(NSString *)endtime;
 //根据两个字符串计算间隔天数
 -(NSString *)getIntervalYMDStringWith:(NSString *)begintime withEndTime:(NSString *)endtime;
 //根据两个字符串计算间隔分钟数
 -(NSString *)getFenZhongIntervalYMDStringWith:(NSString *)begintime withEndTime:(NSString *)endtime ;
 //根据两个字符串计算间隔小时数
 -(NSString *)getXiaoShiIntervalYMDStringWith:(NSString *)begintime withEndTime:(NSString *)endtime ;
-
+- (NSString *)getTimeAddDayAfter:(NSInteger )distance withbengin:(NSString *)nowtime;
 - (int)compareOneDay:(NSDate *)oneDay withAnotherDay:(NSDate *)anotherDay;
 
-//判断是否正确的手机号码
-- (BOOL)isValidMobile:(NSString *)mobile error:(NSError **)error;
-
+#pragma mark --- 将时间转换成时间戳
+- (NSString *)getTimestampFromTime:(NSString *)time;
+#pragma mark --- 将时间YYYY-MM-dd转换成时间戳
+- (NSString *)getTimesYYYYMMddtampFromTime:(NSString *)time;
 //大量字符串在文本框中显示, 计算这些字符串在文本框中的高度
 - (CGFloat)jisuanLabelHight:(CGFloat )fontSize cgsizeMake:(CGFloat )withLeng labelStr:(NSString *)str;
 
@@ -78,11 +77,57 @@
 //设置上图下文的按钮
 -(UIButton *)settingBarButtonItemImageName:(NSString *)image withTittle:(NSString *)str;
 
-//字典和json转化
+-(NSString *)zhuzuZhuangjson:(NSArray *)jsonarr;
 -(NSString *)zidianzhuangjson:(NSDictionary *)jsondic;
--(NSDictionary *)jsonzhuanzidianmap:(NSString *)json;
-//将数组转换成json格式字符串
--(NSString *)gs_jsonStringCompactFormatForNSArray:(NSArray *)arrJson;
 
+-(NSDictionary *)jsonzhuanzidianmap:(NSString *)json;
+-(NSArray *)jsonzhuanHuaArr:(NSString *)json;
+- (NSInteger )shijianTimeZhuanShijianchu:(NSString *)time;
+
+////看大图
+//-(void)lookdatuaction:(UIButton *)sender;
+////根据图片路径看大图
+//-(void)lookBigImgWithImgUrl:(NSString *)imgurl;
+//获取wifi名字
+-(NSString *)getWifiInfo;
+- (NSDictionary *)currentWifiInfo;
+// 属性字符串
+- (NSMutableAttributedString *)attributeText:(NSArray *)attrInfos;
+
+
+// 底部按钮背景视图
+@property (nonatomic, strong) UIView *fview;
+#pragma mark - 底部按钮自定义
+/**
+ * 添加底部按钮
+ * buttonTitles  按钮标题集合
+ * btnBgColors   按钮背景色集合
+ * btnTColors    按钮文字颜色集合
+ */
+- (void)addBottomButtons:(NSArray<NSString *> *_Nullable)buttonTitles
+             btnBgColors:(NSArray<UIColor *> *_Nullable)btnBgColors
+              btnTColors:(NSArray<UIColor *> *_Nullable)btnTColors
+                 actions:(NSArray *_Nullable)actions;
+
+// 修改底部按钮标题
+- (void)setBottomBtnTitle:(NSString *_Nullable)title btnIndex:(NSInteger)btnIndex;
+
+// 修改底部按钮标题颜色
+- (void)setBottomBtnTitleColor:(UIColor *_Nullable)titleColor btnIndex:(NSInteger)btnIndex;
+
+// 修改底部按钮背景颜色
+- (void)setBottomBtnBgColor:(UIColor *_Nullable)bgColor btnIndex:(NSInteger)btnIndex;
+
+// 设置底部按钮是否可以点击
+- (void)setBottomBtnEnable:(BOOL)enable btnIndex:(NSInteger)btnIndex;
+
+// 修改底部按钮图标
+- (void)setBottomBtnIcon:(NSString *_Nullable)iconName btnIndex:(NSInteger)btnIndex;
+
+// 获取底部指定按钮
+- (UIButton *_Nullable)bottomBtnWithIndex:(NSInteger)btnIndex;
+
+// 底部按钮点击事件
+- (void)bottomBtnAction:(UIButton *)btn;
 
 @end
