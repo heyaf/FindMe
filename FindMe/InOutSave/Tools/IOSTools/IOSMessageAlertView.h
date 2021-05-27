@@ -39,6 +39,9 @@ typedef enum _IOSMesAlertType {
 
 - (instancetype)initWithFrame:(CGRect)frame                 type:(IOSMesAlertType)type
                      titleStr:(NSAttributedString *) titleStr cancleBtnName:(NSString *)cancleBtnName sureBtnName:(NSString *)sureBtnName DetailBtnName:(NSString *)DeatilName;
+
+//提示文字的确认按钮点击事件
+@property (nonatomic,copy) void(^makeSureBtnClick)(void);
 /**
  *  显示弹出框
  */

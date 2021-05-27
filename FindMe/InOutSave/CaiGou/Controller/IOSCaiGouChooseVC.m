@@ -285,13 +285,13 @@
         UIContextualAction *delete = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleDestructive title:@"" handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
             //[self.arr removeObjectAtIndex:indexPath.row];
             completionHandler (YES);
-//            [self deleteRowIndexPath:indexPath];
+            [self deleteRowIndexPath:indexPath];
             //[self.mainTableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         }];
         
         delete.backgroundColor = [UIColor whiteColor];
         delete.image = ImageNamed(@"IOSDelete");
-        
+
         UISwipeActionsConfiguration *config = [UISwipeActionsConfiguration configurationWithActions:@[delete]];
         //performsFirstActionWithFullSwipe 禁止左滑完全滑动事件，只能点击触发
         config.performsFirstActionWithFullSwipe = NO;
@@ -304,6 +304,21 @@
         
     }
 }
+-(void)deleteRowIndexPath:(NSIndexPath *)indexPath{
+    NSString *titleStr = @"确定删除吗？";
+    NSMutableAttributedString *attriStr = [[NSMutableAttributedString alloc] initWithString:titleStr];
+    [attriStr addAttributes: @{NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:18],NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(0, titleStr.length)];
+    IOSMessageAlertView *alertView = [[IOSMessageAlertView alloc] initWithFrame:CGRectMake(0, 0, KDeviceWith, KDeviceHeight) type:IOSMesAlertTypeChoose titleStr:attriStr cancleBtnName:@"确认" sureBtnName:@"取消" DetailBtnName:@""];
+    kWeakSelf(self)
+    alertView.makeSureBtnClick = ^{
+        IOSCaiGouListModel *caigouModel = [weakself manageChooseDate][indexPath.row];
+        [weakself.choosedArr removeObject:caigouModel];
+        [weakself ChargePrice];
+        [weakself.tabelView reloadData];
+    };
+    [alertView show];
+}
+
 // 进入编辑模式，按下出现的编辑按钮后,进行删除操作
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {

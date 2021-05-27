@@ -291,6 +291,9 @@
         if ([self.delegate respondsToSelector:@selector(makeSureBtnClickWithinputStr:)]) {
             [self.delegate makeSureBtnClickWithinputStr:@""];
                 }
+        if (self.makeSureBtnClick) {
+            self.makeSureBtnClick();
+        }
     }
 }
 //确定按钮点击时间
