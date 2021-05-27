@@ -76,7 +76,35 @@
     }
    
 }
+-(void)setCaigouDetailGodsM:(IOSCaiGouListModel *)caigouDetailGodsM{
+    _caigouDetailGodsM = caigouDetailGodsM;
+    [self.picImageView  sd_setImageWithURL:[NSURL URLWithString:kStringFormat(@"%@%@",AppServerURL,caigouDetailGodsM.img)] placeholderImage:ImageNamed(@"placeholder")];
+    self.titleLabel.text = caigouDetailGodsM.goodsName;
+    self.godsNumLabel.text = kStringFormat(@"货号：%@",caigouDetailGodsM.godsId);
+    self.godsNumlabel1.text = kStringFormat(@"库存：%li",caigouDetailGodsM.stockNum);
+    NSString *priceStr =kStringFormat(@"￥%.2f",[caigouDetailGodsM.price floatValue]);
+    NSMutableAttributedString *attriStr = [[NSMutableAttributedString alloc] initWithString:priceStr];
+    [attriStr addAttributes: @{NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:16],NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(0, priceStr.length)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(12),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(0, 1)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(priceStr.length-2, 2)];
+    self.PriceLabel.attributedText = attriStr;
+    if (caigouDetailGodsM.isRecycle==1) {
+        self.tagLabel.text = @" 不可回收 ";
+    }else{
+        self.tagLabel.text = @" 可回收 ";
+    }
+    self.numLabel.text = kStringFormat(@"%li",caigouDetailGodsM.inNum);
 
+    self.unaddrButton.hidden = YES;
+    [self.addButton setImage:[UIImage imageWithColor:[UIColor clearColor] size:CGSizeMake(40, 40)] forState:0];
+    
+//    if (caigouDetailGodsM.selectCount==1) {
+//        [self.unaddrButton setImage:ImageNamed(@"IOSjian") forState:0];
+//    }else{
+//        [self.unaddrButton setImage:ImageNamed(@"IOSJian1") forState:0];
+//
+//    }
+}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

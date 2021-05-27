@@ -10,7 +10,11 @@
 #import "IOSPanDianHeaderTBCell.h"
 #import "IOSPanDianHisCell.h"
 #import "IOSPanDianChoDetailVC.h"
+#import "IOSPadianShowModel.h"
 @interface IOSPanDianVC ()<UITableViewDelegate,UITableViewDataSource>
+@property (nonatomic,assign) NSInteger sum;
+
+@property (nonatomic,strong) UILabel *priceLabel;
 
 @end
 
@@ -21,7 +25,66 @@
     self.view.backgroundColor = [UIColor whiteColor];
     [self setNavbutton];
     [self CreatMainUI];
+    
+    [self initialData];
 }
+
+-(void)initialData{
+    //盘点单首页
+    NSString *url = [AppServerURL stringByAppendingString:@"/s/api/sdCheck/main"];
+    NSDictionary *paramDic = @{@"empId":kUser_id
+    };
+    [self showHudInView:self.view hint:@"加载中"];
+    [[AFNetHelp shareAFNetworking] postInfoFromSeverWithStr:url body:paramDic sucess:^(id responseObject) {
+        if ([AowString(responseObject[@"code"]) isEqualToString:@"1"]) {
+            self.sum = [responseObject[@"data"][@"sum"] integerValue];
+            self.dataSource = [IOSPadianShowModel arrayOfModelsFromDictionaries:responseObject[@"data"][@"list"] error:nil];
+            [self.tabelView reloadData];
+        }else {
+            [self showHint:responseObject[@"msg"]];
+            [self.dataSource removeAllObjects];
+            [self.tabelView reloadData];
+
+            
+        }
+        [self hideHud];
+
+        
+    } failure:^(NSError *error) {
+        [self showHint:@"稍后重试"];
+        [self hideHud];
+        
+    }];
+    
+}
+//-(void)initialData1WithCheckId:(NSString *)checkId{
+//    //盘点单首页
+//    NSString *url = [AppServerURL stringByAppendingString:@"/s/api/sdCheck/list"];
+//    NSDictionary *paramDic = @{@"empId":kUser_id,
+//                               @"checkId":checkId
+//    };
+//    [[AFNetHelp shareAFNetworking] postInfoFromSeverWithStr:url body:paramDic sucess:^(id responseObject) {
+//        if ([AowString(responseObject[@"code"]) isEqualToString:@"1"]) {
+//            self.DataDic= responseObject[@"data"];
+//
+//            [self.tabelView reloadData];
+//        }else {
+//            [self showHint:responseObject[@"msg"]];
+//            [self.dataSource removeAllObjects];
+//            [self.tabelView reloadData];
+//
+//
+//        }
+//        [self hideHud];
+//
+//
+//    } failure:^(NSError *error) {
+//        [self showHint:@"稍后重试"];
+//        [self hideHud];
+//
+//    }];
+//
+//}
 //主视图
 -(void)CreatMainUI{
     
@@ -33,7 +96,7 @@
     
     [self.tabelView registerNib:[UINib nibWithNibName:@"IOSPanDianHeaderTBCell" bundle:nil] forCellReuseIdentifier:@"IOSPanDianHeaderTBCell"];
     [self.tabelView registerNib:[UINib nibWithNibName:@"IOSPanDianHisCell" bundle:nil] forCellReuseIdentifier:@"IOSPanDianHisCell"];
-    [self setNavBackStr:@"出库单"];
+    [self setNavBackStr:@"盘点单"];
     
     [self creatBottomView];
 
@@ -64,11 +127,11 @@
     if (section==0) {
         return 1;
     }
-    return 20;
+    return self.dataSource.count;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section==0) {
-        return 140;
+        return 150;
     }
     return 100;
 }
@@ -83,11 +146,19 @@
     if (indexPath.section==0) {
         IOSPanDianHeaderTBCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IOSPanDianHeaderTBCell"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
+        cell.godsNumLabel.text = kStringFormat(@"查看未选择商品(%li)",self.sum);
+        if (self.dataSource.count>0) {
+            [cell.startButton setTitle:@"继续盘点" forState:0];
+        }else{
+            [cell.startButton setTitle:@"开始盘点" forState:0];
+
+        }
         return cell;
     }
     IOSPanDianHisCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IOSPanDianHisCell"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    IOSPadianShowModel *pandinaModel = self.dataSource[indexPath.row];
+    cell.pandianshouModel = pandinaModel;
 
     return cell;
 }
@@ -98,7 +169,21 @@
         
     }
 }
+-(void)ChargePrice{
+    NSInteger count =0;
+    CGFloat Price = 0.00;
+    for (IOSPadianShowModel *caigouModel in self.dataSource) {
+        Price+=caigouModel.num;
+    }
+    NSString *priceStr =kStringFormat(@"本单合计 %li 件商品",count);
+    NSString *countStr = kStringFormat(@"%li",count);
+    NSMutableAttributedString *attriStr = [[NSMutableAttributedString alloc] initWithString:priceStr];
+    [attriStr addAttributes: @{NSFontAttributeName :kBOLDFONT(16),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(6, countStr.length)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(0, priceStr.length)];
+   
+    self.priceLabel.attributedText = attriStr;
 
+}
 //设置导航栏
 -(void)setNavbutton{
     UIButton* backButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -133,18 +218,18 @@
 
 -(void)creatBottomView{
     UIView *bottomView = [[UIView alloc]  initWithFrame:CGRectMake(0, KDeviceHeight-80-KEVNScreenTabBarSafeBottomMargin, KDeviceWith, 80+KEVNScreenTabBarSafeBottomMargin)];
-    bottomView.backgroundColor = [UIColor redColor];
+    bottomView.backgroundColor = [UIColor whiteColor];
     
     [self.view addSubview:bottomView];
     
-    CYCustomArcImageView *bgView = [[CYCustomArcImageView alloc] initWithFrame:CGRectMake(KDeviceWith-30-120, 10, 120, 60)];
+    CYCustomArcImageView *bgView = [[CYCustomArcImageView alloc] initWithFrame:CGRectMake(KDeviceWith-30-120, 10, 120, 50)];
     bgView.borderTopLeftRadius = 10;
-    bgView.borderTopRightRadius = 30;
+    bgView.borderTopRightRadius = 25;
     bgView.borderBottomLeftRadius = 10;
     bgView.borderBottomRightRadius = 10;
     [bottomView addSubview:bgView];
     UIButton *makeSureBtn = [UIButton buttonWithType:0];
-    makeSureBtn.frame = CGRectMake(0, 0, 120, 60);
+    makeSureBtn.frame = CGRectMake(0, 0, 120, 50);
     [makeSureBtn setTitle:@"确认" forState:0];
     makeSureBtn.backgroundColor =RGBA(46, 153, 164, 1);
     [bgView addSubview:makeSureBtn];
@@ -152,9 +237,14 @@
 
     
     UILabel *priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 20, KDeviceWith-120-30-30, 20)];
-    priceLabel.text = @"共0件商品，共计0.00元";
+    self.priceLabel = priceLabel;
     [bottomView addSubview:priceLabel];
-
+    NSString *priceStr =kStringFormat(@"本单合计 0 件商品");
+    NSMutableAttributedString *attriStr = [[NSMutableAttributedString alloc] initWithString:priceStr];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(0, priceStr.length)];
+    [attriStr addAttributes: @{NSFontAttributeName :kBOLDFONT(16),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(5, 1)];
+   
+    self.priceLabel.attributedText = attriStr;
 }
 -(void)backAction{
     [self.navigationController popViewControllerAnimated:YES];

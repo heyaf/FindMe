@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17700" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -27,10 +28,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ARy-YZ-9ot">
-                        <rect key="frame" x="10" y="55" width="387" height="40"/>
+                        <rect key="frame" x="10" y="55" width="387" height="50"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="查看未选择商品(99件)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PI3-hJ-Q2A">
-                                <rect key="frame" x="10" y="10" width="142.5" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="查看未选择商品" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PI3-hJ-Q2A">
+                                <rect key="frame" x="10" y="15" width="100" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="NHR-PU-ZxS"/>
                                 </constraints>
@@ -39,7 +40,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_ forward" translatesAutoresizingMaskIntoConstraints="NO" id="AQz-sF-d6K">
-                                <rect key="frame" x="365" y="11" width="12" height="18"/>
+                                <rect key="frame" x="365" y="16" width="12" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="0bR-Bf-dH1"/>
                                     <constraint firstAttribute="width" constant="12" id="jdk-OF-Qr9"/>
@@ -50,7 +51,7 @@
                         <constraints>
                             <constraint firstItem="AQz-sF-d6K" firstAttribute="centerY" secondItem="ARy-YZ-9ot" secondAttribute="centerY" id="0bN-uw-a8X"/>
                             <constraint firstItem="PI3-hJ-Q2A" firstAttribute="centerY" secondItem="ARy-YZ-9ot" secondAttribute="centerY" id="LdT-x9-lM4"/>
-                            <constraint firstAttribute="height" constant="40" id="Oaq-1J-hQa"/>
+                            <constraint firstAttribute="height" constant="50" id="Oaq-1J-hQa"/>
                             <constraint firstAttribute="trailing" secondItem="AQz-sF-d6K" secondAttribute="trailing" constant="10" id="cA5-P3-cJZ"/>
                             <constraint firstItem="PI3-hJ-Q2A" firstAttribute="leading" secondItem="ARy-YZ-9ot" secondAttribute="leading" constant="10" id="oyD-fq-zlM"/>
                         </constraints>
@@ -59,7 +60,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="盘点明细" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wy9-2M-hkh">
-                        <rect key="frame" x="10" y="110" width="65.5" height="20"/>
+                        <rect key="frame" x="10" y="120" width="65.5" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="0Hj-xL-88q"/>
                         </constraints>
@@ -67,8 +68,8 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P26-LC-URx">
-                        <rect key="frame" x="317" y="107.5" width="80" height="25"/>
+                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P26-LC-URx">
+                        <rect key="frame" x="317" y="117.5" width="80" height="25"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="25" id="PkF-Fe-TLy"/>
                             <constraint firstAttribute="width" constant="80" id="PlK-1l-naa"/>

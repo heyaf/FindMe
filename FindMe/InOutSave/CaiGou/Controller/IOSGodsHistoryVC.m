@@ -10,7 +10,7 @@
 #import "IOSGodsHisTBCell.h"
 #import "IOSGodsHisModel.h"
 @interface IOSGodsHistoryVC ()<UITableViewDelegate,UITableViewDataSource>
-
+@property (nonatomic, strong) NSMutableArray *dataSource;
 @end
 
 @implementation IOSGodsHistoryVC
@@ -20,22 +20,56 @@
     // Do any additional setup after loading the view.
     [self.view addSubview:self.tableView];
 }
--(UIColor *)RandomColor {
-    NSInteger aRedValue = arc4random() % 255;
-    NSInteger aGreenValue = arc4random() % 255;
-    NSInteger aBlueValue = arc4random() % 255;
-    UIColor *randColor = [UIColor colorWithRed:aRedValue / 255.0f green:aGreenValue / 255.0f blue:aBlueValue / 255.0f alpha:1.0f];
-    return randColor;
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self getListData];
+}
+-(void)getListData{
+    NSString *url = [AppServerURL stringByAppendingString:@"/s/api/sdPurch/getList"];
+    NSDictionary *paramDic = @{@"empId":kUser_id
+                               
+    };
+    NSMutableDictionary *MutparamDic = [NSMutableDictionary
+                                     dictionaryWithDictionary:paramDic];
+    if (self.type>0) {
+        [MutparamDic setValue:@(self.type) forKey:@"type"];
+    }
+
+    [self showHudInView:self.view hint:@"加载中"];
+    [[AFNetHelp shareAFNetworking] postInfoFromSeverWithStr:url body:MutparamDic sucess:^(id responseObject) {
+        if ([AowString(responseObject[@"code"]) isEqualToString:@"1"]) {
+            NSDictionary *datdic = responseObject[@"data"];
+            self.dataSource = [IOSGodsHisModel arrayOfModelsFromDictionaries:datdic[@"list"] error:nil];
+            [self.tableView reloadData];
+        }else {
+            [self showHint:responseObject[@"msg"]];
+            [self.dataSource removeAllObjects];
+            [self.tableView reloadData];
+
+            
+        }
+        [self hideHud];
+
+        
+    } failure:^(NSError *error) {
+        [self showHint:@"稍后重试"];
+        [self hideHud];
+        
+    }];
+
+    
 }
 -(UITableView *)tableView{
     if (!_tableView) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, KDeviceWith, KDeviceHeight-KEVNScreenTopStatusNaviHeight-KEVNScreenTabBarSafeBottomMargin-50) style:UITableViewStylePlain];
         _tableView.delegate = self;
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         [_tableView registerNib:[UINib nibWithNibName:@"IOSGodsHisTBCell" bundle:nil] forCellReuseIdentifier:@"IOSGodsHisTBCell"];
         _tableView.dataSource = self;
-        //刷新
-        _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
-        _tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+        _tableView.backgroundColor = RGBA(250, 250, 250, 1);
+//        //刷新
+//        _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+//        _tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
     }
     return _tableView;
 }
@@ -47,46 +81,25 @@
     
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 20;
+    return self.dataSource.count;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 120;
+    return 130;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     IOSGodsHisTBCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IOSGodsHisTBCell"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    IOSGodsHisModel *model;
+    IOSGodsHisModel *model= self.dataSource[indexPath.row];
     cell.hisModel = model;
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     IOSGodsHisDetailVC *pushVC = [[IOSGodsHisDetailVC alloc] init];
+    IOSGodsHisModel *model= self.dataSource[indexPath.row];
+    pushVC.purchId = model.purchId;
+    pushVC.type = model.type;
     [self.navigationController pushViewController:pushVC animated:YES];
 }
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    //第二组可以左滑删除
-    if (indexPath.section == 1) {
-        return YES;
-    }
-    
-    return NO;
-}
- 
-// 定义编辑样式
-- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return UITableViewCellEditingStyleDelete;
-}
- 
-// 进入编辑模式，按下出现的编辑按钮后,进行删除操作
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        
-        if (indexPath.section == 1) {
-            
-           
-            
-        }
-    }
-}
+
  
 @end

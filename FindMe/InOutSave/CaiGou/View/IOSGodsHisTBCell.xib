@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17700" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -51,17 +52,17 @@
                                 <rect key="frame" x="15" y="88" width="321" height="25"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="minekehucenter" translatesAutoresizingMaskIntoConstraints="NO" id="68d-6F-FK9">
-                                        <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="15" id="WmE-hL-5Tw"/>
-                                            <constraint firstAttribute="height" constant="15" id="fod-v3-fKV"/>
+                                            <constraint firstAttribute="width" constant="20" id="WmE-hL-5Tw"/>
+                                            <constraint firstAttribute="height" constant="20" id="fod-v3-fKV"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="15"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="张三" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nDH-MK-qBD">
-                                        <rect key="frame" x="23" y="0.0" width="29" height="15"/>
+                                        <rect key="frame" x="28" y="2.5" width="29" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="qyA-CU-CHr"/>
                                         </constraints>
@@ -70,7 +71,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="共3件商品，总计100.00元" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMy-4E-VNk">
-                                        <rect key="frame" x="154" y="0.0" width="167" height="15"/>
+                                        <rect key="frame" x="154" y="2.5" width="167" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="6A7-vh-uMU"/>
                                         </constraints>
@@ -118,10 +119,10 @@
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
                 <outlet property="NameLabel" destination="6AK-Sr-esJ" id="GGr-6h-qYX"/>
-                <outlet property="PriceLabel" destination="Qu3-0Z-271" id="TvZ-Zm-e2H"/>
+                <outlet property="PriceLabel" destination="YMy-4E-VNk" id="6by-Ac-6Mr"/>
                 <outlet property="orderNumberLabel" destination="AQ0-3W-d13" id="emY-QE-xKQ"/>
                 <outlet property="orderTimeLabel" destination="NrB-Ct-pwX" id="G3L-q6-wt8"/>
-                <outlet property="userHeaderImageView" destination="ReO-KA-Uxh" id="HHd-GN-bxG"/>
+                <outlet property="userHeaderImageView" destination="68d-6F-FK9" id="Yg1-8p-4Yl"/>
                 <outlet property="userNameLabel" destination="nDH-MK-qBD" id="cKt-jT-IRZ"/>
             </connections>
             <point key="canvasLocation" x="107.97101449275362" y="96.763392857142847"/>

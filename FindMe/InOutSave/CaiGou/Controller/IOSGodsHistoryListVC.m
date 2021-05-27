@@ -55,11 +55,13 @@
 }
 - (NSArray *)getArrayVCs {
     IOSGodsHistoryVC *firstVC = [[IOSGodsHistoryVC alloc] init];
+    firstVC.type =0;
 
     IOSGodsHistoryVC *secondVC = [[IOSGodsHistoryVC alloc] init];
+    secondVC.type = 1;
 
     IOSGodsHistoryVC *threeVC = [[IOSGodsHistoryVC alloc] init];
-
+    threeVC.type = 2;
 
     return @[firstVC, secondVC, threeVC];
 }

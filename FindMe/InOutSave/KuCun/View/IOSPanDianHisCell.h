@@ -6,7 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class IOSPadianShowModel;
 NS_ASSUME_NONNULL_BEGIN
 
 @interface IOSPanDianHisCell : UITableViewCell
@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *detailLabel;
 @property (weak, nonatomic) IBOutlet UIView *mainBgView;
 
+@property (nonatomic,strong) IOSPadianShowModel *pandianshouModel;
 @end
 
 NS_ASSUME_NONNULL_END

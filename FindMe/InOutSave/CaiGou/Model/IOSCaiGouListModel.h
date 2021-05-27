@@ -18,8 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
  "goodsName": "圆珠笔"                              // 商品名称
 },*/
 @interface IOSCaiGouListModel : JSONModel
-@property (nonatomic,strong) NSString *godsId,*goodsName,*img,*price;
-@property (nonatomic,assign) NSInteger status,stockNum,isRecycle,selectCount; //selectCount选择的数量
+@property (nonatomic,strong) NSString *godsId,*goodsName,*img,*price,*goodsId;
+@property (nonatomic,assign) NSInteger status,stockNum,isRecycle,selectCount,inNum; //selectCount选择的数量
 
 @property (nonatomic,assign) BOOL isSelected;
 

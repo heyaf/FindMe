@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *detailLabel;
 
+//采购单详情头部
+-(void)setcaigoudanHeadView:(NSDictionary *)dateDic;
 @end
 
 NS_ASSUME_NONNULL_END

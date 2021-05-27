@@ -7,7 +7,7 @@
 //
 #import "CYCustomArcImageView.h"
 #import "IOSMessageAlertView.h"
-@interface IOSMessageAlertView()
+@interface IOSMessageAlertView()<UITextFieldDelegate>
 
 @property (nonatomic,strong) UILabel *titLabel;
 
@@ -130,7 +130,7 @@
     self.titLabel.frame = CGRectMake(10, 60, KDeviceWith-180, 20);
     
 
-    UILabel *subLabel = [self.bgView createLabelFrame:CGRectMake(10, 90, self.bgView.yz_width-20, 15) textColor:IOSSubTitleColor font:FONT(14)];
+    UILabel *subLabel = [self.bgView createLabelFrame:CGRectMake(10, 100, self.bgView.yz_width-20, 15) textColor:IOSSubTitleColor font:FONT(14)];
     subLabel.text = self.detailStr;
     subLabel.textAlignment = NSTextAlignmentCenter;
     
@@ -192,13 +192,14 @@
     [self.bgView addSubview:self.textField];
     self.textField.frame = CGRectMake(self.bgView.yz_width/2-50, 60, 100, 20);
     self.textField.placeholder = @"请输入价格";
+    self.textField.delegate = self;
     
     [self.bgView createLineFrame:CGRectMake(40, 100, self.bgView.yz_width-80, 1) lineColor:RGBA(245, 245, 245, 1)];
     
     CGFloat btnW = (_bgView.yz_width-60)/2;
     
     
-    CYCustomArcImageView *btnBgView = [[CYCustomArcImageView alloc] initWithFrame:CGRectMake(_bgView.yz_width/2+10, self.bgView.yz_height-20-60, btnW, 50)];
+    CYCustomArcImageView *btnBgView = [[CYCustomArcImageView alloc] initWithFrame:CGRectMake(20, self.bgView.yz_height-20-60, btnW, 50)];
     btnBgView.borderTopLeftRadius = 10;
     btnBgView.borderTopRightRadius = 20;
     btnBgView.borderBottomLeftRadius = 10;
@@ -207,15 +208,15 @@
     [self.bgView addSubview:btnBgView];
     
     UIButton *cancleBtn = [UIButton buttonWithType:0];
-    [cancleBtn setBackgroundColor:IOSMainColor];
+    [cancleBtn setBackgroundColor:IOSCancleBtnColor];
     [cancleBtn setTitle:self.cancleBtnName forState:0];
     cancleBtn.titleLabel.font = kBOLDFONT(17);
-    [cancleBtn setTitleColor:[UIColor whiteColor] forState:0];
+    [cancleBtn setTitleColor:IOSMainColor forState:0];
     [cancleBtn addTarget:self action:@selector(oneBtnClicked) forControlEvents:UIControlEventTouchUpInside];
     cancleBtn.frame = CGRectMake(0, 0, btnBgView.yz_width, btnBgView.yz_height);
     [btnBgView addSubview:cancleBtn];
     
-    CYCustomArcImageView *btnTwoBgView = [[CYCustomArcImageView alloc] initWithFrame:CGRectMake(20, self.bgView.yz_height-20-60, btnW, 50)];
+    CYCustomArcImageView *btnTwoBgView = [[CYCustomArcImageView alloc] initWithFrame:CGRectMake(_bgView.yz_width/2+10, self.bgView.yz_height-20-60, btnW, 50)];
     btnTwoBgView.borderTopLeftRadius = 10;
     btnTwoBgView.borderTopRightRadius = 20;
     btnTwoBgView.borderBottomLeftRadius = 10;
@@ -225,7 +226,8 @@
     
     self.btnTwo.frame = CGRectMake(0, 0, btnTwoBgView.yz_width, btnTwoBgView.yz_height);
     [self.btnTwo setBackgroundColor:IOSMainColor];
-    [self.btnTwo setTitleColor:IOSMainColor forState:0];
+    [self.btnTwo setTitleColor:[UIColor whiteColor] forState:0];
+    [self.btnTwo setTitle:self.sureBtnName forState:0];
     [btnTwoBgView addSubview:self.btnTwo];
     
 }
@@ -299,14 +301,24 @@
 //确定按钮点击时间
 -(void)sureBtnClicked{
     [self dismiss];
-    if (self.alertType ==IOSMesAlertTypeTF) {
+    if (self.alertType ==IOSMesAlertTypeTF&&self.textField.text.length>0) {
         if ([self.delegate respondsToSelector:@selector(makeSureBtnClickWithinputStr:)]) {
             [self.delegate makeSureBtnClickWithinputStr:self.textField.text];
                 }
-    }else if (self.alertType == IOSMesAlertTypeTV){
+        if (self.TFSureBtnClick) {
+            self.TFSureBtnClick(self.textField.text);
+        }
+    }else if (self.alertType == IOSMesAlertTypeTV&&self.textView.text.length>0){
         if ([self.delegate respondsToSelector:@selector(makeSureBtnClickWithinputStr:)]) {
             [self.delegate makeSureBtnClickWithinputStr:self.textView.text];
                 }
+        if (self.TXSureBtnClick) {
+            self.TXSureBtnClick(self.textView.text);
+        }
+    }else if (self.alertType == IOSMesAlertTypeMessage){
+        if (self.makeSureBtnClick) {
+            self.makeSureBtnClick();
+        }
     }
 
 }
@@ -343,7 +355,90 @@
     
     [self showInView:[UIApplication sharedApplication].keyWindow];
 }
-
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    BOOL isHaveDian = YES;
+    if ([textField.text rangeOfString:@"."].location == NSNotFound) {
+        isHaveDian = NO;
+    }
+    if (string.length == 0) {
+        return YES;
+    }
+    unichar single = [string characterAtIndex:0];//当前输入的字符
+    if ((single >= '0' && single <= '9') || single == '.') {
+        if (range.location == 0) {//光标在字符串开头
+            if (single == '.' || single == '0') {
+                [MBProgressHUD showError:@"价格不能以0和小数点开头哦"];
+                return NO;
+            }
+            else {
+                NSMutableString *temp = [textField.text mutableCopy];
+                [temp insertString:string atIndex:range.location];
+                
+                if (temp.floatValue > 100000) {
+                    [MBProgressHUD showError:@"最大金额为100000"];
+                    return NO;
+                }
+                return YES;
+            }
+        }
+        else {
+           if (single == '.') {
+               if (isHaveDian) {
+                   return NO;
+               }
+               else {
+                   NSMutableString *temp = [textField.text mutableCopy];
+                   [temp insertString:string atIndex:range.location];
+                   
+                   if (temp.floatValue < 100000) {
+                       return YES;
+                   }
+                   else {
+                       [MBProgressHUD showError:@"最大金额为100000"];
+                       return NO;
+                   }
+               }
+           }
+           else {
+               if (isHaveDian) {
+                   NSRange dotRange = [textField.text rangeOfString:@"."];
+                   if (range.location > dotRange.location) {
+                       if (textField.text.length - dotRange.location <= 2) {
+                           return YES;
+                       }
+                       else {
+                           return NO;
+                       }
+                   }
+                   else {
+                       NSMutableString *temp = [textField.text mutableCopy];
+                       [temp insertString:string atIndex:range.location];
+                       
+                       if (temp.floatValue > 100000) {
+                           [MBProgressHUD showError:@"最大金额为100000"];
+                           return NO;
+                       }
+                       return YES;
+                   }
+               }
+               else {
+                   NSMutableString *temp = [textField.text mutableCopy];
+                   [temp insertString:string atIndex:range.location];
+                   
+                   if (temp.floatValue > 100000) {
+                       [MBProgressHUD showError:@"最大金额为100000"];
+                       return NO;
+                   }
+                   return YES;
+               }
+           }
+        }
+    }
+    else {
+        [MBProgressHUD showError:@"输入的格式不正确"];
+        return NO;
+    }
+}
 
 /**
  *  在指定view上显示弹出框

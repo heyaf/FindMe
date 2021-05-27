@@ -40,9 +40,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,assign) NSInteger godsListType;
 //选择商品界面
 @property (nonatomic,strong) IOSCaiGouListModel *caigouChooseGodsM;
-//采购
+//采购列表
 @property (nonatomic,strong) IOSCaiGouListModel *caigouListGodsM;
 
+//采购详情
+@property (nonatomic,strong) IOSCaiGouListModel *caigouDetailGodsM;
 @end
 
 NS_ASSUME_NONNULL_END

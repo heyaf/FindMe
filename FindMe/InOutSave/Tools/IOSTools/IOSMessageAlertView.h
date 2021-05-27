@@ -42,6 +42,11 @@ typedef enum _IOSMesAlertType {
 
 //提示文字的确认按钮点击事件
 @property (nonatomic,copy) void(^makeSureBtnClick)(void);
+
+//输入文字的确认按钮点击事件
+@property (nonatomic,copy) void(^TFSureBtnClick)(NSString *str);
+//输入文字的确认按钮点击事件
+@property (nonatomic,copy) void(^TXSureBtnClick)(NSString *str);
 /**
  *  显示弹出框
  */

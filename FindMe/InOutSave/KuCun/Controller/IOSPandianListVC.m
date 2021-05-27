@@ -37,7 +37,7 @@
     
     UIButton* rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
 
-    [rightBtn setImage:[UIImage imageNamed:@"baiopan"] forState:UIControlStateNormal];
+    [rightBtn setImage:[UIImage imageNamed:@"IOSDengDai"] forState:UIControlStateNormal];
 
 
     rightBtn.frame = CGRectMake(0, 0, 35,35);
