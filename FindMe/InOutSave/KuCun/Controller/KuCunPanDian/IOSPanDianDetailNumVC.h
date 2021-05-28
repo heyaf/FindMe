@@ -10,6 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface IOSPanDianDetailNumVC : MyBaseShowTableViewController
+@property (nonatomic,strong) NSMutableArray *choosedArr; //选择商品的数组
 
 @end
 

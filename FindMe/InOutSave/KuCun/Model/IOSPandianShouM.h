@@ -28,8 +28,8 @@ NS_ASSUME_NONNULL_BEGIN
  "isRecycle": 1                                   // 所属公司ID
 }*/
 @interface IOSPandianShouM : JSONModel
-@property (nonatomic,strong) NSString *checkName,*checkUserId,*checkUserName,*checkTime;
-@property (nonatomic,assign) NSInteger checkNum;
+@property (nonatomic,strong) NSString *checkName,*checkUserId,*checkUserName,*checkTime,*img,*goodsName,*goodsId,*sumpaid;
+@property (nonatomic,assign) NSInteger checkNum,isRecycle,stockNum,num;
 @end
 
 NS_ASSUME_NONNULL_END

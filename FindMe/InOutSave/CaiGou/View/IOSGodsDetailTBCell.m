@@ -19,6 +19,7 @@
     self.selectedImageV.hidden = YES;
     self.tagLabel.hidden = YES;
     self.tagLabel.backgroundColor = RGBA(250, 250, 250, 1);
+    self.picImageView.contentMode = UIViewContentModeScaleAspectFill;
 }
 
 -(void)setCaigouChooseGodsM:(IOSCaiGouListModel *)caigouChooseGodsM{

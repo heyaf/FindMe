@@ -125,7 +125,7 @@
         [makeSureBtn addTarget:self action:@selector(makeSureBtnClicked) forControlEvents:UIControlEventTouchUpInside];
 
         
-        UILabel *priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 20, KDeviceWith-120-30-30, 20)];
+        UILabel *priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 25, KDeviceWith-120-30-30, 20)];
         priceLabel.text = @"待入库0件，实际入库0件";
         self.priceLabel = priceLabel;
         [bottomView addSubview:priceLabel];

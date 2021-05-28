@@ -30,7 +30,7 @@
     [self CreatMainUI];
 }
 -(void)initialData{
-    NSString *url = [AppServerURL stringByAppendingString:@"/s/api/sdCheck/getGoods"];
+    NSString *url = [AppServerURL stringByAppendingString:@"/s/api/sdGoods/getList"];
     NSDictionary *paramDic = @{@"empId":kUser_id
     };
     [self showHudInView:self.view hint:@"加载中"];
@@ -88,7 +88,7 @@
     [makeSureBtn addTarget:self action:@selector(makeSureBtnClicked) forControlEvents:UIControlEventTouchUpInside];
 
     
-    UILabel *priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 20, KDeviceWith-120-30-30, 20)];
+    UILabel *priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 25, KDeviceWith-120-30-30, 20)];
     priceLabel.text = @"共0件商品";
     self.priceLabel = priceLabel;
     [bottomView addSubview:priceLabel];

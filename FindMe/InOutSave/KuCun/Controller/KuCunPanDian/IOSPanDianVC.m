@@ -13,6 +13,7 @@
 #import "IOSPadianShowModel.h"
 @interface IOSPanDianVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,assign) NSInteger sum;
+@property (nonatomic,strong) NSString *checkId;
 
 @property (nonatomic,strong) UILabel *priceLabel;
 
@@ -26,9 +27,11 @@
     [self setNavbutton];
     [self CreatMainUI];
     
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     [self initialData];
 }
-
 -(void)initialData{
     //盘点单首页
     NSString *url = [AppServerURL stringByAppendingString:@"/s/api/sdCheck/main"];
@@ -36,10 +39,15 @@
     };
     [self showHudInView:self.view hint:@"加载中"];
     [[AFNetHelp shareAFNetworking] postInfoFromSeverWithStr:url body:paramDic sucess:^(id responseObject) {
+        [self hideHud];
+
         if ([AowString(responseObject[@"code"]) isEqualToString:@"1"]) {
-            self.sum = [responseObject[@"data"][@"sum"] integerValue];
+            
+            self.sum = [responseObject[@"data"][@"sum"] integerValue];//
+            self.checkId = responseObject[@"data"][@"checkId"];
             self.dataSource = [IOSPadianShowModel arrayOfModelsFromDictionaries:responseObject[@"data"][@"list"] error:nil];
             [self.tabelView reloadData];
+            [self ChargePrice];
         }else {
             [self showHint:responseObject[@"msg"]];
             [self.dataSource removeAllObjects];
@@ -47,7 +55,6 @@
 
             
         }
-        [self hideHud];
 
         
     } failure:^(NSError *error) {
@@ -171,9 +178,8 @@
 }
 -(void)ChargePrice{
     NSInteger count =0;
-    CGFloat Price = 0.00;
     for (IOSPadianShowModel *caigouModel in self.dataSource) {
-        Price+=caigouModel.num;
+        count+=caigouModel.num;
     }
     NSString *priceStr =kStringFormat(@"本单合计 %li 件商品",count);
     NSString *countStr = kStringFormat(@"%li",count);
@@ -203,7 +209,7 @@
     
     UIButton* rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
 
-    [rightBtn setImage:[UIImage imageNamed:@"baiopan"] forState:UIControlStateNormal];
+    [rightBtn setImage:[UIImage imageNamed:@"IOSDengDai"] forState:UIControlStateNormal];
 
 
     rightBtn.frame = CGRectMake(0, 0, 35,35);
@@ -230,13 +236,13 @@
     [bottomView addSubview:bgView];
     UIButton *makeSureBtn = [UIButton buttonWithType:0];
     makeSureBtn.frame = CGRectMake(0, 0, 120, 50);
-    [makeSureBtn setTitle:@"确认" forState:0];
+    [makeSureBtn setTitle:@"结束盘点" forState:0];
     makeSureBtn.backgroundColor =RGBA(46, 153, 164, 1);
     [bgView addSubview:makeSureBtn];
     [makeSureBtn addTarget:self action:@selector(makeSureBtnClicked) forControlEvents:UIControlEventTouchUpInside];
 
     
-    UILabel *priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 20, KDeviceWith-120-30-30, 20)];
+    UILabel *priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 25, KDeviceWith-120-30-30, 20)];
     self.priceLabel = priceLabel;
     [bottomView addSubview:priceLabel];
     NSString *priceStr =kStringFormat(@"本单合计 0 件商品");
@@ -254,7 +260,33 @@
     [self.navigationController pushViewController:pushVC animated:YES];
 }
 -(void)makeSureBtnClicked{
+    NSString *url = [AppServerURL stringByAppendingString:@"/s/api/sdCheck/finishCheck"];
+    if (self.checkId.length==0) {
+        return;;
+    }
+    NSDictionary *paramDic = @{@"empId":kUser_id,
+                               @"checkId":self.checkId
+    };
+    [self showHudInView:self.view hint:@"加载中"];
+    [[AFNetHelp shareAFNetworking] postInfoFromSeverWithStr:url body:paramDic sucess:^(id responseObject) {
+        if ([AowString(responseObject[@"code"]) isEqualToString:@"1"]) {
+            [self showHint:@"本次盘点已结束"];
+            [self.navigationController popViewControllerAnimated:YES];
+        }else {
+            [self showHint:responseObject[@"msg"]];
+            [self.dataSource removeAllObjects];
+            [self.tabelView reloadData];
 
+            
+        }
+        [self hideHud];
+
+        
+    } failure:^(NSError *error) {
+        [self showHint:@"稍后重试"];
+        [self hideHud];
+        
+    }];
 }
 
 @end

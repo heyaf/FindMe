@@ -134,6 +134,9 @@
 		049D53E4265F92EB00E094F7 /* IOSCaiGouEditM.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D53E3265F92EB00E094F7 /* IOSCaiGouEditM.m */; };
 		049D53E7265FACD300E094F7 /* IOSPandianShouM.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D53E6265FACD300E094F7 /* IOSPandianShouM.m */; };
 		049D53EA265FB17500E094F7 /* IOSPadianShowModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D53E9265FB17500E094F7 /* IOSPadianShowModel.m */; };
+		049D53ED2660872900E094F7 /* IOSPanDianHisListM.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D53EC2660872900E094F7 /* IOSPanDianHisListM.m */; };
+		049D53F426608F9D00E094F7 /* IOSPandianHisDetailTBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D53F226608F9D00E094F7 /* IOSPandianHisDetailTBCell.m */; };
+		049D53F526608F9D00E094F7 /* IOSPandianHisDetailTBCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049D53F326608F9D00E094F7 /* IOSPandianHisDetailTBCell.xib */; };
 		04B93D2926549DA500DA647C /* MyTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B93D2826549DA500DA647C /* MyTabBarViewController.m */; };
 		04B93D8D26549EBB00DA647C /* BRStringPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B93D2E26549EBB00DA647C /* BRStringPickerView.m */; };
 		04B93D8E26549EBB00DA647C /* BRTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B93D3126549EBB00DA647C /* BRTextField.m */; };
@@ -497,6 +500,11 @@
 		049D53E6265FACD300E094F7 /* IOSPandianShouM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSPandianShouM.m; sourceTree = "<group>"; };
 		049D53E8265FB17500E094F7 /* IOSPadianShowModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSPadianShowModel.h; sourceTree = "<group>"; };
 		049D53E9265FB17500E094F7 /* IOSPadianShowModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSPadianShowModel.m; sourceTree = "<group>"; };
+		049D53EB2660872900E094F7 /* IOSPanDianHisListM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSPanDianHisListM.h; sourceTree = "<group>"; };
+		049D53EC2660872900E094F7 /* IOSPanDianHisListM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSPanDianHisListM.m; sourceTree = "<group>"; };
+		049D53F126608F9D00E094F7 /* IOSPandianHisDetailTBCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSPandianHisDetailTBCell.h; sourceTree = "<group>"; };
+		049D53F226608F9D00E094F7 /* IOSPandianHisDetailTBCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSPandianHisDetailTBCell.m; sourceTree = "<group>"; };
+		049D53F326608F9D00E094F7 /* IOSPandianHisDetailTBCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IOSPandianHisDetailTBCell.xib; sourceTree = "<group>"; };
 		04B93D2726549DA500DA647C /* MyTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTabBarViewController.h; sourceTree = "<group>"; };
 		04B93D2826549DA500DA647C /* MyTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTabBarViewController.m; sourceTree = "<group>"; };
 		04B93D2D26549EBB00DA647C /* BRStringPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRStringPickerView.h; sourceTree = "<group>"; };
@@ -1358,6 +1366,8 @@
 				049D53E6265FACD300E094F7 /* IOSPandianShouM.m */,
 				049D53E8265FB17500E094F7 /* IOSPadianShowModel.h */,
 				049D53E9265FB17500E094F7 /* IOSPadianShowModel.m */,
+				049D53EB2660872900E094F7 /* IOSPanDianHisListM.h */,
+				049D53EC2660872900E094F7 /* IOSPanDianHisListM.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1374,6 +1384,9 @@
 				042DBAC42657C557008FBAEC /* IOSPanDianHisCell.h */,
 				042DBAC52657C557008FBAEC /* IOSPanDianHisCell.m */,
 				042DBAC62657C557008FBAEC /* IOSPanDianHisCell.xib */,
+				049D53F126608F9D00E094F7 /* IOSPandianHisDetailTBCell.h */,
+				049D53F226608F9D00E094F7 /* IOSPandianHisDetailTBCell.m */,
+				049D53F326608F9D00E094F7 /* IOSPandianHisDetailTBCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1799,6 +1812,7 @@
 				04B93E622654AB0000DA647C /* IOSHomeHeadCollectionReusableV.xib in Resources */,
 				042DBA2C2656616C008FBAEC /* IOSGodsDetailTBCell.xib in Resources */,
 				04B93E132654A01100DA647C /* TopTittleTextFileTableViewCell.xib in Resources */,
+				049D53F526608F9D00E094F7 /* IOSPandianHisDetailTBCell.xib in Resources */,
 				04B93E252654A01100DA647C /* TittlePhotoDetailTableViewCell.xib in Resources */,
 				0479A61A265B79DB00FD966F /* IOSTongjiYingKuiTBCell.xib in Resources */,
 				04B93E5D2654AB0000DA647C /* EntersHomeHeaderCollectionReusableView.xib in Resources */,
@@ -2065,6 +2079,7 @@
 				042DBADF2657D378008FBAEC /* IOSPanDianChoDetailVC.m in Sources */,
 				04B93DA426549EBB00DA647C /* UIFont+YYAdd.m in Sources */,
 				0479A619265B79DB00FD966F /* IOSTongjiYingKuiTBCell.m in Sources */,
+				049D53ED2660872900E094F7 /* IOSPanDianHisListM.m in Sources */,
 				04B93D9C26549EBB00DA647C /* UITableView+YYAdd.m in Sources */,
 				042DB9A426551286008FBAEC /* IOSGodsHistoryListVC.m in Sources */,
 				04B93D9A26549EBB00DA647C /* UIDevice+YYAdd.m in Sources */,
@@ -2134,6 +2149,7 @@
 				04B93E182654A01100DA647C /* TittleRightDetailTableViewCell.m in Sources */,
 				04B93E762654AC1800DA647C /* YuanGongModel.m in Sources */,
 				042DBAB52657C19D008FBAEC /* IOSPanDianVC.m in Sources */,
+				049D53F426608F9D00E094F7 /* IOSPandianHisDetailTBCell.m in Sources */,
 				042DB98726550017008FBAEC /* IOSChooseGoodsViewController.m in Sources */,
 				042DB9C5265512EE008FBAEC /* YNPageTableView.m in Sources */,
 				04B93E162654A01100DA647C /* TittleDetailShowTableViewCell.m in Sources */,

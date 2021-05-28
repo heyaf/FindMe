@@ -114,7 +114,7 @@
     [makeSureBtn addTarget:self action:@selector(makeSureBtnClicked) forControlEvents:UIControlEventTouchUpInside];
 
     
-    UILabel *priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 20, KDeviceWith-120-30-30, 20)];
+    UILabel *priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 25, KDeviceWith-120-30-30, 20)];
     self.priceLabel = priceLabel;
     [bottomView addSubview:priceLabel];
     NSString *priceStr =@"共0件商品,合计0.00元";
@@ -493,7 +493,7 @@
         CGFloat floatValue = [godsM.price floatValue];
         CGFloat floatValue1 = round(floatValue*100)/100;
         NSDictionary *dic = @{@"goodsName":godsM.goodsName,
-                              @"goodsId":godsM.godsId,
+                              @"goodsId":godsM.goodsId,
                               @"img":godsM.img,
                               @"num":@(godsM.selectCount),
                               @"price":@(floatValue1),

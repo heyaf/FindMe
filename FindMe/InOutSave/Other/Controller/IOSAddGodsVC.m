@@ -424,6 +424,7 @@
 }
 -(void)creatAddImageViewWithView:(UIView *)cellView{
     UIImageView *addImageV = [[UIImageView alloc] initWithFrame:CGRectMake(10, 40, 80, 80)];
+    addImageV.contentMode = UIViewContentModeScaleAspectFill;
     if (self.addSelectImage) {
         addImageV.image = self.addSelectImage;
     }else if (self.godsModel){

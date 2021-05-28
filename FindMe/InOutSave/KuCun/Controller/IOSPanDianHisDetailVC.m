@@ -6,12 +6,16 @@
 //
 
 #import "IOSPanDianHisDetailVC.h"
-#import "IOSGodsDetailTBCell.h"
+#import "IOSPandianHisDetailTBCell.h"
 #import "IOSCaiGouHeaderTBCell.h"
+#import "IOSPandianShouM.h"
 @interface IOSPanDianHisDetailVC ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) NSMutableArray *headerButArr;
 @property (nonatomic,strong) UIView *cellHeaderView;
+
+@property (nonatomic,strong) NSDictionary *dataDic;
+@property (nonatomic,assign) NSInteger seletedIndex; //选中的buttonindex
 
 @end
 
@@ -20,6 +24,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    self.seletedIndex = 0;
+    [self initialData];
     [self CreatMainUI];
 }
 -(NSMutableArray *)headerButArr{
@@ -27,6 +33,43 @@
         _headerButArr = [NSMutableArray array];
     }
     return _headerButArr;
+}
+
+-(void)initialData{
+    //盘点单首页
+    NSString *url = [AppServerURL stringByAppendingString:@"/s/api/sdCheck/list"];
+    NSDictionary *paramDic = @{@"empId":kUser_id,
+                               @"checkId":self.checkId
+    };
+    [self showHudInView:self.view hint:@"加载中"];
+    [[AFNetHelp shareAFNetworking] postInfoFromSeverWithStr:url body:paramDic sucess:^(id responseObject) {
+        [self hideHud];
+
+        if ([AowString(responseObject[@"code"]) isEqualToString:@"1"]) {
+            self.dataDic =responseObject[@"data"];
+            
+            self.dataSource = [IOSPandianShouM arrayOfModelsFromDictionaries:responseObject[@"data"][@"list"] error:nil];
+            NSMutableDictionary *mutDic = [NSMutableDictionary dictionaryWithDictionary:self.dataDic];
+            
+            [mutDic setValue:@([self managernum]) forKey:@"totalNum"];
+            self.dataDic = mutDic;
+            [self.tabelView reloadData];
+            [self creatBottomView];
+//            [self ChargePrice];
+        }else {
+            [self showHint:responseObject[@"msg"]];
+            [self.dataSource removeAllObjects];
+            [self.tabelView reloadData];
+            
+        }
+
+        
+    } failure:^(NSError *error) {
+        [self showHint:@"稍后重试"];
+        [self hideHud];
+        
+    }];
+    
 }
 //主视图
 -(void)CreatMainUI{
@@ -36,10 +79,10 @@
     self.tabelView.dataSource = self;
     self.tabelView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    [self.tabelView registerNib:[UINib nibWithNibName:@"IOSGodsDetailTBCell" bundle:nil] forCellReuseIdentifier:@"IOSGodsDetailTBCell"];
+    [self.tabelView registerNib:[UINib nibWithNibName:@"IOSPandianHisDetailTBCell" bundle:nil] forCellReuseIdentifier:@"IOSPandianHisDetailTBCell"];
     [self.tabelView registerNib:[UINib nibWithNibName:@"IOSCaiGouHeaderTBCell" bundle:nil] forCellReuseIdentifier:@"IOSCaiGouHeaderTBCell"];
     [self setNavBackStr:@"盘点单"];
-    [self creatBottomView];
+//
 
     
 }
@@ -60,12 +103,24 @@
 
 
     UILabel *priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 20, KDeviceWith-150-30-30, 20)];
-    priceLabel.text = @"共0件商品，共计0.00元";
     [bgView addSubview:priceLabel];
+    NSString *priceStr =kStringFormat(@"盈亏合计%li",[self managernum1]);
+    NSString *numStr = kStringFormat(@"%li",[self managernum1]);
+    NSMutableAttributedString *attriStr = [[NSMutableAttributedString alloc] initWithString:priceStr];
+    [attriStr addAttributes: @{NSFontAttributeName :kBOLDFONT(16),NSForegroundColorAttributeName:IOSMainColor,} range:NSMakeRange(0, priceStr.length)];
+
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:IOSMainColor,} range:NSMakeRange(4, numStr.length)];
+    priceLabel.attributedText = attriStr;
     
-    UILabel *label2 = [bgView createLabelFrame:CGRectMake(bgView.yz_width-150, 20, 135, 20) textColor:IOSMainColor font:FONT_ITALIC_SIZE(16)];
-    label2.text = @"￥123233.00";
-    
+    UILabel *label2 = [bgView createLabelFrame:CGRectMake(bgView.yz_width-155, 20, 145, 20) textColor:IOSMainColor font:kFONT(16)];
+    NSString *priceStr1 =kStringFormat(@"￥%@",[self managerPrice]);
+    NSMutableAttributedString *attriStr1 = [[NSMutableAttributedString alloc] initWithString:priceStr1];
+    [attriStr1 addAttributes: @{NSFontAttributeName :kBOLDFONT(18),NSForegroundColorAttributeName:IOSMainColor,} range:NSMakeRange(0, priceStr1.length)];
+
+    [attriStr1 addAttributes: @{NSFontAttributeName :kFONT(12),NSForegroundColorAttributeName:IOSMainColor,} range:NSMakeRange(priceStr1.length-3, 3)];
+    [attriStr1 addAttributes: @{NSFontAttributeName :kFONT(12),NSForegroundColorAttributeName:IOSMainColor,} range:NSMakeRange(0, 1)];
+    label2.attributedText = attriStr1;
+    label2.textAlignment = NSTextAlignmentRight;
     
 
 }
@@ -79,11 +134,11 @@
     if (section==0) {
         return 1;
     }
-    return 20;
+    return [self manageChooseDate].count;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section==0) {
-        return 180;
+        return 140;
     }
     return 130;
 }
@@ -98,12 +153,49 @@
     if (indexPath.section==0) {
         IOSCaiGouHeaderTBCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IOSCaiGouHeaderTBCell"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [cell setpandianHisHeadView:self.dataDic];
         return cell;
     }
-    IOSGodsDetailTBCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IOSGodsDetailTBCell"];
+    IOSPandianHisDetailTBCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IOSPandianHisDetailTBCell"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-
+    IOSPandianShouM *pandianM = [self manageChooseDate][indexPath.row];
+    cell.listHisModel = pandianM;
     return cell;
+}
+-(NSArray *)manageChooseDate{
+    if (self.seletedIndex==0) {
+        return self.dataSource;
+    }
+    NSMutableArray *mutArr = [NSMutableArray arrayWithCapacity:0];
+        for (IOSPandianShouM *listModel in self.dataSource) {
+            if (listModel.isRecycle!=self.seletedIndex) {
+                [mutArr addObject:listModel];
+            }
+        }
+        return mutArr;
+    
+}
+-(NSInteger)managernum{
+    NSInteger count = 0;
+    for (IOSPandianShouM *listModel in self.dataSource) {
+            count+=listModel.checkNum;
+    }
+    return count;
+}
+
+-(NSInteger)managernum1{
+    NSInteger count = 0;
+    for (IOSPandianShouM *listModel in self.dataSource) {
+            count+=listModel.num;
+    }
+    return count;
+}
+-(NSString *)managerPrice{
+    CGFloat count = 0.00;
+    for (IOSPandianShouM *listModel in self.dataSource) {
+            count+=[listModel.sumpaid floatValue];
+    }
+    return kStringFormat(@"%.2f",count);
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     if (section==0) {
@@ -154,6 +246,8 @@
     [button setBackgroundImage:ImageNamed(@"ioscaigouHeaderBG") forState:0];
     [button setTitleColor:[UIColor blackColor] forState:0];
     button.titleLabel.font = FONT(18);
+    self.seletedIndex = button.tag-521;
+    [self.tabelView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationNone];
 }
 //设置导航栏
 -(void)setNavBackStr:(NSString *)backTitle{

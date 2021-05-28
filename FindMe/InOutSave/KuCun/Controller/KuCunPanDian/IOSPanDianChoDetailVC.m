@@ -8,6 +8,7 @@
 #import "IOSPanDianChoDetailVC.h"
 #import "IOSGodsDetailTBCell.h"
 #import "IOSCaiGouListModel.h"
+#import "IOSPanDianDetailNumVC.h"
 @interface IOSPanDianChoDetailVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) NSMutableArray *choosedArr; //选择商品的数组
 @property (nonatomic,strong) UILabel *priceLabel;
@@ -111,14 +112,18 @@
     [bottomView addSubview:bgView];
     UIButton *makeSureBtn = [UIButton buttonWithType:0];
     makeSureBtn.frame = CGRectMake(0, 0, 120, 50);
-    [makeSureBtn setTitle:@"确认" forState:0];
+    [makeSureBtn setTitle:@"选好了" forState:0];
     makeSureBtn.backgroundColor =RGBA(46, 153, 164, 1);
     [bgView addSubview:makeSureBtn];
     [makeSureBtn addTarget:self action:@selector(makeSureBtnClicked) forControlEvents:UIControlEventTouchUpInside];
 
     
-    UILabel *priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 20, KDeviceWith-120-30-30, 20)];
-    priceLabel.text = @"共0件商品";
+    UILabel *priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 25, KDeviceWith-120-30-30, 20)];
+    NSString *textStr = kStringFormat(@"本单合计 0 件商品");
+    NSMutableAttributedString *attriStr = [[NSMutableAttributedString alloc] initWithString:textStr];
+    [attriStr addAttributes: @{NSFontAttributeName :kBOLDFONT(16),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(5, 1)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(0, textStr.length)];
+    priceLabel.attributedText = attriStr;
     self.priceLabel = priceLabel;
     [bottomView addSubview:priceLabel];
 
@@ -163,7 +168,13 @@
             count++;
         }
     }
-    self.priceLabel.text = kStringFormat(@"已选择%li件商品",count);
+    NSString *textStr = kStringFormat(@"本单合计 %li 件商品",count);
+    NSString *countStr = kStringFormat(@"%li",count);
+    NSMutableAttributedString *attriStr = [[NSMutableAttributedString alloc] initWithString:textStr];
+    [attriStr addAttributes: @{NSFontAttributeName :kBOLDFONT(16),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(5, countStr.length)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(0, textStr.length)];
+   
+    self.priceLabel.attributedText = attriStr;
 }
 
 //设置导航栏
@@ -191,8 +202,10 @@
         return;
     }
     if (dateArr.count>0) {
-//        self.chooseGodsBlock(dateArr);
-        [self.navigationController popViewControllerAnimated:YES];
+        
+        IOSPanDianDetailNumVC *pushVC = [[IOSPanDianDetailNumVC alloc] init];
+        pushVC.choosedArr = dateArr;
+        [self.navigationController pushViewController:pushVC animated:YES];
     }
 }
 @end

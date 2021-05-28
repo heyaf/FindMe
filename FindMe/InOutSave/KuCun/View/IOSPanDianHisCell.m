@@ -13,6 +13,7 @@
     [super awakeFromNib];
     // Initialization code
     self.mainBgView.backgroundColor = RGBA(250, 250, 250, 1);
+    self.userHeaderImV.contentMode = UIViewContentModeScaleAspectFill;
 }
 
 -(void)setPandianshouModel:(IOSPadianShowModel *)pandianshouModel{

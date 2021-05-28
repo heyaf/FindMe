@@ -41,7 +41,7 @@
     bottomView.backgroundColor = [UIColor whiteColor];
 
     [self.view addSubview:bottomView];
-    CYCustomArcImageView *bgView = [[CYCustomArcImageView alloc] initWithFrame:CGRectMake(20, 0, KDeviceWith-40, 60)];
+    CYCustomArcImageView *bgView = [[CYCustomArcImageView alloc] initWithFrame:CGRectMake(20, 0, KDeviceWith-40, 50)];
     bgView.borderTopLeftRadius = 10;
     bgView.borderTopRightRadius = 30;
     bgView.borderBottomLeftRadius = 10;

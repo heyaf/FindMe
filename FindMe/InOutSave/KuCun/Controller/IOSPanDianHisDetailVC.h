@@ -10,6 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface IOSPanDianHisDetailVC : MyBaseShowTableViewController
+@property (nonatomic,strong) NSString *checkId;
 
 @end
 

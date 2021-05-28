@@ -8,7 +8,7 @@
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
-
+@class IOSPanDianHisListM;
 @interface IOSInStoreListTBCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIView *mainBgView;
 @property (weak, nonatomic) IBOutlet UILabel *TItleLabel;
@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIImageView *userImageV;
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *detailLabel;
+@property (nonatomic,strong) IOSPanDianHisListM *hisListM; //盘点历史
 
 @end
 

@@ -87,25 +87,25 @@
 }
 -(void)creatBottomView{
     UIView *bottomView = [[UIView alloc]  initWithFrame:CGRectMake(0, KDeviceHeight-80-KEVNScreenTabBarSafeBottomMargin, KDeviceWith, 80+KEVNScreenTabBarSafeBottomMargin)];
-    bottomView.backgroundColor = [UIColor redColor];
+    bottomView.backgroundColor = [UIColor whiteColor];
     
     [self.view addSubview:bottomView];
     
-    CYCustomArcImageView *bgView = [[CYCustomArcImageView alloc] initWithFrame:CGRectMake(KDeviceWith-30-120, 10, 120, 60)];
+    CYCustomArcImageView *bgView = [[CYCustomArcImageView alloc] initWithFrame:CGRectMake(KDeviceWith-30-120, 10, 120, 50)];
     bgView.borderTopLeftRadius = 10;
     bgView.borderTopRightRadius = 30;
     bgView.borderBottomLeftRadius = 10;
     bgView.borderBottomRightRadius = 10;
     [bottomView addSubview:bgView];
     UIButton *makeSureBtn = [UIButton buttonWithType:0];
-    makeSureBtn.frame = CGRectMake(0, 0, 120, 60);
+    makeSureBtn.frame = CGRectMake(0, 0, 120, 50);
     [makeSureBtn setTitle:@"确认" forState:0];
     makeSureBtn.backgroundColor =RGBA(46, 153, 164, 1);
     [bgView addSubview:makeSureBtn];
     [makeSureBtn addTarget:self action:@selector(makeSureBtnClicked) forControlEvents:UIControlEventTouchUpInside];
 
     
-    UILabel *priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 20, KDeviceWith-120-30-30, 20)];
+    UILabel *priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 25, KDeviceWith-120-30-30, 20)];
     priceLabel.text = @"共0件商品，共计0.00元";
     [bottomView addSubview:priceLabel];
 

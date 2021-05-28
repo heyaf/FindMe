@@ -17,6 +17,7 @@
 
     self.tagLabel.backgroundColor = RGBA(245, 245, 245, 1);
     ViewRadius(self.tagLabel, 7);
+    self.mainPicImageView.contentMode = UIViewContentModeScaleAspectFill;
     
 }
 -(void)setGodsModel:(IOSGodsListM *)godsModel{

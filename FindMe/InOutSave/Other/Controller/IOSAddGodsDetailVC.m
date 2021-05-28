@@ -141,14 +141,14 @@
 
     [self.view addSubview:bottomView];
 
-    CYCustomArcImageView *bgView = [[CYCustomArcImageView alloc] initWithFrame:CGRectMake(100, 10, KDeviceWith-120, 60)];
+    CYCustomArcImageView *bgView = [[CYCustomArcImageView alloc] initWithFrame:CGRectMake(100, 10, KDeviceWith-120, 50)];
     bgView.borderTopLeftRadius = 10;
     bgView.borderTopRightRadius = 30;
     bgView.borderBottomLeftRadius = 10;
     bgView.borderBottomRightRadius = 10;
     [bottomView addSubview:bgView];
     UIButton *makeSureBtn = [UIButton buttonWithType:0];
-    makeSureBtn.frame = CGRectMake(0, 0, KDeviceWith-120, 60);
+    makeSureBtn.frame = CGRectMake(0, 0, KDeviceWith-120, 50);
     [makeSureBtn setTitle:@"保存" forState:0];
     makeSureBtn.backgroundColor =RGBA(46, 153, 164, 1);
     [bgView addSubview:makeSureBtn];
