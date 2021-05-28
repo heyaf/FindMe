@@ -9,6 +9,7 @@
 #import "IOSPanDianHisListM.h"
 #import "IOSInStoreModel.h"
 #import "IOSLingYongListM.h"
+#import "IOSHuishouListM.h"
 @implementation IOSInStoreListTBCell
 
 - (void)awakeFromNib {
@@ -16,6 +17,7 @@
     // Initialization code
     self.backgroundColor = RGBA(245, 245, 245, 1);
     self.userImageV.contentMode = UIViewContentModeScaleAspectFill;
+    self.tagImageView.hidden = YES;
 }
 -(void)setHisListM:(IOSPanDianHisListM *)hisListM{
     _hisListM = hisListM;
@@ -73,6 +75,31 @@
     [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(priceStr.length-1, 1)];
     [attriStr addAttributes: @{NSFontAttributeName :kFONT(12),NSForegroundColorAttributeName:IOSMainColor,} range:NSMakeRange(priceStr.length-4, 3)];
     self.detailLabel.attributedText = attriStr;
+}
+-(void)setHuishouListM:(IOSHuishouListM *)huishouListM{
+    _huishouListM = huishouListM;
+    self.TItleLabel.text = huishouListM.recoveryName;
+    self.labelOne.text = kStringFormat(@"关联领用单:%@",huishouListM.mateId);
+    self.labelTwo.text = kStringFormat(@"回收时间时间:%@",huishouListM.getTime);
+    self.labelThr.hidden = YES;
+    [self.userImageV sd_setImageWithURL:[NSURL URLWithString:kStringFormat(@"%@%@",AppServerURL,huishouListM.getUserPhoto)] placeholderImage:ImageNamed(@"placeholder")];
+    self.userNameLabel.text = huishouListM.getUserName;
+    
+    NSString *priceStr =kStringFormat(@"共%li件商品,合计%.2f元",huishouListM.num,[huishouListM.price floatValue]);
+    NSString *numStr = kStringFormat(@"%li",huishouListM.num);
+    NSMutableAttributedString *attriStr = [[NSMutableAttributedString alloc] initWithString:priceStr];
+    [attriStr addAttributes: @{NSFontAttributeName :kBOLDFONT(16),NSForegroundColorAttributeName:IOSMainColor,} range:NSMakeRange(0, priceStr.length)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(0, 1)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(1+numStr.length, 6)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(priceStr.length-1, 1)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(12),NSForegroundColorAttributeName:IOSMainColor,} range:NSMakeRange(priceStr.length-4, 3)];
+    self.detailLabel.attributedText = attriStr;
+    self.tagImageView.hidden = NO;
+    if (huishouListM.type==1) { //待回收
+        
+    }else{
+        
+    }
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

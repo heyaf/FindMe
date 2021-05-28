@@ -105,36 +105,6 @@
     
 }
 
--(void)initialData{
-    NSString *url = [AppServerURL stringByAppendingString:@"/s/api/sdInstock/list"];
-    NSDictionary *paramDic = @{@"empId":kUser_id
-    };
-    [self showHudInView:self.view hint:@"加载中"];
-    [[AFNetHelp shareAFNetworking] postInfoFromSeverWithStr:url body:paramDic sucess:^(id responseObject) {
-        [self hideHud];
-
-        if ([AowString(responseObject[@"code"]) isEqualToString:@"1"]) {
-            
-  
-            self.dataSource = [IOSInStoreModel arrayOfModelsFromDictionaries:responseObject[@"data"] error:nil];
-            [self.tabelView reloadData];
-//            [self ChargePrice];
-        }else {
-            [self showHint:responseObject[@"msg"]];
-            [self.dataSource removeAllObjects];
-            [self.tabelView reloadData];
-
-            
-        }
-
-        
-    } failure:^(NSError *error) {
-        [self showHint:@"稍后重试"];
-        [self hideHud];
-        
-    }];
-    
-}
 //主视图
 -(void)CreatMainUI{
     

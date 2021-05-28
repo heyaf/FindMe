@@ -6,7 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class IOSChoHuishouM;
 NS_ASSUME_NONNULL_BEGIN
 
 @interface IOSHuiShouListTBCell : UITableViewCell
@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *StateLabel;
 
+@property (nonatomic,strong) IOSChoHuishouM *huishouM;
 @end
 
 NS_ASSUME_NONNULL_END

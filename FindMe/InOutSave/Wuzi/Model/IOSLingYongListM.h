@@ -47,7 +47,7 @@ NS_ASSUME_NONNULL_BEGIN
  "type": 1,                            // 1:库管申请出库 2:其他申请出库
  "isRecycle": 1,                       // 1:不可回收 2:可回收*/
 @interface IOSLingYongListM : JSONModel
-@property (nonatomic,strong) NSString *getUserPhoto,*mateName,*getTime,*getUserName,*mateId,*price,*img;
+@property (nonatomic,strong) NSString *getUserPhoto,*mateName,*getTime,*getUserName,*mateId,*price,*img,*goodsName;
 @property (nonatomic,assign) NSInteger num,stockNum,isRecycle;
 @end
 

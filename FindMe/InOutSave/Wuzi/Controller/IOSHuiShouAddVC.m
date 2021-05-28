@@ -8,6 +8,7 @@
 #import "IOSHuiShouAddVC.h"
 #import "IOSHuiShouListTBCell.h"
 #import "IOSHuiSHouAddDetailVC.h"
+#import "IOSChoHuishouM.h"
 @interface IOSHuiShouAddVC ()<UITableViewDelegate,UITableViewDataSource>
 
 @end
@@ -24,6 +25,34 @@
     [self.tabelView registerNib:[UINib nibWithNibName:@"IOSHuiShouListTBCell" bundle:nil] forCellReuseIdentifier:@"IOSHuiShouListTBCell"];
     [self creatBottomView];
     [self setNavBackStr:@"新增"];
+    [self initialData];
+}
+-(void)initialData{
+    NSString *url = [AppServerURL stringByAppendingString:@"/s/api/sdRecovery/recoveryGetList"];
+    NSDictionary *paramDic = @{@"empId":kUser_id
+    };
+    [self showHudInView:self.view hint:@"加载中"];
+    [[AFNetHelp shareAFNetworking] postInfoFromSeverWithStr:url body:paramDic sucess:^(id responseObject) {
+        if ([AowString(responseObject[@"code"]) isEqualToString:@"1"]) {
+            NSArray *dateArr= responseObject[@"data"];
+            self.dataSource = [IOSChoHuishouM arrayOfModelsFromDictionaries:dateArr error:nil];
+            [self.tabelView reloadData];
+        }else {
+            [self showHint:responseObject[@"msg"]];
+            [self.dataSource removeAllObjects];
+            [self.tabelView reloadData];
+
+            
+        }
+        [self hideHud];
+
+        
+    } failure:^(NSError *error) {
+        [self showHint:@"稍后重试"];
+        [self hideHud];
+        
+    }];
+    
 }
 //设置导航栏
 -(void)setNavbutton{
@@ -48,20 +77,25 @@
 
 #pragma mark ---代理事件----
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 20;
+    return self.dataSource.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     IOSHuiShouListTBCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IOSHuiShouListTBCell"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    if (indexPath.row/2==0) {
-        
-    }
+    IOSChoHuishouM *huishouModel = self.dataSource[indexPath.row];
+    cell.huishouM = huishouModel;
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 120;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    IOSChoHuishouM *huishouModel = self.dataSource[indexPath.row];
+    for (IOSChoHuishouM *huishouM in self.dataSource) {
+        huishouM.isSelect = NO;
+    }
+    huishouModel.isSelect = YES;
+    [tableView reloadData];
     
 }
 -(void)creatBottomView{

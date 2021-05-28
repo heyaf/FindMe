@@ -55,6 +55,9 @@
     self.navigationItem.leftBarButtonItem = leftBarItem;
     
 }
+-(void)backAction{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 -(void)creatBottomView{
     UIView *bottomView = [[UIView alloc]  initWithFrame:CGRectMake(0, KDeviceHeight-80-KEVNScreenTabBarSafeBottomMargin, KDeviceWith, 80+KEVNScreenTabBarSafeBottomMargin)];

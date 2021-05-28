@@ -9,9 +9,11 @@
 #import "IOSInStoreListTBCell.h"
 #import "IOSHuiShouDetailVC.h"
 #import "IOSHuiShouAddVC.h"
+#import "IOSHuishouListM.h"
 @interface IOSHuiShouListVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) NSMutableArray *headerButArr;
 @property (nonatomic,strong) UIView *cellHeaderView;
+@property (nonatomic,assign) NSInteger selectIndex;
 @end
 
 @implementation IOSHuiShouListVC
@@ -62,13 +64,56 @@
     IOSHuiShouAddVC *pushVC = [[IOSHuiShouAddVC alloc] init];
     [self.navigationController pushViewController:pushVC animated:YES];
 }
+-(void)initialData{
+    NSString *url = [AppServerURL stringByAppendingString:@"/s/api/sdMate/getList"];
+    NSDictionary *paramDic = @{@"empId":kUser_id
+    };
+    [self showHudInView:self.view hint:@"加载中"];
+    [[AFNetHelp shareAFNetworking] postInfoFromSeverWithStr:url body:paramDic sucess:^(id responseObject) {
+        [self hideHud];
+
+        if ([AowString(responseObject[@"code"]) isEqualToString:@"1"]) {
+            
+            self.dataSource = [IOSHuishouListM arrayOfModelsFromDictionaries:responseObject[@"data"] error:nil];
+            [self.tabelView reloadData];
+//            [self ChargePrice];
+        }else {
+            [self showHint:responseObject[@"msg"]];
+            [self.dataSource removeAllObjects];
+            [self.tabelView reloadData];
+
+            
+        }
+
+        
+    } failure:^(NSError *error) {
+        [self showHint:@"稍后重试"];
+        [self hideHud];
+        
+    }];
+    
+}
+-(NSArray *)manageChooseDate{
+    if (self.selectIndex==0) {
+        return self.dataSource;
+    }
+    NSMutableArray *mutArr = [NSMutableArray arrayWithCapacity:0];
+        for (IOSHuishouListM *listModel in self.dataSource) {
+            if (listModel.isRecycle!=self.selectIndex) {
+                [mutArr addObject:listModel];
+            }
+        }
+        return mutArr;
+    
+}
 #pragma mark ---代理事件----
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 20;
+    return [self manageChooseDate].count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     IOSInStoreListTBCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IOSInStoreListTBCell"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    IOSHuishouListM *huishouM = [self manageChooseDate][indexPath.row];
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -129,6 +174,14 @@
     [button setBackgroundImage:ImageNamed(@"ioscaigouHeaderBG") forState:0];
     [button setTitleColor:[UIColor blackColor] forState:0];
     button.titleLabel.font = FONT(18);
+    self.selectIndex = button.tag -521;
+    [self.tabelView reloadData];
+}
+-(NSMutableArray *)headerButArr{
+    if (!_headerButArr) {
+        _headerButArr = [NSMutableArray array];
+    }
+    return _headerButArr;
 }
 
 @end

@@ -145,6 +145,7 @@
         priceLabel.text = @"查看入库单";
         priceLabel.font = kBOLDFONT(16);
         priceLabel.textColor = IOSMainColor;
+        priceLabel.textAlignment = NSTextAlignmentCenter;
         
         [bgView addSubview:priceLabel];
         

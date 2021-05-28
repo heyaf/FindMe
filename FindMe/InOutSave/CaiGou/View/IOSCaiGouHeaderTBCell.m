@@ -91,7 +91,7 @@
  "stockUserName": "童少供货",            // 库管名称
  "purchTime": "2021-05-11 17:26:27",    // 采购时间
  "createTime": "2021-05-12 10:02:53",   // 入库时间*/
-    [self.userImageView sd_setImageWithURL:[NSURL URLWithString:kStringFormat(@"%@%@",AppServerURL,dateDic[@"stockUserPhoto"])] placeholderImage:ImageNamed(@"placeholder")];
+    [self.userImageView sd_setImageWithURL:[NSURL URLWithString:kStringFormat(@"%@%@",AppServerURL,dateDic[@"getUserPhoto"])] placeholderImage:ImageNamed(@"placeholder")];
     self.userNameLabel.text = kStringFormat(@"%@  %@",dateDic[@"stockUserName"],AowString(dateDic[@"inStockId"]));
     self.label1.text = kStringFormat(@"关联采购单:%@",dateDic[@"purchId"]);
         self.label2.text = kStringFormat(@"采购时间:%@",dateDic[@"purchTime"]);
@@ -148,6 +148,36 @@
     [attriStr addAttributes: @{NSFontAttributeName :kFONT(12),NSForegroundColorAttributeName:IOSMainColor,} range:NSMakeRange(priceStr.length-4, 3)];
     self.detailLabel.attributedText = attriStr;
 }
+-(void)setaddhuishoudanHeadView:(NSDictionary *)dateDic{
+    if (dateDic.count==0) {
+        return;
+    }
+    /*        "mateName": "凌鸥",                         // 物资单名称
+     "flag": "2",                                // 2:㔊管 100:非库管
+     "getTime": "2021-05-13 20:10:00",           // 领取时间
+     "getUserName": "凌鸥",                      // 领取人名称
+     "mateId": "M20210513193925201410",          // 物资单号
+     "getUserId": "293",                         // 领取人ID*/
+    [self.userImageView sd_setImageWithURL:[NSURL URLWithString:kStringFormat(@"%@%@",AppServerURL,dateDic[@"getUserPhoto"])] placeholderImage:ImageNamed(@"placeholder")];
+    self.userNameLabel.text = kStringFormat(@"%@  %@",dateDic[@"getUserName"],AowString(dateDic[@"mateId"]));
+    self.label1.text = kStringFormat(@"领取时间:%@",dateDic[@"getTime"]);
+        self.label2.hidden = YES;
+
+    self.label3.hidden = YES;
+    self.label4.hidden = YES;
+
+    self.nameLabel.text = @"领取商品";
+    NSString *priceStr =kStringFormat(@"共%li件商品,合计%.2f元",[dateDic[@"totalNum"] integerValue],[dateDic[@"totalPrice"] floatValue]);
+    NSString *numStr = kStringFormat(@"%li",[dateDic[@"totalNum"] integerValue]);
+    NSMutableAttributedString *attriStr = [[NSMutableAttributedString alloc] initWithString:priceStr];
+    [attriStr addAttributes: @{NSFontAttributeName :kBOLDFONT(16),NSForegroundColorAttributeName:IOSMainColor,} range:NSMakeRange(0, priceStr.length)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(0, 1)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(1+numStr.length, 6)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(priceStr.length-1, 1)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(12),NSForegroundColorAttributeName:IOSMainColor,} range:NSMakeRange(priceStr.length-4, 3)];
+    self.detailLabel.attributedText = attriStr;
+}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

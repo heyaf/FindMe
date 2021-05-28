@@ -139,6 +139,9 @@
 		049D53F526608F9D00E094F7 /* IOSPandianHisDetailTBCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049D53F326608F9D00E094F7 /* IOSPandianHisDetailTBCell.xib */; };
 		049D53F82660BBCB00E094F7 /* IOSInStoreModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D53F72660BBCB00E094F7 /* IOSInStoreModel.m */; };
 		049D53FB2660DCBF00E094F7 /* IOSLingYongListM.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D53FA2660DCBF00E094F7 /* IOSLingYongListM.m */; };
+		049D54042660ED3C00E094F7 /* IOSChoHuishouM.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D54032660ED3C00E094F7 /* IOSChoHuishouM.m */; };
+		049D54072660F80F00E094F7 /* IOSAddHuiShouM.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D54062660F80F00E094F7 /* IOSAddHuiShouM.m */; };
+		049D540A266101A300E094F7 /* IOSHuishouListM.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D5409266101A300E094F7 /* IOSHuishouListM.m */; };
 		04B93D2926549DA500DA647C /* MyTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B93D2826549DA500DA647C /* MyTabBarViewController.m */; };
 		04B93D8D26549EBB00DA647C /* BRStringPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B93D2E26549EBB00DA647C /* BRStringPickerView.m */; };
 		04B93D8E26549EBB00DA647C /* BRTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B93D3126549EBB00DA647C /* BRTextField.m */; };
@@ -511,6 +514,12 @@
 		049D53F72660BBCB00E094F7 /* IOSInStoreModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSInStoreModel.m; sourceTree = "<group>"; };
 		049D53F92660DCBF00E094F7 /* IOSLingYongListM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSLingYongListM.h; sourceTree = "<group>"; };
 		049D53FA2660DCBF00E094F7 /* IOSLingYongListM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSLingYongListM.m; sourceTree = "<group>"; };
+		049D54022660ED3C00E094F7 /* IOSChoHuishouM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSChoHuishouM.h; sourceTree = "<group>"; };
+		049D54032660ED3C00E094F7 /* IOSChoHuishouM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSChoHuishouM.m; sourceTree = "<group>"; };
+		049D54052660F80F00E094F7 /* IOSAddHuiShouM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSAddHuiShouM.h; sourceTree = "<group>"; };
+		049D54062660F80F00E094F7 /* IOSAddHuiShouM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSAddHuiShouM.m; sourceTree = "<group>"; };
+		049D5408266101A300E094F7 /* IOSHuishouListM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSHuishouListM.h; sourceTree = "<group>"; };
+		049D5409266101A300E094F7 /* IOSHuishouListM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSHuishouListM.m; sourceTree = "<group>"; };
 		04B93D2726549DA500DA647C /* MyTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTabBarViewController.h; sourceTree = "<group>"; };
 		04B93D2826549DA500DA647C /* MyTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTabBarViewController.m; sourceTree = "<group>"; };
 		04B93D2D26549EBB00DA647C /* BRStringPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRStringPickerView.h; sourceTree = "<group>"; };
@@ -1504,6 +1513,12 @@
 			children = (
 				049D53F92660DCBF00E094F7 /* IOSLingYongListM.h */,
 				049D53FA2660DCBF00E094F7 /* IOSLingYongListM.m */,
+				049D54022660ED3C00E094F7 /* IOSChoHuishouM.h */,
+				049D54032660ED3C00E094F7 /* IOSChoHuishouM.m */,
+				049D54052660F80F00E094F7 /* IOSAddHuiShouM.h */,
+				049D54062660F80F00E094F7 /* IOSAddHuiShouM.m */,
+				049D5408266101A300E094F7 /* IOSHuishouListM.h */,
+				049D5409266101A300E094F7 /* IOSHuishouListM.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1998,6 +2013,7 @@
 				049D53CC265DE7D200E094F7 /* IOSGodsListM.m in Sources */,
 				04B93E102654A01100DA647C /* UITextField+IndexPath.m in Sources */,
 				04B93E1A2654A01100DA647C /* TittleSeleTableViewCell.m in Sources */,
+				049D54072660F80F00E094F7 /* IOSAddHuiShouM.m in Sources */,
 				04B93DA526549EBB00DA647C /* NSArray+YYAdd.m in Sources */,
 				04F2858C2658F549008FE9D8 /* IOSTongJiCaiGouVC.m in Sources */,
 				04B93D9526549EBB00DA647C /* NSObject+YYModel.m in Sources */,
@@ -2033,6 +2049,7 @@
 				04887369265B3EFF00709115 /* QuxianLabelCollectionViewCell.m in Sources */,
 				04B93DA926549EBB00DA647C /* NSData+YYAdd.m in Sources */,
 				0447D5EB2653A34A0012D72C /* ViewController.m in Sources */,
+				049D540A266101A300E094F7 /* IOSHuishouListM.m in Sources */,
 				042DBB422658EAC9008FBAEC /* IOSSunHaoAddDetailVC.m in Sources */,
 				042DBA10265640DA008FBAEC /* IOSGodsHisModel.m in Sources */,
 				04B93E0B2654A01100DA647C /* UIViewController+HUD.m in Sources */,
@@ -2083,6 +2100,7 @@
 				049D53E7265FACD300E094F7 /* IOSPandianShouM.m in Sources */,
 				049D53DB265E22C400E094F7 /* IOSGodsDeHeadSubV.m in Sources */,
 				042DBB2F2658DDFF008FBAEC /* IOSHuiShouListTBCell.m in Sources */,
+				049D54042660ED3C00E094F7 /* IOSChoHuishouM.m in Sources */,
 				04B93DAB26549EBB00DA647C /* NSTimer+YYAdd.m in Sources */,
 				04B93DA826549EBB00DA647C /* NSObject+YYAdd.m in Sources */,
 				04B93DA026549EBB00DA647C /* UIBarButtonItem+YYAdd.m in Sources */,

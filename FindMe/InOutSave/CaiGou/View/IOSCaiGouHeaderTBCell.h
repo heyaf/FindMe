@@ -29,6 +29,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 //物资领用
 -(void)setlingyongdanHeadView:(NSDictionary *)dateDic;
+
+//新增回收
+-(void)setaddhuishoudanHeadView:(NSDictionary *)dateDic;
+
 @end
 
 NS_ASSUME_NONNULL_END
