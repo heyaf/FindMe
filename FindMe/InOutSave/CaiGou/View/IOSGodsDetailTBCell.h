@@ -9,6 +9,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 @class IOSCaiGouListModel;
+@class IOSInStoreModel;
+@class IOSLingYongListM;
 @interface IOSGodsDetailTBCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *picImageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -23,6 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIImageView *selectedImageV;
 @property (weak, nonatomic) IBOutlet UILabel *tagLabel;
 - (IBAction)unAddButtonClicked:(id)sender;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *numLabelConStraint;
 
 
 - (IBAction)addButtonClicked:(id)sender;
@@ -45,6 +48,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 //采购详情
 @property (nonatomic,strong) IOSCaiGouListModel *caigouDetailGodsM;
+//入库详情
+@property (nonatomic,strong) IOSInStoreModel *instoreM;
+
+@property (nonatomic,strong) IOSLingYongListM *lingyongM;
 @end
 
 NS_ASSUME_NONNULL_END

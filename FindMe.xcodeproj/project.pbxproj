@@ -137,6 +137,8 @@
 		049D53ED2660872900E094F7 /* IOSPanDianHisListM.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D53EC2660872900E094F7 /* IOSPanDianHisListM.m */; };
 		049D53F426608F9D00E094F7 /* IOSPandianHisDetailTBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D53F226608F9D00E094F7 /* IOSPandianHisDetailTBCell.m */; };
 		049D53F526608F9D00E094F7 /* IOSPandianHisDetailTBCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049D53F326608F9D00E094F7 /* IOSPandianHisDetailTBCell.xib */; };
+		049D53F82660BBCB00E094F7 /* IOSInStoreModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D53F72660BBCB00E094F7 /* IOSInStoreModel.m */; };
+		049D53FB2660DCBF00E094F7 /* IOSLingYongListM.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D53FA2660DCBF00E094F7 /* IOSLingYongListM.m */; };
 		04B93D2926549DA500DA647C /* MyTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B93D2826549DA500DA647C /* MyTabBarViewController.m */; };
 		04B93D8D26549EBB00DA647C /* BRStringPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B93D2E26549EBB00DA647C /* BRStringPickerView.m */; };
 		04B93D8E26549EBB00DA647C /* BRTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B93D3126549EBB00DA647C /* BRTextField.m */; };
@@ -505,6 +507,10 @@
 		049D53F126608F9D00E094F7 /* IOSPandianHisDetailTBCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSPandianHisDetailTBCell.h; sourceTree = "<group>"; };
 		049D53F226608F9D00E094F7 /* IOSPandianHisDetailTBCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSPandianHisDetailTBCell.m; sourceTree = "<group>"; };
 		049D53F326608F9D00E094F7 /* IOSPandianHisDetailTBCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IOSPandianHisDetailTBCell.xib; sourceTree = "<group>"; };
+		049D53F62660BBCB00E094F7 /* IOSInStoreModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSInStoreModel.h; sourceTree = "<group>"; };
+		049D53F72660BBCB00E094F7 /* IOSInStoreModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSInStoreModel.m; sourceTree = "<group>"; };
+		049D53F92660DCBF00E094F7 /* IOSLingYongListM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSLingYongListM.h; sourceTree = "<group>"; };
+		049D53FA2660DCBF00E094F7 /* IOSLingYongListM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSLingYongListM.m; sourceTree = "<group>"; };
 		04B93D2726549DA500DA647C /* MyTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTabBarViewController.h; sourceTree = "<group>"; };
 		04B93D2826549DA500DA647C /* MyTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTabBarViewController.m; sourceTree = "<group>"; };
 		04B93D2D26549EBB00DA647C /* BRStringPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRStringPickerView.h; sourceTree = "<group>"; };
@@ -1368,6 +1374,8 @@
 				049D53E9265FB17500E094F7 /* IOSPadianShowModel.m */,
 				049D53EB2660872900E094F7 /* IOSPanDianHisListM.h */,
 				049D53EC2660872900E094F7 /* IOSPanDianHisListM.m */,
+				049D53F62660BBCB00E094F7 /* IOSInStoreModel.h */,
+				049D53F72660BBCB00E094F7 /* IOSInStoreModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1494,6 +1502,8 @@
 		04B93E442654AAFF00DA647C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				049D53F92660DCBF00E094F7 /* IOSLingYongListM.h */,
+				049D53FA2660DCBF00E094F7 /* IOSLingYongListM.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1991,6 +2001,7 @@
 				04B93DA526549EBB00DA647C /* NSArray+YYAdd.m in Sources */,
 				04F2858C2658F549008FE9D8 /* IOSTongJiCaiGouVC.m in Sources */,
 				04B93D9526549EBB00DA647C /* NSObject+YYModel.m in Sources */,
+				049D53F82660BBCB00E094F7 /* IOSInStoreModel.m in Sources */,
 				042DBB122658D368008FBAEC /* IOSSunHaoDetailVC.m in Sources */,
 				04B93E092654A01100DA647C /* PlaceholderTextView.m in Sources */,
 				04B93DAA26549EBB00DA647C /* NSKeyedUnarchiver+YYAdd.m in Sources */,
@@ -2125,6 +2136,7 @@
 				0479A615265B77D500FD966F /* IOSTongJiYingKuiVC.m in Sources */,
 				0405A604265CF49000D8D246 /* IOSAddGodsDetailVC.m in Sources */,
 				04B93E1E2654A01100DA647C /* PhotoTitleCollectionViewCell.m in Sources */,
+				049D53FB2660DCBF00E094F7 /* IOSLingYongListM.m in Sources */,
 				04B93E1B2654A01100DA647C /* HTittleTextFileTableViewCell.m in Sources */,
 				042DBB002658AC77008FBAEC /* IOSHuiShouListVC.m in Sources */,
 				042DBAFA2658AABB008FBAEC /* IOSLingYongDetailVC.m in Sources */,

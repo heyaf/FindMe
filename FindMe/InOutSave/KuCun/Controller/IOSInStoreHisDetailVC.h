@@ -11,6 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface IOSInStoreHisDetailVC : MyBaseShowTableViewController
 
+@property (nonatomic,strong) NSString *inStockId;
+
 @end
 
 NS_ASSUME_NONNULL_END

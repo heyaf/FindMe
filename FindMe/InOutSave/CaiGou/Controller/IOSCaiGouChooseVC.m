@@ -493,7 +493,7 @@
         CGFloat floatValue = [godsM.price floatValue];
         CGFloat floatValue1 = round(floatValue*100)/100;
         NSDictionary *dic = @{@"goodsName":godsM.goodsName,
-                              @"goodsId":godsM.goodsId,
+                              @"goodsId":godsM.godsId,
                               @"img":godsM.img,
                               @"num":@(godsM.selectCount),
                               @"price":@(floatValue1),

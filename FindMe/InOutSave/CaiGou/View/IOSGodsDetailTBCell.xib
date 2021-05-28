@@ -169,6 +169,7 @@
                 <outlet property="godsNumlabel1" destination="G1f-il-rBT" id="ZNp-3j-zBA"/>
                 <outlet property="godsnumBgView" destination="QXU-FX-fZH" id="ySx-L3-Q56"/>
                 <outlet property="numLabel" destination="UVB-Zx-QYC" id="9Rv-pN-nXg"/>
+                <outlet property="numLabelConStraint" destination="4QX-8I-6Aj" id="rlb-Qz-ThB"/>
                 <outlet property="picImageView" destination="gWV-a2-7go" id="rRc-mA-4wq"/>
                 <outlet property="selectedImageV" destination="oLA-aD-SuE" id="abK-2S-hPp"/>
                 <outlet property="tagLabel" destination="Plj-FT-mhQ" id="7cv-nV-hPB"/>

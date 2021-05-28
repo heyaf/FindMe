@@ -7,6 +7,8 @@
 
 #import "IOSInStoreListTBCell.h"
 #import "IOSPanDianHisListM.h"
+#import "IOSInStoreModel.h"
+#import "IOSLingYongListM.h"
 @implementation IOSInStoreListTBCell
 
 - (void)awakeFromNib {
@@ -31,6 +33,45 @@
     [attriStr addAttributes: @{NSFontAttributeName :kBOLDFONT(15),NSForegroundColorAttributeName:IOSMainColor,} range:NSMakeRange(4, countStr.length)];
     [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(0, textStr.length)];
    
+    self.detailLabel.attributedText = attriStr;
+}
+-(void)setInStoreListM:(IOSInStoreModel *)inStoreListM{
+    _inStoreListM = inStoreListM;
+    self.TItleLabel.text = inStoreListM.inStockName;
+    self.labelOne.text = kStringFormat(@"入库单:%@",inStoreListM.inStockId);
+    self.labelTwo.text = kStringFormat(@"关联采购单:%@",inStoreListM.purchId);
+    self.labelThr.text = kStringFormat(@"入库时间:%@",inStoreListM.createTime);
+    
+    [self.userImageV sd_setImageWithURL:[NSURL URLWithString:kStringFormat(@"%@%@",AppServerURL,inStoreListM.stockUserPhoto)] placeholderImage:ImageNamed(@"placeholder")];
+    self.userNameLabel.text = inStoreListM.stockUserName;
+    
+    NSString *priceStr =kStringFormat(@"共%li件商品,合计%.2f元",inStoreListM.num,[inStoreListM.price floatValue]);
+    NSString *numStr = kStringFormat(@"%li",inStoreListM.num);
+    NSMutableAttributedString *attriStr = [[NSMutableAttributedString alloc] initWithString:priceStr];
+    [attriStr addAttributes: @{NSFontAttributeName :kBOLDFONT(16),NSForegroundColorAttributeName:IOSMainColor,} range:NSMakeRange(0, priceStr.length)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(0, 1)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(1+numStr.length, 6)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(priceStr.length-1, 1)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(12),NSForegroundColorAttributeName:IOSMainColor,} range:NSMakeRange(priceStr.length-4, 3)];
+    self.detailLabel.attributedText = attriStr;
+}
+- (void)setLingyongListM:(IOSLingYongListM *)lingyongListM{
+    _lingyongListM = lingyongListM;
+    self.TItleLabel.text = lingyongListM.mateName;
+    self.labelOne.text = kStringFormat(@"领取单号:%@",lingyongListM.mateId);
+    self.labelTwo.text = kStringFormat(@"领取时间:%@",lingyongListM.getTime);
+    self.labelThr.hidden = YES;
+    [self.userImageV sd_setImageWithURL:[NSURL URLWithString:kStringFormat(@"%@%@",AppServerURL,lingyongListM.getUserPhoto)] placeholderImage:ImageNamed(@"placeholder")];
+    self.userNameLabel.text = lingyongListM.getUserName;
+    
+    NSString *priceStr =kStringFormat(@"共%li件商品,合计%.2f元",lingyongListM.num,[lingyongListM.price floatValue]);
+    NSString *numStr = kStringFormat(@"%li",lingyongListM.num);
+    NSMutableAttributedString *attriStr = [[NSMutableAttributedString alloc] initWithString:priceStr];
+    [attriStr addAttributes: @{NSFontAttributeName :kBOLDFONT(16),NSForegroundColorAttributeName:IOSMainColor,} range:NSMakeRange(0, priceStr.length)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(0, 1)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(1+numStr.length, 6)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(priceStr.length-1, 1)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(12),NSForegroundColorAttributeName:IOSMainColor,} range:NSMakeRange(priceStr.length-4, 3)];
     self.detailLabel.attributedText = attriStr;
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

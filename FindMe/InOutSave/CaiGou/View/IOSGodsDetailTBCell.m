@@ -7,6 +7,8 @@
 
 #import "IOSGodsDetailTBCell.h"
 #import "IOSCaiGouListModel.h"
+#import "IOSInStoreModel.h"
+#import "IOSLingYongListM.h"
 @implementation IOSGodsDetailTBCell
 
 - (void)awakeFromNib {
@@ -107,6 +109,70 @@
 //    }
 }
 
+-(void)setInstoreM:(IOSInStoreModel *)instoreM{
+    _instoreM = instoreM;
+    [self.picImageView  sd_setImageWithURL:[NSURL URLWithString:kStringFormat(@"%@%@",AppServerURL,instoreM.img)] placeholderImage:ImageNamed(@"placeholder")];
+    self.titleLabel.text = instoreM.goodsName;
+    self.godsNumLabel.text = kStringFormat(@"货号：%@",instoreM.goodsId);
+    self.godsNumlabel1.text = kStringFormat(@"库存：%li",instoreM.stockNum);
+    NSString *priceStr =kStringFormat(@"￥%.2f",[instoreM.price floatValue]);
+    NSMutableAttributedString *attriStr = [[NSMutableAttributedString alloc] initWithString:priceStr];
+    [attriStr addAttributes: @{NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:16],NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(0, priceStr.length)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(12),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(0, 1)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(priceStr.length-2, 2)];
+    self.PriceLabel.attributedText = attriStr;
+    if (instoreM.isRecycle==1) {
+        self.tagLabel.text = @" 不可回收 ";
+    }else{
+        self.tagLabel.text = @" 可回收 ";
+    }
+    self.tagLabel.hidden = NO;
+    
+    self.unaddrButton.hidden = YES;
+    self.addButton.hidden = YES;
+    self.EditPriceButton.hidden = YES;
+    
+    NSString *numStr = kStringFormat(@"入库数量 x%li",instoreM.inStockNum);
+    NSMutableAttributedString *attriStr1 = [[NSMutableAttributedString alloc] initWithString:numStr];
+    [attriStr1 addAttributes: @{NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:16],NSForegroundColorAttributeName:IOSMainColor,} range:NSMakeRange(0, numStr.length)];
+    [attriStr1 addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:IOSMainColor,} range:NSMakeRange(0, 5)];
+    [attriStr1 addAttributes: @{NSFontAttributeName :kFONT(12),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(5, 1)];
+    self.numLabel.attributedText = attriStr1;
+    self.numLabelConStraint.constant = -20;
+
+}
+-(void)setLingyongM:(IOSLingYongListM *)lingyongM{
+    _lingyongM = lingyongM;
+    
+    [self.picImageView  sd_setImageWithURL:[NSURL URLWithString:kStringFormat(@"%@%@",AppServerURL,lingyongM.img)] placeholderImage:ImageNamed(@"placeholder")];
+    self.titleLabel.text = lingyongM.mateName;
+    self.godsNumLabel.text = kStringFormat(@"货号：%@",lingyongM.mateId);
+    self.godsNumlabel1.text = kStringFormat(@"库存：%li",lingyongM.stockNum);
+    NSString *priceStr =kStringFormat(@"￥%.2f",[lingyongM.price floatValue]);
+    NSMutableAttributedString *attriStr = [[NSMutableAttributedString alloc] initWithString:priceStr];
+    [attriStr addAttributes: @{NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:16],NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(0, priceStr.length)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(12),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(0, 1)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(priceStr.length-2, 2)];
+    self.PriceLabel.attributedText = attriStr;
+    if (lingyongM.isRecycle==1) {
+        self.tagLabel.text = @" 不可回收 ";
+    }else{
+        self.tagLabel.text = @" 可回收 ";
+    }
+    self.tagLabel.hidden = NO;
+    
+    self.unaddrButton.hidden = YES;
+    self.addButton.hidden = YES;
+    self.EditPriceButton.hidden = YES;
+    
+    NSString *numStr = kStringFormat(@"入库数量 x%li",lingyongM.num);
+    NSMutableAttributedString *attriStr1 = [[NSMutableAttributedString alloc] initWithString:numStr];
+    [attriStr1 addAttributes: @{NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:16],NSForegroundColorAttributeName:IOSMainColor,} range:NSMakeRange(0, numStr.length)];
+    [attriStr1 addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:IOSMainColor,} range:NSMakeRange(0, 5)];
+    [attriStr1 addAttributes: @{NSFontAttributeName :kFONT(12),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(5, 1)];
+    self.numLabel.attributedText = attriStr1;
+    self.numLabelConStraint.constant = -20;
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17700" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -57,7 +58,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apphomeimg" translatesAutoresizingMaskIntoConstraints="NO" id="sJE-94-XMO">
-                                <rect key="frame" x="10" y="111" width="20" height="20"/>
+                                <rect key="frame" x="10" y="110" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="7Ig-5y-PY4"/>
                                     <constraint firstAttribute="width" constant="20" id="sWn-1f-abc"/>
@@ -67,7 +68,7 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fbu-y7-QRh">
-                                <rect key="frame" x="320.5" y="111" width="37.5" height="20"/>
+                                <rect key="frame" x="320.5" y="110" width="37.5" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="tIH-ah-GbH"/>
                                 </constraints>
@@ -76,7 +77,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NVP-PU-Vq5">
-                                <rect key="frame" x="40" y="113.5" width="35.5" height="15"/>
+                                <rect key="frame" x="40" y="112.5" width="35.5" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="nm1-Hy-LCt"/>
                                 </constraints>
@@ -90,6 +91,7 @@
                             <constraint firstItem="8dh-2Q-rTp" firstAttribute="top" secondItem="1WV-Mt-wJ2" secondAttribute="bottom" constant="10" id="0PU-1q-cpK"/>
                             <constraint firstItem="8dh-2Q-rTp" firstAttribute="leading" secondItem="1WV-Mt-wJ2" secondAttribute="leading" id="D3j-qA-DVc"/>
                             <constraint firstItem="fbu-y7-QRh" firstAttribute="centerY" secondItem="NVP-PU-Vq5" secondAttribute="centerY" id="FYc-2t-cNf"/>
+                            <constraint firstAttribute="bottom" secondItem="sJE-94-XMO" secondAttribute="bottom" constant="10" id="LAH-P2-E1n"/>
                             <constraint firstItem="87u-fP-o9O" firstAttribute="top" secondItem="8dh-2Q-rTp" secondAttribute="bottom" constant="8" id="Qqc-sH-8V6"/>
                             <constraint firstItem="QeP-PP-Pn2" firstAttribute="top" secondItem="87u-fP-o9O" secondAttribute="bottom" constant="8" id="S7T-m5-W15"/>
                             <constraint firstAttribute="trailing" secondItem="fbu-y7-QRh" secondAttribute="trailing" constant="10" id="SA1-J4-8xK"/>
@@ -98,7 +100,6 @@
                             <constraint firstItem="87u-fP-o9O" firstAttribute="leading" secondItem="8dh-2Q-rTp" secondAttribute="leading" id="jIU-MJ-3NW"/>
                             <constraint firstItem="1WV-Mt-wJ2" firstAttribute="top" secondItem="0tl-Dj-Xup" secondAttribute="top" constant="10" id="nAc-fx-Y5a"/>
                             <constraint firstItem="QeP-PP-Pn2" firstAttribute="leading" secondItem="87u-fP-o9O" secondAttribute="leading" id="tDA-G5-q2L"/>
-                            <constraint firstItem="sJE-94-XMO" firstAttribute="top" secondItem="QeP-PP-Pn2" secondAttribute="bottom" constant="10" id="v95-6C-9Yg"/>
                             <constraint firstItem="1WV-Mt-wJ2" firstAttribute="leading" secondItem="0tl-Dj-Xup" secondAttribute="leading" constant="10" id="yQa-gP-jW3"/>
                             <constraint firstItem="NVP-PU-Vq5" firstAttribute="centerY" secondItem="sJE-94-XMO" secondAttribute="centerY" id="ya6-Wb-iN8"/>
                         </constraints>

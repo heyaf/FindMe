@@ -6,6 +6,7 @@
 //
 
 #import "IOSGodsHisDetailVC.h"
+#import "IOSInStoreHisVC.h"
 #import "IOSGodsDetailTBCell.h"
 #import "IOSCaiGouHeaderTBCell.h"
 #import "IOSCaiGouListModel.h"
@@ -158,7 +159,8 @@
 
 }
 -(void)chakanBtnClicked{
-    
+    IOSInStoreHisVC *pushVC = [[IOSInStoreHisVC alloc] init];
+    [self.navigationController pushViewController:pushVC animated:YES];
 }
 -(void)ChargePriceWithData:(NSArray *)dataArr{
     NSInteger count =0;

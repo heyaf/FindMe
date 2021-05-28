@@ -104,7 +104,7 @@
         but.frame = CGRectMake(KDeviceWith/3*i, 0, KDeviceWith/3, 44);
         [but setTitle:titleArr[i] forState:0];
         [but setTitleColor:IOSTitleColor forState:0];
-        [but setBackgroundImage:[UIImage imageWithColor:RGBA(245, 245, 245, 1) size:CGSizeMake(KDeviceWith/3, 44)] forState:0];
+        [but setBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor] size:CGSizeMake(KDeviceWith/3, 44)] forState:0];
         but.titleLabel.font = kFONT(16);
         if (i==0) {
             [but setBackgroundImage:ImageNamed(@"ioscaigouHeaderBG") forState:0];

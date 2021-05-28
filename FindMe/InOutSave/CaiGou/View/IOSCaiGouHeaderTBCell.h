@@ -22,8 +22,13 @@ NS_ASSUME_NONNULL_BEGIN
 //采购单详情头部
 -(void)setcaigoudanHeadView:(NSDictionary *)dateDic;
 
+//入库单详情头部
+-(void)setinstoredanHeadView:(NSDictionary *)dateDic;
 //盘点历史详情头部
 -(void)setpandianHisHeadView:(NSDictionary *)dateDic;
+
+//物资领用
+-(void)setlingyongdanHeadView:(NSDictionary *)dateDic;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -7,8 +7,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class IOSInStoreModel;
 NS_ASSUME_NONNULL_BEGIN
 @class IOSPanDianHisListM;
+@class IOSLingYongListM;
 @interface IOSInStoreListTBCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIView *mainBgView;
 @property (weak, nonatomic) IBOutlet UILabel *TItleLabel;
@@ -20,6 +22,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *detailLabel;
 @property (nonatomic,strong) IOSPanDianHisListM *hisListM; //盘点历史
 
+@property (nonatomic,strong) IOSInStoreModel *inStoreListM;
+
+@property (nonatomic,strong) IOSLingYongListM *lingyongListM;
 @end
 
 NS_ASSUME_NONNULL_END
