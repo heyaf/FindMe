@@ -11,6 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface IOSSunHaoDetailVC : MyBaseShowTableViewController
 
+@property (nonatomic,strong) NSString *lossId;
 @end
 
 NS_ASSUME_NONNULL_END

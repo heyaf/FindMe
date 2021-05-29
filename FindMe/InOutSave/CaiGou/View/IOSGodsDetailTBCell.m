@@ -23,6 +23,9 @@
     self.tagLabel.hidden = YES;
     self.tagLabel.backgroundColor = RGBA(250, 250, 250, 1);
     self.picImageView.contentMode = UIViewContentModeScaleAspectFill;
+    self.bianjiBtn.hidden = YES;
+    self.bianjiLabel.hidden = YES;
+    self.bianjiImageV.hidden = YES;
 }
 
 -(void)setCaigouChooseGodsM:(IOSCaiGouListModel *)caigouChooseGodsM{
@@ -209,7 +212,7 @@
     [self.picImageView  sd_setImageWithURL:[NSURL URLWithString:kStringFormat(@"%@%@",AppServerURL,huiShouM.img)] placeholderImage:ImageNamed(@"placeholder")];
     self.titleLabel.text = huiShouM.goodsName;
     self.godsNumLabel.text = kStringFormat(@"货号：%@",huiShouM.mateId);
-    self.godsNumlabel1.text = kStringFormat(@"库存：%li",huiShouM.outStockNum);
+    self.godsNumlabel1.text = kStringFormat(@"出库数量：%li",huiShouM.outStockNum);
     NSString *priceStr =kStringFormat(@"￥%.2f",[huiShouM.price floatValue]);
     NSMutableAttributedString *attriStr = [[NSMutableAttributedString alloc] initWithString:priceStr];
     [attriStr addAttributes: @{NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:16],NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(0, priceStr.length)];
@@ -224,12 +227,101 @@
     self.addButton.hidden = NO;
     self.EditPriceButton.hidden = YES;
     
-    self.numLabel.text = kStringFormat(@"%li",huiShouM.num);
+    self.numLabel.text = kStringFormat(@"%li",huiShouM.outStockNum);
     if (huiShouM.selectCount==1) {
         [self.unaddrButton setImage:ImageNamed(@"IOSjian") forState:0];
     }else{
         [self.unaddrButton setImage:ImageNamed(@"IOSJian1") forState:0];
 
+    }
+    
+}
+
+-(void)setAddSunHaoM:(IOSAddHuiShouM *)addSunHaoM{
+    _addSunHaoM = addSunHaoM;
+    [self.picImageView  sd_setImageWithURL:[NSURL URLWithString:kStringFormat(@"%@%@",AppServerURL,addSunHaoM.img)] placeholderImage:ImageNamed(@"placeholder")];
+    self.titleLabel.text = addSunHaoM.goodsName;
+    self.godsNumLabel.text = kStringFormat(@"货号：%@",addSunHaoM.mateId);
+    self.godsNumlabel1.text = kStringFormat(@"领用数量：%li",addSunHaoM.outStockNum);
+    NSString *priceStr =kStringFormat(@"￥%.2f",[addSunHaoM.price floatValue]);
+    NSMutableAttributedString *attriStr = [[NSMutableAttributedString alloc] initWithString:priceStr];
+    [attriStr addAttributes: @{NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:16],NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(0, priceStr.length)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(12),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(0, 1)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(priceStr.length-2, 2)];
+    self.PriceLabel.attributedText = attriStr;
+   
+    self.tagLabel.hidden = NO;
+    if (addSunHaoM.isRecycle==1) {
+        self.tagLabel.text = @" 不可回收 ";
+    }else{
+        self.tagLabel.text = @" 可回收 ";
+    }
+    
+    self.unaddrButton.hidden = NO;
+    self.addButton.hidden = NO;
+    self.EditPriceButton.hidden = YES;
+    
+    self.numLabel.text = kStringFormat(@"%li",addSunHaoM.outStockNum);
+    if (addSunHaoM.selectCount==1) {
+        [self.unaddrButton setImage:ImageNamed(@"IOSjian") forState:0];
+    }else{
+        [self.unaddrButton setImage:ImageNamed(@"IOSJian1") forState:0];
+
+    }
+    self.bianjiBtn.hidden = NO;
+    self.bianjiLabel.hidden = NO;
+    self.bianjiImageV.hidden = NO;
+    
+    if (addSunHaoM.remark.length==0) {
+        self.bianjiLabel.text = @"添加备注...";
+        self.bianjiLabel.textColor = [UIColor lightGrayColor];
+    }else{
+        self.bianjiLabel.text = addSunHaoM.remark;
+        self.bianjiLabel.textColor = IOSMainColor;
+    }
+}
+
+-(void)setSunHaoM:(IOSAddHuiShouM *)SunHaoM{
+    _SunHaoM = SunHaoM;
+    
+    [self.picImageView  sd_setImageWithURL:[NSURL URLWithString:kStringFormat(@"%@%@",AppServerURL,SunHaoM.img)] placeholderImage:ImageNamed(@"placeholder")];
+    self.titleLabel.text = SunHaoM.goodsName;
+    self.godsNumLabel.text = kStringFormat(@"货号：%@",SunHaoM.mateId);
+    self.godsNumlabel1.text = kStringFormat(@"领用数量：%li",SunHaoM.outStockNum);
+    NSString *priceStr =kStringFormat(@"￥%.2f",[SunHaoM.price floatValue]);
+    NSMutableAttributedString *attriStr = [[NSMutableAttributedString alloc] initWithString:priceStr];
+    [attriStr addAttributes: @{NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:16],NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(0, priceStr.length)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(12),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(0, 1)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(priceStr.length-2, 2)];
+    self.PriceLabel.attributedText = attriStr;
+   
+    self.tagLabel.hidden = NO;
+    if (SunHaoM.isRecycle==1) {
+        self.tagLabel.text = @" 不可回收 ";
+    }else{
+        self.tagLabel.text = @" 可回收 ";
+    }
+    
+    self.unaddrButton.hidden = YES;
+    self.addButton.hidden = YES;
+    self.EditPriceButton.hidden = YES;
+    
+    self.numLabel.text = kStringFormat(@"%li",SunHaoM.outStockNum);
+    if (SunHaoM.selectCount==1) {
+        [self.unaddrButton setImage:ImageNamed(@"IOSjian") forState:0];
+    }else{
+        [self.unaddrButton setImage:ImageNamed(@"IOSJian1") forState:0];
+
+    }
+    self.bianjiBtn.hidden = NO;
+    self.bianjiLabel.hidden = NO;
+    self.bianjiImageV.hidden = NO;
+    self.bianjiLabel.textColor = IOSMainColor;
+
+    if (SunHaoM.remark.length==0) {
+        self.bianjiLabel.text = @"无损耗";
+    }else{
+        self.bianjiLabel.text = SunHaoM.remark;
     }
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -268,6 +360,12 @@
 - (IBAction)addButtonClicked:(id)sender {
     if (self.AddBtnClicked) {
         self.AddBtnClicked();
+    }
+}
+
+- (IBAction)bianjiBtnClicked:(id)sender {
+    if (self.editRemarkBtnClicked) {
+        self.editRemarkBtnClicked();
     }
 }
 @end

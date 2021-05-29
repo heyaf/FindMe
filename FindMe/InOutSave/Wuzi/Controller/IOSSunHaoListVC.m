@@ -8,7 +8,8 @@
 #import "IOSSunHaoListVC.h"
 #import "IOSInStoreListTBCell.h"
 #import "IOSSunHaoDetailVC.h"
-#import "IOSSunHaoAddVC.h"
+#import "IOSHuiShouAddVC.h"
+#import "IOSSunhaoListModel.h"
 @interface IOSSunHaoListVC ()<UITableViewDelegate,UITableViewDataSource>
 
 @end
@@ -58,16 +59,53 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 -(void)addItem{
-    IOSSunHaoAddVC *pushVC = [[IOSSunHaoAddVC alloc] init];
+    IOSHuiShouAddVC *pushVC = [[IOSHuiShouAddVC alloc] init];
+    pushVC.type = 1;
     [self.navigationController pushViewController:pushVC animated:YES];
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self initialData];
+}
+-(void)initialData{
+    NSString *url = [AppServerURL stringByAppendingString:@"/s/api/sdLoss/getList"];
+    NSDictionary *paramDic = @{@"empId":kUser_id
+    };
+    [self showHudInView:self.view hint:@"加载中"];
+    [[AFNetHelp shareAFNetworking] postInfoFromSeverWithStr:url body:paramDic sucess:^(id responseObject) {
+        [self hideHud];
+
+        if ([AowString(responseObject[@"code"]) isEqualToString:@"1"]) {
+            
+            self.dataSource = [IOSSunhaoListModel arrayOfModelsFromDictionaries:responseObject[@"data"] error:nil];
+            [self.tabelView reloadData];
+//            [self ChargePrice];
+        }else {
+            [self showHint:responseObject[@"msg"]];
+            [self.dataSource removeAllObjects];
+            [self.tabelView reloadData];
+
+            
+        }
+
+        
+    } failure:^(NSError *error) {
+        [self showHint:@"稍后重试"];
+        [self hideHud];
+        
+    }];
+    
+}
+
 #pragma mark ---代理事件----
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 20;
+    return self.dataSource.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     IOSInStoreListTBCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IOSInStoreListTBCell"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    IOSSunhaoListModel *huishouM = self.dataSource[indexPath.row];
+    cell.sunhaoM = huishouM;
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -76,10 +114,13 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
     
-    IOSSunHaoDetailVC *storeDetailVC = [[IOSSunHaoDetailVC alloc] init];
-    [self.navigationController pushViewController:storeDetailVC animated:YES];
+//    IOSHuiShouDetailVC *storeDetailVC = [[IOSHuiShouDetailVC alloc] init];
+//    IOSHuishouListM *huishouM = [self manageChooseDate][indexPath.row];
+//
+//    storeDetailVC.type = huishouM.type ;
+//    storeDetailVC.recoveryId = huishouM.recoveryId;
+//    [self.navigationController pushViewController:storeDetailVC animated:YES];
 }
-
 
 
 

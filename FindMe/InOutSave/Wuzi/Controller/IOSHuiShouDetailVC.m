@@ -121,7 +121,7 @@
     
     [self.tabelView registerNib:[UINib nibWithNibName:@"IOSGodsDetailTBCell" bundle:nil] forCellReuseIdentifier:@"IOSGodsDetailTBCell"];
     [self.tabelView registerNib:[UINib nibWithNibName:@"IOSCaiGouHeaderTBCell" bundle:nil] forCellReuseIdentifier:@"IOSCaiGouHeaderTBCell"];
-    [self setNavBackStr:@"新增"];
+    [self setNavBackStr:@"物资回收单"];
     if (self.type==1) {
         self.tabelView.yz_height = KDeviceHeight-KEVNScreenTopStatusNaviHeight-KEVNScreenTabBarSafeBottomMargin-100;
         [self creatBottomView];
@@ -174,11 +174,11 @@
     UILabel *priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 25, KDeviceWith-120-30-30, 20)];
     self.priceLabel = priceLabel;
     [bottomView addSubview:priceLabel];
-    NSString *priceStr =@"共0件商品,合计0.00元";
+    NSString *priceStr =@"出库0件,回收0件";
     NSMutableAttributedString *attriStr = [[NSMutableAttributedString alloc] initWithString:priceStr];
     [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(0, priceStr.length)];
-    [attriStr addAttributes: @{NSFontAttributeName :kBOLDFONT(16),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(1, 1)];
-    [attriStr addAttributes: @{NSFontAttributeName :kBOLDFONT(16),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(8, 4)];
+    [attriStr addAttributes: @{NSFontAttributeName :kBOLDFONT(16),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(3, 1)];
+    [attriStr addAttributes: @{NSFontAttributeName :kBOLDFONT(16),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(8, 1)];
     self.priceLabel.attributedText = attriStr;
     
 }
@@ -240,19 +240,19 @@
 }
 -(void)ChargePrice{
     NSInteger count =0;
-    CGFloat Price = 0.00;
+    NSInteger outCount =0;
     for (IOSAddHuiShouM *caigouModel in self.dataSource) {
-        count+=caigouModel.selectCount;
-        Price+=[caigouModel.price floatValue]*caigouModel.selectCount;
+        count+=caigouModel.outStockNum;
+        outCount+=caigouModel.selectCount;
     }
-    NSString *priceStr =kStringFormat(@"共%li件商品,合计%.2f元",count,Price);
+    NSString *priceStr =kStringFormat(@"出库%li件，回收%li件",count,outCount);
     NSString *countStr = kStringFormat(@"%li",count);
     NSMutableAttributedString *attriStr = [[NSMutableAttributedString alloc] initWithString:priceStr];
-    [attriStr addAttributes: @{NSFontAttributeName :kBOLDFONT(16),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(0, priceStr.length)];
-    [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(0, 1)];
-    [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(1+countStr.length, 6)];
-    [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(priceStr.length-1, 1)];
-    [attriStr addAttributes: @{NSFontAttributeName :kFONT(12),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(priceStr.length-4, 3)];
+    [attriStr addAttributes: @{NSFontAttributeName :kBOLDFONT(16),NSForegroundColorAttributeName:IOSMainColor,} range:NSMakeRange(0, priceStr.length)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(0, 2)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(2+countStr.length, 4)];
+    [attriStr addAttributes: @{NSFontAttributeName :kBOLDFONT(16),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(2, countStr.length)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(priceStr.length-4, 3)];
     self.priceLabel.attributedText = attriStr;
 
 }

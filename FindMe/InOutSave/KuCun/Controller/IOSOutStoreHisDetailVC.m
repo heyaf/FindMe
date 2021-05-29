@@ -87,6 +87,7 @@
     [headView addSubview:self.cellHeaderView];
     return headView;
 }
+
 -(UIView *)cellHeaderView{
     if (!_cellHeaderView) {
         _cellHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KDeviceWith, 44)];

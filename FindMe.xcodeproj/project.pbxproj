@@ -83,7 +83,6 @@
 		042DBB2F2658DDFF008FBAEC /* IOSHuiShouListTBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 042DBB2D2658DDFF008FBAEC /* IOSHuiShouListTBCell.m */; };
 		042DBB302658DDFF008FBAEC /* IOSHuiShouListTBCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042DBB2E2658DDFF008FBAEC /* IOSHuiShouListTBCell.xib */; };
 		042DBB362658E613008FBAEC /* IOSHuiSHouAddDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 042DBB352658E613008FBAEC /* IOSHuiSHouAddDetailVC.m */; };
-		042DBB3C2658EA9D008FBAEC /* IOSSunHaoAddVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 042DBB3B2658EA9D008FBAEC /* IOSSunHaoAddVC.m */; };
 		042DBB422658EAC9008FBAEC /* IOSSunHaoAddDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 042DBB412658EAC8008FBAEC /* IOSSunHaoAddDetailVC.m */; };
 		0447D5E52653A34A0012D72C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0447D5E42653A34A0012D72C /* AppDelegate.m */; };
 		0447D5EB2653A34A0012D72C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0447D5EA2653A34A0012D72C /* ViewController.m */; };
@@ -142,6 +141,7 @@
 		049D54042660ED3C00E094F7 /* IOSChoHuishouM.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D54032660ED3C00E094F7 /* IOSChoHuishouM.m */; };
 		049D54072660F80F00E094F7 /* IOSAddHuiShouM.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D54062660F80F00E094F7 /* IOSAddHuiShouM.m */; };
 		049D540A266101A300E094F7 /* IOSHuishouListM.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D5409266101A300E094F7 /* IOSHuishouListM.m */; };
+		049D542C266222F800E094F7 /* IOSSunhaoListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D542B266222F800E094F7 /* IOSSunhaoListModel.m */; };
 		04B93D2926549DA500DA647C /* MyTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B93D2826549DA500DA647C /* MyTabBarViewController.m */; };
 		04B93D8D26549EBB00DA647C /* BRStringPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B93D2E26549EBB00DA647C /* BRStringPickerView.m */; };
 		04B93D8E26549EBB00DA647C /* BRTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B93D3126549EBB00DA647C /* BRTextField.m */; };
@@ -414,8 +414,6 @@
 		042DBB2E2658DDFF008FBAEC /* IOSHuiShouListTBCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IOSHuiShouListTBCell.xib; sourceTree = "<group>"; };
 		042DBB342658E613008FBAEC /* IOSHuiSHouAddDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSHuiSHouAddDetailVC.h; sourceTree = "<group>"; };
 		042DBB352658E613008FBAEC /* IOSHuiSHouAddDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSHuiSHouAddDetailVC.m; sourceTree = "<group>"; };
-		042DBB3A2658EA9D008FBAEC /* IOSSunHaoAddVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSSunHaoAddVC.h; sourceTree = "<group>"; };
-		042DBB3B2658EA9D008FBAEC /* IOSSunHaoAddVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSSunHaoAddVC.m; sourceTree = "<group>"; };
 		042DBB402658EAC8008FBAEC /* IOSSunHaoAddDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSSunHaoAddDetailVC.h; sourceTree = "<group>"; };
 		042DBB412658EAC8008FBAEC /* IOSSunHaoAddDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSSunHaoAddDetailVC.m; sourceTree = "<group>"; };
 		0447D5E02653A34A0012D72C /* FindMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -520,6 +518,8 @@
 		049D54062660F80F00E094F7 /* IOSAddHuiShouM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSAddHuiShouM.m; sourceTree = "<group>"; };
 		049D5408266101A300E094F7 /* IOSHuishouListM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSHuishouListM.h; sourceTree = "<group>"; };
 		049D5409266101A300E094F7 /* IOSHuishouListM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSHuishouListM.m; sourceTree = "<group>"; };
+		049D542A266222F800E094F7 /* IOSSunhaoListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSSunhaoListModel.h; sourceTree = "<group>"; };
+		049D542B266222F800E094F7 /* IOSSunhaoListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSSunhaoListModel.m; sourceTree = "<group>"; };
 		04B93D2726549DA500DA647C /* MyTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTabBarViewController.h; sourceTree = "<group>"; };
 		04B93D2826549DA500DA647C /* MyTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTabBarViewController.m; sourceTree = "<group>"; };
 		04B93D2D26549EBB00DA647C /* BRStringPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRStringPickerView.h; sourceTree = "<group>"; };
@@ -1500,8 +1500,6 @@
 				042DBB0B2658B886008FBAEC /* IOSSunHaoListVC.m */,
 				042DBB102658D367008FBAEC /* IOSSunHaoDetailVC.h */,
 				042DBB112658D368008FBAEC /* IOSSunHaoDetailVC.m */,
-				042DBB3A2658EA9D008FBAEC /* IOSSunHaoAddVC.h */,
-				042DBB3B2658EA9D008FBAEC /* IOSSunHaoAddVC.m */,
 				042DBB402658EAC8008FBAEC /* IOSSunHaoAddDetailVC.h */,
 				042DBB412658EAC8008FBAEC /* IOSSunHaoAddDetailVC.m */,
 			);
@@ -1519,6 +1517,8 @@
 				049D54062660F80F00E094F7 /* IOSAddHuiShouM.m */,
 				049D5408266101A300E094F7 /* IOSHuishouListM.h */,
 				049D5409266101A300E094F7 /* IOSHuishouListM.m */,
+				049D542A266222F800E094F7 /* IOSSunhaoListModel.h */,
+				049D542B266222F800E094F7 /* IOSSunhaoListModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2063,7 +2063,6 @@
 				04B93E1C2654A01100DA647C /* TopTittleTextFileTableViewCell.m in Sources */,
 				0405A5FC265CC77A00D8D246 /* IOSGodspinpaiM.m in Sources */,
 				04B93E142654A01100DA647C /* TittleDetailJiantouShowTableViewCell.m in Sources */,
-				042DBB3C2658EA9D008FBAEC /* IOSSunHaoAddVC.m in Sources */,
 				042DBA0926563A2F008FBAEC /* IOSGodsHisTBCell.m in Sources */,
 				0405A613265D0C5000D8D246 /* NSTextAttachment+LMText.m in Sources */,
 				04887366265B3E9000709115 /* ZhuLiuchengJiankongViewController.m in Sources */,
@@ -2102,6 +2101,7 @@
 				042DBB2F2658DDFF008FBAEC /* IOSHuiShouListTBCell.m in Sources */,
 				049D54042660ED3C00E094F7 /* IOSChoHuishouM.m in Sources */,
 				04B93DAB26549EBB00DA647C /* NSTimer+YYAdd.m in Sources */,
+				049D542C266222F800E094F7 /* IOSSunhaoListModel.m in Sources */,
 				04B93DA826549EBB00DA647C /* NSObject+YYAdd.m in Sources */,
 				04B93DA026549EBB00DA647C /* UIBarButtonItem+YYAdd.m in Sources */,
 				042DB9C0265512EE008FBAEC /* UIViewController+YNPageExtend.m in Sources */,

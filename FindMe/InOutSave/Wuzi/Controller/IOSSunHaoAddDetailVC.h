@@ -10,6 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface IOSSunHaoAddDetailVC : MyBaseShowTableViewController
+@property (nonatomic,strong) NSString *mateId;
 
 @end
 

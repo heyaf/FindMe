@@ -334,6 +334,7 @@
     [headView addSubview:self.cellHeaderView];
     return headView;
 }
+
 -(NSMutableArray *)headerButArr{
     if (!_headerButArr) {
         _headerButArr = [NSMutableArray array];
@@ -498,7 +499,7 @@
     NSDictionary *paramDic = @{@"empId":kUser_id,
                                @"getUserId":self.caigouyuanID,
                                @"getUserName":self.caigouyuanName,
-                               @"getTime":caigouModel1.ChooseStr,
+                               @"getTime":kStringFormat(@"%@:00",caigouModel1.ChooseStr),
                                @"list":listStr,
                                @"type":@(1)
     };

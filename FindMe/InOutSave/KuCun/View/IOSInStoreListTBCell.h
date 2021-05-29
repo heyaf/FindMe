@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class IOSPanDianHisListM;
 @class IOSLingYongListM;
 @class IOSHuishouListM;
+@class IOSSunhaoListModel;
 @interface IOSInStoreListTBCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIView *mainBgView;
 @property (weak, nonatomic) IBOutlet UILabel *TItleLabel;
@@ -29,6 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong) IOSLingYongListM *lingyongListM;
 
 @property (nonatomic,strong) IOSHuishouListM *huishouListM;
+@property (nonatomic,strong) IOSSunhaoListModel *sunhaoM;
 @end
 
 NS_ASSUME_NONNULL_END

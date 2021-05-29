@@ -88,7 +88,7 @@
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 150;
+    return 130;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     IOSPanDianHisDetailVC *pushVC = [[IOSPanDianHisDetailVC alloc] init];

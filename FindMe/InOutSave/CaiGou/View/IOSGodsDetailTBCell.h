@@ -25,8 +25,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *numLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *selectedImageV;
 @property (weak, nonatomic) IBOutlet UILabel *tagLabel;
+
+@property (weak, nonatomic) IBOutlet UIImageView *bianjiImageV;
+@property (weak, nonatomic) IBOutlet UILabel *bianjiLabel;
+@property (weak, nonatomic) IBOutlet UIButton *bianjiBtn;
+
 - (IBAction)unAddButtonClicked:(id)sender;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *numLabelConStraint;
+- (IBAction)bianjiBtnClicked:(id)sender;
 
 
 - (IBAction)addButtonClicked:(id)sender;
@@ -35,6 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy) void(^unAddBtnClicked)(void);
 @property (nonatomic,copy) void(^AddBtnClicked)(void);
 @property (nonatomic,copy) void(^editPriceBtnClicked)(void);
+@property (nonatomic,copy) void(^editRemarkBtnClicked)(void);
 
 
 /* godsType类型，1默认类型，有加减 有编辑单价
@@ -57,6 +64,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong) IOSAddHuiShouM *addhuiShouM;
 //回收详情
 @property (nonatomic,strong) IOSAddHuiShouM *huiShouM;
+//增加损耗
+@property (nonatomic,strong) IOSAddHuiShouM *addSunHaoM;
+//损耗详情
+@property (nonatomic,strong) IOSAddHuiShouM *SunHaoM;
 @end
 
 NS_ASSUME_NONNULL_END

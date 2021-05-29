@@ -8,6 +8,7 @@
 #import "IOSHuiShouAddVC.h"
 #import "IOSHuiShouListTBCell.h"
 #import "IOSHuiSHouAddDetailVC.h"
+#import "IOSSunHaoAddDetailVC.h"
 #import "IOSChoHuishouM.h"
 @interface IOSHuiShouAddVC ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -30,6 +31,9 @@
 }
 -(void)initialData{
     NSString *url = [AppServerURL stringByAppendingString:@"/s/api/sdRecovery/recoveryGetList"];
+    if (self.type==1) {
+        url = [AppServerURL stringByAppendingString:@"/s/api/sdLoss/getMateList"];
+    }
     NSDictionary *paramDic = @{@"empId":kUser_id
     };
     [self showHudInView:self.view hint:@"加载中"];
@@ -57,7 +61,7 @@
 }
 //设置导航栏
 -(void)setNavbutton{
-    self.navigationItem.title = @"选择物品领用单";
+    self.navigationItem.title = @"选择物资领用单";
     UIButton* backButton = [UIButton buttonWithType:UIButtonTypeCustom];
 
     [backButton setImage:[UIImage imageNamed:@"addPhotoSet"] forState:UIControlStateNormal];
@@ -128,6 +132,12 @@
     }
     if (!huishouModel) {
         [self showHint:@"请先选择物资领用单"];
+        return;
+    }
+    if (self.type==1) { //跳转到物资损耗模块
+        IOSSunHaoAddDetailVC *pushVC = [[IOSSunHaoAddDetailVC alloc] init];
+        pushVC.mateId = huishouModel.mateId;
+        [self.navigationController pushViewController:pushVC animated:YES];
         return;
     }
     

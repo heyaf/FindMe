@@ -10,6 +10,7 @@
 #import "IOSInStoreModel.h"
 #import "IOSLingYongListM.h"
 #import "IOSHuishouListM.h"
+#import "IOSSunhaoListModel.h"
 @implementation IOSInStoreListTBCell
 
 - (void)awakeFromNib {
@@ -100,6 +101,27 @@
     }else{
         self.tagImageView.image = ImageNamed(@"IOSPanKui");
     }
+}
+
+-(void)setSunhaoM:(IOSSunhaoListModel *)sunhaoM{
+    _sunhaoM = sunhaoM;
+    self.TItleLabel.text = sunhaoM.lossName;
+    self.labelOne.text = kStringFormat(@"关联领用单:%@",sunhaoM.mateId);
+    self.labelTwo.text = kStringFormat(@"回收时间:%@",sunhaoM.getTime);
+    self.labelThr.hidden = YES;
+    [self.userImageV sd_setImageWithURL:[NSURL URLWithString:kStringFormat(@"%@%@",AppServerURL,sunhaoM.getUserPhoto)] placeholderImage:ImageNamed(@"placeholder")];
+    self.userNameLabel.text = sunhaoM.getUserName;
+    
+    NSString *priceStr =kStringFormat(@"共%li件商品,合计%.2f元",sunhaoM.num,[sunhaoM.price floatValue]);
+    NSString *numStr = kStringFormat(@"%li",sunhaoM.num);
+    NSMutableAttributedString *attriStr = [[NSMutableAttributedString alloc] initWithString:priceStr];
+    [attriStr addAttributes: @{NSFontAttributeName :kBOLDFONT(16),NSForegroundColorAttributeName:IOSMainColor,} range:NSMakeRange(0, priceStr.length)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(0, 1)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(1+numStr.length, 6)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(priceStr.length-1, 1)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(12),NSForegroundColorAttributeName:IOSMainColor,} range:NSMakeRange(priceStr.length-4, 3)];
+    self.detailLabel.attributedText = attriStr;
+
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

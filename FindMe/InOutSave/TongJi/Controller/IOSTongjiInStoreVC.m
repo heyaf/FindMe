@@ -100,6 +100,7 @@
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     return self.mainHview;
 }
+
 -(IOSTongjiMainHView *)mainHview{
     if (!_mainHview) {
         _mainHview = [[IOSTongjiMainHView alloc] initWithFrame:CGRectMake(0, 0, KDeviceWith, 44+100)];

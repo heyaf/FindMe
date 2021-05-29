@@ -35,6 +35,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 //回收详情
 -(void)sethuishouDetailHeadView:(NSDictionary *)dateDic;
+
+//新增损耗
+-(void)setaddsunhaoHeadView:(NSDictionary *)dateDic;
+
+//损耗详情
+-(void)setsunhaoDetailHeadView:(NSDictionary *)dateDic;
 @end
 
 NS_ASSUME_NONNULL_END
