@@ -27,6 +27,7 @@
     self.tabelView.dataSource = self;
     self.tabelView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tabelView registerNib:[UINib nibWithNibName:@"IOSInStoreListTBCell" bundle:nil] forCellReuseIdentifier:@"IOSInStoreListTBCell"];
+    self.tabelView.backgroundColor = RGBA(245, 245, 245, 1);
 }
 //设置导航栏
 -(void)setNavbutton{
@@ -64,8 +65,12 @@
     IOSHuiShouAddVC *pushVC = [[IOSHuiShouAddVC alloc] init];
     [self.navigationController pushViewController:pushVC animated:YES];
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self initialData];
+}
 -(void)initialData{
-    NSString *url = [AppServerURL stringByAppendingString:@"/s/api/sdMate/getList"];
+    NSString *url = [AppServerURL stringByAppendingString:@"/s/api/sdRecovery/getList"];
     NSDictionary *paramDic = @{@"empId":kUser_id
     };
     [self showHudInView:self.view hint:@"加载中"];
@@ -99,7 +104,7 @@
     }
     NSMutableArray *mutArr = [NSMutableArray arrayWithCapacity:0];
         for (IOSHuishouListM *listModel in self.dataSource) {
-            if (listModel.isRecycle!=self.selectIndex) {
+            if (listModel.type==self.selectIndex) {
                 [mutArr addObject:listModel];
             }
         }
@@ -114,6 +119,7 @@
     IOSInStoreListTBCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IOSInStoreListTBCell"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     IOSHuishouListM *huishouM = [self manageChooseDate][indexPath.row];
+    cell.huishouListM = huishouM;
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -123,7 +129,10 @@
 
     
     IOSHuiShouDetailVC *storeDetailVC = [[IOSHuiShouDetailVC alloc] init];
-    storeDetailVC.hasHuishou = NO;
+    IOSHuishouListM *huishouM = [self manageChooseDate][indexPath.row];
+
+    storeDetailVC.type = huishouM.type ;
+    storeDetailVC.recoveryId = huishouM.recoveryId;
     [self.navigationController pushViewController:storeDetailVC animated:YES];
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{

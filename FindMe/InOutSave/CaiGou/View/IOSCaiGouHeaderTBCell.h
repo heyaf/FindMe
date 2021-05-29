@@ -33,6 +33,8 @@ NS_ASSUME_NONNULL_BEGIN
 //新增回收
 -(void)setaddhuishoudanHeadView:(NSDictionary *)dateDic;
 
+//回收详情
+-(void)sethuishouDetailHeadView:(NSDictionary *)dateDic;
 @end
 
 NS_ASSUME_NONNULL_END

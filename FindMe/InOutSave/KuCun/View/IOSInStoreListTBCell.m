@@ -80,7 +80,7 @@
     _huishouListM = huishouListM;
     self.TItleLabel.text = huishouListM.recoveryName;
     self.labelOne.text = kStringFormat(@"关联领用单:%@",huishouListM.mateId);
-    self.labelTwo.text = kStringFormat(@"回收时间时间:%@",huishouListM.getTime);
+    self.labelTwo.text = kStringFormat(@"回收时间:%@",huishouListM.getTime);
     self.labelThr.hidden = YES;
     [self.userImageV sd_setImageWithURL:[NSURL URLWithString:kStringFormat(@"%@%@",AppServerURL,huishouListM.getUserPhoto)] placeholderImage:ImageNamed(@"placeholder")];
     self.userNameLabel.text = huishouListM.getUserName;
@@ -96,9 +96,9 @@
     self.detailLabel.attributedText = attriStr;
     self.tagImageView.hidden = NO;
     if (huishouListM.type==1) { //待回收
-        
+        self.tagImageView.image = ImageNamed(@"IOSPanying");
     }else{
-        
+        self.tagImageView.image = ImageNamed(@"IOSPanKui");
     }
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

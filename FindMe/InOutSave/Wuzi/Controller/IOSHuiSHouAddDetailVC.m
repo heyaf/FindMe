@@ -10,7 +10,7 @@
 #import "IOSGodsDetailTBCell.h"
 #import "IOSHuiShouListVC.h"
 #import "IOSAddHuiShouM.h"
-@interface IOSHuiSHouAddDetailVC ()<UITableViewDelegate,UITableViewDataSource,IOSMessageAlertViewDelegate>
+@interface IOSHuiSHouAddDetailVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) NSMutableArray *headerButArr;
 @property (nonatomic,strong) UIView *cellHeaderView;
 @property (nonatomic,strong) NSDictionary *headerDic;
@@ -33,7 +33,7 @@
     return _headerButArr;
 }
 -(void)getListDatawithType:(NSInteger)type{
-    NSString *url = [AppServerURL stringByAppendingString:@"/s/api/sdInstock/list"];
+    NSString *url = [AppServerURL stringByAppendingString:@"/s/api/sdRecovery/recoveryList"];
     NSDictionary *paramDic = @{@"empId":kUser_id,
                                @"mateId":self.mateId
     };
@@ -59,9 +59,10 @@
                 [self.tabelView reloadData];
 //            }
         }else {
-            [self showHint:responseObject[@"msg"]];
-            [self.dataSource removeAllObjects];
-            [self.tabelView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationNone];
+            [self showHint:@"无可回收物资"];
+            [self.navigationController popViewControllerAnimated:YES];
+//            [self.dataSource removeAllObjects];
+//            [self.tabelView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationNone];
 
             
         }
@@ -91,19 +92,19 @@
     }
     return kStringFormat(@"%.2f",count);
 }
--(NSArray *)manageChooseDate{
-    if (self.selectIndex==0) {
-        return self.dataSource;
-    }
-    NSMutableArray *mutArr = [NSMutableArray arrayWithCapacity:0];
-        for (IOSAddHuiShouM *listModel in self.dataSource) {
-            if (listModel.isRecycle!=self.selectIndex) {
-                [mutArr addObject:listModel];
-            }
-        }
-        return mutArr;
-    
-}
+//-(NSArray *)manageChooseDate{
+//    if (self.selectIndex==0) {
+//        return self.dataSource;
+//    }
+//    NSMutableArray *mutArr = [NSMutableArray arrayWithCapacity:0];
+//        for (IOSAddHuiShouM *listModel in self.dataSource) {
+//            if (listModel.isRecycle!=self.selectIndex) {
+//                [mutArr addObject:listModel];
+//            }
+//        }
+//        return mutArr;
+//
+//}
 //主视图
 -(void)CreatMainUI{
     
@@ -168,7 +169,7 @@
     if (section==0) {
         return 1;
     }
-    return [self manageChooseDate].count;
+    return self.dataSource.count;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section==0) {
@@ -187,19 +188,19 @@
     }
     IOSGodsDetailTBCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IOSGodsDetailTBCell"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    IOSAddHuiShouM *instoreModel = [self manageChooseDate][indexPath.row];
+    IOSAddHuiShouM *instoreModel = self.dataSource[indexPath.row];
     cell.addhuiShouM = instoreModel;
     return cell;
 }
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    if (section==0) {
-        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 0.001)];
-        return view;
-    }
-    UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KDeviceWith, 44)];
-    [headView addSubview:self.cellHeaderView];
-    return headView;
-}
+//-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+//    if (section==0) {
+//        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 0.001)];
+//        return view;
+//    }
+//    UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KDeviceWith, 44)];
+//    [headView addSubview:self.cellHeaderView];
+//    return headView;
+//}
 -(UIView *)cellHeaderView{
     if (!_cellHeaderView) {
         _cellHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KDeviceWith, 44)];
@@ -284,8 +285,14 @@
     [self showHudInView:self.view hint:@"加载中"];
     [[AFNetHelp shareAFNetworking] postInfoFromSeverWithStr:url body:paramDic sucess:^(id responseObject) {
         if ([AowString(responseObject[@"code"]) isEqualToString:@"1"]) {
-            [self showHint:@"新增采购成功"];
-            [self.navigationController popViewControllerAnimated:YES];
+            NSString *titleStr = @"新增成功";
+            NSMutableAttributedString *attriStr = [[NSMutableAttributedString alloc] initWithString:titleStr];
+            [attriStr addAttributes: @{NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:18],NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(0, 4)];
+            IOSMessageAlertView *slertView = [[IOSMessageAlertView alloc] initWithFrame:CGRectMake(0, 0, KDeviceWith, KDeviceHeight) type:IOSMesAlertTypeMessage titleStr:attriStr cancleBtnName:@"" sureBtnName:@"好的,我知道了" DetailBtnName:@"可以在”物资回收-待回收“中查看"];
+            slertView.makeSureBtnClick = ^{
+                [self makeSureBtnClic];
+            };
+            [slertView show];
         }else {
             [self showHint:responseObject[@"msg"]];
             
@@ -298,14 +305,9 @@
         [self hideHud];
         
     }];
-    NSString *titleStr = @"新增成功";
-    NSMutableAttributedString *attriStr = [[NSMutableAttributedString alloc] initWithString:titleStr];
-    [attriStr addAttributes: @{NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:18],NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(0, 4)];
-    IOSMessageAlertView *slertView = [[IOSMessageAlertView alloc] initWithFrame:CGRectMake(0, 0, KDeviceWith, KDeviceHeight) type:IOSMesAlertTypeMessage titleStr:attriStr cancleBtnName:@"" sureBtnName:@"好的,我知道了" DetailBtnName:@"可以在”物质回收-待回收“中查看"];
-    slertView.delegate = self;
-    [slertView show];
+    
 }
--(void)makeSureBtnClickWithinputStr:(NSString *)inputStr{
+-(void)makeSureBtnClic{
     for (UIViewController *temp in self.navigationController.viewControllers) {
                if ([temp isKindOfClass:[IOSHuiShouListVC class]]) {
                   [self.navigationController popToViewController:temp animated:YES];

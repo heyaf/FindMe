@@ -23,6 +23,7 @@
     self.tabelView.dataSource = self;
     self.tabelView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tabelView registerNib:[UINib nibWithNibName:@"IOSHuiShouListTBCell" bundle:nil] forCellReuseIdentifier:@"IOSHuiShouListTBCell"];
+    self.tabelView.backgroundColor = RGBA(245, 245, 245, 1);
     [self creatBottomView];
     [self setNavBackStr:@"新增"];
     [self initialData];
@@ -87,7 +88,7 @@
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 120;
+    return 125;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     IOSChoHuishouM *huishouModel = self.dataSource[indexPath.row];
@@ -119,7 +120,19 @@
     
 }
 -(void)makeSureBtnClicked{
+    IOSChoHuishouM *huishouModel;
+    for (IOSChoHuishouM *huishouM in self.dataSource) {
+        if (huishouM.isSelect) {
+            huishouModel = huishouM;
+        }
+    }
+    if (!huishouModel) {
+        [self showHint:@"请先选择物资领用单"];
+        return;
+    }
+    
     IOSHuiSHouAddDetailVC *pushVC = [[IOSHuiSHouAddDetailVC alloc] init];
+    pushVC.mateId = huishouModel.mateId;
     [self.navigationController pushViewController:pushVC animated:YES];
 }
 //设置导航栏

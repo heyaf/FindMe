@@ -19,7 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
  "getUserId": "293"                       // 领取人ID*/
 
 @property (nonatomic,strong) NSString *getUserPhoto,*mateName,*getTime,*getUserName,*mateId,*price,*img,*goodsName;
-@property (nonatomic,assign) BOOL isSelect,num;
+@property (nonatomic,assign) BOOL isSelect;
+@property (nonatomic,assign) NSInteger num;
 @end
 
 NS_ASSUME_NONNULL_END

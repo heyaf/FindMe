@@ -187,11 +187,8 @@
     [attriStr addAttributes: @{NSFontAttributeName :kFONT(12),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(0, 1)];
     [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(priceStr.length-2, 2)];
     self.PriceLabel.attributedText = attriStr;
-    if (addhuiShouM.isRecycle==1) {
-        self.tagLabel.text = @" 不可回收 ";
-    }else{
-        self.tagLabel.text = @" 可回收 ";
-    }
+   
+    self.tagLabel.text = @" 可回收 ";
     self.tagLabel.hidden = NO;
     
     self.unaddrButton.hidden = YES;
@@ -205,6 +202,35 @@
     [attriStr1 addAttributes: @{NSFontAttributeName :kFONT(12),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(5, 1)];
     self.numLabel.attributedText = attriStr1;
     self.numLabelConStraint.constant = -20;
+}
+
+-(void)setHuiShouM:(IOSAddHuiShouM *)huiShouM{
+    _huiShouM = huiShouM;
+    [self.picImageView  sd_setImageWithURL:[NSURL URLWithString:kStringFormat(@"%@%@",AppServerURL,huiShouM.img)] placeholderImage:ImageNamed(@"placeholder")];
+    self.titleLabel.text = huiShouM.goodsName;
+    self.godsNumLabel.text = kStringFormat(@"货号：%@",huiShouM.mateId);
+    self.godsNumlabel1.text = kStringFormat(@"库存：%li",huiShouM.outStockNum);
+    NSString *priceStr =kStringFormat(@"￥%.2f",[huiShouM.price floatValue]);
+    NSMutableAttributedString *attriStr = [[NSMutableAttributedString alloc] initWithString:priceStr];
+    [attriStr addAttributes: @{NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:16],NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(0, priceStr.length)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(12),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(0, 1)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(priceStr.length-2, 2)];
+    self.PriceLabel.attributedText = attriStr;
+   
+    self.tagLabel.text = @" 可回收 ";
+    self.tagLabel.hidden = NO;
+    
+    self.unaddrButton.hidden = NO;
+    self.addButton.hidden = NO;
+    self.EditPriceButton.hidden = YES;
+    
+    self.numLabel.text = kStringFormat(@"%li",huiShouM.num);
+    if (huiShouM.selectCount==1) {
+        [self.unaddrButton setImage:ImageNamed(@"IOSjian") forState:0];
+    }else{
+        [self.unaddrButton setImage:ImageNamed(@"IOSJian1") forState:0];
+
+    }
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

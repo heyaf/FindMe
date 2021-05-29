@@ -45,7 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic,strong) NSString *getUserPhoto,*mateName,*getTime,*getUserName,*mateId,*price,*img,*goodsName,*goodsId;
 @property (nonatomic,assign) BOOL isSelect;
-@property (nonatomic,assign) NSInteger num,stockNum,isRecycle,outStockNum;
+@property (nonatomic,assign) NSInteger num,stockNum,isRecycle,outStockNum,selectCount;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -94,7 +94,7 @@
     [self.userImageView sd_setImageWithURL:[NSURL URLWithString:kStringFormat(@"%@%@",AppServerURL,dateDic[@"getUserPhoto"])] placeholderImage:ImageNamed(@"placeholder")];
     self.userNameLabel.text = kStringFormat(@"%@  %@",dateDic[@"stockUserName"],AowString(dateDic[@"inStockId"]));
     self.label1.text = kStringFormat(@"关联采购单:%@",dateDic[@"purchId"]);
-        self.label2.text = kStringFormat(@"采购时间:%@",dateDic[@"purchTime"]);
+        self.label2.text = kStringFormat(@"采购时间:%@",dateDic[@"createTime"]);
         self.label2.textColor = [UIColor grayColor];
     self.label3.text = kStringFormat(@"入库时间:%@",dateDic[@"purchTime"]);
     NSString *label4Str = kStringFormat(@"操作员:%@",dateDic[@"stockUserName"]);
@@ -165,6 +165,50 @@
 
     self.label3.hidden = YES;
     self.label4.hidden = YES;
+
+    self.nameLabel.text = @"领取商品";
+    NSString *priceStr =kStringFormat(@"共%li件商品,合计%.2f元",[dateDic[@"totalNum"] integerValue],[dateDic[@"totalPrice"] floatValue]);
+    NSString *numStr = kStringFormat(@"%li",[dateDic[@"totalNum"] integerValue]);
+    NSMutableAttributedString *attriStr = [[NSMutableAttributedString alloc] initWithString:priceStr];
+    [attriStr addAttributes: @{NSFontAttributeName :kBOLDFONT(16),NSForegroundColorAttributeName:IOSMainColor,} range:NSMakeRange(0, priceStr.length)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(0, 1)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(1+numStr.length, 6)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(priceStr.length-1, 1)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(12),NSForegroundColorAttributeName:IOSMainColor,} range:NSMakeRange(priceStr.length-4, 3)];
+    self.detailLabel.attributedText = attriStr;
+}
+-(void)sethuishouDetailHeadView:(NSDictionary *)dateDic{
+    if (dateDic.count==0) {
+        return;
+    }
+    /*          "recoveryTime": "2021-05-15 10:43:31",      // 回收时间
+     "stockUserId": "91",                        // 库管ID
+     "flag": "2",                                // 2:库管 100:非库管
+     "totalNum": 1,                              // 物资种类数
+     "totalPrice": 9135.6,                       // 物资总价格
+     "stockUserName": "童少供货",                 // 库管名称
+     "getUserName": "凌鸥",                      // 领取人名称
+     "recoveryId": "R20210515104324570929",      // 回收单号
+     "mateId": "M20210513193925201410",          // 领用的物资单号
+     "getUserId": "293",                         // 领取人ID*/
+    [self.userImageView sd_setImageWithURL:[NSURL URLWithString:kStringFormat(@"%@%@",AppServerURL,dateDic[@"getUserPhoto"])] placeholderImage:ImageNamed(@"placeholder")];
+    self.userNameLabel.text = kStringFormat(@"%@  %@",dateDic[@"getUserName"],AowString(dateDic[@"recoveryId"]));
+    self.label1.text = kStringFormat(@"关联领用单:%@",dateDic[@"mateId"]);
+        self.label2.hidden = NO;
+    self.label2.text = kStringFormat(@"回收日期:%@",dateDic[@"recoveryTime"]);
+    
+    self.label3.hidden = NO;
+    self.label4.hidden = YES;
+
+    if ([dateDic[@"type"] integerValue]==2) {
+        self.label3.text = @"已完成";
+        self.label3.textColor = [UIColor grayColor];
+
+    }else{
+       self.label3.text = @"待回收";
+        self.label3.textColor = IOSMainColor;
+
+    }
 
     self.nameLabel.text = @"领取商品";
     NSString *priceStr =kStringFormat(@"共%li件商品,合计%.2f元",[dateDic[@"totalNum"] integerValue],[dateDic[@"totalPrice"] floatValue]);

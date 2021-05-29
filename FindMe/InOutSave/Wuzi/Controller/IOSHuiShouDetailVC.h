@@ -12,7 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface IOSHuiShouDetailVC : MyBaseShowTableViewController
 
 //是否已经回收
-@property (nonatomic,assign) BOOL hasHuishou;
+@property (nonatomic,assign) NSInteger type;
+@property (nonatomic,strong) NSString *recoveryId;
+
 @end
 
 NS_ASSUME_NONNULL_END
