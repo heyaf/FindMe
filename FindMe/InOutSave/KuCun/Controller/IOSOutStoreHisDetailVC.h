@@ -10,6 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface IOSOutStoreHisDetailVC : MyBaseShowTableViewController
+@property (nonatomic,strong) NSString *outStockId;
 
 @end
 

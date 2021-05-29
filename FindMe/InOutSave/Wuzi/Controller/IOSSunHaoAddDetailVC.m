@@ -57,8 +57,9 @@
             [mutDic setValue:[self managerPrice] forKey:@"totalPrice"];
 
             self.headerDic = mutDic;
-            [self ChargePrice];
             [self managerData];
+            [self ChargePrice];
+
             [self.tabelView reloadData];
 
         }else {
@@ -375,7 +376,7 @@
             NSString *titleStr = @"新增成功";
             NSMutableAttributedString *attriStr = [[NSMutableAttributedString alloc] initWithString:titleStr];
             [attriStr addAttributes: @{NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:18],NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(0, 4)];
-            IOSMessageAlertView *slertView = [[IOSMessageAlertView alloc] initWithFrame:CGRectMake(0, 0, KDeviceWith, KDeviceHeight) type:IOSMesAlertTypeMessage titleStr:attriStr cancleBtnName:@"" sureBtnName:@"好的,我知道了" DetailBtnName:@"可以在”物资回收-待回收“中查看"];
+            IOSMessageAlertView *slertView = [[IOSMessageAlertView alloc] initWithFrame:CGRectMake(0, 0, KDeviceWith, KDeviceHeight) type:IOSMesAlertTypeMessage titleStr:attriStr cancleBtnName:@"" sureBtnName:@"好的,我知道了" DetailBtnName:@"可以在”物资损耗“中查看"];
             slertView.makeSureBtnClick = ^{
                 [self makeSureBtnClic];
             };

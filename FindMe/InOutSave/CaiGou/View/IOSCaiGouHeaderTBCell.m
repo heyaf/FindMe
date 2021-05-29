@@ -117,6 +117,44 @@
     [attriStr addAttributes: @{NSFontAttributeName :kFONT(12),NSForegroundColorAttributeName:IOSMainColor,} range:NSMakeRange(priceStr.length-4, 3)];
     self.detailLabel.attributedText = attriStr;
 }
+/*getUserId = "293",
+ getUserPhoto = "F://images/2.jpg",
+ getTime = "2021-05-13 20:10:00",
+ getUserName = "凌鸥",
+ outStockTime = "2021-05-13 19:41:17",
+         handleUserName = "童少供货",
+         outStockId = "O20210513194116020007",,*/
+-(void)setoutstoredanHeadView:(NSDictionary *)dateDic{
+    if (dateDic.count==0) {
+        return;
+    }
+    [self.userImageView sd_setImageWithURL:[NSURL URLWithString:kStringFormat(@"%@%@",AppServerURL,dateDic[@"getUserPhoto"])] placeholderImage:ImageNamed(@"placeholder")];
+    self.userNameLabel.text = kStringFormat(@"%@  %@",dateDic[@"handleUserName"],AowString(dateDic[@"outStockId"]));
+//    self.label1.text = kStringFormat(@"关联采购单:%@",dateDic[@"outStockId"]);
+        self.label1.text = kStringFormat(@"采购时间:%@",dateDic[@"getTime"]);
+        self.label2.textColor = [UIColor grayColor];
+    self.label2.text = kStringFormat(@"出库时间:%@",dateDic[@"outStockTime"]);
+    NSString *label4Str = kStringFormat(@"操作员:%@",dateDic[@"getUserName"]);
+    NSMutableAttributedString *myattriStr = [[NSMutableAttributedString alloc] initWithString:label4Str];
+    [myattriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:IOSMainColor,} range:NSMakeRange(0, label4Str.length)];
+    [myattriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor grayColor],} range:NSMakeRange(0, 4)];
+
+    self.label3.attributedText = myattriStr;
+    self.label3.hidden = NO;
+    self.label4.hidden = YES;
+
+    self.nameLabel.text = @"盘点商品";
+    NSString *priceStr =kStringFormat(@"共%li件商品,合计%.2f元",[dateDic[@"totalNum"] integerValue],[dateDic[@"totalPrice"] floatValue]);
+    NSString *numStr = kStringFormat(@"%li",[dateDic[@"totalNum"] integerValue]);
+    NSMutableAttributedString *attriStr = [[NSMutableAttributedString alloc] initWithString:priceStr];
+    [attriStr addAttributes: @{NSFontAttributeName :kBOLDFONT(16),NSForegroundColorAttributeName:IOSMainColor,} range:NSMakeRange(0, priceStr.length)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(0, 1)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(1+numStr.length, 6)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(priceStr.length-1, 1)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(12),NSForegroundColorAttributeName:IOSMainColor,} range:NSMakeRange(priceStr.length-4, 3)];
+    self.detailLabel.attributedText = attriStr;
+    
+}
 -(void)setlingyongdanHeadView:(NSDictionary *)dateDic{
     /*        "mateId": "M20210512115222099909",  // 物资单号
      "getUserId": "293",                 // 领取人ID

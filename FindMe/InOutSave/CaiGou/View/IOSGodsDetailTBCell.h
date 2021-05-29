@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class IOSInStoreModel;
 @class IOSLingYongListM;
 @class IOSAddHuiShouM;
+@class IOSOutStoreM;
 @interface IOSGodsDetailTBCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *picImageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -58,7 +59,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong) IOSCaiGouListModel *caigouDetailGodsM;
 //入库详情
 @property (nonatomic,strong) IOSInStoreModel *instoreM;
-
+//出库详情
+@property (nonatomic,strong) IOSOutStoreM *outstoreM;
 @property (nonatomic,strong) IOSLingYongListM *lingyongM;
 //增加回收
 @property (nonatomic,strong) IOSAddHuiShouM *addhuiShouM;

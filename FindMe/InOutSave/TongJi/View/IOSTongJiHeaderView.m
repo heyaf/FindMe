@@ -62,7 +62,7 @@
         }
         titleLabel.textAlignment = NSTextAlignmentCenter;
 
-        titleLabel.tag = 900+i;
+        titleLabel.tag = 901+i;
     }
 }
 @end

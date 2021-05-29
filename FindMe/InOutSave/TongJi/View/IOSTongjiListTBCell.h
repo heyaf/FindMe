@@ -8,7 +8,7 @@
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
-
+@class IOSTongjiM;
 @interface IOSTongjiListTBCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *mainPicImageView;
 @property (weak, nonatomic) IBOutlet UIView *xinghaoBGView;
@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *bottomLabelTwo;
 @property (weak, nonatomic) IBOutlet UILabel *bottomLabelThr;
 
+@property (nonatomic,strong) IOSTongjiM *tongjiM;
 @end
 
 NS_ASSUME_NONNULL_END

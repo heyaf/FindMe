@@ -8,6 +8,7 @@
 #import "IOSGodsDetailTBCell.h"
 #import "IOSCaiGouListModel.h"
 #import "IOSInStoreModel.h"
+#import "IOSOutStoreM.h"
 #import "IOSLingYongListM.h"
 #import "IOSAddHuiShouM.h"
 @implementation IOSGodsDetailTBCell
@@ -145,6 +146,39 @@
     self.numLabelConStraint.constant = -20;
 
 }
+-(void)setOutstoreM:(IOSOutStoreM *)outstoreM{
+    _outstoreM = outstoreM;
+    [self.picImageView  sd_setImageWithURL:[NSURL URLWithString:kStringFormat(@"%@%@",AppServerURL,outstoreM.img)] placeholderImage:ImageNamed(@"placeholder")];
+    self.titleLabel.text = outstoreM.goodsName;
+    self.godsNumLabel.text = kStringFormat(@"货号：%@",outstoreM.goodsId);
+    self.godsNumlabel1.text = kStringFormat(@"库存：%li",outstoreM.stockNum);
+    NSString *priceStr =kStringFormat(@"￥%.2f",[outstoreM.price floatValue]);
+    NSMutableAttributedString *attriStr = [[NSMutableAttributedString alloc] initWithString:priceStr];
+    [attriStr addAttributes: @{NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:16],NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(0, priceStr.length)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(12),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(0, 1)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(priceStr.length-2, 2)];
+    self.PriceLabel.attributedText = attriStr;
+    if (outstoreM.isRecycle==1) {
+        self.tagLabel.text = @" 不可回收 ";
+    }else{
+        self.tagLabel.text = @" 可回收 ";
+    }
+    self.tagLabel.hidden = NO;
+    
+    self.unaddrButton.hidden = YES;
+    self.addButton.hidden = YES;
+    self.EditPriceButton.hidden = YES;
+    
+    NSString *numStr = kStringFormat(@"出库数量 x%li",outstoreM.outStockNum);
+    NSMutableAttributedString *attriStr1 = [[NSMutableAttributedString alloc] initWithString:numStr];
+    [attriStr1 addAttributes: @{NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:16],NSForegroundColorAttributeName:IOSMainColor,} range:NSMakeRange(0, numStr.length)];
+    [attriStr1 addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:IOSMainColor,} range:NSMakeRange(0, 5)];
+    [attriStr1 addAttributes: @{NSFontAttributeName :kFONT(12),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(5, 1)];
+    self.numLabel.attributedText = attriStr1;
+    self.numLabelConStraint.constant = -20;
+
+}
+
 -(void)setLingyongM:(IOSLingYongListM *)lingyongM{
     _lingyongM = lingyongM;
     
@@ -306,7 +340,7 @@
     self.addButton.hidden = YES;
     self.EditPriceButton.hidden = YES;
     
-    self.numLabel.text = kStringFormat(@"%li",SunHaoM.outStockNum);
+    self.numLabel.text = kStringFormat(@"%li",SunHaoM.lossNum);
     if (SunHaoM.selectCount==1) {
         [self.unaddrButton setImage:ImageNamed(@"IOSjian") forState:0];
     }else{

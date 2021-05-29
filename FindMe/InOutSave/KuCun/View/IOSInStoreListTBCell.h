@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class IOSLingYongListM;
 @class IOSHuishouListM;
 @class IOSSunhaoListModel;
+@class IOSOutStoreM;
 @interface IOSInStoreListTBCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIView *mainBgView;
 @property (weak, nonatomic) IBOutlet UILabel *TItleLabel;
@@ -26,6 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIImageView *tagImageView;
 
 @property (nonatomic,strong) IOSInStoreModel *inStoreListM;
+@property (nonatomic,strong) IOSOutStoreM *outStoreListM;
 
 @property (nonatomic,strong) IOSLingYongListM *lingyongListM;
 

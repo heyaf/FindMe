@@ -301,9 +301,7 @@
     [self.tabelView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationNone];
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section==0) {
-        [self.navigationController popViewControllerAnimated:NO];
-    }
+ 
 }
 
 -(void)makeSureBtnClicked{

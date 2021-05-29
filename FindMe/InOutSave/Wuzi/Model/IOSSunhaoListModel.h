@@ -35,7 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
  "getUserPhoto": "F://images/2.jpg",      // 领取人头像
  "num": "2",                              // 领物资种类数
  "price": "31.00"                         // 领物总价格*/
-@property (nonatomic,strong) NSString *getUserPhoto,*mateName,*getTime,*getUserName,*mateId,*price,*img,*goodsName,*goodsId,*lossName,*lossId;
+@property (nonatomic,strong) NSString *getUserPhoto,*mateName,*getTime,*getUserName,*mateId,*price,*img,*goodsName,*goodsId,*lossName,*lossId,*lossTime;
 @property (nonatomic,assign) BOOL isSelect;
 @property (nonatomic,assign) NSInteger num,stockNum,isRecycle,outStockNum,type;
 @end

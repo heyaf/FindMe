@@ -25,6 +25,7 @@
     self.tabelView.dataSource = self;
     self.tabelView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tabelView registerNib:[UINib nibWithNibName:@"IOSInStoreListTBCell" bundle:nil] forCellReuseIdentifier:@"IOSInStoreListTBCell"];
+    self.tabelView.backgroundColor = RGBA(245, 245, 245, 1);
 }
 //设置导航栏
 -(void)setNavbutton{
@@ -113,13 +114,17 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
-    
+    IOSSunhaoListModel *huishouM = self.dataSource[indexPath.row];
+
 //    IOSHuiShouDetailVC *storeDetailVC = [[IOSHuiShouDetailVC alloc] init];
 //    IOSHuishouListM *huishouM = [self manageChooseDate][indexPath.row];
 //
 //    storeDetailVC.type = huishouM.type ;
 //    storeDetailVC.recoveryId = huishouM.recoveryId;
 //    [self.navigationController pushViewController:storeDetailVC animated:YES];
+    IOSSunHaoDetailVC *pushVC = [[IOSSunHaoDetailVC alloc] init];
+    pushVC.lossId = huishouM.lossId;
+    [self.navigationController pushViewController:pushVC animated:YES];
 }
 
 

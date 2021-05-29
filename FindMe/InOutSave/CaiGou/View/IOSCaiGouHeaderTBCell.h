@@ -24,6 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 //入库单详情头部
 -(void)setinstoredanHeadView:(NSDictionary *)dateDic;
+//出库单详情头部
+-(void)setoutstoredanHeadView:(NSDictionary *)dateDic;
 //盘点历史详情头部
 -(void)setpandianHisHeadView:(NSDictionary *)dateDic;
 

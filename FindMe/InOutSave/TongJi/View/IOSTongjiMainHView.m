@@ -61,7 +61,13 @@
     // 1.创建日期选择器
     [BRDatePickerView showDatePickerWithTitle:@"" dateType:UIDatePickerModeDate defaultSelValue:nil minDateStr:nil maxDateStr:nil isAutoSelect:YES resultBlock:^(NSString *selectValue) {
         self.dateLabel.text = selectValue;
-        
+        for (UIButton *but in self.headerButArr) {
+            [but setTitleColor:IOSTitleColor forState:0];
+            [but setBackgroundImage:[UIImage imageWithColor:RGBA(250, 250, 250, 1) size:CGSizeMake(kbtnW, 44)] forState:0];        but.titleLabel.font = kFONT(16);
+        }
+        if (self.btnClickedBlock) {
+            self.btnClickedBlock(selectValue);
+        }
     }];
 }
 -(NSMutableArray *)headerButArr{
@@ -110,5 +116,29 @@
     [button setBackgroundImage:ImageNamed(@"ioscaigouHeaderBG") forState:0];
     [button setTitleColor:[UIColor blackColor] forState:0];
     button.titleLabel.font = FONT(18);
+    
+    NSString *startTimer = [NSString getNowData];
+    switch (button.tag) {
+        case 521:
+            startTimer = [NSString getNowData];
+            break;
+        case 522:
+            startTimer = [NSString getbeforeDataWithindex:1];
+            break;
+        case 523:
+            startTimer = [NSString getbeforeDataWithindex:7];
+            break;
+        case 524:
+            startTimer = [NSString getbeforeDataWithindex:30];
+            break;
+       
+            
+        default:
+            break;
+    }
+    if (self.btnClickedBlock) {
+        self.btnClickedBlock(startTimer);
+    }
+    self.dateLabel.text = @"";
 }
 @end

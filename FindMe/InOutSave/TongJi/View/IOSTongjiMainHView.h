@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong) NSString *titleStr;
 
 @property (nonatomic,strong) IOSTongJiHeaderView *subheadView;
+@property (nonatomic,copy) void(^btnClickedBlock)(NSString *startTime);
 @end
 
 NS_ASSUME_NONNULL_END

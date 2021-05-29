@@ -96,7 +96,7 @@
                             <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BH0-Lp-nQj">
+                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BH0-Lp-nQj">
                         <rect key="frame" x="20" y="66.5" width="20" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="20" id="NDr-IW-eNV"/>

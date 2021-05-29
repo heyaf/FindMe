@@ -8,6 +8,7 @@
 #import "IOSInStoreListTBCell.h"
 #import "IOSPanDianHisListM.h"
 #import "IOSInStoreModel.h"
+#import "IOSOutStoreM.h"
 #import "IOSLingYongListM.h"
 #import "IOSHuishouListM.h"
 #import "IOSSunhaoListModel.h"
@@ -50,6 +51,26 @@
     
     NSString *priceStr =kStringFormat(@"共%li件商品,合计%.2f元",inStoreListM.num,[inStoreListM.price floatValue]);
     NSString *numStr = kStringFormat(@"%li",inStoreListM.num);
+    NSMutableAttributedString *attriStr = [[NSMutableAttributedString alloc] initWithString:priceStr];
+    [attriStr addAttributes: @{NSFontAttributeName :kBOLDFONT(16),NSForegroundColorAttributeName:IOSMainColor,} range:NSMakeRange(0, priceStr.length)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(0, 1)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(1+numStr.length, 6)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(priceStr.length-1, 1)];
+    [attriStr addAttributes: @{NSFontAttributeName :kFONT(12),NSForegroundColorAttributeName:IOSMainColor,} range:NSMakeRange(priceStr.length-4, 3)];
+    self.detailLabel.attributedText = attriStr;
+}
+-(void)setOutStoreListM:(IOSOutStoreM *)outStoreListM{
+    _outStoreListM = outStoreListM;
+    self.TItleLabel.text = outStoreListM.outStockName;
+    self.labelOne.text = kStringFormat(@"出库单:%@",outStoreListM.outStockId);
+    self.labelTwo.text = kStringFormat(@"关联采购单:%@",outStoreListM.mateId);
+    self.labelThr.text = kStringFormat(@"出库时间:%@",outStoreListM.outStockTime);
+    
+    [self.userImageV sd_setImageWithURL:[NSURL URLWithString:kStringFormat(@"%@%@",AppServerURL,outStoreListM.getUserPhoto)] placeholderImage:ImageNamed(@"placeholder")];
+    self.userNameLabel.text = outStoreListM.getUserName;
+    
+    NSString *priceStr =kStringFormat(@"共%li件商品,合计%.2f元",outStoreListM.num,[outStoreListM.price floatValue]);
+    NSString *numStr = kStringFormat(@"%li",outStoreListM.num);
     NSMutableAttributedString *attriStr = [[NSMutableAttributedString alloc] initWithString:priceStr];
     [attriStr addAttributes: @{NSFontAttributeName :kBOLDFONT(16),NSForegroundColorAttributeName:IOSMainColor,} range:NSMakeRange(0, priceStr.length)];
     [attriStr addAttributes: @{NSFontAttributeName :kFONT(14),NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(0, 1)];
@@ -107,7 +128,7 @@
     _sunhaoM = sunhaoM;
     self.TItleLabel.text = sunhaoM.lossName;
     self.labelOne.text = kStringFormat(@"关联领用单:%@",sunhaoM.mateId);
-    self.labelTwo.text = kStringFormat(@"回收时间:%@",sunhaoM.getTime);
+    self.labelTwo.text = kStringFormat(@"回收时间:%@",sunhaoM.lossTime);
     self.labelThr.hidden = YES;
     [self.userImageV sd_setImageWithURL:[NSURL URLWithString:kStringFormat(@"%@%@",AppServerURL,sunhaoM.getUserPhoto)] placeholderImage:ImageNamed(@"placeholder")];
     self.userNameLabel.text = sunhaoM.getUserName;

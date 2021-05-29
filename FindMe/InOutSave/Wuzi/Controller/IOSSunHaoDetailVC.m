@@ -54,12 +54,14 @@
             self.dataSource = [IOSAddHuiShouM arrayOfModelsFromDictionaries:datdic[@"list"] error:nil];
             NSMutableDictionary *mutDic = [NSMutableDictionary dictionaryWithDictionary:datdic];
             
-            [mutDic setValue:@([self managernum1]) forKey:@"totalNum"];
+            [mutDic setValue:@(self.dataSource.count) forKey:@"totalNum"];
             [mutDic setValue:[self managerPrice] forKey:@"totalPrice"];
 
             self.headerDic = mutDic;
             [self managerData];
             [self.tabelView reloadData];
+            [self creatBottomView];
+
 
         }else {
             [self showHint:responseObject[@"msg"]];
@@ -88,7 +90,7 @@
 -(NSInteger)managernum1{
     NSInteger count = 0;
     for (IOSAddHuiShouM *listModel in self.dataSource) {
-            count+=listModel.num;
+            count+=listModel.outStockNum;
     }
     return count;
 }
@@ -124,7 +126,6 @@
     [self.tabelView registerNib:[UINib nibWithNibName:@"IOSGodsDetailTBCell" bundle:nil] forCellReuseIdentifier:@"IOSGodsDetailTBCell"];
     [self.tabelView registerNib:[UINib nibWithNibName:@"IOSCaiGouHeaderTBCell" bundle:nil] forCellReuseIdentifier:@"IOSCaiGouHeaderTBCell"];
     [self setNavBackStr:@"物资损耗单"];
-    [self creatBottomView];
 
     
 }
@@ -212,7 +213,7 @@
     IOSGodsDetailTBCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IOSGodsDetailTBCell"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     IOSAddHuiShouM *instoreModel = [self manageChooseDate][indexPath.row];
-    cell.addSunHaoM = instoreModel;
+    cell.SunHaoM = instoreModel;
 
  
     return cell;
@@ -278,75 +279,8 @@
     [self.tabelView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationNone];
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section==0) {
-        [self.navigationController popViewControllerAnimated:NO];
-    }
+
 }
 
--(void)makeSureBtnClicked{
-    
-    NSMutableArray *listArr = [NSMutableArray arrayWithCapacity:0];
-    
-    for (IOSAddHuiShouM *godsM in self.dataSource) {
-        CGFloat floatValue = [godsM.price floatValue];
-        CGFloat floatValue1 = round(floatValue*100)/100;
-        NSDictionary *dic = @{@"goodsName":godsM.goodsName,
-                              @"goodsId":godsM.goodsId,
-                              @"img":godsM.img,
-                              @"num":@(godsM.num),
-                              @"price":@(floatValue1),
-                              @"lossNum":@(godsM.selectCount),
-                              
-        };
-        NSMutableDictionary *mutDic = [NSMutableDictionary dictionaryWithDictionary:dic];
-        if (godsM.remark.length>0) {
-            [mutDic setValue:godsM.remark forKey:@"remark"];
-        }
 
-        [listArr addObject:mutDic];
-    }
-    NSString *listStr = [self zhuzuZhuangjson:listArr];
-    
-    NSString *url = [AppServerURL stringByAppendingString:@"/s/api/sdLoss/saveLoss"];
-
-    NSDictionary *paramDic = @{@"empId":kUser_id,
-                               @"getTime":self.headerDic[@"getTime"],
-                               @"getUserName":self.headerDic[@"getUserName"],
-                               @"getUserId":self.headerDic[@"getUserId"],
-                               @"mateId":self.headerDic[@"mateId"],
-                               @"mateName":self.headerDic[@"mateName"],
-                               @"list":listStr
-    };
-    [self showHudInView:self.view hint:@"加载中"];
-    [[AFNetHelp shareAFNetworking] postInfoFromSeverWithStr:url body:paramDic sucess:^(id responseObject) {
-        if ([AowString(responseObject[@"code"]) isEqualToString:@"1"]) {
-            NSString *titleStr = @"新增成功";
-            NSMutableAttributedString *attriStr = [[NSMutableAttributedString alloc] initWithString:titleStr];
-            [attriStr addAttributes: @{NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:18],NSForegroundColorAttributeName:[UIColor blackColor],} range:NSMakeRange(0, 4)];
-            IOSMessageAlertView *slertView = [[IOSMessageAlertView alloc] initWithFrame:CGRectMake(0, 0, KDeviceWith, KDeviceHeight) type:IOSMesAlertTypeMessage titleStr:attriStr cancleBtnName:@"" sureBtnName:@"好的,我知道了" DetailBtnName:@"可以在”物资回收-待回收“中查看"];
-            slertView.makeSureBtnClick = ^{
-                [self makeSureBtnClic];
-            };
-            [slertView show];
-        }else {
-            [self showHint:responseObject[@"msg"]];
-            
-        }
-        [self hideHud];
-
-        
-    } failure:^(NSError *error) {
-        [self showHint:@"稍后重试"];
-        [self hideHud];
-        
-    }];
-    
-}
--(void)makeSureBtnClic{
-    for (UIViewController *temp in self.navigationController.viewControllers) {
-               if ([temp isKindOfClass:[IOSSunHaoListVC class]]) {
-                  [self.navigationController popToViewController:temp animated:YES];
-               }
-    }
-}
 @end
