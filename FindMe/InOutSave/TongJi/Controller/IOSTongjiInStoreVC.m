@@ -24,7 +24,7 @@
     self.tabelView.dataSource = self;
     self.tabelView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tabelView registerNib:[UINib nibWithNibName:@"IOSTongjiListTBCell" bundle:nil] forCellReuseIdentifier:@"IOSTongjiListTBCell"];
-    self.tabelView.backgroundColor = RGBA(245, 245, 245, 1);
+//    self.tabelView.backgroundColor = RGBA(245, 245, 245, 1);
     [self initialDataWithStartTime:[NSString getNowData] endTime:[NSString getNowData]];
 }
 -(void)initialDataWithStartTime:(NSString *)startStr endTime:(NSString *)endStr{

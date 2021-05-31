@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 },*/
 @interface IOSCaiGouListModel : JSONModel
 @property (nonatomic,strong) NSString *godsId,*goodsName,*img,*price,*goodsId;
-@property (nonatomic,assign) NSInteger status,stockNum,isRecycle,selectCount,inNum; //selectCount选择的数量
+@property (nonatomic,assign) NSInteger status,stockNum,isRecycle,selectCount,inNum,num; //selectCount选择的数量
 
 @property (nonatomic,assign) BOOL isSelected;
 

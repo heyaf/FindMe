@@ -118,9 +118,9 @@
     self.detailLabel.attributedText = attriStr;
     self.tagImageView.hidden = NO;
     if (huishouListM.type==1) { //待回收
-        self.tagImageView.image = ImageNamed(@"IOSPanying");
+        self.tagImageView.image = ImageNamed(@"IOSUnrecycle");
     }else{
-        self.tagImageView.image = ImageNamed(@"IOSPanKui");
+        self.tagImageView.image = ImageNamed(@"IOSRecycled");
     }
 }
 

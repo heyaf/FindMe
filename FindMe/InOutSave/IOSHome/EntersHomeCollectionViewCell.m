@@ -14,6 +14,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+//    self.backgroundColor = RGBA(250, 250, 250, 1);
     
 }
 

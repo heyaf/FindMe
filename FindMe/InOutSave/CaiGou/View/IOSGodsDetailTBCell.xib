@@ -76,10 +76,10 @@
                         </connections>
                     </button>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QXU-FX-fZH">
-                        <rect key="frame" x="313" y="93" width="156" height="30"/>
+                        <rect key="frame" x="359" y="93" width="110" height="30"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O2u-d7-HHs">
-                                <rect key="frame" x="126" y="0.0" width="30" height="30"/>
+                                <rect key="frame" x="80" y="0.0" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="0CE-Zo-5d3"/>
                                     <constraint firstAttribute="width" constant="30" id="AMa-fp-Ri8"/>
@@ -90,7 +90,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UVB-Zx-QYC">
-                                <rect key="frame" x="105" y="5" width="16" height="20"/>
+                                <rect key="frame" x="59" y="5" width="16" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="WYw-9z-5in"/>
                                 </constraints>
@@ -99,7 +99,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1aO-iz-BnP">
-                                <rect key="frame" x="65" y="0.0" width="30" height="30"/>
+                                <rect key="frame" x="19" y="0.0" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="EvY-3y-DPT"/>
                                     <constraint firstAttribute="width" constant="30" id="UFz-H8-4o9"/>
@@ -114,7 +114,7 @@
                         <constraints>
                             <constraint firstItem="O2u-d7-HHs" firstAttribute="centerY" secondItem="QXU-FX-fZH" secondAttribute="centerY" id="2hY-sH-NVR"/>
                             <constraint firstItem="O2u-d7-HHs" firstAttribute="leading" secondItem="UVB-Zx-QYC" secondAttribute="trailing" constant="5" id="4QX-8I-6Aj"/>
-                            <constraint firstAttribute="width" constant="156" id="DeJ-SR-lwa"/>
+                            <constraint firstAttribute="width" constant="110" id="DeJ-SR-lwa"/>
                             <constraint firstItem="1aO-iz-BnP" firstAttribute="centerY" secondItem="QXU-FX-fZH" secondAttribute="centerY" id="LHc-0s-xTD"/>
                             <constraint firstAttribute="height" constant="30" id="Lrc-RC-dof"/>
                             <constraint firstAttribute="trailing" secondItem="O2u-d7-HHs" secondAttribute="trailing" id="Ubk-9B-czK"/>

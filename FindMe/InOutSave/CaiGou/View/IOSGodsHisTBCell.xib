@@ -90,10 +90,18 @@
                                     <constraint firstItem="68d-6F-FK9" firstAttribute="top" secondItem="ReO-KA-Uxh" secondAttribute="top" id="kLW-a4-gbG"/>
                                 </constraints>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IOSCaigouing" translatesAutoresizingMaskIntoConstraints="NO" id="p46-vO-OfI">
+                                <rect key="frame" x="301" y="10" width="40" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="dQx-5V-WD7"/>
+                                    <constraint firstAttribute="height" constant="20" id="nIn-Oc-KVC"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ReO-KA-Uxh" firstAttribute="top" secondItem="NrB-Ct-pwX" secondAttribute="bottom" constant="10" id="3ak-pa-wTY"/>
+                            <constraint firstAttribute="trailing" secondItem="p46-vO-OfI" secondAttribute="trailing" constant="10" id="3ix-Fs-xGh"/>
                             <constraint firstItem="AQ0-3W-d13" firstAttribute="top" secondItem="6AK-Sr-esJ" secondAttribute="bottom" constant="10" id="DLK-yl-MYM"/>
                             <constraint firstAttribute="bottom" secondItem="ReO-KA-Uxh" secondAttribute="bottom" constant="10" id="JAm-n6-tLE"/>
                             <constraint firstItem="NrB-Ct-pwX" firstAttribute="leading" secondItem="cja-BG-E2Q" secondAttribute="leading" constant="15" id="MOi-gQ-C7W"/>
@@ -103,6 +111,7 @@
                             <constraint firstItem="6AK-Sr-esJ" firstAttribute="top" secondItem="cja-BG-E2Q" secondAttribute="top" constant="10" id="qLB-QZ-V74"/>
                             <constraint firstAttribute="trailing" secondItem="ReO-KA-Uxh" secondAttribute="trailing" constant="15" id="sgY-bw-fdr"/>
                             <constraint firstItem="NrB-Ct-pwX" firstAttribute="top" secondItem="AQ0-3W-d13" secondAttribute="bottom" constant="8" id="ssZ-U4-foW"/>
+                            <constraint firstItem="p46-vO-OfI" firstAttribute="centerY" secondItem="6AK-Sr-esJ" secondAttribute="centerY" id="yBz-Vq-hDV"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
@@ -122,6 +131,7 @@
                 <outlet property="PriceLabel" destination="YMy-4E-VNk" id="6by-Ac-6Mr"/>
                 <outlet property="orderNumberLabel" destination="AQ0-3W-d13" id="emY-QE-xKQ"/>
                 <outlet property="orderTimeLabel" destination="NrB-Ct-pwX" id="G3L-q6-wt8"/>
+                <outlet property="tagImageV" destination="p46-vO-OfI" id="WX8-HU-L6J"/>
                 <outlet property="userHeaderImageView" destination="68d-6F-FK9" id="Yg1-8p-4Yl"/>
                 <outlet property="userNameLabel" destination="nDH-MK-qBD" id="cKt-jT-IRZ"/>
             </connections>
@@ -129,6 +139,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="IOSCaigouing" width="135" height="60"/>
         <image name="minekehucenter" width="24" height="24"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

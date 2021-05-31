@@ -56,6 +56,7 @@
     
     
     
+    
 }
 -(void)setCaigouListGodsM:(IOSCaiGouListModel *)caigouListGodsM{
     _caigouListGodsM = caigouListGodsM;
@@ -101,7 +102,7 @@
     }else{
         self.tagLabel.text = @" 可回收 ";
     }
-    self.numLabel.text = kStringFormat(@"%li",caigouDetailGodsM.inNum);
+    self.numLabel.text = kStringFormat(@"%li",caigouDetailGodsM.num);
 
     self.unaddrButton.hidden = YES;
     [self.addButton setImage:[UIImage imageWithColor:[UIColor clearColor] size:CGSizeMake(40, 40)] forState:0];

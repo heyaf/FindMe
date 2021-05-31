@@ -26,7 +26,7 @@
     [self initialData];
 }
 -(void)initialData{
-    NSString *url = [AppServerURL stringByAppendingString:@"/s/api/sdOutstock/getList"];
+    NSString *url = [AppServerURL stringByAppendingString:@"/s/api/sdInstock/getList"];
     NSDictionary *paramDic = @{@"empId":kUser_id
     };
     [self showHudInView:self.view hint:@"加载中"];

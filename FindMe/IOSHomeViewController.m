@@ -8,7 +8,7 @@
 #import "IOSHomeViewController.h"
 #import "IOSEnterHomeVC.h"
 #import "IOSMessageAlertView.h"
-
+#import "FMZWWishListVC.h"
 @interface IOSHomeViewController ()
 
 @end
@@ -27,6 +27,21 @@
     [IOSBtn setTitleColor:[UIColor blackColor] forState:0];
     [IOSBtn addTarget:self action:@selector(InOutSave) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:IOSBtn];
+    
+    UIButton *IOSBtn1 = [UIButton buttonWithType:0];
+    IOSBtn1.frame = CGRectMake(100, 250, 100, 50);
+    IOSBtn1.backgroundColor = [UIColor yellowColor];
+    [IOSBtn1 setTitle:@"心愿单" forState:0];
+    [IOSBtn1 setTitleColor:[UIColor blackColor] forState:0];
+    [IOSBtn1 addTarget:self action:@selector(wishList) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:IOSBtn1];
+    
+    UIImageView *imageVIew  = [[UIImageView alloc] initWithFrame:CGRectMake(0, 400, KDeviceWith, 100)];
+    UIImage * image =  ImageNamed(@"EMWLImageView3");
+    image = [image resizableImageWithCapInsets:UIEdgeInsetsMake(image.size.height/3, image.size.width/3, image.size.height/3, image.size.width/3) resizingMode:UIImageResizingModeTile];
+//    [self.view addSubview:imageVIew];
+    imageVIew.image = [[UIImage imageNamed:@"EMWLImageView3"] resizableImageWithCapInsets:UIEdgeInsetsMake(50, 30, 20, 20) resizingMode:UIImageResizingModeStretch];
+    
 }
 
 -(void)InOutSave{
@@ -46,6 +61,10 @@
 //    IOSMessageAlertView *alertView = [[IOSMessageAlertView alloc] initWithFrame:CGRectMake(0, 0, KDeviceWith, KDeviceHeight) type:IOSMesAlertTypeTV titleStr:mString cancleBtnName:@"取消" sureBtnName:@"确定" DetailBtnName:@"好的，知道了"];
 //    [alertView show];
 
+}
+-(void)wishList{
+    FMZWWishListVC *pushVC = [[FMZWWishListVC alloc] init];
+    [self.navigationController pushViewController:pushVC animated:YES];
 }
 
 @end

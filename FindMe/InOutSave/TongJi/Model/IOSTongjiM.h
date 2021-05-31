@@ -29,13 +29,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong) NSString *img,
 *price,
 *goodsId,
+*inStockId,
 *purchUserId,
 *purchUserName,
 *purchTime,
 *purchName,
 *stockUserId,
 *stockUserName,*purchId,*goodsName;
-@property (nonatomic,assign) NSInteger num,type;
+@property (nonatomic,assign) NSInteger num,type,inStockNum;
 
 @end
 

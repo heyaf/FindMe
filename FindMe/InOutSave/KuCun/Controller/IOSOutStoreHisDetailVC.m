@@ -35,7 +35,7 @@
 -(void)getListDatawithType:(NSInteger)type{
     NSString *url = [AppServerURL stringByAppendingString:@"/s/api/sdOutstock/list"];
     NSDictionary *paramDic = @{@"empId":kUser_id,
-                               @"inStockId":self.outStockId
+                               @"outStockId":self.outStockId
     };
     NSMutableDictionary *MutparamDic = [NSMutableDictionary
                                      dictionaryWithDictionary:paramDic];

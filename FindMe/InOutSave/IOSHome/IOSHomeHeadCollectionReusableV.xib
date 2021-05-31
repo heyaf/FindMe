@@ -24,17 +24,17 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uhg-od-9KL">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IOSTuoYuan1" translatesAutoresizingMaskIntoConstraints="NO" id="uhg-od-9KL">
                     <rect key="frame" x="129" y="83.5" width="10" height="8"/>
-                    <color key="backgroundColor" systemColor="systemGray4Color"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="10" id="9lv-XQ-RVk"/>
                         <constraint firstAttribute="height" constant="8" id="Wlv-uc-Nst"/>
                     </constraints>
                 </imageView>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="L8r-0D-hjn">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IOSTuoYuan" translatesAutoresizingMaskIntoConstraints="NO" id="L8r-0D-hjn">
                     <rect key="frame" x="190" y="83.5" width="10" height="8"/>
-                    <color key="backgroundColor" systemColor="systemGray4Color"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="10" id="YFw-04-dT0"/>
                         <constraint firstAttribute="height" constant="8" id="ke6-vm-53y"/>
@@ -42,7 +42,7 @@
                 </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="9Gg-ye-v9C"/>
-            <color key="backgroundColor" systemColor="systemGray2Color"/>
+            <color key="backgroundColor" systemColor="systemGray6Color"/>
             <constraints>
                 <constraint firstItem="qCa-iJ-9lg" firstAttribute="centerY" secondItem="9Gg-ye-v9C" secondAttribute="centerY" id="0D5-vj-ZZE"/>
                 <constraint firstItem="qCa-iJ-9lg" firstAttribute="centerX" secondItem="9Gg-ye-v9C" secondAttribute="centerX" id="1AG-mJ-UtC"/>
@@ -58,11 +58,10 @@
         </collectionReusableView>
     </objects>
     <resources>
-        <systemColor name="systemGray2Color">
-            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGray4Color">
-            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <image name="IOSTuoYuan" width="17" height="10"/>
+        <image name="IOSTuoYuan1" width="17" height="10"/>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -20,8 +21,8 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vdu-s1-i5Z">
                         <rect key="frame" x="10" y="121" width="358" height="60"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="单号：1242651261" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OrU-eY-uo3">
-                                <rect key="frame" x="15" y="10" width="121.5" height="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="单号：1242651261" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OrU-eY-uo3">
+                                <rect key="frame" x="15" y="10" width="195.5" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="4x7-7I-JSy"/>
                                 </constraints>
@@ -53,6 +54,7 @@
                             <constraint firstItem="OrU-eY-uo3" firstAttribute="top" secondItem="vdu-s1-i5Z" secondAttribute="top" constant="10" id="3sI-bL-dEJ"/>
                             <constraint firstAttribute="height" constant="60" id="6JC-uN-HJP"/>
                             <constraint firstAttribute="trailing" secondItem="1tA-Oh-zGp" secondAttribute="trailing" constant="15" id="ARF-mi-JgI"/>
+                            <constraint firstItem="1tA-Oh-zGp" firstAttribute="leading" secondItem="OrU-eY-uo3" secondAttribute="trailing" constant="10" id="QaX-YP-Nxi"/>
                             <constraint firstItem="KIu-Bd-cWW" firstAttribute="leading" secondItem="OrU-eY-uo3" secondAttribute="leading" id="pLS-ix-t3t"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
