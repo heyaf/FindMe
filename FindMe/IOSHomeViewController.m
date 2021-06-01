@@ -9,6 +9,7 @@
 #import "IOSEnterHomeVC.h"
 #import "IOSMessageAlertView.h"
 #import "FMZWWishListVC.h"
+//#import "UIView+HYcornerRadius.h"
 @interface IOSHomeViewController ()
 
 @end
@@ -39,8 +40,10 @@
     UIImageView *imageVIew  = [[UIImageView alloc] initWithFrame:CGRectMake(0, 400, KDeviceWith, 100)];
     UIImage * image =  ImageNamed(@"EMWLImageView3");
     image = [image resizableImageWithCapInsets:UIEdgeInsetsMake(image.size.height/3, image.size.width/3, image.size.height/3, image.size.width/3) resizingMode:UIImageResizingModeTile];
-//    [self.view addSubview:imageVIew];
-    imageVIew.image = [[UIImage imageNamed:@"EMWLImageView3"] resizableImageWithCapInsets:UIEdgeInsetsMake(50, 30, 20, 20) resizingMode:UIImageResizingModeStretch];
+    [self.view addSubview:imageVIew];
+    imageVIew.backgroundColor = [UIColor redColor];
+//    [imageVIew drawHYCornerRaiuswithborderTopLeftRadius:10 borderTopRightRadius:30 borderBottomLeftRadius:10 borderBottomRightRadius:0];
+//    imageVIew.image = [[UIImage imageNamed:@"EMWLImageView3"] resizableImageWithCapInsets:UIEdgeInsetsMake(50, 30, 20, 20) resizingMode:UIImageResizingModeStretch];
     
 }
 

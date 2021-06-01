@@ -8,5 +8,7 @@
 #import "FMWWishListM.h"
 
 @implementation FMWWishListM
-
++(BOOL)propertyIsOptional:(NSString *)propertyName{
+    return YES;
+}
 @end

@@ -153,6 +153,11 @@
 		049D54532664D14000E094F7 /* FMZWListTBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D54512664D14000E094F7 /* FMZWListTBCell.m */; };
 		049D54542664D14000E094F7 /* FMZWListTBCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049D54522664D14000E094F7 /* FMZWListTBCell.xib */; };
 		049D5457266500D300E094F7 /* FMZWEditWishVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D5456266500D200E094F7 /* FMZWEditWishVC.m */; };
+		049D545A2665C7D900E094F7 /* FMaddworkWishV.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D54592665C7D800E094F7 /* FMaddworkWishV.m */; };
+		049D545E2665CADD00E094F7 /* FMaddwishTBcell.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D545C2665CADD00E094F7 /* FMaddwishTBcell.m */; };
+		049D545F2665CADD00E094F7 /* FMaddwishTBcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049D545D2665CADD00E094F7 /* FMaddwishTBcell.xib */; };
+		049D54622665D31000E094F7 /* UIView+HYcornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D54612665D31000E094F7 /* UIView+HYcornerRadius.m */; };
+		049D54652665E1F500E094F7 /* FMaddWishModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D54642665E1F500E094F7 /* FMaddWishModel.m */; };
 		04B93D2926549DA500DA647C /* MyTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B93D2826549DA500DA647C /* MyTabBarViewController.m */; };
 		04B93D8D26549EBB00DA647C /* BRStringPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B93D2E26549EBB00DA647C /* BRStringPickerView.m */; };
 		04B93D8E26549EBB00DA647C /* BRTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B93D3126549EBB00DA647C /* BRTextField.m */; };
@@ -553,6 +558,15 @@
 		049D54522664D14000E094F7 /* FMZWListTBCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FMZWListTBCell.xib; sourceTree = "<group>"; };
 		049D5455266500D200E094F7 /* FMZWEditWishVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMZWEditWishVC.h; sourceTree = "<group>"; };
 		049D5456266500D200E094F7 /* FMZWEditWishVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMZWEditWishVC.m; sourceTree = "<group>"; };
+		049D54582665C7D800E094F7 /* FMaddworkWishV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMaddworkWishV.h; sourceTree = "<group>"; };
+		049D54592665C7D800E094F7 /* FMaddworkWishV.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMaddworkWishV.m; sourceTree = "<group>"; };
+		049D545B2665CADD00E094F7 /* FMaddwishTBcell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMaddwishTBcell.h; sourceTree = "<group>"; };
+		049D545C2665CADD00E094F7 /* FMaddwishTBcell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMaddwishTBcell.m; sourceTree = "<group>"; };
+		049D545D2665CADD00E094F7 /* FMaddwishTBcell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FMaddwishTBcell.xib; sourceTree = "<group>"; };
+		049D54602665D31000E094F7 /* UIView+HYcornerRadius.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+HYcornerRadius.h"; sourceTree = "<group>"; };
+		049D54612665D31000E094F7 /* UIView+HYcornerRadius.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+HYcornerRadius.m"; sourceTree = "<group>"; };
+		049D54632665E1F500E094F7 /* FMaddWishModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMaddWishModel.h; sourceTree = "<group>"; };
+		049D54642665E1F500E094F7 /* FMaddWishModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMaddWishModel.m; sourceTree = "<group>"; };
 		04B93D2726549DA500DA647C /* MyTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTabBarViewController.h; sourceTree = "<group>"; };
 		04B93D2826549DA500DA647C /* MyTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTabBarViewController.m; sourceTree = "<group>"; };
 		04B93D2D26549EBB00DA647C /* BRStringPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRStringPickerView.h; sourceTree = "<group>"; };
@@ -1029,16 +1043,18 @@
 		0479A61C265B85C800FD966F /* IOSTools */ = {
 			isa = PBXGroup;
 			children = (
+				0479A621265B85C800FD966F /* CYCustomArcImageView.h */,
 				0479A61D265B85C800FD966F /* CYCustomArcImageView.m */,
 				0479A61E265B85C800FD966F /* IOSMessageAlertView.m */,
 				0479A61F265B85C800FD966F /* UIImage+ColorImage.m */,
 				0479A620265B85C800FD966F /* CYAnyCornerRadiusUtil.m */,
-				0479A621265B85C800FD966F /* CYCustomArcImageView.h */,
 				0479A622265B85C800FD966F /* IOSMessageAlertView.h */,
 				0479A623265B85C800FD966F /* CYAnyCornerRadiusUtil.h */,
 				0479A624265B85C800FD966F /* UIImage+ColorImage.h */,
 				049D54302662448C00E094F7 /* NSString+DataStr.h */,
 				049D54312662448C00E094F7 /* NSString+DataStr.m */,
+				049D54602665D31000E094F7 /* UIView+HYcornerRadius.h */,
+				049D54612665D31000E094F7 /* UIView+HYcornerRadius.m */,
 			);
 			path = IOSTools;
 			sourceTree = "<group>";
@@ -1135,6 +1151,8 @@
 			children = (
 				049D544B2664966900E094F7 /* FMWWishListM.h */,
 				049D544C2664966900E094F7 /* FMWWishListM.m */,
+				049D54632665E1F500E094F7 /* FMaddWishModel.h */,
+				049D54642665E1F500E094F7 /* FMaddWishModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1145,6 +1163,11 @@
 				049D54502664D14000E094F7 /* FMZWListTBCell.h */,
 				049D54512664D14000E094F7 /* FMZWListTBCell.m */,
 				049D54522664D14000E094F7 /* FMZWListTBCell.xib */,
+				049D545B2665CADD00E094F7 /* FMaddwishTBcell.h */,
+				049D545C2665CADD00E094F7 /* FMaddwishTBcell.m */,
+				049D545D2665CADD00E094F7 /* FMaddwishTBcell.xib */,
+				049D54582665C7D800E094F7 /* FMaddworkWishV.h */,
+				049D54592665C7D800E094F7 /* FMaddworkWishV.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1966,6 +1989,7 @@
 				042DBA2C2656616C008FBAEC /* IOSGodsDetailTBCell.xib in Resources */,
 				04B93E132654A01100DA647C /* TopTittleTextFileTableViewCell.xib in Resources */,
 				049D53F526608F9D00E094F7 /* IOSPandianHisDetailTBCell.xib in Resources */,
+				049D545F2665CADD00E094F7 /* FMaddwishTBcell.xib in Resources */,
 				04B93E252654A01100DA647C /* TittlePhotoDetailTableViewCell.xib in Resources */,
 				0479A61A265B79DB00FD966F /* IOSTongjiYingKuiTBCell.xib in Resources */,
 				04B93E5D2654AB0000DA647C /* EntersHomeHeaderCollectionReusableView.xib in Resources */,
@@ -2141,6 +2165,7 @@
 				04B93DB326549EBB00DA647C /* AFNetHelp.m in Sources */,
 				04B93E892654DF1E00DA647C /* UIView+creatViews.m in Sources */,
 				049D53CC265DE7D200E094F7 /* IOSGodsListM.m in Sources */,
+				049D545E2665CADD00E094F7 /* FMaddwishTBcell.m in Sources */,
 				04B93E102654A01100DA647C /* UITextField+IndexPath.m in Sources */,
 				04B93E1A2654A01100DA647C /* TittleSeleTableViewCell.m in Sources */,
 				049D54072660F80F00E094F7 /* IOSAddHuiShouM.m in Sources */,
@@ -2162,6 +2187,7 @@
 				0479A62B265B861600FD966F /* IOSGodsManagerVC.m in Sources */,
 				04B93DA326549EBB00DA647C /* UIControl+YYAdd.m in Sources */,
 				04B93DAC26549EBB00DA647C /* NSDate+YYAdd.m in Sources */,
+				049D54652665E1F500E094F7 /* FMaddWishModel.m in Sources */,
 				0479A612265B779400FD966F /* IOSTongJiOutStoreVC.m in Sources */,
 				042DB9D626552B33008FBAEC /* IOSCaiGouChoTBCell.m in Sources */,
 				0405A5E9265C9A5E00D8D246 /* TYAlertController+TransitionAnimate.m in Sources */,
@@ -2249,6 +2275,7 @@
 				0447D5E52653A34A0012D72C /* AppDelegate.m in Sources */,
 				042DB9DD26552DBB008FBAEC /* IOSGodsHisDetailVC.m in Sources */,
 				049D53EA265FB17500E094F7 /* IOSPadianShowModel.m in Sources */,
+				049D545A2665C7D900E094F7 /* FMaddworkWishV.m in Sources */,
 				04B93D9D26549EBB00DA647C /* UIScrollView+YYAdd.m in Sources */,
 				04B93DB026549EBB00DA647C /* NSObject+YYAddForKVO.m in Sources */,
 				0405A612265D0C5000D8D246 /* LMParagraphConfig.m in Sources */,
@@ -2334,6 +2361,7 @@
 				04887365265B3E9000709115 /* EqualSpaceFlowLayout.m in Sources */,
 				04B93E5F2654AB0000DA647C /* EntersHomeHeaderCollectionReusableView.m in Sources */,
 				04B93E202654A01100DA647C /* AddPhotoCollectionViewCell.m in Sources */,
+				049D54622665D31000E094F7 /* UIView+HYcornerRadius.m in Sources */,
 				04B93E112654A01100DA647C /* MyBaseViewController.m in Sources */,
 				042DBA4926575039008FBAEC /* IOSPandianListVC.m in Sources */,
 				04B93D2926549DA500DA647C /* MyTabBarViewController.m in Sources */,

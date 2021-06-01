@@ -54,7 +54,7 @@
 
 }
 -(void)initData{
-    NSString *url = [AppServerURL stringByAppendingString:@"/s/api/dWishOrder/selectWorkWish"];
+    NSString *url = [AppServerURL stringByAppendingString:@"/d/api/dWishOrder/selectWorkWish"];
     NSDictionary *paramDic = @{@"empId":kUser_id
     };
     [self showHudInView:self.view hint:@"加载中"];
@@ -126,6 +126,9 @@
 }
 
 -(void)personWishList{
+    FMZWEditWishVC *pushVC = [[FMZWEditWishVC alloc] init];
+    pushVC.type = 1;
+    [self.navigationController pushViewController:pushVC animated:YES];
     
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -142,7 +145,7 @@
     cell.wishListM = wishM;
     return cell;
 }
--(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     FMWWishListM *wishM = self.dataSource[indexPath.row];
     NSInteger type = 0;
     if (wishM.name.length==0) {
@@ -164,7 +167,7 @@
     return KDeviceWith/1125*405;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return KDeviceWith/1125*502;
+    return KDeviceWith/1125*502+20;
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KDeviceWith, KDeviceWith/1125*405)];
@@ -176,10 +179,10 @@
     return headerView;
 }
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KDeviceWith, KDeviceWith/1125*502)];
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KDeviceWith, KDeviceWith/1125*502+20)];
     headerView.backgroundColor = FMWZMainColor;
     
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, KDeviceWith, KDeviceWith/1125*405)];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 20, KDeviceWith, KDeviceWith/1125*405)];
     imageView.image = ImageNamed(@"EMWLFooterView");
     [headerView addSubview:imageView];
     return headerView;
