@@ -8,6 +8,7 @@
 #import "FMZWEditWishVC.h"
 #import "FMaddwishTBcell.h"
 #import "FMaddWishModel.h"
+#import <IQKeyboardManager/IQKeyboardManager.h>
 
 #define starBGViewW (KDeviceWith-40-110-60)
 @interface FMZWEditWishVC ()<UITableViewDataSource,UITableViewDelegate>
@@ -25,6 +26,7 @@
 @property (nonatomic,assign) NSInteger leaveIndex;
 @property (nonatomic,assign) NSInteger starIndex;
 
+@property (nonatomic,strong) NSMutableArray *inputedArr;
 
 @end
 
@@ -37,6 +39,7 @@
     self.view.backgroundColor =[UIColor whiteColor];
     [self initData];
     [self CreatTableview];
+    [self creatBottomView];
     [self.view bringSubviewToFront:self.tabelView];
 
     
@@ -125,6 +128,7 @@
     self.dataSource = dataArr;
     self.leavelbtnArr = [NSMutableArray arrayWithCapacity:0];
     self.startbtnArr = [NSMutableArray arrayWithCapacity:0];
+    self.inputedArr = [NSMutableArray arrayWithArray:@[@"",@"",@""]];
     [self initNetData];
 }
 #pragma mark - 创建头视图
@@ -150,7 +154,7 @@
 }
 -(void)CreatTableview{
     self.tabelView.y = -kNavBarHeight;
-    self.tabelView.height = KDeviceHeight+kNavBarHeight;
+    self.tabelView.height = KDeviceHeight+kNavBarHeight-100-KEVNScreenTabBarSafeBottomMargin;
     self.tabelView.delegate = self;
     self.tabelView.dataSource = self;
     self.tabelView.backgroundColor = [UIColor clearColor];
@@ -158,12 +162,88 @@
     [self.tabelView registerNib:[UINib nibWithNibName:@"FMaddwishTBcell" bundle:nil] forCellReuseIdentifier:@"FMaddwishTBcell"];
     
 }
+-(void)creatBottomView{
+    UIView *bottomView = [[UIView alloc]  initWithFrame:CGRectMake(0, KDeviceHeight-100-KEVNScreenTabBarSafeBottomMargin, KDeviceWith, 100+KEVNScreenTabBarSafeBottomMargin)];
+    bottomView.backgroundColor = RGBA(250, 250, 250, 1);
+
+    [self.view addSubview:bottomView];
+
+    CYCustomArcImageView *bgView = [[CYCustomArcImageView alloc] initWithFrame:CGRectMake(20, 10, KDeviceWith-40, 60)];
+    bgView.borderTopLeftRadius = 10;
+    bgView.borderTopRightRadius = 30;
+    bgView.borderBottomLeftRadius = 10;
+    bgView.borderBottomRightRadius = 10;
+    [bottomView addSubview:bgView];
+    UIButton *makeSureBtn = [UIButton buttonWithType:0];
+    makeSureBtn.frame = CGRectMake(0, 0, KDeviceWith-40, 60);
+    [makeSureBtn setTitle:@"保 存" forState:0];
+    makeSureBtn.backgroundColor =RGBA(46, 153, 164, 1);
+    [bgView addSubview:makeSureBtn];
+    [makeSureBtn addTarget:self action:@selector(makeSureBtnClicked) forControlEvents:UIControlEventTouchUpInside];
+    
+}
+-(void)makeSureBtnClicked{
+    for (NSString *str in self.inputedArr) {
+        if (str.length==0) {
+            [self showHint:@"请正确输入后再提交"];
+            return;
+        }
+    }
+    if (self.leaveIndex<1) {
+        [self showHint:@"选择您的目标级别"];
+        return;
+    }
+    
+    if (self.starIndex<1) {
+        [self showHint:@"选择您的目标星级"];
+        return;
+    }
+    
+    NSString *url1 = [AppServerURL stringByAppendingString:@"/d/api/dWishOrder/editSaveWishWork"];
+    NSDictionary *dateDic = self.leavelArr[self.leaveIndex-1];
+    NSDictionary *dateDic1 = self.startArr[self.starIndex-1];
+
+//    NSLog(@"%@,%@,%@,%@,%@",kStringFormat(@"%li",self.type),self.leavelArr[self.leaveIndex][@"levleName"],self.leavelArr[self.leaveIndex][@"levleId"],self.startArr[self.starIndex][@"startLevleName"],self.startArr[self.starIndex][@"levleId"]);
+//    NSLog(@"%@,%@",dateDic,dateDic[@"levelName"]);
+    NSDictionary *paramDic1 = @{@"compId":User_Companyid,
+                               @"empId":kUser_id,
+                                @"cycleTime":kStringFormat(@"%li",self.type),
+                                @"qiandanNum":self.inputedArr[0],
+                                @"luruNum":self.inputedArr[1] ,
+                                @"qiandanPrice":self.inputedArr[2],
+                                @"levleName":dateDic[@"levelName"],
+                                @"levleId":dateDic[@"levelId"],
+                                @"startLevleName":dateDic1[@"star_name"],
+                                @"startLevleId":dateDic1[@"star_id"],
+
+    };
+    [[AFNetHelp shareAFNetworking] postInfoFromSeverWithStr:url1 body:paramDic1 sucess:^(id responseObject) {
+        [self hideHud];
+
+        if ([AowString(responseObject[@"code"]) isEqualToString:@"1"]) {
+            [self showHint:@"新增成功"];
+            [self.navigationController popViewControllerAnimated:YES];
+        }else {
+            [self showHint:responseObject[@"msg"]];
+            [self.tabelView reloadData];
+
+            
+        }
+
+        
+    } failure:^(NSError *error) {
+        [self showHint:@"稍后重试"];
+        [self hideHud];
+        
+    }];
+    
+}
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     NSInteger index =3;
     if (self.leavelArr.count>0) {
         index++;
     }
-    if (self.startbtnArr.count>0){
+    if (self.startArr.count>0){
         index++;
     }
     return index;
@@ -173,10 +253,10 @@
 
         return 150;
     }else if (indexPath.row==3){
-        NSInteger height = self.leavlView.height+120;
+        NSInteger height = self.leavlView.height+110;
         return height;
     }else if (indexPath.row==4){
-        NSInteger height = self.starView.height+120;
+        NSInteger height = self.starView.height+110;
         return height;
 
     }
@@ -184,12 +264,21 @@
 
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    FMaddwishTBcell *cell = [tableView dequeueReusableCellWithIdentifier:@"FMaddwishTBcell"];
+    
+    //取消重用
+    FMaddwishTBcell *cell = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([FMaddwishTBcell class])
+                                                           owner:self
+                                                         options:nil] objectAtIndex:0];
     cell.backgroundColor = [UIColor clearColor];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     if (indexPath.row<3) {
         FMaddWishModel *wishM = self.dataSource[indexPath.row];
          cell.addWishModel = wishM;
+        cell.textfieldEndBlock = ^(NSString * _Nonnull textFieldStr) {
+            [self.inputedArr replaceObjectAtIndex:indexPath.row withObject:textFieldStr];
+            [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        };
+        cell.textField.text = self.inputedArr[indexPath.row];
     }else{
         NSString *tagStr = @"本日计划";
         switch (self.type) {
@@ -208,13 +297,16 @@
             default:
                 break;
         }
-        [cell setleavelViewwithtagStr:tagStr];
         if (indexPath.row==3) {
-            cell.customerView.height = self.leavlView.height+100;
+            cell.customerView.height = self.leavlView.height+90;
             [cell.contentView addSubview:self.leavlView];
+            [cell setleavelViewwithtagStr:tagStr];
+
         }else{
-            cell.customerView.height = self.starView.height+100;
+            cell.customerView.height = self.starView.height+90;
             [cell.contentView addSubview:self.starView];
+            [cell setstartViewwithtagStr:tagStr];
+
         }
 
     }
@@ -239,10 +331,10 @@
 }
 -(void)addleavelSubViews
     {CGFloat w = 0;//保存前一个button的宽以及前一个button距离屏幕边缘的距离
-    CGFloat h = 40;//用来控制button距离父视图的高
+    CGFloat h = 0;//用来控制button距离父视图的高
     for (int i = 0; i < self.leavelArr.count; i++) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
-        button.tag = 100 + i;
+        button.tag = 101 + i;
         button.backgroundColor = RGBA(250, 250, 250,1);
         [button addTarget:self action:@selector(leavehandleClick:) forControlEvents:UIControlEventTouchUpInside];
         //根据计算文字的大小
@@ -252,16 +344,18 @@
         //为button赋值
         [button setTitle:self.leavelArr[i][@"levelName"] forState:UIControlStateNormal];
         //设置button的frame
-        button.frame = CGRectMake(15 + w, h, length + 40 , 30);
+        button.frame = CGRectMake(15 + w, h, length + 30 , 25);
         //当button的位置超出屏幕边缘时换行 320 只是button所在父视图的宽度
-        if( w + length > starBGViewW){
+        NSLog(@"%f,,,%f,,,%f",starBGViewW,w,length);
+
+        if( w + length +15+30> starBGViewW){
             w = 0; //换行时将w置为0
             h = h + button.frame.size.height + 15;//距离父视图也变化
-            button.frame = CGRectMake(15 + w, h, length + 50, 30);//重设button的frame
+            button.frame = CGRectMake(15 + w, h, length + 30, 25);//重设button的frame
         }
         w = button.frame.size.width + button.frame.origin.x;
         [self.leavlView addSubview:button];
-        ViewRadius(button, 5);
+        ViewRadius(button, 8);
         [button setTitleColor:RGBA(102, 102, 102,1) forState:0];
         button.titleLabel.font= kFONT(14);
         [self.leavelbtnArr addObject:button];
@@ -271,7 +365,7 @@
 //        }
         
     }
-    _leavlView.height = h;
+    _leavlView.height = h+30;
     
 }
 -(void)leavehandleClick:(UIButton *)button{
@@ -296,10 +390,10 @@
 }
 -(void)addStartSubViews{
     CGFloat w = 0;//保存前一个button的宽以及前一个button距离屏幕边缘的距离
-    CGFloat h = 40;//用来控制button距离父视图的高
+    CGFloat h = 0;//用来控制button距离父视图的高
     for (int i = 0; i < self.startArr.count; i++) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
-        button.tag = 200 + i;
+        button.tag = 201 + i;
         button.backgroundColor = RGBA(250, 250, 250,1);
         [button addTarget:self action:@selector(starthandleClick:) forControlEvents:UIControlEventTouchUpInside];
         //根据计算文字的大小
@@ -309,16 +403,17 @@
         //为button赋值
         [button setTitle:self.startArr[i][@"star_name"] forState:UIControlStateNormal];
         //设置button的frame
-        button.frame = CGRectMake(15 + w, h, length + 40 , 30);
+        button.frame = CGRectMake(15 + w, h, length + 30 , 25);
         //当button的位置超出屏幕边缘时换行 320 只是button所在父视图的宽度
-        if( w + length > starBGViewW){
+//        NSLog(@"%f,,,%f,,,%f",starBGViewW,w,length);
+        if(15+ w + length +30> starBGViewW){
             w = 0; //换行时将w置为0
             h = h + button.frame.size.height + 15;//距离父视图也变化
-            button.frame = CGRectMake(15 + w, h, length + 50, 30);//重设button的frame
+            button.frame = CGRectMake(15 + w, h, length + 30, 25);//重设button的frame
         }
         w = button.frame.size.width + button.frame.origin.x;
         [self.starView addSubview:button];
-        ViewRadius(button, 5);
+        ViewRadius(button, 8);
         [button setTitleColor:RGBA(102, 102, 102,1) forState:0];
         button.titleLabel.font= kFONT(14);
         [self.startbtnArr addObject:button];
@@ -328,7 +423,7 @@
 //        }
         
     }
-    _starView.height = h;
+    _starView.height = h+30;
 }
 -(void)starthandleClick:(UIButton *)button{
     for (UIButton *btn in self.startbtnArr) {
@@ -350,12 +445,16 @@
     
     //去掉透明后导航栏下边的黑边
     [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
+    [[IQKeyboardManager sharedManager] setEnable:YES];
+      [[IQKeyboardManager sharedManager] setEnableAutoToolbar:YES];
+    [IQKeyboardManager sharedManager].shouldResignOnTouchOutside = YES;
 }
 - (void)viewWillDisappear:(BOOL)animated{
     
     //    如果不想让其他页面的导航栏变为透明 需要重置
     [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:nil];
+    [[IQKeyboardManager sharedManager] setEnable:NO];
 
 
 }

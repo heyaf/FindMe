@@ -135,7 +135,7 @@
     return self.dataSource.count;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 190;
+    return 210;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     FMZWListTBCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FMZWListTBCell"];
@@ -147,20 +147,21 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     FMWWishListM *wishM = self.dataSource[indexPath.row];
-    NSInteger type = 0;
+    NSInteger type = 1;
     if (wishM.name.length==0) {
         return;
     }
     if ([wishM.name isEqualToString:@"本周"]) {
-        type=1;
-    }else if ([wishM.name isEqualToString:@"本月"]) {
         type=2;
-    }else if ([wishM.name isEqualToString:@"本季度"]) {
+    }else if ([wishM.name isEqualToString:@"本月"]) {
         type=3;
-    }else if ([wishM.name isEqualToString:@"本年"]) {
+    }else if ([wishM.name isEqualToString:@"本季度"]) {
         type=4;
+    }else if ([wishM.name isEqualToString:@"本年"]) {
+        type=5;
     }
     FMZWEditWishVC *pushVC = [[FMZWEditWishVC alloc] init];
+    pushVC.type = type;
     [self.navigationController pushViewController:pushVC animated:YES];
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{

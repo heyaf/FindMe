@@ -54,6 +54,8 @@
         self.mainBgIMV.image = [image resizableImageWithCapInsets:UIEdgeInsetsMake(50, 30, 20, 50) resizingMode:UIImageResizingModeStretch];
         return;
     }
+    self.editImageV.hidden = YES;
+    self.editBtn.hidden = YES;
     self.chooseSingleImageV.hidden = NO;
     self.titleLabel.hidden = NO;
     self.luruLabel.hidden = NO;
@@ -75,7 +77,7 @@
     
     NSString *leaveStr = wishListM.levleName;
     NSString *startStr = wishListM.startLevleName;
-    if ([wishListM.wishStatus isEqualToString:@"2"]) {
+    if ([wishListM.wishStatus isEqualToString:@"1"]) {
         self.chooseSingleImageV.image = ImageNamed(@"FMWLSIngleChod");
         //中划线
           NSDictionary *attribtDic = @{NSStrikethroughStyleAttributeName: [NSNumber numberWithInteger:NSUnderlineStyleSingle]};
@@ -125,26 +127,29 @@
         self.startNumLabel.text = startStr;
         
     }
+    UIImage *image;
+ 
     if ([wishListM.cycleTime isEqualToString:@"1"]) {
-        self.titleLabel.text = @"今日计划";
-        self.mainBgIMV.image = ImageNamed(@"EMWLImageView3");
+        image = ImageNamed(@"EMWLImageView3");
     }else if([wishListM.cycleTime isEqualToString:@"2"]){
         self.titleLabel.text = @"本周计划";
-        self.mainBgIMV.image = ImageNamed(@"EMWLImageView2");
+        image = ImageNamed(@"EMWLImagevIew2");
 
     }else if([wishListM.cycleTime isEqualToString:@"3"]){
         self.titleLabel.text = @"本月计划";
-        self.mainBgIMV.image = ImageNamed(@"EMWLImageView2");
+        image = ImageNamed(@"EMWLImagevIew2");
 
     }else if([wishListM.cycleTime isEqualToString:@"4"]){
         self.titleLabel.text = @"本季计划";
-        self.mainBgIMV.image = ImageNamed(@"EMWLImageView2");
+        image = ImageNamed(@"EMWLImagevIew2");
 
     }else{
         self.titleLabel.text = @"本年计划";
-        self.mainBgIMV.image = ImageNamed(@"EMWLImageView1");
+        image = ImageNamed(@"EMWLImageView1");
 
     }
+    self.mainBgIMV.image = [image resizableImageWithCapInsets:UIEdgeInsetsMake(50, 30, 20, 50) resizingMode:UIImageResizingModeStretch];
+
     
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

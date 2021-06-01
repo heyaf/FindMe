@@ -7,6 +7,7 @@
 
 #import "FMaddwishTBcell.h"
 #import "FMaddWishModel.h"
+
 @implementation FMaddwishTBcell
 
 - (void)awakeFromNib {
@@ -15,6 +16,7 @@
     [self.textField setBorderStyle:UITextBorderStyleNone];
 
     self.textField.keyboardType = UIKeyboardTypeNumberPad;
+    self.textField.delegate = self;
     
     CYCustomArcImageView *customerView = [[CYCustomArcImageView alloc] initWithFrame:CGRectMake(0, 0, KDeviceWith-40, self.mainbgView.height)];
     customerView.backgroundColor = [UIColor whiteColor];
@@ -54,15 +56,15 @@
 }
 -(void)setstartViewwithtagStr:(NSString *)tagStr{
     self.textField.hidden = YES;
-    self.nameLabel.text = @"级别";
+    self.nameLabel.text = @"星级";
     self.tagLabel.text = tagStr;
     
-    self.detailLabel.text = @"说明:您可以选择您的目标级别";
+    self.detailLabel.text = @"说明:您可以选择您的目标星级";
 }
 
 //textfield结束编辑
 -(void)textFieldDidEndEditing:(UITextField *)textField{
-    if (self.textfieldEndBlock&&textField.text.length>0) {
+    if (self.textfieldEndBlock) {
         self.textfieldEndBlock(textField.text);
     }
 }
