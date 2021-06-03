@@ -73,7 +73,7 @@
 }
 
 
-- (UIButton *)createButtonFrame:(CGRect)frame title:(NSString *)text textColor:(UIColor *)color font:(UIFont *)font image:(UIImage *)image target:(id)target method:(SEL)method {
+- (UIButton *)createButtonFrame:(CGRect)frame title:(NSString *)text textColor:(UIColor *)color font:(UIFont *)font image:( UIImage *__nullable)image target:(id)target method:(SEL)method {
     
     UIButton *view = [UIButton buttonWithType:UIButtonTypeCustom];
     view.frame = frame;

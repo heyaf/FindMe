@@ -84,6 +84,22 @@
 		042DBB302658DDFF008FBAEC /* IOSHuiShouListTBCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042DBB2E2658DDFF008FBAEC /* IOSHuiShouListTBCell.xib */; };
 		042DBB362658E613008FBAEC /* IOSHuiSHouAddDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 042DBB352658E613008FBAEC /* IOSHuiSHouAddDetailVC.m */; };
 		042DBB422658EAC9008FBAEC /* IOSSunHaoAddDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 042DBB412658EAC8008FBAEC /* IOSSunHaoAddDetailVC.m */; };
+		0443D47826673461001A60D0 /* UIView+HYDiffRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = 0443D47726673461001A60D0 /* UIView+HYDiffRadius.m */; };
+		0443D4D42667674A001A60D0 /* FMZPChooWishVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0443D4D32667674A001A60D0 /* FMZPChooWishVC.m */; };
+		0443D4D7266770C1001A60D0 /* HobbyTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0443D4D6266770C1001A60D0 /* HobbyTagView.m */; };
+		0443D4E126677BC6001A60D0 /* LeeTagItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0443D4DB26677BC6001A60D0 /* LeeTagItemViewModel.m */; };
+		0443D4E226677BC6001A60D0 /* LeeTagItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0443D4DD26677BC6001A60D0 /* LeeTagItem.m */; };
+		0443D4E326677BC6001A60D0 /* LeeTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0443D4DE26677BC6001A60D0 /* LeeTagView.m */; };
+		0443D4E6266786D8001A60D0 /* FMTagSelelctView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0443D4E5266786D8001A60D0 /* FMTagSelelctView.m */; };
+		0443D4E92667A252001A60D0 /* FMZPShowWishVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0443D4E82667A252001A60D0 /* FMZPShowWishVC.m */; };
+		0443D4EC26688A65001A60D0 /* FMWishFinshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0443D4EB26688A65001A60D0 /* FMWishFinshView.m */; };
+		0443D4F32668C43D001A60D0 /* FMHouseMessVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0443D4F22668C43D001A60D0 /* FMHouseMessVC.m */; };
+		0443D4FA2668C72A001A60D0 /* YewuLiangfangleverTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0443D4F52668C72A001A60D0 /* YewuLiangfangleverTableViewCell.m */; };
+		0443D4FB2668C72A001A60D0 /* YewuLiangfangleverTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0443D4F72668C72A001A60D0 /* YewuLiangfangleverTableViewCell.xib */; };
+		0443D4FC2668C72A001A60D0 /* AddGoodsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0443D4F82668C72A001A60D0 /* AddGoodsCollectionViewCell.m */; };
+		0443D4FF2668C845001A60D0 /* TZImagePreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0443D4FE2668C845001A60D0 /* TZImagePreviewController.m */; };
+		0443D5022668CB11001A60D0 /* FMHouseMessM.m in Sources */ = {isa = PBXBuildFile; fileRef = 0443D5012668CB11001A60D0 /* FMHouseMessM.m */; };
+		0443D5052668E247001A60D0 /* FMHouseMesCM.m in Sources */ = {isa = PBXBuildFile; fileRef = 0443D5042668E247001A60D0 /* FMHouseMesCM.m */; };
 		0447D5E52653A34A0012D72C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0447D5E42653A34A0012D72C /* AppDelegate.m */; };
 		0447D5EB2653A34A0012D72C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0447D5EA2653A34A0012D72C /* ViewController.m */; };
 		0447D5EE2653A34A0012D72C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0447D5EC2653A34A0012D72C /* Main.storyboard */; };
@@ -156,7 +172,6 @@
 		049D545A2665C7D900E094F7 /* FMaddworkWishV.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D54592665C7D800E094F7 /* FMaddworkWishV.m */; };
 		049D545E2665CADD00E094F7 /* FMaddwishTBcell.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D545C2665CADD00E094F7 /* FMaddwishTBcell.m */; };
 		049D545F2665CADD00E094F7 /* FMaddwishTBcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049D545D2665CADD00E094F7 /* FMaddwishTBcell.xib */; };
-		049D54622665D31000E094F7 /* UIView+HYcornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D54612665D31000E094F7 /* UIView+HYcornerRadius.m */; };
 		049D54652665E1F500E094F7 /* FMaddWishModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D54642665E1F500E094F7 /* FMaddWishModel.m */; };
 		04B93D2926549DA500DA647C /* MyTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B93D2826549DA500DA647C /* MyTabBarViewController.m */; };
 		04B93D8D26549EBB00DA647C /* BRStringPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B93D2E26549EBB00DA647C /* BRStringPickerView.m */; };
@@ -432,6 +447,37 @@
 		042DBB352658E613008FBAEC /* IOSHuiSHouAddDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSHuiSHouAddDetailVC.m; sourceTree = "<group>"; };
 		042DBB402658EAC8008FBAEC /* IOSSunHaoAddDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSSunHaoAddDetailVC.h; sourceTree = "<group>"; };
 		042DBB412658EAC8008FBAEC /* IOSSunHaoAddDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSSunHaoAddDetailVC.m; sourceTree = "<group>"; };
+		0443D47626673461001A60D0 /* UIView+HYDiffRadius.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+HYDiffRadius.h"; sourceTree = "<group>"; };
+		0443D47726673461001A60D0 /* UIView+HYDiffRadius.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+HYDiffRadius.m"; sourceTree = "<group>"; };
+		0443D4D22667674A001A60D0 /* FMZPChooWishVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMZPChooWishVC.h; sourceTree = "<group>"; };
+		0443D4D32667674A001A60D0 /* FMZPChooWishVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMZPChooWishVC.m; sourceTree = "<group>"; };
+		0443D4D5266770C1001A60D0 /* HobbyTagView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HobbyTagView.h; sourceTree = "<group>"; };
+		0443D4D6266770C1001A60D0 /* HobbyTagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HobbyTagView.m; sourceTree = "<group>"; };
+		0443D4DA26677BC6001A60D0 /* LeeTagItemViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeeTagItemViewModel.h; sourceTree = "<group>"; };
+		0443D4DB26677BC6001A60D0 /* LeeTagItemViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeeTagItemViewModel.m; sourceTree = "<group>"; };
+		0443D4DD26677BC6001A60D0 /* LeeTagItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeeTagItem.m; sourceTree = "<group>"; };
+		0443D4DE26677BC6001A60D0 /* LeeTagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeeTagView.m; sourceTree = "<group>"; };
+		0443D4DF26677BC6001A60D0 /* LeeTagItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeeTagItem.h; sourceTree = "<group>"; };
+		0443D4E026677BC6001A60D0 /* LeeTagView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeeTagView.h; sourceTree = "<group>"; };
+		0443D4E4266786D8001A60D0 /* FMTagSelelctView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMTagSelelctView.h; sourceTree = "<group>"; };
+		0443D4E5266786D8001A60D0 /* FMTagSelelctView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMTagSelelctView.m; sourceTree = "<group>"; };
+		0443D4E72667A252001A60D0 /* FMZPShowWishVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMZPShowWishVC.h; sourceTree = "<group>"; };
+		0443D4E82667A252001A60D0 /* FMZPShowWishVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMZPShowWishVC.m; sourceTree = "<group>"; };
+		0443D4EA26688A65001A60D0 /* FMWishFinshView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMWishFinshView.h; sourceTree = "<group>"; };
+		0443D4EB26688A65001A60D0 /* FMWishFinshView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMWishFinshView.m; sourceTree = "<group>"; };
+		0443D4F12668C43D001A60D0 /* FMHouseMessVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMHouseMessVC.h; sourceTree = "<group>"; };
+		0443D4F22668C43D001A60D0 /* FMHouseMessVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMHouseMessVC.m; sourceTree = "<group>"; };
+		0443D4F52668C72A001A60D0 /* YewuLiangfangleverTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YewuLiangfangleverTableViewCell.m; sourceTree = "<group>"; };
+		0443D4F62668C72A001A60D0 /* AddGoodsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddGoodsCollectionViewCell.h; sourceTree = "<group>"; };
+		0443D4F72668C72A001A60D0 /* YewuLiangfangleverTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YewuLiangfangleverTableViewCell.xib; sourceTree = "<group>"; };
+		0443D4F82668C72A001A60D0 /* AddGoodsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddGoodsCollectionViewCell.m; sourceTree = "<group>"; };
+		0443D4F92668C72A001A60D0 /* YewuLiangfangleverTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YewuLiangfangleverTableViewCell.h; sourceTree = "<group>"; };
+		0443D4FD2668C845001A60D0 /* TZImagePreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZImagePreviewController.h; sourceTree = "<group>"; };
+		0443D4FE2668C845001A60D0 /* TZImagePreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZImagePreviewController.m; sourceTree = "<group>"; };
+		0443D5002668CB11001A60D0 /* FMHouseMessM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMHouseMessM.h; sourceTree = "<group>"; };
+		0443D5012668CB11001A60D0 /* FMHouseMessM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMHouseMessM.m; sourceTree = "<group>"; };
+		0443D5032668E247001A60D0 /* FMHouseMesCM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMHouseMesCM.h; sourceTree = "<group>"; };
+		0443D5042668E247001A60D0 /* FMHouseMesCM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMHouseMesCM.m; sourceTree = "<group>"; };
 		0447D5E02653A34A0012D72C /* FindMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0447D5E32653A34A0012D72C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0447D5E42653A34A0012D72C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -563,8 +609,6 @@
 		049D545B2665CADD00E094F7 /* FMaddwishTBcell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMaddwishTBcell.h; sourceTree = "<group>"; };
 		049D545C2665CADD00E094F7 /* FMaddwishTBcell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMaddwishTBcell.m; sourceTree = "<group>"; };
 		049D545D2665CADD00E094F7 /* FMaddwishTBcell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FMaddwishTBcell.xib; sourceTree = "<group>"; };
-		049D54602665D31000E094F7 /* UIView+HYcornerRadius.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+HYcornerRadius.h"; sourceTree = "<group>"; };
-		049D54612665D31000E094F7 /* UIView+HYcornerRadius.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+HYcornerRadius.m"; sourceTree = "<group>"; };
 		049D54632665E1F500E094F7 /* FMaddWishModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMaddWishModel.h; sourceTree = "<group>"; };
 		049D54642665E1F500E094F7 /* FMaddWishModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMaddWishModel.m; sourceTree = "<group>"; };
 		04B93D2726549DA500DA647C /* MyTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTabBarViewController.h; sourceTree = "<group>"; };
@@ -928,6 +972,99 @@
 			path = KuCunPanDian;
 			sourceTree = "<group>";
 		};
+		0443D4C5266766AB001A60D0 /* other */ = {
+			isa = PBXGroup;
+			children = (
+				0443D4D826677BC6001A60D0 /* LeeTagView */,
+				0443D4D5266770C1001A60D0 /* HobbyTagView.h */,
+				0443D4D6266770C1001A60D0 /* HobbyTagView.m */,
+				0443D4E4266786D8001A60D0 /* FMTagSelelctView.h */,
+				0443D4E5266786D8001A60D0 /* FMTagSelelctView.m */,
+			);
+			path = other;
+			sourceTree = "<group>";
+		};
+		0443D4D826677BC6001A60D0 /* LeeTagView */ = {
+			isa = PBXGroup;
+			children = (
+				0443D4D926677BC6001A60D0 /* TagViewModel */,
+				0443D4DC26677BC6001A60D0 /* TagView */,
+			);
+			path = LeeTagView;
+			sourceTree = "<group>";
+		};
+		0443D4D926677BC6001A60D0 /* TagViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0443D4DA26677BC6001A60D0 /* LeeTagItemViewModel.h */,
+				0443D4DB26677BC6001A60D0 /* LeeTagItemViewModel.m */,
+			);
+			path = TagViewModel;
+			sourceTree = "<group>";
+		};
+		0443D4DC26677BC6001A60D0 /* TagView */ = {
+			isa = PBXGroup;
+			children = (
+				0443D4DF26677BC6001A60D0 /* LeeTagItem.h */,
+				0443D4DD26677BC6001A60D0 /* LeeTagItem.m */,
+				0443D4E026677BC6001A60D0 /* LeeTagView.h */,
+				0443D4DE26677BC6001A60D0 /* LeeTagView.m */,
+			);
+			path = TagView;
+			sourceTree = "<group>";
+		};
+		0443D4ED2668C40E001A60D0 /* FMHouseMessage */ = {
+			isa = PBXGroup;
+			children = (
+				0443D4F42668C72A001A60D0 /* Tools */,
+				0443D4EE2668C40E001A60D0 /* Controller */,
+				0443D4EF2668C40E001A60D0 /* Model */,
+				0443D4F02668C40E001A60D0 /* View */,
+			);
+			path = FMHouseMessage;
+			sourceTree = "<group>";
+		};
+		0443D4EE2668C40E001A60D0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0443D4F12668C43D001A60D0 /* FMHouseMessVC.h */,
+				0443D4F22668C43D001A60D0 /* FMHouseMessVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0443D4EF2668C40E001A60D0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0443D5002668CB11001A60D0 /* FMHouseMessM.h */,
+				0443D5012668CB11001A60D0 /* FMHouseMessM.m */,
+				0443D5032668E247001A60D0 /* FMHouseMesCM.h */,
+				0443D5042668E247001A60D0 /* FMHouseMesCM.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0443D4F02668C40E001A60D0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0443D4F42668C72A001A60D0 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				0443D4FD2668C845001A60D0 /* TZImagePreviewController.h */,
+				0443D4FE2668C845001A60D0 /* TZImagePreviewController.m */,
+				0443D4F62668C72A001A60D0 /* AddGoodsCollectionViewCell.h */,
+				0443D4F82668C72A001A60D0 /* AddGoodsCollectionViewCell.m */,
+				0443D4F92668C72A001A60D0 /* YewuLiangfangleverTableViewCell.h */,
+				0443D4F52668C72A001A60D0 /* YewuLiangfangleverTableViewCell.m */,
+				0443D4F72668C72A001A60D0 /* YewuLiangfangleverTableViewCell.xib */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
 		0447D5D72653A34A0012D72C = {
 			isa = PBXGroup;
 			children = (
@@ -953,6 +1090,7 @@
 		0447D5E22653A34A0012D72C /* FindMe */ = {
 			isa = PBXGroup;
 			children = (
+				0443D4ED2668C40E001A60D0 /* FMHouseMessage */,
 				049D543F266490CB00E094F7 /* FMZWishList */,
 				04887360265B3E8F00709115 /* testVC */,
 				04B93E392654AAFF00DA647C /* InOutSave */,
@@ -968,6 +1106,8 @@
 				0447ECCB2653A8070012D72C /* AppDelegate+Hyphenate.m */,
 				04B93E7F2654B23E00DA647C /* IOSHomeViewController.h */,
 				04B93E802654B23E00DA647C /* IOSHomeViewController.m */,
+				0443D47626673461001A60D0 /* UIView+HYDiffRadius.h */,
+				0443D47726673461001A60D0 /* UIView+HYDiffRadius.m */,
 				04B93E362654A86B00DA647C /* HomeViewController.h */,
 				04B93E372654A86B00DA647C /* HomeViewController.m */,
 				0447D5F52653A34F0012D72C /* main.m */,
@@ -1043,18 +1183,16 @@
 		0479A61C265B85C800FD966F /* IOSTools */ = {
 			isa = PBXGroup;
 			children = (
+				0479A623265B85C800FD966F /* CYAnyCornerRadiusUtil.h */,
+				0479A620265B85C800FD966F /* CYAnyCornerRadiusUtil.m */,
 				0479A621265B85C800FD966F /* CYCustomArcImageView.h */,
 				0479A61D265B85C800FD966F /* CYCustomArcImageView.m */,
-				0479A61E265B85C800FD966F /* IOSMessageAlertView.m */,
-				0479A61F265B85C800FD966F /* UIImage+ColorImage.m */,
-				0479A620265B85C800FD966F /* CYAnyCornerRadiusUtil.m */,
 				0479A622265B85C800FD966F /* IOSMessageAlertView.h */,
-				0479A623265B85C800FD966F /* CYAnyCornerRadiusUtil.h */,
-				0479A624265B85C800FD966F /* UIImage+ColorImage.h */,
+				0479A61E265B85C800FD966F /* IOSMessageAlertView.m */,
 				049D54302662448C00E094F7 /* NSString+DataStr.h */,
 				049D54312662448C00E094F7 /* NSString+DataStr.m */,
-				049D54602665D31000E094F7 /* UIView+HYcornerRadius.h */,
-				049D54612665D31000E094F7 /* UIView+HYcornerRadius.m */,
+				0479A624265B85C800FD966F /* UIImage+ColorImage.h */,
+				0479A61F265B85C800FD966F /* UIImage+ColorImage.m */,
 			);
 			path = IOSTools;
 			sourceTree = "<group>";
@@ -1087,6 +1225,7 @@
 		049D543F266490CB00E094F7 /* FMZWishList */ = {
 			isa = PBXGroup;
 			children = (
+				0443D4C5266766AB001A60D0 /* other */,
 				049D5444266491DE00E094F7 /* FMZWorkWishList */,
 				049D5440266491DE00E094F7 /* FMZPersonWishList */,
 				049D544F2664CB7100E094F7 /* FMWLHeader.h */,
@@ -1107,6 +1246,10 @@
 		049D5441266491DE00E094F7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				0443D4D22667674A001A60D0 /* FMZPChooWishVC.h */,
+				0443D4D32667674A001A60D0 /* FMZPChooWishVC.m */,
+				0443D4E72667A252001A60D0 /* FMZPShowWishVC.h */,
+				0443D4E82667A252001A60D0 /* FMZPShowWishVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1168,6 +1311,8 @@
 				049D545D2665CADD00E094F7 /* FMaddwishTBcell.xib */,
 				049D54582665C7D800E094F7 /* FMaddworkWishV.h */,
 				049D54592665C7D800E094F7 /* FMaddworkWishV.m */,
+				0443D4EA26688A65001A60D0 /* FMWishFinshView.h */,
+				0443D4EB26688A65001A60D0 /* FMWishFinshView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1986,6 +2131,7 @@
 				04B93E2A2654A01100DA647C /* HTittleTextFileTableViewCell.xib in Resources */,
 				04B93E292654A01100DA647C /* SeleTittleJianTouTableViewCell.xib in Resources */,
 				04B93E622654AB0000DA647C /* IOSHomeHeadCollectionReusableV.xib in Resources */,
+				0443D4FB2668C72A001A60D0 /* YewuLiangfangleverTableViewCell.xib in Resources */,
 				042DBA2C2656616C008FBAEC /* IOSGodsDetailTBCell.xib in Resources */,
 				04B93E132654A01100DA647C /* TopTittleTextFileTableViewCell.xib in Resources */,
 				049D53F526608F9D00E094F7 /* IOSPandianHisDetailTBCell.xib in Resources */,
@@ -2159,6 +2305,7 @@
 				049D543B26646E9000E094F7 /* IOSTongji1M.m in Sources */,
 				04B93E5C2654AB0000DA647C /* EntersHomeCollectionViewCell.m in Sources */,
 				04B93E812654B23E00DA647C /* IOSHomeViewController.m in Sources */,
+				0443D4E6266786D8001A60D0 /* FMTagSelelctView.m in Sources */,
 				042DBA42265746E7008FBAEC /* IOSInStoreListTBCell.m in Sources */,
 				042DB99E26551235008FBAEC /* IOSGodsHistoryVC.m in Sources */,
 				049D5457266500D300E094F7 /* FMZWEditWishVC.m in Sources */,
@@ -2169,6 +2316,7 @@
 				04B93E102654A01100DA647C /* UITextField+IndexPath.m in Sources */,
 				04B93E1A2654A01100DA647C /* TittleSeleTableViewCell.m in Sources */,
 				049D54072660F80F00E094F7 /* IOSAddHuiShouM.m in Sources */,
+				0443D4E126677BC6001A60D0 /* LeeTagItemViewModel.m in Sources */,
 				04B93DA526549EBB00DA647C /* NSArray+YYAdd.m in Sources */,
 				04F2858C2658F549008FE9D8 /* IOSTongJiCaiGouVC.m in Sources */,
 				04B93D9526549EBB00DA647C /* NSObject+YYModel.m in Sources */,
@@ -2194,9 +2342,11 @@
 				049D53D2265E197D00E094F7 /* IOSGodsDetailView.m in Sources */,
 				042DB9C7265512EE008FBAEC /* YNPageHeaderScrollView.m in Sources */,
 				042DBAF42658A7F2008FBAEC /* IOSLingYongListVC.m in Sources */,
+				0443D47826673461001A60D0 /* UIView+HYDiffRadius.m in Sources */,
 				042DB9C1265512EE008FBAEC /* UIView+YNPageExtend.m in Sources */,
 				04B93E0A2654A01100DA647C /* MJCustomActionSheet.m in Sources */,
 				0405A5F6265CAD7E00D8D246 /* IOSGodsEditPinPaiChoVC.m in Sources */,
+				0443D4E326677BC6001A60D0 /* LeeTagView.m in Sources */,
 				042DBB062658AC91008FBAEC /* IOSHuiShouDetailVC.m in Sources */,
 				0405A615265D0C5000D8D246 /* UIFont+LMText.m in Sources */,
 				0405A5F0265C9E1000D8D246 /* BYFoundationLog.m in Sources */,
@@ -2211,6 +2361,7 @@
 				04B93E0B2654A01100DA647C /* UIViewController+HUD.m in Sources */,
 				04B93E332654A01100DA647C /* TittleDetailModel.m in Sources */,
 				042DBB282658DD24008FBAEC /* IOSHuiShouAddVC.m in Sources */,
+				0443D4D42667674A001A60D0 /* FMZPChooWishVC.m in Sources */,
 				0405A5CF265C99CE00D8D246 /* WifiCoontResultDequView.m in Sources */,
 				04B93E702654AB5100DA647C /* YZDisplayViewController.m in Sources */,
 				042DBABF2657C25D008FBAEC /* IOSPanDianHeaderTBCell.m in Sources */,
@@ -2218,6 +2369,7 @@
 				0479A628265B85C800FD966F /* CYAnyCornerRadiusUtil.m in Sources */,
 				04B93E1C2654A01100DA647C /* TopTittleTextFileTableViewCell.m in Sources */,
 				0405A5FC265CC77A00D8D246 /* IOSGodspinpaiM.m in Sources */,
+				0443D4E92667A252001A60D0 /* FMZPShowWishVC.m in Sources */,
 				04B93E142654A01100DA647C /* TittleDetailJiantouShowTableViewCell.m in Sources */,
 				042DBA0926563A2F008FBAEC /* IOSGodsHisTBCell.m in Sources */,
 				0405A613265D0C5000D8D246 /* NSTextAttachment+LMText.m in Sources */,
@@ -2232,6 +2384,7 @@
 				042DBA4F2657505F008FBAEC /* IOSPanDianHisVC.m in Sources */,
 				04B93E2B2654A01100DA647C /* RequesCover.m in Sources */,
 				04B93DA626549EBB00DA647C /* NSNumber+YYAdd.m in Sources */,
+				0443D4FA2668C72A001A60D0 /* YewuLiangfangleverTableViewCell.m in Sources */,
 				04B93DB226549EBB00DA647C /* CALayer+YYAdd.m in Sources */,
 				04B93E232654A01100DA647C /* SeleTittleJianTouTableViewCell.m in Sources */,
 				0405A5E5265C9A5E00D8D246 /* TYAlertView.m in Sources */,
@@ -2262,14 +2415,17 @@
 				04B93DA826549EBB00DA647C /* NSObject+YYAdd.m in Sources */,
 				04B93DA026549EBB00DA647C /* UIBarButtonItem+YYAdd.m in Sources */,
 				042DB9C0265512EE008FBAEC /* UIViewController+YNPageExtend.m in Sources */,
+				0443D4D7266770C1001A60D0 /* HobbyTagView.m in Sources */,
 				042DBADF2657D378008FBAEC /* IOSPanDianChoDetailVC.m in Sources */,
 				04B93DA426549EBB00DA647C /* UIFont+YYAdd.m in Sources */,
 				0479A619265B79DB00FD966F /* IOSTongjiYingKuiTBCell.m in Sources */,
+				0443D5052668E247001A60D0 /* FMHouseMesCM.m in Sources */,
 				049D53ED2660872900E094F7 /* IOSPanDianHisListM.m in Sources */,
 				04B93D9C26549EBB00DA647C /* UITableView+YYAdd.m in Sources */,
 				042DB9A426551286008FBAEC /* IOSGodsHistoryListVC.m in Sources */,
 				04B93D9A26549EBB00DA647C /* UIDevice+YYAdd.m in Sources */,
 				04B93DAF26549EBB00DA647C /* NSDictionary+YYAdd.m in Sources */,
+				0443D4E226677BC6001A60D0 /* LeeTagItem.m in Sources */,
 				04B93E072654A01100DA647C /* MyBaseShowCollectionViewController.m in Sources */,
 				049D53D8265E1C4E00E094F7 /* UIView+IOSSize.m in Sources */,
 				0447D5E52653A34A0012D72C /* AppDelegate.m in Sources */,
@@ -2287,8 +2443,10 @@
 				04B93E2D2654A01100DA647C /* TittlePhotoDetailTableViewCell.m in Sources */,
 				049D543826646E7200E094F7 /* IOSTongji0M.m in Sources */,
 				042DBAAD2657BD1D008FBAEC /* IOSOutStoreHisDetailVC.m in Sources */,
+				0443D5022668CB11001A60D0 /* FMHouseMessM.m in Sources */,
 				04B93D9426549EBB00DA647C /* BRAddressPickerView.m in Sources */,
 				049D543E26646EF300E094F7 /* IOSTongji2M.m in Sources */,
+				0443D4FF2668C845001A60D0 /* TZImagePreviewController.m in Sources */,
 				04B93D9026549EBB00DA647C /* BRDatePickerView.m in Sources */,
 				049D53E4265F92EB00E094F7 /* IOSCaiGouEditM.m in Sources */,
 				0479A626265B85C800FD966F /* IOSMessageAlertView.m in Sources */,
@@ -2307,6 +2465,7 @@
 				0447ECCD2653A8080012D72C /* AppDelegate+Hyphenate.m in Sources */,
 				04B93E302654A01100DA647C /* NullSafe.m in Sources */,
 				042DBA35265744C0008FBAEC /* IOSInStoreHisVC.m in Sources */,
+				0443D4FC2668C72A001A60D0 /* AddGoodsCollectionViewCell.m in Sources */,
 				04B93DB126549EBB00DA647C /* YYCGUtilities.m in Sources */,
 				042DB9C4265512EE008FBAEC /* YNPageConfigration.m in Sources */,
 				04B93E6D2654AB5100DA647C /* YZDisplayTitleLabel.m in Sources */,
@@ -2319,6 +2478,7 @@
 				04B93E1B2654A01100DA647C /* HTittleTextFileTableViewCell.m in Sources */,
 				042DBB002658AC77008FBAEC /* IOSHuiShouListVC.m in Sources */,
 				042DBAFA2658AABB008FBAEC /* IOSLingYongDetailVC.m in Sources */,
+				0443D4EC26688A65001A60D0 /* FMWishFinshView.m in Sources */,
 				04B93D9226549EBB00DA647C /* BRAddressModel.m in Sources */,
 				0405A5EB265C9A5E00D8D246 /* TYAlertDropDownAnimation.m in Sources */,
 				04B93E0E2654A01100DA647C /* CALayer+CALayerXibConfig.m in Sources */,
@@ -2343,6 +2503,7 @@
 				049D54352662460700E094F7 /* IOSTongjiM.m in Sources */,
 				04B93E762654AC1800DA647C /* YuanGongModel.m in Sources */,
 				042DBAB52657C19D008FBAEC /* IOSPanDianVC.m in Sources */,
+				0443D4F32668C43D001A60D0 /* FMHouseMessVC.m in Sources */,
 				049D53F426608F9D00E094F7 /* IOSPandianHisDetailTBCell.m in Sources */,
 				042DB98726550017008FBAEC /* IOSChooseGoodsViewController.m in Sources */,
 				042DB9C5265512EE008FBAEC /* YNPageTableView.m in Sources */,
@@ -2361,7 +2522,6 @@
 				04887365265B3E9000709115 /* EqualSpaceFlowLayout.m in Sources */,
 				04B93E5F2654AB0000DA647C /* EntersHomeHeaderCollectionReusableView.m in Sources */,
 				04B93E202654A01100DA647C /* AddPhotoCollectionViewCell.m in Sources */,
-				049D54622665D31000E094F7 /* UIView+HYcornerRadius.m in Sources */,
 				04B93E112654A01100DA647C /* MyBaseViewController.m in Sources */,
 				042DBA4926575039008FBAEC /* IOSPandianListVC.m in Sources */,
 				04B93D2926549DA500DA647C /* MyTabBarViewController.m in Sources */,

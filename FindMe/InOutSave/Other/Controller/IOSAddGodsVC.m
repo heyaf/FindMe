@@ -324,6 +324,8 @@
         //设置键盘样式
         if (indexPath.row!=0&&indexPath.row!=5) {
             cell.inputTF.keyboardType = UIKeyboardTypeNumberPad;
+        }else{
+            cell.inputTF.keyboardType = UIKeyboardTypeDefault;
         }
 
         return cell;
@@ -407,9 +409,9 @@
 }
 -(void)creatSingleButtonWithView:(UIView *)cellView{
 
-    NSString* optionTitle = @"员工端";
+    NSString* optionTitle = @"员工使用产品";
     UIButton* btn = [UIButton buttonWithType:0];
-    btn.frame = CGRectMake(15, 40, 80, 20);
+    btn.frame = CGRectMake(15, 40, 120, 20);
 
     [btn setTitle:optionTitle forState:UIControlStateNormal];
     [btn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
@@ -417,7 +419,7 @@
     [btn setImage:[UIImage imageNamed:@"IOSChoosedIcon"] forState:UIControlStateNormal];
 
     btn.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
-    btn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 60);
+    btn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 100);
 
     [cellView addSubview:btn];
     

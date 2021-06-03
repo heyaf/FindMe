@@ -38,7 +38,7 @@
     [attriStr addAttributes: @{NSFontAttributeName :kFONT(12),NSForegroundColorAttributeName:IOSMainColor,} range:NSMakeRange(priceStr.length-4, 3)];
     self.PriceLabel.attributedText = attriStr;
     
-    if (hisModel.type==2) {
+    if (hisModel.type==1) {
         self.tagImageV.image = ImageNamed(@"IOSCaigouing");
     }else{
         self.tagImageV.image = ImageNamed(@"IOSCaigouFinish");

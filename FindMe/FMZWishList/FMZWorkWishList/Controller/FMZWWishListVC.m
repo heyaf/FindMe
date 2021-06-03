@@ -9,7 +9,10 @@
 #import "FMWWishListM.h"
 #import "FMZWListTBCell.h"
 #import "FMZWEditWishVC.h"
+#import "FMZPChooWishVC.h"
+#import "FMZPShowWishVC.h"
 @interface FMZWWishListVC ()<UITableViewDelegate,UITableViewDataSource>
+@property (nonatomic,assign) NSInteger wishpType; //是否添加过个人计划 //1添加过  0 未添加过
 
 @end
 
@@ -60,8 +63,9 @@
     [self showHudInView:self.view hint:@"加载中"];
     [[AFNetHelp shareAFNetworking] postInfoFromSeverWithStr:url body:paramDic sucess:^(id responseObject) {
         [self hideHud];
-
+        
         if ([AowString(responseObject[@"code"]) isEqualToString:@"1"]) {
+            self.wishpType = [responseObject[@"isSave"] integerValue];
             NSMutableArray *mutArr = [NSMutableArray arrayWithCapacity:0];
             for (NSDictionary *dic in responseObject[@"data"]) {
                 if ([dic[@"data"] isKindOfClass:[NSDictionary class]]) {
@@ -126,8 +130,12 @@
 }
 
 -(void)personWishList{
-    FMZWEditWishVC *pushVC = [[FMZWEditWishVC alloc] init];
-    pushVC.type = 1;
+    if (self.wishpType==1) {
+        FMZPShowWishVC *pushVC = [[FMZPShowWishVC alloc] init];
+        [self.navigationController pushViewController:pushVC animated:YES];
+        return;
+    }
+    FMZPChooWishVC *pushVC = [[FMZPChooWishVC alloc] init];
     [self.navigationController pushViewController:pushVC animated:YES];
     
 }

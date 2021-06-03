@@ -9,9 +9,14 @@
 #import "IOSEnterHomeVC.h"
 #import "IOSMessageAlertView.h"
 #import "FMZWWishListVC.h"
-//#import "UIView+HYcornerRadius.h"
+#import "UIView+HYDiffRadius.h"
+#import "FMZPShowWishVC.h"
+#import "FMWishFinshView.h"
+#import "FMWWishListM.h"
+#import "FMHouseMessVC.h"
 @interface IOSHomeViewController ()
-
+@property (nonatomic,strong) CYCustomArcImageView *btnTwoBgView;
+@property (nonatomic,strong) UIView *tesyView;
 @end
 
 @implementation IOSHomeViewController
@@ -37,13 +42,22 @@
     [IOSBtn1 addTarget:self action:@selector(wishList) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:IOSBtn1];
     
-    UIImageView *imageVIew  = [[UIImageView alloc] initWithFrame:CGRectMake(0, 400, KDeviceWith, 100)];
-    UIImage * image =  ImageNamed(@"EMWLImageView3");
-    image = [image resizableImageWithCapInsets:UIEdgeInsetsMake(image.size.height/3, image.size.width/3, image.size.height/3, image.size.width/3) resizingMode:UIImageResizingModeTile];
-    [self.view addSubview:imageVIew];
-    imageVIew.backgroundColor = [UIColor redColor];
-//    [imageVIew drawHYCornerRaiuswithborderTopLeftRadius:10 borderTopRightRadius:30 borderBottomLeftRadius:10 borderBottomRightRadius:0];
-//    imageVIew.image = [[UIImage imageNamed:@"EMWLImageView3"] resizableImageWithCapInsets:UIEdgeInsetsMake(50, 30, 20, 20) resizingMode:UIImageResizingModeStretch];
+
+    UIButton *IOSBtn2 = [UIButton buttonWithType:0];
+    IOSBtn2.frame = CGRectMake(100, 350, 100, 30);
+    IOSBtn2.backgroundColor = [UIColor yellowColor];
+    [IOSBtn2 setTitle:@"心愿单弹窗" forState:0];
+    [IOSBtn2 setTitleColor:[UIColor blackColor] forState:0];
+    [IOSBtn2 addTarget:self action:@selector(wishTanchuang) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:IOSBtn2];
+    
+    UIButton *IOSBtn3 = [UIButton buttonWithType:0];
+    IOSBtn3.frame = CGRectMake(100, 430, 100, 30);
+    IOSBtn3.backgroundColor = [UIColor yellowColor];
+    [IOSBtn3 setTitle:@"房屋信息" forState:0];
+    [IOSBtn3 setTitleColor:[UIColor blackColor] forState:0];
+    [IOSBtn3 addTarget:self action:@selector(houseMessage) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:IOSBtn3];
     
 }
 
@@ -51,18 +65,8 @@
     
         IOSEnterHomeVC *pushVC = [[IOSEnterHomeVC alloc] init];
         [self.navigationController pushViewController:pushVC animated:YES];
-    
-//    //有范围
-//        NSString * helloStr = @"hello word";
-//        NSMutableAttributedString * mString = [[NSMutableAttributedString alloc] initWithString: helloStr];
-//        
-//        //方式1
-//        NSDictionary * dic = @{NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:20],NSForegroundColorAttributeName:[UIColor redColor],};
-//        [mString addAttributes:dic range:NSMakeRange(0, 3)];
-//      
-//
-//    IOSMessageAlertView *alertView = [[IOSMessageAlertView alloc] initWithFrame:CGRectMake(0, 0, KDeviceWith, KDeviceHeight) type:IOSMesAlertTypeTV titleStr:mString cancleBtnName:@"取消" sureBtnName:@"确定" DetailBtnName:@"好的，知道了"];
-//    [alertView show];
+  
+
 
 }
 -(void)wishList{
@@ -70,4 +74,44 @@
     [self.navigationController pushViewController:pushVC animated:YES];
 }
 
+-(void)wishTanchuang{
+    
+    [self getWishListData];
+}
+-(void)getWishListData{
+    NSString *url = [AppServerURL stringByAppendingString:@"/d/api/dWishOrder/selectWorkWish"];
+    NSDictionary *paramDic = @{@"empId":kUser_id
+    };
+    [[AFNetHelp shareAFNetworking] postInfoFromSeverWithStr:url body:paramDic sucess:^(id responseObject) {
+        [self hideHud];
+        
+        if ([AowString(responseObject[@"code"]) isEqualToString:@"1"]) {
+            NSMutableArray *mutArr = [NSMutableArray arrayWithCapacity:0];
+            for (NSDictionary *dic in responseObject[@"data"]) {
+                if ([dic[@"data"] isKindOfClass:[NSDictionary class]]) {
+                    FMWWishListM *wishM = [[FMWWishListM alloc] initWithDictionary:dic[@"data"] error:nil];
+                    wishM.name = dic[@"name"];
+
+                    [mutArr addObject:wishM];
+                }
+
+            }
+            FMWishFinshView *wishView = [[FMWishFinshView alloc] initWithFrame:CGRectMake(0, 0, KDeviceWith, KDeviceWith) DataDic:mutArr];
+            [wishView show];
+        }else {
+           
+            
+        }
+
+        
+    } failure:^(NSError *error) {
+        [self showHint:@"稍后重试"];
+        [self hideHud];
+        
+    }];
+}
+-(void)houseMessage{
+    FMHouseMessVC *pushVC = [[FMHouseMessVC alloc] init];
+    [self.navigationController pushViewController:pushVC animated:YES];
+}
 @end

@@ -73,11 +73,16 @@
 
 -(void)setupContainer{
     CGFloat alertW = KDeviceWith-160;
-    CGFloat alertH = alertW-40;
+//    CGFloat alertH = alertW-40;
+    CGFloat alertH = 228;
     if (self.alertType ==IOSMesAlertTypeChoose) {
-        alertH = alertW-100;
+//        alertH = alertW-100;
+        alertH = 168;
+
     }else if(self.alertType == IOSMesAlertTypeTF){
-        alertH = alertW-60;
+//        alertH = alertW-60;
+        alertH = 208;
+
     }
     
     CYCustomArcImageView *bgView = [[CYCustomArcImageView alloc] initWithFrame:CGRectMake(0, 0, alertW, alertH)];

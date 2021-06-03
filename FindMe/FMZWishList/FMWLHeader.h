@@ -7,6 +7,7 @@
 
 #ifndef FMWLHeader_h
 #define FMWLHeader_h
+#import "UIView+HYDiffRadius.h"
 
 #define kScreenW [UIScreen mainScreen].bounds.size.width
 #define kScreenH  [UIScreen mainScreen].bounds.size.height

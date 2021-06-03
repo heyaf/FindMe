@@ -21,10 +21,7 @@
     [super viewDidLoad];
     self.delegate = self;
     self.tabBar.tintColor = KAppColor;
-//    UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KDeviceWith, KEVNScreenTabBarHeight)];
-//    backView.backgroundColor = [UIColor whiteColor];
-//    [self.tabBar insertSubview:backView atIndex:0];
-//    self.tabBar.opaque = YES;
+
     
     UITabBarItem *item0 = [self.tabBar.items objectAtIndex:0];
     [item0 setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:

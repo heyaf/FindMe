@@ -140,7 +140,7 @@
         self.borderColor = IOSMainColor.CGColor;
 
     }else if (self.Colortype ==2){
-        self.borderColor = [UIColor grayColor].CGColor;
+        self.borderColor = [UIColor systemPinkColor].CGColor;
     }
      //黄色
      //1.0 顶左 画圆弧

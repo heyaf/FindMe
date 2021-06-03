@@ -32,7 +32,7 @@ typedef NS_OPTIONS(NSUInteger, LeShadowPathType) {
 
 
 /** 快速创建按钮 */
-- (UIButton *)createButtonFrame:(CGRect)frame title:(NSString *)text textColor:(UIColor *)color font:(UIFont *)font image:(UIImage *)image target:(id)target method:(SEL)method;
+- (UIButton *)createButtonFrame:(CGRect)frame title:(NSString *)text textColor:(UIColor *)color font:(UIFont *)font image:(UIImage *__nullable)image target:(id)target method:(SEL)method;
 
 /** 快速创建输入框 */
 - (UITextField *)createTextFieldFrame:(CGRect)frame textColor:(UIColor *)color font:(UIFont *)font;
