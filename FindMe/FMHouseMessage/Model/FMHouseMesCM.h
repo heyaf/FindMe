@@ -23,11 +23,16 @@ NS_ASSUME_NONNULL_BEGIN
  "optionAfter": null,//选项后部分
  "companyId": 0//所属公司id
  "isPhoto": 0//1拍照 2不拍照*/
+@interface OrderModel : JSONModel
+@property (assign, nonatomic) int order_id;
+@property (assign, nonatomic) float total_price;
+@property (nonatomic,strong) NSString *name;
+@end
 @interface FMHouseMesCM : JSONModel
 
 @property (nonatomic,strong) NSString *houseMessId,*name,*levelType,*selectType,*iamgeUrl,*remark,*types,*optionFormat,*optionBefore,*optionAfter;
 
-@property (nonatomic,strong) NSArray<FMHouseMesCM*> *lowerLevelData;
+@property (nonatomic,copy) NSArray<OrderModel*> *lowerLevelData;
 @property (nonatomic,assign) NSInteger pid,companyId,isPhoto;
 @end
 

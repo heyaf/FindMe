@@ -92,6 +92,7 @@
     [super viewDidLoad];
     
 //    [self setBackTitle:@"进销存"];
+    self.view.backgroundColor = [UIColor whiteColor];
     [self setbackbutton];
     NSArray *tittlearr = @[@"采购", @"库存",@"物资",@"统计", @"其他", ];
     NSArray *imgarr = @[@"caigou",@"xiaoshou", @"kucun",@"tongji", @"caiwu"];

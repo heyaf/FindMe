@@ -100,6 +100,10 @@
 		0443D4FF2668C845001A60D0 /* TZImagePreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0443D4FE2668C845001A60D0 /* TZImagePreviewController.m */; };
 		0443D5022668CB11001A60D0 /* FMHouseMessM.m in Sources */ = {isa = PBXBuildFile; fileRef = 0443D5012668CB11001A60D0 /* FMHouseMessM.m */; };
 		0443D5052668E247001A60D0 /* FMHouseMesCM.m in Sources */ = {isa = PBXBuildFile; fileRef = 0443D5042668E247001A60D0 /* FMHouseMesCM.m */; };
+		0443D51A2669C3CD001A60D0 /* FMHouseMesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0443D5182669C3CD001A60D0 /* FMHouseMesCell.m */; };
+		0443D51B2669C3CD001A60D0 /* FMHouseMesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0443D5192669C3CD001A60D0 /* FMHouseMesCell.xib */; };
+		0443D51F2669F77F001A60D0 /* FMHouseMesChooseTBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0443D51D2669F77F001A60D0 /* FMHouseMesChooseTBCell.m */; };
+		0443D5202669F77F001A60D0 /* FMHouseMesChooseTBCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0443D51E2669F77F001A60D0 /* FMHouseMesChooseTBCell.xib */; };
 		0447D5E52653A34A0012D72C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0447D5E42653A34A0012D72C /* AppDelegate.m */; };
 		0447D5EB2653A34A0012D72C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0447D5EA2653A34A0012D72C /* ViewController.m */; };
 		0447D5EE2653A34A0012D72C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0447D5EC2653A34A0012D72C /* Main.storyboard */; };
@@ -274,7 +278,6 @@
 		04B93E6E2654AB5100DA647C /* YZFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B93E662654AB5100DA647C /* YZFlowLayout.m */; };
 		04B93E6F2654AB5100DA647C /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B93E672654AB5100DA647C /* UIView+Frame.m */; };
 		04B93E702654AB5100DA647C /* YZDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B93E6B2654AB5100DA647C /* YZDisplayViewController.m */; };
-		04B93E762654AC1800DA647C /* YuanGongModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B93E752654AC1700DA647C /* YuanGongModel.m */; };
 		04B93E812654B23E00DA647C /* IOSHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B93E802654B23E00DA647C /* IOSHomeViewController.m */; };
 		04B93E892654DF1E00DA647C /* UIView+creatViews.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B93E882654DF1E00DA647C /* UIView+creatViews.m */; };
 		04F2858C2658F549008FE9D8 /* IOSTongJiCaiGouVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F2858B2658F549008FE9D8 /* IOSTongJiCaiGouVC.m */; };
@@ -478,6 +481,12 @@
 		0443D5012668CB11001A60D0 /* FMHouseMessM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMHouseMessM.m; sourceTree = "<group>"; };
 		0443D5032668E247001A60D0 /* FMHouseMesCM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMHouseMesCM.h; sourceTree = "<group>"; };
 		0443D5042668E247001A60D0 /* FMHouseMesCM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMHouseMesCM.m; sourceTree = "<group>"; };
+		0443D5172669C3CD001A60D0 /* FMHouseMesCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMHouseMesCell.h; sourceTree = "<group>"; };
+		0443D5182669C3CD001A60D0 /* FMHouseMesCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMHouseMesCell.m; sourceTree = "<group>"; };
+		0443D5192669C3CD001A60D0 /* FMHouseMesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FMHouseMesCell.xib; sourceTree = "<group>"; };
+		0443D51C2669F77F001A60D0 /* FMHouseMesChooseTBCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMHouseMesChooseTBCell.h; sourceTree = "<group>"; };
+		0443D51D2669F77F001A60D0 /* FMHouseMesChooseTBCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMHouseMesChooseTBCell.m; sourceTree = "<group>"; };
+		0443D51E2669F77F001A60D0 /* FMHouseMesChooseTBCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FMHouseMesChooseTBCell.xib; sourceTree = "<group>"; };
 		0447D5E02653A34A0012D72C /* FindMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0447D5E32653A34A0012D72C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0447D5E42653A34A0012D72C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -802,8 +811,6 @@
 		04B93E6A2654AB5100DA647C /* YZFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZFlowLayout.h; sourceTree = "<group>"; };
 		04B93E6B2654AB5100DA647C /* YZDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZDisplayViewController.m; sourceTree = "<group>"; };
 		04B93E6C2654AB5100DA647C /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
-		04B93E742654AC1700DA647C /* YuanGongModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuanGongModel.h; sourceTree = "<group>"; };
-		04B93E752654AC1700DA647C /* YuanGongModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YuanGongModel.m; sourceTree = "<group>"; };
 		04B93E7F2654B23E00DA647C /* IOSHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSHomeViewController.h; sourceTree = "<group>"; };
 		04B93E802654B23E00DA647C /* IOSHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSHomeViewController.m; sourceTree = "<group>"; };
 		04B93E862654BF4E00DA647C /* IOSHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSHeader.h; sourceTree = "<group>"; };
@@ -1047,6 +1054,12 @@
 		0443D4F02668C40E001A60D0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0443D5172669C3CD001A60D0 /* FMHouseMesCell.h */,
+				0443D5182669C3CD001A60D0 /* FMHouseMesCell.m */,
+				0443D5192669C3CD001A60D0 /* FMHouseMesCell.xib */,
+				0443D51C2669F77F001A60D0 /* FMHouseMesChooseTBCell.h */,
+				0443D51D2669F77F001A60D0 /* FMHouseMesChooseTBCell.m */,
+				0443D51E2669F77F001A60D0 /* FMHouseMesChooseTBCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1850,8 +1863,6 @@
 		04B93E4C2654AAFF00DA647C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				04B93E742654AC1700DA647C /* YuanGongModel.h */,
-				04B93E752654AC1700DA647C /* YuanGongModel.m */,
 				042DB9692654EC8E008FBAEC /* IOSCaiGouChooM.h */,
 				042DB96A2654EC8E008FBAEC /* IOSCaiGouChooM.m */,
 				042DBA0E265640DA008FBAEC /* IOSGodsHisModel.h */,
@@ -2110,12 +2121,14 @@
 				04B93E282654A01100DA647C /* TittleRightDetailTableViewCell.xib in Resources */,
 				042DBA0A26563A2F008FBAEC /* IOSGodsHisTBCell.xib in Resources */,
 				0447D5F32653A34F0012D72C /* LaunchScreen.storyboard in Resources */,
+				0443D51B2669C3CD001A60D0 /* FMHouseMesCell.xib in Resources */,
 				0447D5F02653A34F0012D72C /* Assets.xcassets in Resources */,
 				0479A630265B8E7900FD966F /* IOSManagerGodsTBCell.xib in Resources */,
 				04B93E262654A01100DA647C /* SelePhotoTittleShowTableViewCell.xib in Resources */,
 				04B93E192654A01100DA647C /* TittleJiantouShowTableViewCell.xib in Resources */,
 				042DBAC82657C557008FBAEC /* IOSPanDianHisCell.xib in Resources */,
 				042DBB302658DDFF008FBAEC /* IOSHuiShouListTBCell.xib in Resources */,
+				0443D5202669F77F001A60D0 /* FMHouseMesChooseTBCell.xib in Resources */,
 				0405A601265CCC9A00D8D246 /* IOSGodsPinPaiTBCell.xib in Resources */,
 				0447D5EE2653A34A0012D72C /* Main.storyboard in Resources */,
 				04B93E1D2654A01100DA647C /* TittleDetailShowTableViewCell.xib in Resources */,
@@ -2367,12 +2380,14 @@
 				042DBABF2657C25D008FBAEC /* IOSPanDianHeaderTBCell.m in Sources */,
 				04B93E612654AB0000DA647C /* IOSHomeHeadCollectionReusableV.m in Sources */,
 				0479A628265B85C800FD966F /* CYAnyCornerRadiusUtil.m in Sources */,
+				0443D51F2669F77F001A60D0 /* FMHouseMesChooseTBCell.m in Sources */,
 				04B93E1C2654A01100DA647C /* TopTittleTextFileTableViewCell.m in Sources */,
 				0405A5FC265CC77A00D8D246 /* IOSGodspinpaiM.m in Sources */,
 				0443D4E92667A252001A60D0 /* FMZPShowWishVC.m in Sources */,
 				04B93E142654A01100DA647C /* TittleDetailJiantouShowTableViewCell.m in Sources */,
 				042DBA0926563A2F008FBAEC /* IOSGodsHisTBCell.m in Sources */,
 				0405A613265D0C5000D8D246 /* NSTextAttachment+LMText.m in Sources */,
+				0443D51A2669C3CD001A60D0 /* FMHouseMesCell.m in Sources */,
 				04887366265B3E9000709115 /* ZhuLiuchengJiankongViewController.m in Sources */,
 				049D53CF265E050A00E094F7 /* IOSGodsDetailVC.m in Sources */,
 				04B93D9926549EBB00DA647C /* UIColor+YYAdd.m in Sources */,
@@ -2501,7 +2516,6 @@
 				049D542F2662310000E094F7 /* IOSOutStoreM.m in Sources */,
 				04B93E182654A01100DA647C /* TittleRightDetailTableViewCell.m in Sources */,
 				049D54352662460700E094F7 /* IOSTongjiM.m in Sources */,
-				04B93E762654AC1800DA647C /* YuanGongModel.m in Sources */,
 				042DBAB52657C19D008FBAEC /* IOSPanDianVC.m in Sources */,
 				0443D4F32668C43D001A60D0 /* FMHouseMessVC.m in Sources */,
 				049D53F426608F9D00E094F7 /* IOSPandianHisDetailTBCell.m in Sources */,

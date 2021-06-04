@@ -149,6 +149,9 @@
     UILabel *titleLabel1 = [headerBackView createLabelFrame:CGRectMake(20, kNavBarHeight+90, KDeviceWith-40, 35) textColor:[UIColor whiteColor] font:kFONT(17)];
     titleLabel1.numberOfLines = 2;
     titleLabel1.text = @"今日计划按部就班，明日计划秩序井然";
+    titleLabel.userInteractionEnabled = YES;
+    titleLabel1.userInteractionEnabled = YES;
+    headerBackView.userInteractionEnabled = YES;
     
     
 }
@@ -159,6 +162,10 @@
     self.tabelView.dataSource = self;
     self.tabelView.backgroundColor = [UIColor clearColor];
     self.tabelView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tabelView.sectionHeaderHeight = _imageHeight-kNavBarHeight;
+    UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KDeviceWith, _imageHeight-kNavBarHeight)];
+        headView.backgroundColor = [UIColor clearColor];
+    self.tabelView.tableHeaderView = headView;
     [self.tabelView registerNib:[UINib nibWithNibName:@"FMaddwishTBcell" bundle:nil] forCellReuseIdentifier:@"FMaddwishTBcell"];
     
 }
@@ -314,14 +321,14 @@
     
     return cell;
 }
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return _imageHeight-kNavBarHeight;
-}
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KDeviceWith, _imageHeight-kNavBarHeight)];
-    headView.backgroundColor = [UIColor clearColor];
-    return headView;
-}
+//-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+//    return _imageHeight-kNavBarHeight;
+//}
+//-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+//    UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KDeviceWith, _imageHeight-kNavBarHeight)];
+//    headView.backgroundColor = [UIColor clearColor];
+//    return headView;
+//}
 -(UIView *)leavlView{
     if (!_leavlView) {
         _leavlView = [[UIView alloc] initWithFrame:CGRectMake(90, 40, starBGViewW, 100)];

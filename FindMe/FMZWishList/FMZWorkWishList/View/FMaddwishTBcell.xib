@@ -43,7 +43,7 @@
                                     <constraint firstAttribute="height" constant="40" id="4Zp-1J-Qzf"/>
                                 </constraints>
                                 <color key="textColor" red="0.18009880189999999" green="0.60003578660000001" blue="0.64305377009999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="0.1"/>
