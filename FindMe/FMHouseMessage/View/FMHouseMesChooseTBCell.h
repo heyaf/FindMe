@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
 
 -(void)creatChooseBtnArr:(NSArray *)btnArr isSingleChoose:(BOOL)singleChoose;
-
+-(void)creatsubViewswithArr:(NSArray *)btnArr type:(NSInteger)type titleName:(NSString *)titleName;
 @end
 
 NS_ASSUME_NONNULL_END

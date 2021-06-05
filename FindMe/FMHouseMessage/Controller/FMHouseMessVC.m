@@ -46,9 +46,20 @@
             for (FMHouseMesCM *houseM in dataArr) {
                 NSArray *dataArr1 = [FMHouseMesCM arrayOfModelsFromDictionaries:houseM.lowerLevelData error:nil];
                 houseM.lowerLevelData = dataArr1;
+                NSMutableArray *cellArr =[NSMutableArray arrayWithCapacity:0];
+                [cellArr addObject:dataArr1];
+                houseM.cellArr = cellArr;
+//                NSLog(@"----%li",houseM.cellArr.count);
+                
+            }
+            self.dataSource = [NSMutableArray arrayWithArray:dataArr];
+            [self.tabelView reloadData];
+            for (FMHouseMesCM *houseM in self.dataSource) {
+//                NSLog(@"122----%li",houseM.cellArr.count);
+
             }
 
-            NSLog(@"------%@",dataArr);
+//            NSLog(@"------%@",dataArr);
             
         }else {
             [self showHint:responseObject[@"msg"]];
@@ -81,85 +92,27 @@
 //    }];
 }
 
--(void)initialFirstData{
-    NSMutableArray *mutArr = [NSMutableArray arrayWithCapacity:0];
-    for (FMHouseMesCM *houseM in self.allItemArr) {
-        if (houseM.pid ==0) {
-            [mutArr addObject:houseM];
-        }
-    }
-    NSMutableArray *mutArr1 = [NSMutableArray arrayWithCapacity:0];
-
-    for (FMHouseMesCM *houseM1 in mutArr) {
-        for (FMHouseMesCM *houseM in self.allItemArr) {
-
-            if (houseM.pid ==[houseM1.houseMessId integerValue]) {
-                [mutArr1 addObject:houseM];
-            }
-        }
-        
-    }
-    [mutArr1 addObjectsFromArray:mutArr];
-    self.dataSource = [NSMutableArray arrayWithArray:[self sortArr:mutArr1]];
-    [self setModelLeavelArrWithArr:self.dataSource];
-    
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return self.dataSource.count;
 }
-///根据id大小进行排序
--(NSArray *)sortArr:(NSArray *)sortArr{
-    
-    NSMutableArray *mutSortArr = [NSMutableArray arrayWithArray:sortArr];
-    for (int i =0; i<mutSortArr.count-1; i++) {
-        for (int j=i+1; j<mutSortArr.count; j++) {
-            FMHouseMesCM *model = mutSortArr[i];
-            FMHouseMesCM *model1 = mutSortArr[j];
-            
-            if ([model.houseMessId  integerValue]>[model1.houseMessId integerValue]) {
-                NSDictionary *dic = mutSortArr[i];
-                mutSortArr[i] = mutSortArr[j];
-                mutSortArr[j] = dic;
-            }
-        }
-    }
-    return mutSortArr;
-    
-}
--(void)setModelLeavelArrWithArr:(NSMutableArray *)arr{
-    for (FMHouseMesCM *houseM1 in arr) {
-        NSMutableArray *mutArr = [NSMutableArray arrayWithCapacity:0];
-
-        for (FMHouseMesCM *houseM in self.allItemArr) {
-
-            if (houseM.pid ==[houseM1.houseMessId integerValue]) {
-                [mutArr addObject:houseM];
-                [arr removeObject:houseM];
-            }
-        }
-        houseM1.lowerLevelData = mutArr;
-        
-    }
-}
-
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.dataSource.count*2;
+    FMHouseMesCM *cellModel = self.dataSource[section];
+    NSLog(@".....%li",cellModel.cellArr.count);
+    return cellModel.cellArr.count;
 }
-//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    return 60;
-//}
-//-(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    return 20;
-//}
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 
-    FMHouseMesCM *model = self.dataSource[indexPath.row];
-    if (model.pid ==0) {
-        FMHouseMesCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FMHouseMesCell"];
-        cell.selectionStyle= UITableViewCellSelectionStyleNone;
-        cell.titleLabel.text = model.name;
-        if (indexPath.row==0) {
-            cell.topView.hidden = YES;
-        }
-        return cell;
-    }
+    FMHouseMesCM *model = self.dataSource[indexPath.section];
+//    if (model.pid ==0) {
+//        FMHouseMesCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FMHouseMesCell"];
+//        cell.selectionStyle= UITableViewCellSelectionStyleNone;
+//        cell.titleLabel.text = model.name;
+//        if (indexPath.row==0) {
+//            cell.topView.hidden = YES;
+//        }
+//        return cell;
+//    }
     FMHouseMesChooseTBCell *cell = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([FMHouseMesChooseTBCell class])
                                                                   owner:self
                                                                 options:nil] objectAtIndex:0];
@@ -169,6 +122,86 @@
     return cell;
 
 }
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    FMHouseMesCM *model = self.dataSource[section];
+
+    FMHouseMesCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FMHouseMesCell"];
+    cell.selectionStyle= UITableViewCellSelectionStyleNone;
+    cell.titleLabel.text = model.name;
+    if (section==0) {
+        cell.topView.hidden = YES;
+    }
+    return cell;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 60;
+}
 
 
+
+
+
+
+
+
+
+
+
+//-(void)initialFirstData{
+//    NSMutableArray *mutArr = [NSMutableArray arrayWithCapacity:0];
+//    for (FMHouseMesCM *houseM in self.allItemArr) {
+//        if (houseM.pid ==0) {
+//            [mutArr addObject:houseM];
+//        }
+//    }
+//    NSMutableArray *mutArr1 = [NSMutableArray arrayWithCapacity:0];
+//
+//    for (FMHouseMesCM *houseM1 in mutArr) {
+//        for (FMHouseMesCM *houseM in self.allItemArr) {
+//
+//            if (houseM.pid ==[houseM1.houseMessId integerValue]) {
+//                [mutArr1 addObject:houseM];
+//            }
+//        }
+//
+//    }
+//    [mutArr1 addObjectsFromArray:mutArr];
+//    self.dataSource = [NSMutableArray arrayWithArray:[self sortArr:mutArr1]];
+//    [self setModelLeavelArrWithArr:self.dataSource];
+//
+//}
+/////根据id大小进行排序
+//-(NSArray *)sortArr:(NSArray *)sortArr{
+//
+//    NSMutableArray *mutSortArr = [NSMutableArray arrayWithArray:sortArr];
+//    for (int i =0; i<mutSortArr.count-1; i++) {
+//        for (int j=i+1; j<mutSortArr.count; j++) {
+//            FMHouseMesCM *model = mutSortArr[i];
+//            FMHouseMesCM *model1 = mutSortArr[j];
+//
+//            if ([model.houseMessId  integerValue]>[model1.houseMessId integerValue]) {
+//                NSDictionary *dic = mutSortArr[i];
+//                mutSortArr[i] = mutSortArr[j];
+//                mutSortArr[j] = dic;
+//            }
+//        }
+//    }
+//    return mutSortArr;
+//
+//}
+//-(void)setModelLeavelArrWithArr:(NSMutableArray *)arr{
+//    for (FMHouseMesCM *houseM1 in arr) {
+//        NSMutableArray *mutArr = [NSMutableArray arrayWithCapacity:0];
+//
+//        for (FMHouseMesCM *houseM in self.allItemArr) {
+//
+//            if (houseM.pid ==[houseM1.houseMessId integerValue]) {
+//                [mutArr addObject:houseM];
+//                [arr removeObject:houseM];
+//            }
+//        }
+//        houseM1.lowerLevelData = mutArr;
+//
+//    }
+//}
 @end

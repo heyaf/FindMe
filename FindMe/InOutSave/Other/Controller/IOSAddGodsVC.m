@@ -356,13 +356,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
     //点击隐藏键盘
-    NSArray *cellsArr = [tableView visibleCells];
-    for (UITableViewCell *cell in cellsArr) {
-        if ([cell isKindOfClass:[IOSCaiGouChoTBCell class]]) {
-            IOSCaiGouChoTBCell *tbCell = (IOSCaiGouChoTBCell *)cell;
-            [tbCell.inputTF resignFirstResponder];
-        }
-    }
+    [self.view endEditing:YES];
     
     kWeakSelf(self);
     if (indexPath.row==3) {
@@ -384,7 +378,9 @@
     NSArray *NameArr = @[@"是", @"否"];
     for (int i=0;i<NameArr.count;i++) {
         NSString* optionTitle = NameArr[i];
-        RadioButton* btn = [[RadioButton alloc] initWithFrame:btnRect];
+        RadioButton* btn = [RadioButton buttonWithType:0];
+        btn.frame = btnRect;
+        
         [btn addTarget:self action:@selector(onRadioButtonValueChanged1:) forControlEvents:UIControlEventValueChanged];
         btnRect.origin.x =100;
         btn.tag = 500+i;
@@ -393,7 +389,7 @@
         btn.titleLabel.font = [UIFont boldSystemFontOfSize:14];
         [btn setImage:[UIImage imageNamed:@"iOSUnChooseIcon"] forState:UIControlStateNormal];
         [btn setImage:[UIImage imageNamed:@"IOSChoosedIcon"] forState:UIControlStateSelected];
-        btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+//        btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         btn.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
         btn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 30);
         [cellView addSubview:btn];

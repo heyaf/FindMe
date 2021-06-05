@@ -6,14 +6,14 @@
 //
 
 #import "FMHouseMesCM.h"
-@implementation OrderModel
-+(BOOL)propertyIsOptional:(NSString *)propertyName{
-    return YES;
-}
-+ (JSONKeyMapper *)keyMapper{
-    return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{@"houseMessId":@"id"}];
-}
-@end
+//@implementation OrderModel
+//+(BOOL)propertyIsOptional:(NSString *)propertyName{
+//    return YES;
+//}
+//+ (JSONKeyMapper *)keyMapper{
+//    return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{@"houseMessId":@"id"}];
+//}
+//@end
 @implementation FMHouseMesCM
 + (JSONKeyMapper *)keyMapper{
     return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{@"houseMessId":@"id"}];

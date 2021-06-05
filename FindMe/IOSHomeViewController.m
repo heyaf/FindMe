@@ -59,8 +59,39 @@
     [IOSBtn3 addTarget:self action:@selector(houseMessage) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:IOSBtn3];
     
-}
+    
+    NSMutableArray* buttonsArray = [NSMutableArray arrayWithCapacity:3];
+    CGRect btnRect = CGRectMake(10, kNavBarHeight+10, 50, 20);
+    NSArray *NameArr = @[@"是", @"否"];
+    for (int i=0;i<NameArr.count;i++) {
+        NSString* optionTitle = NameArr[i];
+        UIButton* btn = [UIButton buttonWithType:0];
+        btn.frame = btnRect;
+        
+        [btn addTarget:self action:@selector(onRadioButtonValueChanged1:) forControlEvents:UIControlEventValueChanged];
+        btnRect.origin.x =100;
+        btn.tag = 500+i;
+        [btn setTitle:optionTitle forState:UIControlStateNormal];
+        [btn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+        btn.titleLabel.font = [UIFont boldSystemFontOfSize:14];
 
+        
+        [btn setImage:[UIImage imageNamed:@"iOSUnChooseIcon"] forState:UIControlStateNormal];
+        [btn setImage:[UIImage imageNamed:@"IOSChoosedIcon"] forState:UIControlStateSelected];
+//        btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+        btn.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
+        btn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 30);
+        [self.view addSubview:btn];
+        [buttonsArray addObject:btn];
+    }
+    
+//    [buttonsArray[0] setGroupButtons:buttonsArray]; // 把按钮放进群组中
+    [buttonsArray[0] setSelected:YES]; // 初始化
+    
+}
+-(void)onRadioButtonValueChanged1:(UIButton *)button{
+    button.selected = !button.isSelected;
+}
 -(void)InOutSave{
     
         IOSEnterHomeVC *pushVC = [[IOSEnterHomeVC alloc] init];

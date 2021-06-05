@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 /*          "id": 5,//模板id
  "name": "材料上楼",//模板名称
  "levelType": "1",//等级1 2 3 4
- "selectType": "1",//下级选项格式 1单选2多选 3无 4填空
+ "selectType": "1",//当前选项格式 1单选2多选 3无 4填空
  "pid": 0,//父级id
  "referImage": null,//参考图片
  "iamgeUrl": null,//图片
@@ -23,17 +23,19 @@ NS_ASSUME_NONNULL_BEGIN
  "optionAfter": null,//选项后部分
  "companyId": 0//所属公司id
  "isPhoto": 0//1拍照 2不拍照*/
-@interface OrderModel : JSONModel
-@property (assign, nonatomic) int order_id;
-@property (assign, nonatomic) float total_price;
-@property (nonatomic,strong) NSString *name;
-@end
+//@interface OrderModel : JSONModel
+//@property (assign, nonatomic) int order_id;
+//@property (assign, nonatomic) float total_price;
+//@property (nonatomic,strong) NSString *name;
+//@end
 @interface FMHouseMesCM : JSONModel
 
 @property (nonatomic,strong) NSString *houseMessId,*name,*levelType,*selectType,*iamgeUrl,*remark,*types,*optionFormat,*optionBefore,*optionAfter;
 
-@property (nonatomic,copy) NSArray<OrderModel*> *lowerLevelData;
+@property (nonatomic,copy) NSArray *lowerLevelData;
 @property (nonatomic,assign) NSInteger pid,companyId,isPhoto;
+
+@property (nonatomic,strong) NSArray *cellArr; //存储每个cell对应的array
 @end
 
 NS_ASSUME_NONNULL_END
