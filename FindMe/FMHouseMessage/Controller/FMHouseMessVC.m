@@ -91,13 +91,59 @@
 //
 //    }];
 }
+-(void)creatDataWithMessageID:(NSString *)messageId indexPath:(NSIndexPath*) indexpath{
+    NSString *url = [AppServerURL stringByAppendingString:@"/d/api/dJiaodiTemplate/selectAllTemp"];
+    NSDictionary *paramDic = @{
+                               @"companyId":@"41",
+                               @"pid":messageId,
+                               @"type":@"2"
+    };
+    [self showHudInView:self.view hint:@"加载中"];
+    [[AFNetHelp shareAFNetworking] postInfoFromSeverWithStr:url body:paramDic sucess:^(id responseObject) {
+        [self hideHud];
+
+        if ([AowString(responseObject[@"code"]) isEqualToString:@"1"]) {
+            NSArray *arr = responseObject[@"data"];
+            FMHouseMesCM *mesmodel = self.dataSource[indexpath.section];
+            NSMutableArray *mutCellArr = [NSMutableArray arrayWithArray:mesmodel.cellArr];
+            NSArray *dataArr = [FMHouseMesCM arrayOfModelsFromDictionaries:arr error:nil];
+            [mutCellArr addObject:dataArr];
+//            for (FMHouseMesCM *houseM in dataArr) {
+//                NSArray *dataArr1 = [FMHouseMesCM arrayOfModelsFromDictionaries:houseM.lowerLevelData error:nil];
+//                houseM.lowerLevelData = dataArr1;
+//                NSMutableArray *cellArr =[NSMutableArray arrayWithCapacity:0];
+//                [cellArr addObject:dataArr1];
+//                houseM.cellArr = cellArr;
+////                NSLog(@"----%li",houseM.cellArr.count);
+//
+//            }
+            
+            mesmodel.cellArr = mutCellArr;
+//            self.dataSource = [NSMutableArray arrayWithArray:dataArr];
+            [self.tabelView reloadData];
+           
+            
+        }else {
+            [self showHint:responseObject[@"msg"]];
+            
+        }
+        
+    } failure:^(NSError *error) {
+        [self showHint:@"稍后重试"];
+        [self hideHud];
+        
+    }];
+}
+//-(void)managerDataWithmesID:(NSString *)messageID{
+//
+//}
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return self.dataSource.count;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     FMHouseMesCM *cellModel = self.dataSource[section];
-    NSLog(@".....%li",cellModel.cellArr.count);
+    NSLog(@".....%lu",(unsigned long)cellModel.cellArr.count);
     return cellModel.cellArr.count;
 }
 
@@ -117,8 +163,13 @@
                                                                   owner:self
                                                                 options:nil] objectAtIndex:0];
     cell.selectionStyle= UITableViewCellSelectionStyleNone;
-    NSArray *titleArr = @[@"123323",@"jhsadjasdsa",@"wwwdsssdsd",@"sdsdsdfsdfdsfsdf"];
-    [cell creatChooseBtnArr:titleArr isSingleChoose:YES];
+    [cell creatsubViewswithArr:model.cellArr[indexPath.row] type:[model.selectType integerValue] titleName:model.name];
+    kWeakSelf(self);
+    cell.clickedBlock = ^(NSString * _Nonnull mesId) {
+//        [weakself creatDataWithMessageID:mesId indexPath:indexPath];
+    };
+//    NSArray *titleArr = @[@"123323",@"jhsadjasdsa",@"wwwdsssdsd",@"sdsdsdfsdfdsfsdf"];
+//    [cell creatChooseBtnArr:titleArr isSingleChoose:YES];
     return cell;
 
 }

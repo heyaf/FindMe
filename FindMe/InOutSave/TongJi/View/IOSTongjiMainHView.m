@@ -6,7 +6,7 @@
 //
 
 #import "IOSTongjiMainHView.h"
-#import "BRPickerView.h"
+//#import "BRPickerView.h"
 #import "IOSTongJiHeaderView.h"
 #define kbtnW ((KDeviceWith-10-60-10-120)/4)
 @interface IOSTongjiMainHView()
@@ -59,16 +59,16 @@
 }
 -(void)selectPickView{
     // 1.创建日期选择器
-    [BRDatePickerView showDatePickerWithTitle:@"" dateType:UIDatePickerModeDate defaultSelValue:nil minDateStr:nil maxDateStr:nil isAutoSelect:YES resultBlock:^(NSString *selectValue) {
-        self.dateLabel.text = selectValue;
-        for (UIButton *but in self.headerButArr) {
-            [but setTitleColor:IOSTitleColor forState:0];
-            [but setBackgroundImage:[UIImage imageWithColor:RGBA(250, 250, 250, 1) size:CGSizeMake(kbtnW, 44)] forState:0];        but.titleLabel.font = kFONT(16);
-        }
-        if (self.btnClickedBlock) {
-            self.btnClickedBlock(selectValue);
-        }
-    }];
+//    [BRDatePickerView showDatePickerWithTitle:@"" dateType:UIDatePickerModeDate defaultSelValue:nil minDateStr:nil maxDateStr:nil isAutoSelect:YES resultBlock:^(NSString *selectValue) {
+//        self.dateLabel.text = selectValue;
+//        for (UIButton *but in self.headerButArr) {
+//            [but setTitleColor:IOSTitleColor forState:0];
+//            [but setBackgroundImage:[UIImage imageWithColor:RGBA(250, 250, 250, 1) size:CGSizeMake(kbtnW, 44)] forState:0];        but.titleLabel.font = kFONT(16);
+//        }
+//        if (self.btnClickedBlock) {
+//            self.btnClickedBlock(selectValue);
+//        }
+//    }];
 }
 -(NSMutableArray *)headerButArr{
     if (!_headerButArr) {

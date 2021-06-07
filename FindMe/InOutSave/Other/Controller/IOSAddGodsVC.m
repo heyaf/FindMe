@@ -8,7 +8,7 @@
 #import "IOSAddGodsVC.h"
 #import "IOSCaiGouChoTBCell.h"
 #import "IOSCaiGouChooM.h"
-#import "BRPickerView.h"
+//#import "BRPickerView.h"
 #import "RadioButton.h"
 #import "IOSGodsChoosePinPaiVC.h"
 #import "IOSAddGodsDetailVC.h"

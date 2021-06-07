@@ -7,7 +7,7 @@
 
 #import "PhotoChoseShowViewController.h"
 #import "UITextField+IndexPath.h"
-#import "BRPickerView.h"
+//#import "BRPickerView.h"
 #import "TittleDetailModel.h"
 #import "ChoosePhotoPlaceTableViewCell.h"
 

@@ -14,9 +14,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *headbgViewHeight;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomBgvIew;
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
+@property (weak, nonatomic) IBOutlet UITextField *inputTextField;
 
--(void)creatChooseBtnArr:(NSArray *)btnArr isSingleChoose:(BOOL)singleChoose;
+@property (nonatomic,copy) void(^clickedBlock)(NSString* mesId);
+
+//-(void)creatChooseBtnArr:(NSArray *)btnArr isSingleChoose:(BOOL)singleChoose;
 -(void)creatsubViewswithArr:(NSArray *)btnArr type:(NSInteger)type titleName:(NSString *)titleName;
+
 @end
 
 NS_ASSUME_NONNULL_END

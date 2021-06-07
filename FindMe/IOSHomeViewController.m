@@ -14,6 +14,11 @@
 #import "FMWishFinshView.h"
 #import "FMWWishListM.h"
 #import "FMHouseMessVC.h"
+//#import <YYKit/YYKit.h>
+#import "FMProfitManagerVC.h"
+#import "testViewController.h"
+static NSString *KAppid = @"20210302000712958";
+static NSString *KSercKey = @"OEcXq1U5G9U8xP3OqcA6";
 @interface IOSHomeViewController ()
 @property (nonatomic,strong) CYCustomArcImageView *btnTwoBgView;
 @property (nonatomic,strong) UIView *tesyView;
@@ -54,52 +59,90 @@
     UIButton *IOSBtn3 = [UIButton buttonWithType:0];
     IOSBtn3.frame = CGRectMake(100, 430, 100, 30);
     IOSBtn3.backgroundColor = [UIColor yellowColor];
-    [IOSBtn3 setTitle:@"房屋信息" forState:0];
+    [IOSBtn3 setTitle:@"利润管理" forState:0];
     [IOSBtn3 setTitleColor:[UIColor blackColor] forState:0];
     [IOSBtn3 addTarget:self action:@selector(houseMessage) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:IOSBtn3];
     
     
-    NSMutableArray* buttonsArray = [NSMutableArray arrayWithCapacity:3];
-    CGRect btnRect = CGRectMake(10, kNavBarHeight+10, 50, 20);
-    NSArray *NameArr = @[@"是", @"否"];
-    for (int i=0;i<NameArr.count;i++) {
-        NSString* optionTitle = NameArr[i];
-        UIButton* btn = [UIButton buttonWithType:0];
-        btn.frame = btnRect;
-        
-        [btn addTarget:self action:@selector(onRadioButtonValueChanged1:) forControlEvents:UIControlEventValueChanged];
-        btnRect.origin.x =100;
-        btn.tag = 500+i;
-        [btn setTitle:optionTitle forState:UIControlStateNormal];
-        [btn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-        btn.titleLabel.font = [UIFont boldSystemFontOfSize:14];
+    
+    
+}
 
-        
-        [btn setImage:[UIImage imageNamed:@"iOSUnChooseIcon"] forState:UIControlStateNormal];
-        [btn setImage:[UIImage imageNamed:@"IOSChoosedIcon"] forState:UIControlStateSelected];
-//        btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-        btn.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
-        btn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 30);
-        [self.view addSubview:btn];
-        [buttonsArray addObject:btn];
-    }
-    
-//    [buttonsArray[0] setGroupButtons:buttonsArray]; // 把按钮放进群组中
-    [buttonsArray[0] setSelected:YES]; // 初始化
-    
-}
--(void)onRadioButtonValueChanged1:(UIButton *)button{
-    button.selected = !button.isSelected;
-}
 -(void)InOutSave{
     
-        IOSEnterHomeVC *pushVC = [[IOSEnterHomeVC alloc] init];
-        [self.navigationController pushViewController:pushVC animated:YES];
+    
+    testViewController *pushVC = [[testViewController alloc] init];
+    [self.navigationController pushViewController:pushVC animated:YES];
+    
+//    NSString *salt = @"1221321312",
+//             *appid = KAppid,
+//             *key = KSercKey,
+//             *fromLang = @"zh",
+//             *toLang = @"en",
+//             *mac = @"mac",
+//             *cuid = @"APICUID";
+//    UIImage *image = [UIImage imageNamed:@"EMWLFooterView.png"];
+//
+//    NSData *imageData = [NSData dataWithData:UIImageJPEGRepresentation(image, 1)];
+//    NSString *imageMD5 = [imageData md5String];  // 这里用的YY的哈希方法，可以自己实现
+//    //d03d864b7f43db9ce34df5f720509d0e
+//    NSString *beforeSign = [NSString stringWithFormat:@"%@%@%@%@%@%@", appid, imageMD5, salt, cuid, mac, key];
+//    
+//    NSString *sign = [beforeSign md5String];
+//    //20210302000712958d03d864b7f43db9ce34df5f720509d0e3APICUIDmacOEcXq1U5G9U8xP3OqcA6
+//    //23ea298200379ce3f81c5030ba950316
+//    AFHTTPSessionManager *httpSessionManager = [AFHTTPSessionManager manager];
+//    
+//    AFHTTPRequestSerializer *requestSerializer = [AFHTTPRequestSerializer serializer];
+//    [requestSerializer setValue:@"mutipart/form-data" forHTTPHeaderField:@"Content-Type"];
+//    
+//    AFHTTPResponseSerializer *responseSerializer = [AFJSONResponseSerializer serializer];
+//    responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", @"application/json", @"text/html", @"text/json", nil];
+//    
+//    httpSessionManager.requestSerializer = requestSerializer;
+//    httpSessionManager.responseSerializer = responseSerializer;
+//    
+//    NSString *url = @"https://fanyi-api.baidu.com/api/trans/sdk/picture";
+//    NSDictionary *dic = @{
+//        @"from"  : fromLang,
+//        @"to"    : toLang,
+//        @"appid" : appid,
+//        @"salt" : salt,
+//        @"cuid" : cuid,
+//        @"mac"  : mac,
+//        @"sign" : sign,
+//        @"erase":@(1)
+//    };
+//    
+//    NSURLSessionDataTask *task = [httpSessionManager POST:url
+//                  parameters:dic headers:@{}
+//   constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+//        [formData appendPartWithFileData:imageData
+//                                    name:@"image"
+//                                fileName:@"1.jpg"
+//                                mimeType:@"image/png"];   // fileName、mimeType 我这里写死了，最好根据图片类型传
+//    }
+//                    progress:^(NSProgress * _Nonnull uploadProgress) {
+//        NSLog(@"[ing]， %@", uploadProgress);
+//    }
+//                     success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//        NSLog(@"[成功]， %@", responseObject);
+//    }
+//                     failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        NSLog(@"[失败]， %@", error);
+//    }];
+//    
+//    [task resume];
+    
+//        IOSEnterHomeVC *pushVC = [[IOSEnterHomeVC alloc] init];
+//        [self.navigationController pushViewController:pushVC animated:YES];
   
 
 
 }
+
+
 -(void)wishList{
     FMZWWishListVC *pushVC = [[FMZWWishListVC alloc] init];
     [self.navigationController pushViewController:pushVC animated:YES];
@@ -142,7 +185,7 @@
     }];
 }
 -(void)houseMessage{
-    FMHouseMessVC *pushVC = [[FMHouseMessVC alloc] init];
+    FMProfitManagerVC *pushVC = [[FMProfitManagerVC alloc] init];
     [self.navigationController pushViewController:pushVC animated:YES];
 }
 @end

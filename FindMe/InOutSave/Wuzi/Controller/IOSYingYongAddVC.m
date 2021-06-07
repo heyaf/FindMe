@@ -9,8 +9,8 @@
 #import "UIView+Frame.h"
 #import "IOSCaiGouChoTBCell.h"
 #import "IOSCaiGouChooM.h"
-#import "BRPickerView.h"
-#import "BRDatePickerView.h"
+//#import "BRPickerView.h"
+//#import "BRDatePickerView.h"
 #import "IOSChooseGoodsViewController.h"
 #import "IOSGodsDetailTBCell.h"
 #import "IOSGodsHistoryListVC.h"
@@ -446,14 +446,14 @@
 }
 -(void)selelctBRPickView{
     // 1.创建日期选择器
-    [BRDatePickerView showDatePickerWithTitle:@"" dateType:UIDatePickerModeDateAndTime defaultSelValue:nil minDateStr:nil maxDateStr:nil isAutoSelect:YES resultBlock:^(NSString *selectValue) {
-            
-        NSIndexPath *indexPath=[NSIndexPath indexPathForRow:1 inSection:0];
-        IOSCaiGouChooM *caigouModel = self.dataArr[1];
-        caigouModel.ChooseStr = selectValue;
-            [self.dataArr replaceObjectAtIndex:indexPath.row withObject:caigouModel];
-            [self.tabelView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath,nil] withRowAnimation:UITableViewRowAnimationNone];
-    }];
+//    [BRDatePickerView showDatePickerWithTitle:@"" dateType:UIDatePickerModeDateAndTime defaultSelValue:nil minDateStr:nil maxDateStr:nil isAutoSelect:YES resultBlock:^(NSString *selectValue) {
+//            
+//        NSIndexPath *indexPath=[NSIndexPath indexPathForRow:1 inSection:0];
+//        IOSCaiGouChooM *caigouModel = self.dataArr[1];
+//        caigouModel.ChooseStr = selectValue;
+//            [self.dataArr replaceObjectAtIndex:indexPath.row withObject:caigouModel];
+//            [self.tabelView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath,nil] withRowAnimation:UITableViewRowAnimationNone];
+//    }];
 }
 //采购历史
 -(void)goCaigouHistory{
